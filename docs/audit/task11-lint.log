@@ -1,0 +1,50 @@
+
+> study-990@0.1.0 lint
+> prettier --check src scripts build tests index.html vite.config.ts package.json tsconfig*.json && npm run audit:architecture
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> study-990@0.1.0 audit:architecture
+> tsx --tsconfig tsconfig.tests.json scripts/audit-architecture.ts
+
+{
+  "sourceModules": 139,
+  "dependencyEdges": 502,
+  "largestModules": [
+    {
+      "file": "src/content/vocabularyExpansion.ts",
+      "lines": 848
+    },
+    {
+      "file": "src/content/questions.ts",
+      "lines": 831
+    },
+    {
+      "file": "src/persistence/records.ts",
+      "lines": 656
+    },
+    {
+      "file": "src/content/grammarExpansion.ts",
+      "lines": 622
+    },
+    {
+      "file": "src/persistence/backup.ts",
+      "lines": 577
+    },
+    {
+      "file": "src/features/progress/ProgressPage.tsx",
+      "lines": 569
+    },
+    {
+      "file": "src/dev/contentStudio/PackageEditor.tsx",
+      "lines": 549
+    },
+    {
+      "file": "src/content/tutorLessons.ts",
+      "lines": 506
+    }
+  ],
+  "issues": [],
+  "boundary": "Runtime/dynamic local imports only; type-only cycles are erased. Credential scan is heuristic and does not scan browser data."
+}

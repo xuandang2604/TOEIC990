@@ -1,0 +1,73 @@
+
+> study-990@0.1.0 build
+> tsc -b && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 2121 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                    1.32 kB │ gzip:   0.64 kB
+dist/assets/lora-vietnamese-400-normal-BxA6xcFr.woff2              5.29 kB
+dist/assets/lora-vietnamese-500-normal-LA4e_tum.woff2              5.52 kB
+dist/assets/lora-vietnamese-400-italic-DFs7jfwN.woff2              5.53 kB
+dist/assets/be-vietnam-pro-vietnamese-400-normal-CRcqvyg1.woff2   11.53 kB
+dist/assets/lora-latin-ext-400-normal-CyviI4c-.woff2              12.01 kB
+dist/assets/be-vietnam-pro-vietnamese-500-normal-DREgrEoJ.woff2   12.17 kB
+dist/assets/be-vietnam-pro-vietnamese-600-normal-nyU-ZL2p.woff2   12.17 kB
+dist/assets/lora-latin-ext-500-normal-CVMwgWlS.woff2              12.21 kB
+dist/assets/lora-latin-ext-400-italic-D02B-RQB.woff2              12.46 kB
+dist/assets/be-vietnam-pro-vietnamese-700-normal-Csr0PCuG.woff2   12.46 kB
+dist/assets/be-vietnam-pro-latin-ext-400-normal-CiZNW1ec.woff2    13.05 kB
+dist/assets/be-vietnam-pro-latin-ext-500-normal-h0Fp6aX0.woff2    13.54 kB
+dist/assets/be-vietnam-pro-latin-ext-600-normal-BNd8euf0.woff2    13.60 kB
+dist/assets/be-vietnam-pro-latin-ext-700-normal-C8_gqRu2.woff2    13.85 kB
+dist/.vite/manifest.json                                          16.39 kB │ gzip:   1.95 kB
+dist/assets/lora-latin-400-normal-DnxXpLNu.woff2                  21.14 kB
+dist/assets/be-vietnam-pro-latin-400-normal-PpnXBOrz.woff2        21.16 kB
+dist/assets/be-vietnam-pro-latin-500-normal-B6LVzGNe.woff2        21.89 kB
+dist/assets/lora-latin-500-normal-Dh16O2IA.woff2                  21.90 kB
+dist/assets/be-vietnam-pro-latin-600-normal-BZDkUTrt.woff2        22.03 kB
+dist/assets/be-vietnam-pro-latin-700-normal-DlW1Zbsh.woff2        22.15 kB
+dist/assets/lora-latin-400-italic-DYjZp4sZ.woff2                  22.75 kB
+dist/assets/index-DEHUTfAU.css                                   117.34 kB │ gzip:  22.71 kB
+dist/assets/arrow-right-ynMGgUmP.js                                0.20 kB │ gzip:   0.18 kB
+dist/assets/clock-3-DiZL1RrO.js                                    0.20 kB │ gzip:   0.19 kB
+dist/assets/circle-check-C3CIoT5K.js                               0.24 kB │ gzip:   0.21 kB
+dist/assets/bookmark-DNzdZTb5.js                                   0.26 kB │ gzip:   0.22 kB
+dist/assets/Highlight-D_8RsalC.js                                  0.28 kB │ gzip:   0.21 kB
+dist/assets/bookmark-check-DlsPL_Kb.js                             0.31 kB │ gzip:   0.24 kB
+dist/assets/lightbulb-BQFpovsf.js                                  0.32 kB │ gzip:   0.24 kB
+dist/assets/useReferenceFocus-DZ-I8XBp.js                          0.39 kB │ gzip:   0.29 kB
+dist/assets/file-question-mark-tGtG4tMY.js                         0.39 kB │ gzip:   0.27 kB
+dist/assets/SaveKnowledgeButton-0jPmbs1T.js                        0.61 kB │ gzip:   0.43 kB
+dist/assets/referenceCatalog-DpU1HGx1.js                           0.82 kB │ gzip:   0.48 kB
+dist/assets/dictionary-DppMjYWR.js                                 2.10 kB │ gzip:   1.07 kB
+dist/assets/QuestionReferencePage-C3OhwQE0.js                      2.79 kB │ gzip:   1.36 kB
+dist/assets/studioRepository-D_5Ppj0E.js                           3.18 kB │ gzip:   1.46 kB
+dist/assets/VocabularyPage-52fxaa-q.js                             3.79 kB │ gzip:   1.77 kB
+dist/assets/DailyPlanPage-D2aurSVt.js                              5.09 kB │ gzip:   2.09 kB
+dist/assets/RecallCard-CzUFdtrw.js                                 5.12 kB │ gzip:   2.23 kB
+dist/assets/QuickSearch-Cd8HO7Xy.js                                6.45 kB │ gzip:   2.80 kB
+dist/assets/PracticePage-DxH2cX6t.js                              11.74 kB │ gzip:   4.31 kB
+dist/assets/DataPage-CoxzWdwE.js                                  11.94 kB │ gzip:   4.18 kB
+dist/assets/backup-DDblD51I.js                                    13.49 kB │ gzip:   4.92 kB
+dist/assets/microLessons-CW1xqKzc.js                              13.55 kB │ gzip:   4.58 kB
+dist/assets/ReviewPage-nWDzqycy.js                                15.95 kB │ gzip:   5.58 kB
+dist/assets/ProgressPage-CHMsA1ix.js                              17.13 kB │ gzip:   5.77 kB
+dist/assets/GrammarPage-DrDoVfmH.js                               17.38 kB │ gzip:   5.83 kB
+dist/assets/ReadingDocument-EvMR_Bc7.js                           20.35 kB │ gzip:   7.38 kB
+dist/assets/TutorPage-B18B9xGH.js                                 26.23 kB │ gzip:   8.47 kB
+dist/assets/SessionPage--BcISd1D.js                               29.96 kB │ gzip:  10.31 kB
+dist/assets/ContextLookup-QbmLJ8TU.js                             35.04 kB │ gzip:  13.04 kB
+dist/assets/StudyContext-Cg9DC398.js                             286.68 kB │ gzip:  92.15 kB
+dist/assets/index-BEsARPSV.js                                    313.03 kB │ gzip:  99.20 kB
+dist/assets/records-DvwSVcRT.js                                  865.66 kB │ gzip: 131.22 kB
+
+✓ built in 664ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+PWA: 80 packaged assets, 6.13 MB; shell 8a95ed27b91884a793dc

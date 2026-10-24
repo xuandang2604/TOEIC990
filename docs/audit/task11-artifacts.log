@@ -1,0 +1,24 @@
+
+> study-990@0.1.0 audit:build
+> tsx --tsconfig tsconfig.tests.json scripts/audit-build.ts
+
+{
+  "initialJS": {
+    "bytes": 1474878,
+    "gzipBytes": 324325
+  },
+  "initialAssets": [
+    "assets/index-BZWGFvbC.js",
+    "assets/index-CSJbFzkG.css",
+    "assets/StudyContext-D3l_eCae.js",
+    "assets/records-CnXQgDy-.js",
+    "assets/arrow-right-DgnszlpO.js",
+    "assets/bookmark-check-C6z7p4Nq.js",
+    "assets/bookmark-760PM9ez.js"
+  ],
+  "packagedAssets": 80,
+  "contentStudioExcluded": true,
+  "packagedBytes": 6444978,
+  "javascriptChunks": 32,
+  "offlineInventory": "All packaged files exist; initial static dependency closure covered; manifest PNG dimensions match. Static audit only."
+}

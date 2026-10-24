@@ -1,0 +1,53 @@
+{
+  "name": "study-990",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "studio": "vite --host 127.0.0.1 --mode content-studio",
+    "check": "tsc -b --pretty false",
+    "test": "tsx --tsconfig tsconfig.tests.json --test tests/*.test.ts tests/*.test.tsx",
+    "check:tests": "tsc -p tsconfig.tests.json --noEmit",
+    "build": "tsc -b && tsx --tsconfig tsconfig.tests.json scripts/validate-content.ts && vite build",
+    "audit:content": "tsx --tsconfig tsconfig.tests.json scripts/audit-content.ts",
+    "build:dev": "tsc -b && vite build --mode development --minify false",
+    "format": "prettier --write src index.html vite.config.ts",
+    "preview": "vite preview --host 127.0.0.1",
+    "validate:content": "tsx --tsconfig tsconfig.tests.json scripts/validate-content.ts",
+    "profile:local": "tsx --tsconfig tsconfig.tests.json scripts/profile-local.ts",
+    "audit:build": "tsx --tsconfig tsconfig.tests.json scripts/audit-build.ts",
+    "audit:architecture": "tsx --tsconfig tsconfig.tests.json scripts/audit-architecture.ts",
+    "lint": "prettier --check src scripts build tests index.html vite.config.ts package.json tsconfig*.json && npm run audit:architecture",
+    "content:import": "tsx --tsconfig tsconfig.tests.json scripts/import-content.ts",
+    "content:generate": "python content/author_bank2026.py"
+  },
+  "dependencies": {
+    "@fontsource/be-vietnam-pro": "5.3.0",
+    "@fontsource/lora": "5.3.0",
+    "@radix-ui/react-dialog": "1.3.1",
+    "@radix-ui/react-popover": "1.3.1",
+    "dexie": "4.4.6",
+    "lucide-react": "1.60.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "ts-fsrs": "5.4.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "fake-indexeddb": "6.2.6",
+    "prettier": "3.9.10",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "8.3.4"
+  }
+}

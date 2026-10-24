@@ -1,0 +1,124 @@
+# Bank 2026 photographic assets
+
+Twelve actual photographs, sourced through Wikimedia Commons file-level CC0 metadata and visually inspected by the audit agent. Not ETS photographs and not AI-generated. Wikimedia thumbnails are used; no local content edits. Retrieved during the October 2026 expansion. A rendered-office candidate and a near-identical construction view were rejected before activation.
+
+## p1-01.jpg
+
+- Author: Eugene Ormandy
+- File page: [File:Wikimedia Deutschland Office 2024-03-15 1.jpg](https://commons.wikimedia.org/wiki/File:Wikimedia_Deutschland_Office_2024-03-15_1.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Wikimedia_Deutschland_Office_2024-03-15_1.jpg/1280px-Wikimedia_Deutschland_Office_2024-03-15_1.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-01.jpg`
+- SHA-256: `52db564d45f030a147f1c74a60d8650a714fd91c62e5c2be34779552852658f5`
+- Size: 220,251 bytes
+
+## p1-02.jpg
+
+- Author: Syced
+- File page: [File:Warehouse in Hokkaido.jpg](https://commons.wikimedia.org/wiki/File:Warehouse_in_Hokkaido.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Warehouse_in_Hokkaido.jpg/1280px-Warehouse_in_Hokkaido.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-02.jpg`
+- SHA-256: `437b67eef0146f4b91f258e2bfd2406eace90ef8c19278d0548b1d58d5a304e2`
+- Size: 261,816 bytes
+
+## p1-03.jpg
+
+- Author: Wilfredor
+- File page: [File:Bike on a snowy street in Quebec City at night.jpg](https://commons.wikimedia.org/wiki/File:Bike_on_a_snowy_street_in_Quebec_City_at_night.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Bike_on_a_snowy_street_in_Quebec_City_at_night.jpg/1280px-Bike_on_a_snowy_street_in_Quebec_City_at_night.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-03.jpg`
+- SHA-256: `16e6f0c053beb8050158bb6aacfa71a2654d1b4461dbf403c74629bf96a97f1e`
+- Size: 245,585 bytes
+
+## p1-04.jpg
+
+- Author: Ammodramus
+- File page: [File:Henry Cool Park bench 1.JPG](https://commons.wikimedia.org/wiki/File:Henry_Cool_Park_bench_1.JPG)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Henry_Cool_Park_bench_1.JPG/1280px-Henry_Cool_Park_bench_1.JPG)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-04.jpg`
+- SHA-256: `d30434c04eb27c761f16c0a8bb5dcdc872bc0f13cf5fe596877d01cf99ff04f4`
+- Size: 398,292 bytes
+
+## p1-05.jpg
+
+- Author: Szombat78
+- File page: [File:Train station Trnava, Slovakia.jpg](https://commons.wikimedia.org/wiki/File:Train_station_Trnava,_Slovakia.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Train_station_Trnava%2C_Slovakia.jpg/1280px-Train_station_Trnava%2C_Slovakia.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-05.jpg`
+- SHA-256: `e265466c832d53e960cfc586c18e2144ad7e960b90fc4d97dd3668ddff5abb89`
+- Size: 229,449 bytes
+
+## p1-06.jpg
+
+- Author: Bigmacthealmanac
+- File page: [File:Boothbay Harbor, Maine, 2024.jpg](https://commons.wikimedia.org/wiki/File:Boothbay_Harbor,_Maine,_2024.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Boothbay_Harbor%2C_Maine%2C_2024.jpg/1280px-Boothbay_Harbor%2C_Maine%2C_2024.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-06.jpg`
+- SHA-256: `113c6d3670da2c44dbd061e9fffbbf24752432edb096f87898094b3494e09233`
+- Size: 776,766 bytes
+
+## p1-07.jpg
+
+- Author: DimiTalen
+- File page: [File:Restaurant Scheldeoord, Driegoten, Hamme, 2025.jpg](https://commons.wikimedia.org/wiki/File:Restaurant_Scheldeoord,_Driegoten,_Hamme,_2025.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Restaurant_Scheldeoord%2C_Driegoten%2C_Hamme%2C_2025.jpg/1280px-Restaurant_Scheldeoord%2C_Driegoten%2C_Hamme%2C_2025.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-07.jpg`
+- SHA-256: `9768132e51eebf4c6055f1d1125a52b9a45dc4db62198b91b31f681a5ac0d9ad`
+- Size: 360,725 bytes
+
+## p1-08.jpg
+
+- Author: Syced
+- File page: [File:Building construction, worker receives material from crane.jpg](https://commons.wikimedia.org/wiki/File:Building_construction,_worker_receives_material_from_crane.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Building_construction%2C_worker_receives_material_from_crane.jpg/1280px-Building_construction%2C_worker_receives_material_from_crane.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-08.jpg`
+- SHA-256: `6ad45ed57d2431ca9818cbaba25b9a7dd86e3f8101f4fe8cf3f0288ac9334acf`
+- Size: 606,007 bytes
+
+## p1-09.jpg
+
+- Author: Wilfredor
+- File page: [File:Restaurant in Place D'Youville, Quebec City.jpg](https://commons.wikimedia.org/wiki/File:Restaurant_in_Place_D%27Youville,_Quebec_City.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Restaurant_in_Place_D%27Youville%2C_Quebec_City.jpg/1280px-Restaurant_in_Place_D%27Youville%2C_Quebec_City.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-09.jpg`
+- SHA-256: `03d96c23bf3ab86e27e9ff5528f6a49ad60e0252ed6cd8f521ef110840ed3864`
+- Size: 228,402 bytes
+
+## p1-10.jpg
+
+- Author: Mshuang2
+- File page: [File:Library computers.jpg](https://commons.wikimedia.org/wiki/File:Library_computers.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Library_computers.jpg/1280px-Library_computers.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-10.jpg`
+- SHA-256: `73a96fbcd68367e34d420330b3a4f7957de2324fbe72955f3f8f82ccbba5491a`
+- Size: 298,395 bytes
+
+## p1-11.jpg
+
+- Author: Wilfredor
+- File page: [File:Fishmonger smiling, Maracaibo street market, Venezuela.jpg](https://commons.wikimedia.org/wiki/File:Fishmonger_smiling,_Maracaibo_street_market,_Venezuela.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Fishmonger_smiling%2C_Maracaibo_street_market%2C_Venezuela.jpg/1280px-Fishmonger_smiling%2C_Maracaibo_street_market%2C_Venezuela.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-11.jpg`
+- SHA-256: `06e394008039bb616e8e68ca71706f3fa8217ab62c0dd9b6ddae5b66426f59fd`
+- Size: 272,830 bytes
+
+## p1-12.jpg
+
+- Author: Avisadehh
+- File page: [File:Glavni Kolod Train Station zagreb.תחנת הרכבת קולוד זאגרב.jpg](https://commons.wikimedia.org/wiki/File:Glavni_Kolod_Train_Station_zagreb.%D7%AA%D7%97%D7%A0%D7%AA_%D7%94%D7%A8%D7%9B%D7%91%D7%AA_%D7%A7%D7%95%D7%9C%D7%95%D7%93_%D7%96%D7%90%D7%92%D7%A8%D7%91.jpg)
+- Downloaded thumbnail: [source bytes](https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Glavni_Kolod_Train_Station_zagreb.%D7%AA%D7%97%D7%A0%D7%AA_%D7%94%D7%A8%D7%9B%D7%91%D7%AA_%D7%A7%D7%95%D7%9C%D7%95%D7%93_%D7%96%D7%90%D7%92%D7%A8%D7%91.jpg/1280px-Glavni_Kolod_Train_Station_zagreb.%D7%AA%D7%97%D7%A0%D7%AA_%D7%94%D7%A8%D7%9B%D7%91%D7%AA_%D7%A7%D7%95%D7%9C%D7%95%D7%93_%D7%96%D7%90%D7%92%D7%A8%D7%91.jpg)
+- License: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Local path: `/media/bank2026/p1-12.jpg`
+- SHA-256: `53fe88ea5dbd0bcfa1647726ab5e6b8ffefd286a7d119484de78e8d59cd30f85`
+- Size: 283,224 bytes
+

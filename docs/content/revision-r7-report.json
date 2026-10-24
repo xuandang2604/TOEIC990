@@ -1,0 +1,67 @@
+{
+  "format": "study990.import-report",
+  "version": 1,
+  "status": "activated",
+  "installedNew": 0,
+  "candidateByPartIncludingTutor": [
+    {
+      "part": 1,
+      "count": 13
+    },
+    {
+      "part": 2,
+      "count": 54
+    },
+    {
+      "part": 3,
+      "count": 72
+    },
+    {
+      "part": 4,
+      "count": 57
+    },
+    {
+      "part": 5,
+      "count": 118
+    },
+    {
+      "part": 6,
+      "count": 36
+    },
+    {
+      "part": 7,
+      "count": 102
+    }
+  ],
+  "revisedPackages": [
+    "bank2026-mock-listening",
+    "bank2026-mock-reading",
+    "bank2026-practice-listening",
+    "bank2026-practice-reading"
+  ],
+  "packages": [
+    {
+      "file": "content/packages/mock-listening.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 100
+    },
+    {
+      "file": "content/packages/mock-reading.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 100
+    },
+    {
+      "file": "content/packages/practice-listening.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 85
+    },
+    {
+      "file": "content/packages/practice-reading.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 115
+    }
+  ],
+  "examIssues": [],
+  "nearDuplicates": [],
+  "note": "AI drafts are not human-reviewed. No IndexedDB or user history was changed."
+}

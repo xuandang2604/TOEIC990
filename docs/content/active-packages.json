@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-22",
+  "active": [
+    {
+      "id": "bank2026-mock-listening",
+      "revision": "bank2026-r8",
+      "file": "src/content/generated/packages/bank2026-mock-listening--b7ced7a386017ade.json",
+      "sha256": "cdb1afd4e20e0ddeeedb9a19ccc1a5f6dafe1b7b21127e5469e895b48f59efb4",
+      "questions": 100
+    },
+    {
+      "id": "bank2026-mock-reading",
+      "revision": "bank2026-r8",
+      "file": "src/content/generated/packages/bank2026-mock-reading--8d1a1215902e8e59.json",
+      "sha256": "010c516d5a2b0d234718cc65f829111d8dad95b29dd9b84f2a96f8dc90a35d69",
+      "questions": 100
+    },
+    {
+      "id": "bank2026-practice-listening",
+      "revision": "bank2026-r8",
+      "file": "src/content/generated/packages/bank2026-practice-listening--42ab8eee76251b19.json",
+      "sha256": "c235b110172e8cbaba113dbbd56b3ae70c9f2204e2dd397ec1d8e48cf16785e2",
+      "questions": 85
+    },
+    {
+      "id": "bank2026-practice-reading",
+      "revision": "bank2026-r8",
+      "file": "src/content/generated/packages/bank2026-practice-reading--fc7e6eddd5baf95e.json",
+      "sha256": "a412207c6a504325949993829ee8e77f16036a093c9bfd624fe1e0f8fcddb6e5",
+      "questions": 115
+    }
+  ]
+}

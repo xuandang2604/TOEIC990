@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-22",
+  "originalPractice": 34,
+  "originalTutor": 18,
+  "newlyImported": 400,
+  "availablePractice": 234,
+  "reservedMock": 200,
+  "normalBank": 434,
+  "includingTutor": 452,
+  "vocabularyEntries": 106,
+  "completeMocks": [
+    {
+      "id": "bank2026-mock-01",
+      "revision": "bank2026-r8",
+      "count": 200,
+      "editorialStatus": "ai-draft"
+    }
+  ],
+  "byPart": [
+    {
+      "part": 1,
+      "original": 1,
+      "newPractice": 6,
+      "mock": 6,
+      "total": 13
+    },
+    {
+      "part": 2,
+      "original": 4,
+      "newPractice": 25,
+      "mock": 25,
+      "total": 54
+    },
+    {
+      "part": 3,
+      "original": 3,
+      "newPractice": 30,
+      "mock": 39,
+      "total": 72
+    },
+    {
+      "part": 4,
+      "original": 3,
+      "newPractice": 24,
+      "mock": 30,
+      "total": 57
+    },
+    {
+      "part": 5,
+      "original": 10,
+      "newPractice": 60,
+      "mock": 30,
+      "total": 100
+    },
+    {
+      "part": 6,
+      "original": 4,
+      "newPractice": 16,
+      "mock": 16,
+      "total": 36
+    },
+    {
+      "part": 7,
+      "original": 9,
+      "newPractice": 39,
+      "mock": 54,
+      "total": 102
+    }
+  ],
+  "media": {
+    "allStimuli": 148,
+    "allPassages": 53,
+    "newPhotographs": 12,
+    "newAudioScripts": 103
+  },
+  "tagging": {
+    "skillTagged": 400,
+    "grammarLinked": 114,
+    "vocabularyLinked": 400
+  },
+  "verification": "Machine structural checks and isolated Node integration; no independent human review or browser acceptance."
+}

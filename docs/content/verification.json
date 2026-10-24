@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-22",
+  "environment": "Windows / PowerShell; Node 24.16.0; npm 11.13.0",
+  "checks": [
+    {
+      "command": "npm run check:tests",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0
+    }
+  ],
+  "tests": {
+    "passed": 78,
+    "failed": 0,
+    "skipped": 0,
+    "suites": 12
+  },
+  "contentRevision": "bank2026-r8",
+  "production": {
+    "initialJSBytes": 1459504,
+    "initialJSGzipBytes": 318121,
+    "offlineAssets": 79,
+    "offlineBytes": 6373934,
+    "jsChunks": 31,
+    "shell": "79470cf51ab5b9ac0ad9",
+    "warning": "Vite chunk exceeds 500 kB; warning retained"
+  },
+  "scope": "Node static rendering/fake IndexedDB/mocked speech/worker VM; no browser or owner profile"
+}
