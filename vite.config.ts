@@ -5,6 +5,8 @@ import { offlineAssets } from './build/offline.ts'
 import { contentStudio } from './build/studio'
 
 export default defineConfig(({ command, mode }) => ({
+  // Root on localhost; a Pages build supplies its actual project/custom-domain path.
+  base: process.env.STUDY990_BASE_PATH || '/',
   plugins: [
     react(),
     tailwindcss(),

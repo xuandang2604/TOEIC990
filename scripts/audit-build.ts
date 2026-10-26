@@ -67,7 +67,10 @@ async function main() {
       throw new Error(`Initial dependency missing from offline inventory: ${file}`)
   const webmanifest = JSON.parse(await readFile(resolve(root, 'manifest.webmanifest'), 'utf8'))
   for (const icon of webmanifest.icons) {
-    const png = await readFile(resolve(root, `.${icon.src}`))
+    const iconPath = new URL(icon.src, 'https://study990.invalid/manifest.webmanifest')
+    if (iconPath.origin !== 'https://study990.invalid')
+      throw new Error('Manifest icons must be local.')
+    const png = await readFile(resolve(root, iconPath.pathname.slice(1)))
     if (
       png.readUInt32BE(16) !== Number(icon.sizes.split('x')[0]) ||
       png.readUInt32BE(20) !== Number(icon.sizes.split('x')[1])

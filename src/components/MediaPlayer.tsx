@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Pause, Play, RotateCcw, Square } from 'lucide-react'
 import type { AudioAsset } from '../content/schema'
 import { speakEnglish } from '../providers/speech'
+import { assetUrl } from './assetUrl'
 
 export interface MediaEvents {
   ended: () => void
@@ -198,7 +199,7 @@ export function MediaPlayer({
         <audio
           ref={element}
           preload="none"
-          src={audio.src}
+          src={assetUrl(audio.src)}
           onEnded={() => finish()}
           onError={() =>
             finish('Tệp âm thanh không khả dụng. Phiên học và lựa chọn đã lưu vẫn được giữ.')

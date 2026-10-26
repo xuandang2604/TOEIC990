@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from 'react'
 import type { Passage, Stimulus } from '../../content/schema'
+import { assetUrl } from '../../components/assetUrl'
 
 /** Renders shared stimuli without knowing sessions, repositories or answer keys. */
 export function StimulusView({
@@ -28,7 +29,7 @@ export function StimulusView({
         (stimulus.photograph.status === 'ready' && !imageFailed ? (
           <figure className="practice-photo">
             <img
-              src={stimulus.photograph.src}
+              src={assetUrl(stimulus.photograph.src)}
               alt={
                 exam
                   ? 'Photograph for this listening question. A visual description is available after submission.'
@@ -86,7 +87,7 @@ export function StimulusView({
           ) : (
             <figure>
               <img
-                src={stimulus.exhibit.src}
+                src={assetUrl(stimulus.exhibit.src)}
                 alt={stimulus.exhibit.alt}
                 onError={() => setImageFailed(true)}
               />

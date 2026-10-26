@@ -6,7 +6,8 @@ import { createHash } from 'node:crypto'
 /** No user data, external responses or arbitrary navigation URLs are cached here. */
 export function workerSource(files: string[], version: string) {
   return `/* STUDY 990 packaged assets; generated at build time. */
-const PREFIX = 'study990-shell-';
+const scopePath = new URL(self.registration.scope).pathname;
+const PREFIX = scopePath === '/' ? 'study990-shell-' : 'study990-project-shell-' + encodeURIComponent(scopePath) + '-';
 const CACHE = PREFIX + ${JSON.stringify(version)};
 const FILES = ${JSON.stringify(files)};
 const urls = FILES.map(path => new URL(path, self.registration.scope).href);
