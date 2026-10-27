@@ -10,6 +10,7 @@ import { InlineError } from '../../components/ui'
 import { MistakeNote } from '../review/MistakeNote'
 import { ReportQuestion } from './ReportQuestion'
 import { SaveWordButton } from '../dictionary/WordDetails'
+import { EvidenceCheck } from '../reading/EvidenceCheck'
 
 export function SaveQuestionButton({ question }: { question: Question }) {
   const data = useStudy()
@@ -49,92 +50,104 @@ export function QuestionFeedback({
             : 'Bạn đã để trống câu này.'}{' '}
         Đáp án: {question.answer}.
       </h3>
-      <p data-learning>{question.explanation}</p>
-      <div className="answer-reasoning">
-        {question.options.map((option) => (
-          <div key={option.id}>
-            <span className={`reasoning-letter ${question.answer === option.id ? 'correct' : ''}`}>
-              {option.id}
-            </span>
-            <p>{option.reasoning}</p>
+      <details className="feedback-disclosure">
+        <summary>Xem giải thích</summary>
+        <div className="feedback-details">
+          <p data-learning>{question.explanation}</p>
+          <EvidenceCheck questionId={question.id} question={question} />
+          <div className="answer-reasoning">
+            {question.options.map((option) => (
+              <div key={option.id}>
+                <span
+                  className={`reasoning-letter ${question.answer === option.id ? 'correct' : ''}`}
+                >
+                  {option.id}
+                </span>
+                <p>{option.reasoning}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="takeaway">
-        <Lightbulb size={19} />
-        <p>{question.takeaway}</p>
-      </div>
-      <p className="small muted">
-        {attempt.timeSpentMs == null
-          ? 'Chưa có thời gian tương tác được ghi nhận cho lượt này.'
-          : `${Math.round(attempt.timeSpentMs / 1000)} giây tương tác khi tab có focus; không phải tốc độ làm bài chuẩn.`}
-      </p>
-      {attempt.correct && attempt.confidenceSource === 'explicit' && attempt.confidence === 1 && (
-        <p className="small brass-text">
-          Bạn trả lời đúng nhưng còn phân vân. Thử tự giải thích rồi làm lại sau; chỉ tín hiệu này
-          chưa đủ để kết luận bạn đã đoán.
-        </p>
-      )}
-      {!attempt.correct && showMistakeNote && <MistakeNote attemptId={attempt.id} />}
-      <div className="related-content">
-        {grammar
-          .filter((g) => question.grammarIds.includes(g.id) || g.questionIds.includes(question.id))
-          .map(({ id }) => (
-            <button
-              className="text-link"
-              key={id}
-              onClick={() =>
-                navigateReference('grammar', id, {
-                  sessionId: attempt.sessionId,
-                  questionId: question.id,
-                })
-              }
-            >
-              {grammarById.get(id)?.title}
-              <ArrowRight size={14} />
-            </button>
-          ))}
-      </div>
-      {question.vocabularyIds.length > 0 && (
-        <section className="question-word-notes" aria-label="Từ vựng liên quan">
-          <h4>Từ vựng liên quan · lưu để ôn lại</h4>
-          {question.vocabularyIds.map((id) => {
-            const entry = vocabularyById.get(id)
-            if (!entry) return null
-            return (
-              <div className="question-word-row" key={id}>
+          <div className="takeaway">
+            <Lightbulb size={19} />
+            <p>{question.takeaway}</p>
+          </div>
+          <p className="small muted">
+            {attempt.timeSpentMs == null
+              ? 'Chưa có thời gian tương tác được ghi nhận cho lượt này.'
+              : `${Math.round(attempt.timeSpentMs / 1000)} giây tương tác khi tab có focus; không phải tốc độ làm bài chuẩn.`}
+          </p>
+          {attempt.correct &&
+            attempt.confidenceSource === 'explicit' &&
+            attempt.confidence === 1 && (
+              <p className="small brass-text">
+                Bạn trả lời đúng nhưng còn phân vân. Thử tự giải thích rồi làm lại sau; chỉ tín hiệu
+                này chưa đủ để kết luận bạn đã đoán.
+              </p>
+            )}
+          {!attempt.correct && showMistakeNote && <MistakeNote attemptId={attempt.id} />}
+          <div className="related-content">
+            {grammar
+              .filter(
+                (g) => question.grammarIds.includes(g.id) || g.questionIds.includes(question.id),
+              )
+              .map(({ id }) => (
                 <button
-                  className="word-chip"
-                  lang="en"
+                  className="text-link"
+                  key={id}
                   onClick={() =>
-                    navigateReference('vocabulary', id, {
+                    navigateReference('grammar', id, {
                       sessionId: attempt.sessionId,
                       questionId: question.id,
                     })
                   }
                 >
-                  {entry.word}
+                  {grammarById.get(id)?.title}
+                  <ArrowRight size={14} />
                 </button>
-                <span className="small muted">{entry.meaning}</span>
-                <SaveWordButton entry={entry} compact />
-              </div>
-            )
-          })}
-        </section>
-      )}
-      <div className="feedback-tools">
-        {attempt.selected && (
-          <button className="text-link" onClick={() => navigate('tutor', attempt.id)}>
-            <MessageSquareText size={16} />
-            Giải thích cách nghĩ
-          </button>
-        )}
-      </div>
-      <p className="content-provenance small muted">
-        Nguồn: {question.provenance.author} · {question.provenance.revision}.{' '}
-        {question.provenance.note}
-      </p>
-      <ReportQuestion question={question} />
+              ))}
+          </div>
+          {question.vocabularyIds.length > 0 && (
+            <section className="question-word-notes" aria-label="Từ vựng liên quan">
+              <h4>Từ vựng liên quan · lưu để ôn lại</h4>
+              {question.vocabularyIds.map((id) => {
+                const entry = vocabularyById.get(id)
+                if (!entry) return null
+                return (
+                  <div className="question-word-row" key={id}>
+                    <button
+                      className="word-chip"
+                      lang="en"
+                      onClick={() =>
+                        navigateReference('vocabulary', id, {
+                          sessionId: attempt.sessionId,
+                          questionId: question.id,
+                        })
+                      }
+                    >
+                      {entry.word}
+                    </button>
+                    <span className="small muted">{entry.meaning}</span>
+                    <SaveWordButton entry={entry} compact />
+                  </div>
+                )
+              })}
+            </section>
+          )}
+          <div className="feedback-tools">
+            {attempt.selected && (
+              <button className="text-link" onClick={() => navigate('tutor', attempt.id)}>
+                <MessageSquareText size={16} />
+                Giải thích cách nghĩ
+              </button>
+            )}
+          </div>
+          <p className="content-provenance small muted">
+            Nguồn: {question.provenance.author} · {question.provenance.revision}.{' '}
+            {question.provenance.note}
+          </p>
+          <ReportQuestion question={question} />
+        </div>
+      </details>
     </section>
   )
 }

@@ -1583,7 +1583,8 @@ kbd {
   color: inherit;
   font-weight: 500;
 }
-.feedback-panel > p {
+.feedback-panel > p,
+.feedback-details > p {
   font-size: 0.84rem;
   line-height: 1.9;
 }
@@ -1663,7 +1664,8 @@ kbd {
   align-items: center;
   margin: 24px 0 11px;
 }
-.feedback-panel > p.small {
+.feedback-panel > p.small,
+.feedback-details > p.small {
   font-size: 0.67rem;
 }
 .next-question {
@@ -5217,6 +5219,152 @@ kbd {
   font-size: 0.8rem;
   white-space: pre-line;
   line-height: 1.95;
+}
+.bilingual-transcript {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.transcript-pair {
+  padding-block: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.transcript-pair > p,
+.transcript-choice > div > p {
+  margin-block: 0 6px;
+}
+.transcript-pair .transcript-translation {
+  color: var(--muted);
+  padding-inline-start: 12px;
+  border-inline-start: 2px solid var(--line);
+  font-size: 0.78rem;
+}
+.transcript-context-label {
+  font-weight: 600;
+}
+.transcript-choice {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+.transcript .transcript-provenance {
+  font-size: 0.68rem;
+}
+.answer-options.spoken-answer-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+  max-width: 380px;
+}
+.spoken-answer-options .answer-option {
+  justify-content: center;
+  min-height: 56px;
+  padding: 12px 8px;
+}
+.spoken-answer-options .option-letter {
+  font-size: 1rem;
+}
+.vocabulary-band-note {
+  margin-block: 10px;
+  overflow-wrap: anywhere;
+}
+.feedback-disclosure > summary,
+.question-options > summary,
+.word-example > summary,
+.word-more > summary,
+.vocabulary-filters > summary,
+.vocabulary-reminder-disclosure > summary,
+.evidence-check > summary {
+  cursor: pointer;
+  color: var(--sage);
+  font-size: 0.8rem;
+  min-height: 44px;
+  padding-block: 10px;
+  overflow-wrap: anywhere;
+}
+.feedback-disclosure > summary:focus-visible,
+.question-options > summary:focus-visible,
+.word-example > summary:focus-visible,
+.word-more > summary:focus-visible,
+.vocabulary-filters > summary:focus-visible,
+.vocabulary-reminder-disclosure > summary:focus-visible,
+.evidence-check > summary:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+}
+.feedback-details {
+  padding-top: 8px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.question-options {
+  margin-top: 10px;
+}
+.word-meaning-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-block: 16px 10px;
+  min-width: 0;
+}
+.word-detail .word-meaning-row > .word-meaning {
+  flex: 1 1 150px;
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.word-meaning-row > div {
+  max-width: 100%;
+}
+.word-meaning-row .word-save-button {
+  min-height: 44px;
+  max-width: 100%;
+  white-space: normal;
+}
+.word-detail.compact .word-heading {
+  padding-inline-end: 20px;
+}
+.word-example,
+.word-more {
+  border-top: 1px solid var(--line);
+  margin-top: 12px;
+}
+.word-example blockquote {
+  margin-block: 8px 16px;
+}
+.vocabulary-notebook.vocabulary-notebook-compact {
+  padding: 14px 20px;
+  gap: 12px;
+}
+.vocabulary-filters {
+  margin-block: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.vocabulary-reminder-disclosure > summary {
+  border-top: 1px solid var(--line);
+}
+.feedback-details .evidence-check {
+  padding: 4px 12px;
+}
+.evidence-check .evidence-reference {
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+}
+.vocab-row .vocabulary-band-label,
+.word-detail .vocabulary-band-label {
+  color: var(--sage);
+}
+@media (max-width: 600px) {
+  .dictionary-index .form-label select {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 16px;
+  }
+  .transcript-pair {
+    padding-block: 10px;
+  }
 }
 .stimulus-document {
   margin-top: 22px;

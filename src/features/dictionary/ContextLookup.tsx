@@ -28,21 +28,17 @@ export function ContextLookup({
   }, [])
   const content = (
     <>
-      <p className="lookup-source small muted">
-        Đã chọn: <span lang="en">{selection.text}</span>
-        {entry && entry.word.toLowerCase() !== selection.text.toLowerCase()
-          ? ' · Hiển thị mục từ liên quan'
-          : ''}
-      </p>
+      {(!entry || entry.word.toLowerCase() !== selection.text.toLowerCase()) && (
+        <p className="lookup-source small muted">
+          Đã chọn: <span lang="en">{selection.text}</span>
+          {entry && entry.word.toLowerCase() !== selection.text.toLowerCase()
+            ? ' · Hiển thị mục từ liên quan'
+            : ''}
+        </p>
+      )}
       {entry ? (
         <>
           <WordDetails entry={entry} compact context={selection.context} />
-          {selection.context && (
-            <p className="small muted">
-              Nghĩa chọn lọc từ dữ liệu local; tự đối chiếu với câu nguồn. Không tự dịch hoặc phân
-              tích nghĩa toàn câu.
-            </p>
-          )}
           <button
             className="text-link lookup-detail-link"
             onClick={() => {

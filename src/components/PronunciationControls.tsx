@@ -3,7 +3,13 @@ import { RefreshCw, Square, Volume2 } from 'lucide-react'
 import { browserPronunciation } from '../providers/pronunciation'
 import type { PronunciationLocale, VocabularyEntry } from '../content/schema'
 
-export function PronunciationControls({ entry }: { entry: VocabularyEntry }) {
+export function PronunciationControls({
+  entry,
+  compact = false,
+}: {
+  entry: VocabularyEntry
+  compact?: boolean
+}) {
   const [voices, setVoices] = useState(browserPronunciation.capabilities)
   const [playing, setPlaying] = useState<PronunciationLocale | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -72,8 +78,8 @@ export function PronunciationControls({ entry }: { entry: VocabularyEntry }) {
       </div>
       <p className="small muted">
         Giọng máy của thiết bị
-        {voices.some((v) => v.available && !v.local) ? '; một số giọng cần mạng' : ''}. IPA của
-        nghĩa từ đang học.
+        {voices.some((v) => v.available && !v.local) ? '; có giọng cần mạng' : ''}.
+        {!compact && ' IPA của nghĩa từ đang học.'}
       </p>
       {entry.pronunciationText && (
         <p className="small muted">

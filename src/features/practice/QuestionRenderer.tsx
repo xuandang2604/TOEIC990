@@ -43,13 +43,15 @@ export function QuestionRenderer({
       if (scrollOnFocus) heading.current?.scrollIntoView({ block: 'center', behavior: 'instant' })
     }
   }, [autoFocus, question.id, scrollOnFocus])
-  const spokenChoices = mode === 'exam' && question.part <= 2 && !feedback
+  const spokenChoices = question.part <= 2 && !feedback
   return (
     <form
       className="question-block"
       onKeyDown={(event) => {
         if (locked || busy || event.ctrlKey || event.metaKey || event.altKey) return
-        const option = question.options[Number(event.key) - 1]
+        const option =
+          question.options[Number(event.key) - 1] ??
+          question.options.find((item) => item.id === event.key.toUpperCase())
         if (
           option &&
           !(event.target instanceof HTMLInputElement && event.target.name.startsWith('confidence-'))
@@ -71,11 +73,13 @@ export function QuestionRenderer({
         ref={heading}
         tabIndex={autoFocus ? -1 : undefined}
         className="question-prompt"
-        lang="en"
+        lang={spokenChoices ? 'vi' : 'en'}
         data-learning={!spokenChoices || undefined}
       >
-        {spokenChoices && question.part === 2
-          ? 'Listen and choose the best response.'
+        {spokenChoices
+          ? question.part === 1
+            ? 'Nghe và chọn mô tả phù hợp với ảnh.'
+            : 'Nghe và chọn lời đáp phù hợp.'
           : question.prompt}
       </h2>
       {qualityLabel ? (
@@ -92,7 +96,10 @@ export function QuestionRenderer({
           <p className="small muted">AI biên soạn · Chưa thẩm định độc lập</p>
         )
       )}
-      <fieldset className="answer-options" disabled={locked || busy}>
+      <fieldset
+        className={`answer-options ${spokenChoices ? 'spoken-answer-options' : ''}`}
+        disabled={locked || busy}
+      >
         <legend className="sr-only">Lựa chọn cho câu {number}</legend>
         {question.options.map((option) => {
           const chosen = selected === option.id,
@@ -113,9 +120,11 @@ export function QuestionRenderer({
                 onChange={() => onSelect(option.id)}
               />
               <span className="option-letter">{option.id}</span>
-              <span lang="en" data-learning={!spokenChoices || undefined}>
-                {spokenChoices ? `Response ${option.id}` : option.text}
-              </span>
+              {!spokenChoices && (
+                <span lang="en" data-learning>
+                  {option.text}
+                </span>
+              )}
               {correct ? (
                 <Check size={18} aria-label="Đáp án đúng" />
               ) : wrong ? (
@@ -125,53 +134,59 @@ export function QuestionRenderer({
           )
         })}
       </fieldset>
+      {spokenChoices && <p className="small muted">Nghe audio rồi chọn chữ cái.</p>}
       {!locked && (
-        <p className="small muted">
-          Khi đang ở câu này, dùng phím 1–{question.options.length} hoặc phím mũi tên để chọn.
-        </p>
-      )}
-      {spokenChoices && (
-        <p className="small muted">Nội dung lựa chọn chỉ được đọc trong audio ở chế độ thi.</p>
-      )}
-      {mode === 'study' && !locked && (
-        <>
-          <fieldset className="confidence-field" disabled={busy}>
-            <legend>
-              Bạn chắc chắn đến đâu? <span className="muted">(tuỳ chọn)</span>
-            </legend>
-            <label className={confidence === null ? 'active' : ''}>
-              <input
-                type="radio"
-                name={`confidence-${question.id}`}
-                checked={confidence === null}
-                onChange={() => onConfidence?.(null)}
-              />
-              Bỏ qua
-            </label>
-            {(
-              [
-                { value: 1, label: 'Còn phân vân' },
-                { value: 2, label: 'Khá chắc' },
-                { value: 3, label: 'Rất chắc' },
-              ] as const
-            ).map((item) => (
-              <label className={confidence === item.value ? 'active' : ''} key={item.value}>
+        <details className="question-options">
+          <summary>
+            {mode === 'study'
+              ? `Tùy chọn${confidence ? ' · đã chọn độ chắc chắn' : ''}`
+              : 'Phím tắt'}
+          </summary>
+          <p className="small muted">
+            Dùng phím A–{question.options.at(-1)?.id}, 1–{question.options.length} hoặc phím mũi tên
+            để chọn.
+          </p>
+          {mode === 'study' && (
+            <fieldset className="confidence-field" disabled={busy}>
+              <legend>
+                Bạn chắc chắn đến đâu? <span className="muted">(tuỳ chọn)</span>
+              </legend>
+              <label className={confidence === null ? 'active' : ''}>
                 <input
                   type="radio"
                   name={`confidence-${question.id}`}
-                  checked={confidence === item.value}
-                  onChange={() => onConfidence?.(item.value)}
+                  checked={confidence === null}
+                  onChange={() => onConfidence?.(null)}
                 />
-                {item.label}
+                Bỏ qua
               </label>
-            ))}
-          </fieldset>
-          <div className="question-submit">
-            <button type="submit" className="button primary" disabled={!selected || busy}>
-              {busy ? 'Đang lưu…' : 'Kiểm tra đáp án'}
-            </button>
-          </div>
-        </>
+              {(
+                [
+                  { value: 1, label: 'Còn phân vân' },
+                  { value: 2, label: 'Khá chắc' },
+                  { value: 3, label: 'Rất chắc' },
+                ] as const
+              ).map((item) => (
+                <label className={confidence === item.value ? 'active' : ''} key={item.value}>
+                  <input
+                    type="radio"
+                    name={`confidence-${question.id}`}
+                    checked={confidence === item.value}
+                    onChange={() => onConfidence?.(item.value)}
+                  />
+                  {item.label}
+                </label>
+              ))}
+            </fieldset>
+          )}
+        </details>
+      )}
+      {mode === 'study' && !locked && (
+        <div className="question-submit">
+          <button type="submit" className="button primary" disabled={!selected || busy}>
+            {busy ? 'Đang lưu…' : 'Kiểm tra đáp án'}
+          </button>
+        </div>
       )}
     </form>
   )

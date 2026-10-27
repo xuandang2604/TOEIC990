@@ -1,0 +1,1698 @@
+{
+  "provenance": {
+    "kind": "original",
+    "author": "STUDY 990",
+    "revision": "2026-10-listening-vi-v1",
+    "editorialStatus": "ai-draft",
+    "note": "Bản dịch phục vụ học tập, do AI biên soạn; chưa thẩm định độc lập. Không phải nội dung dịch của ETS."
+  },
+  "entries": {
+    "audio:p2-location": {
+      "english": "Where will the training workshop be held?",
+      "vietnamese": "Buổi tập huấn sẽ được tổ chức ở đâu?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "In the conference room on the second floor.",
+          "vietnamese": "Trong phòng hội nghị ở tầng hai."
+        },
+        {
+          "id": "B",
+          "english": "It starts at nine tomorrow.",
+          "vietnamese": "Buổi đó bắt đầu lúc chín giờ ngày mai."
+        },
+        {
+          "id": "C",
+          "english": "Yes, I have attended it before.",
+          "vietnamese": "Vâng, tôi từng tham dự rồi."
+        }
+      ]
+    },
+    "audio:p2-time": {
+      "english": "When is the deadline for submitting the proposal?",
+      "vietnamese": "Hạn chót nộp đề xuất là khi nào?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "You can email it to the director.",
+          "vietnamese": "Bạn có thể gửi email cho giám đốc."
+        },
+        {
+          "id": "B",
+          "english": "By five o’clock on Friday.",
+          "vietnamese": "Muộn nhất là năm giờ chiều thứ Sáu."
+        },
+        {
+          "id": "C",
+          "english": "The proposal was very detailed.",
+          "vietnamese": "Bản đề xuất rất chi tiết."
+        }
+      ]
+    },
+    "audio:p2-request": {
+      "english": "Could you send me the updated invoice this afternoon?",
+      "vietnamese": "Bạn có thể gửi hóa đơn đã cập nhật cho tôi chiều nay không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The office is on the left.",
+          "vietnamese": "Văn phòng ở bên trái."
+        },
+        {
+          "id": "B",
+          "english": "I bought it last month.",
+          "vietnamese": "Tôi đã mua nó tháng trước."
+        },
+        {
+          "id": "C",
+          "english": "Certainly, I’ll email it after lunch.",
+          "vietnamese": "Được chứ, tôi sẽ gửi email sau bữa trưa."
+        }
+      ]
+    },
+    "audio:p2-indirect": {
+      "english": "Who should I contact to change my reservation?",
+      "vietnamese": "Tôi nên liên hệ ai để đổi thông tin đặt chỗ?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The number for the booking desk is on your confirmation email.",
+          "vietnamese": "Số điện thoại quầy đặt chỗ có trong email xác nhận của bạn."
+        },
+        {
+          "id": "B",
+          "english": "For three nights, please.",
+          "vietnamese": "Cho ba đêm nhé."
+        },
+        {
+          "id": "C",
+          "english": "I changed trains downtown.",
+          "vietnamese": "Tôi đã đổi tàu ở trung tâm thành phố."
+        }
+      ]
+    },
+    "photo-bookshelves": {
+      "english": "Look at the photograph. Choose the statement that best describes it.",
+      "vietnamese": "Nhìn vào ảnh. Chọn câu mô tả ảnh phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Books are arranged on several shelves.",
+          "vietnamese": "Sách được xếp trên nhiều kệ."
+        },
+        {
+          "id": "B",
+          "english": "Several people are carrying boxes.",
+          "vietnamese": "Một số người đang mang các thùng hàng."
+        },
+        {
+          "id": "C",
+          "english": "The shelves are completely empty.",
+          "vietnamese": "Các kệ hoàn toàn trống."
+        },
+        {
+          "id": "D",
+          "english": "A worker is painting a wall.",
+          "vietnamese": "Một công nhân đang sơn tường."
+        }
+      ]
+    },
+    "conversation-delivery": {
+      "english": "Receptionist: Good morning, Greenway Office Supplies. How can I help?\nCustomer: Our replacement chairs are due tomorrow, but the delivery schedule lists our old address. We moved to 18 Park Road last week.\nReceptionist: Thanks for letting us know. I will update the address. Your driver is on Route B, which appears on the schedule in your confirmation email.\nCustomer: I see it. Could the driver call fifteen minutes before arriving? Our loading area is shared with another company.\nReceptionist: Certainly. I will add that instruction. Please keep the entrance clear during your delivery window.",
+      "vietnamese": "Lễ tân: Xin chào, đây là Greenway Office Supplies. Tôi có thể giúp gì?\nKhách hàng: Các ghế thay thế của chúng tôi dự kiến đến ngày mai, nhưng lịch giao hàng ghi địa chỉ cũ. Chúng tôi đã chuyển đến số 18 đường Park tuần trước.\nLễ tân: Cảm ơn bạn đã báo. Tôi sẽ cập nhật địa chỉ. Tài xế của bạn đi tuyến B, được ghi trên lịch trong email xác nhận của bạn.\nKhách hàng: Tôi thấy rồi. Tài xế có thể gọi trước khi đến mười lăm phút không? Khu bốc dỡ hàng của chúng tôi dùng chung với một công ty khác.\nLễ tân: Được chứ. Tôi sẽ thêm yêu cầu đó. Vui lòng giữ lối vào thông thoáng trong khung giờ giao hàng của bạn.",
+      "choices": []
+    },
+    "talk-workshop": {
+      "english": "Good morning, and welcome to the staff training day. The customer service workshop has moved from Cedar Room to Maple Room because we need more seats. Please check the room directory by the entrance if you need directions. The session still begins at nine thirty. Before going upstairs, collect your name badge from the reception desk here on the ground floor. A printed workbook is waiting at each seat, so there is no need to bring one from reception. Thank you.",
+      "vietnamese": "Xin chào và chào mừng đến với ngày tập huấn nhân viên. Buổi tập huấn dịch vụ khách hàng đã chuyển từ phòng Cedar sang phòng Maple vì chúng ta cần thêm chỗ ngồi. Vui lòng xem bảng chỉ dẫn phòng cạnh lối vào nếu cần hướng dẫn đường đi. Buổi học vẫn bắt đầu lúc chín giờ ba mươi. Trước khi lên tầng trên, hãy nhận thẻ tên ở quầy lễ tân ngay tại tầng trệt này. Mỗi chỗ ngồi đã có sẵn một cuốn tài liệu thực hành, nên không cần lấy tài liệu từ quầy lễ tân. Xin cảm ơn.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s001": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Several glasses are arranged on shelves.",
+          "vietnamese": "Một số chiếc ly được xếp trên các kệ."
+        },
+        {
+          "id": "B",
+          "english": "A worker is pouring drinks.",
+          "vietnamese": "Một nhân viên đang rót đồ uống."
+        },
+        {
+          "id": "C",
+          "english": "The chairs have been stacked on a table.",
+          "vietnamese": "Những chiếc ghế đã được chồng lên bàn."
+        },
+        {
+          "id": "D",
+          "english": "A refrigerator door is standing open.",
+          "vietnamese": "Cửa tủ lạnh đang mở."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s002": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Several windows are being washed.",
+          "vietnamese": "Một số cửa sổ đang được lau."
+        },
+        {
+          "id": "B",
+          "english": "A vehicle is entering the building.",
+          "vietnamese": "Một chiếc xe đang đi vào tòa nhà."
+        },
+        {
+          "id": "C",
+          "english": "The loading doors are closed.",
+          "vietnamese": "Các cửa khu bốc dỡ hàng đang đóng."
+        },
+        {
+          "id": "D",
+          "english": "Boxes are being carried onto a truck.",
+          "vietnamese": "Những thùng hàng đang được chuyển lên xe tải."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s003": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Several bicycles are hanging from a ceiling.",
+          "vietnamese": "Một số xe đạp đang treo trên trần."
+        },
+        {
+          "id": "B",
+          "english": "A bicycle is partly surrounded by snow.",
+          "vietnamese": "Một chiếc xe đạp bị tuyết bao quanh một phần."
+        },
+        {
+          "id": "C",
+          "english": "Someone is repairing a bicycle wheel.",
+          "vietnamese": "Có người đang sửa bánh xe đạp."
+        },
+        {
+          "id": "D",
+          "english": "The road is being swept.",
+          "vietnamese": "Con đường đang được quét."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s004": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A man is painting a wooden fence.",
+          "vietnamese": "Một người đàn ông đang sơn hàng rào gỗ."
+        },
+        {
+          "id": "B",
+          "english": "Several people are resting on a bench.",
+          "vietnamese": "Một số người đang nghỉ trên ghế dài."
+        },
+        {
+          "id": "C",
+          "english": "A table has been set for a meal.",
+          "vietnamese": "Một chiếc bàn đã được dọn sẵn cho bữa ăn."
+        },
+        {
+          "id": "D",
+          "english": "A bench is supported by stone pillars.",
+          "vietnamese": "Một chiếc ghế dài được đỡ bằng các trụ đá."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s005": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A train is standing beside a platform.",
+          "vietnamese": "Một đoàn tàu đang đỗ cạnh sân ga."
+        },
+        {
+          "id": "B",
+          "english": "Passengers are boarding a bus.",
+          "vietnamese": "Hành khách đang lên xe buýt."
+        },
+        {
+          "id": "C",
+          "english": "Tracks are being covered with snow.",
+          "vietnamese": "Đường ray đang bị tuyết phủ."
+        },
+        {
+          "id": "D",
+          "english": "A worker is carrying luggage down stairs.",
+          "vietnamese": "Một nhân viên đang mang hành lý xuống cầu thang."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s006": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Swimmers are crossing a pool.",
+          "vietnamese": "Những người bơi đang bơi ngang qua hồ."
+        },
+        {
+          "id": "B",
+          "english": "The shore is covered with large umbrellas.",
+          "vietnamese": "Bờ nước có nhiều ô lớn che phủ."
+        },
+        {
+          "id": "C",
+          "english": "A person is standing near the edge of the water.",
+          "vietnamese": "Một người đang đứng gần mép nước."
+        },
+        {
+          "id": "D",
+          "english": "A boat is being lifted out of the water.",
+          "vietnamese": "Một chiếc thuyền đang được nhấc lên khỏi mặt nước."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s007": {
+      "english": "When does the last shuttle leave the terminal?",
+      "vietnamese": "Chuyến xe đưa đón cuối cùng rời nhà ga lúc nào?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The driver was very helpful.",
+          "vietnamese": "Người lái xe đã giúp đỡ rất nhiệt tình."
+        },
+        {
+          "id": "B",
+          "english": "At ten past eleven.",
+          "vietnamese": "Lúc mười một giờ mười."
+        },
+        {
+          "id": "C",
+          "english": "From the south entrance.",
+          "vietnamese": "Từ lối vào phía nam."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s008": {
+      "english": "Who approved the revised advertising budget?",
+      "vietnamese": "Ai đã phê duyệt ngân sách quảng cáo điều chỉnh?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "It is within our budget.",
+          "vietnamese": "Khoản đó nằm trong ngân sách của chúng ta."
+        },
+        {
+          "id": "B",
+          "english": "A new advertisement.",
+          "vietnamese": "Một quảng cáo mới."
+        },
+        {
+          "id": "C",
+          "english": "The finance director did.",
+          "vietnamese": "Giám đốc tài chính đã phê duyệt."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s009": {
+      "english": "Could you show me how to use this label printer?",
+      "vietnamese": "Bạn có thể chỉ tôi cách dùng máy in nhãn này không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The labels are blue.",
+          "vietnamese": "Các nhãn có màu xanh dương."
+        },
+        {
+          "id": "B",
+          "english": "At the printing shop.",
+          "vietnamese": "Ở cửa hàng in."
+        },
+        {
+          "id": "C",
+          "english": "Certainly, let me demonstrate.",
+          "vietnamese": "Được chứ, để tôi làm mẫu."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s010": {
+      "english": "Has the supplier confirmed our order yet?",
+      "vietnamese": "Nhà cung cấp đã xác nhận đơn hàng của chúng ta chưa?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Not yet; I will call them again.",
+          "vietnamese": "Chưa; tôi sẽ gọi lại cho họ."
+        },
+        {
+          "id": "B",
+          "english": "An orderly office.",
+          "vietnamese": "Một văn phòng ngăn nắp."
+        },
+        {
+          "id": "C",
+          "english": "Three shipping cartons.",
+          "vietnamese": "Ba thùng carton để vận chuyển."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s011": {
+      "english": "Where should visitors leave their identification?",
+      "vietnamese": "Khách nên để giấy tờ tùy thân ở đâu?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "They visited yesterday.",
+          "vietnamese": "Họ đã đến thăm hôm qua."
+        },
+        {
+          "id": "B",
+          "english": "With the guard at reception.",
+          "vietnamese": "Gửi cho bảo vệ ở quầy lễ tân."
+        },
+        {
+          "id": "C",
+          "english": "An identification badge.",
+          "vietnamese": "Một thẻ nhận dạng."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s012": {
+      "english": "Why was the safety demonstration postponed?",
+      "vietnamese": "Tại sao buổi hướng dẫn an toàn bị hoãn?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A demonstration model.",
+          "vietnamese": "Một mẫu dùng để trình diễn."
+        },
+        {
+          "id": "B",
+          "english": "The instructor is ill.",
+          "vietnamese": "Người hướng dẫn bị ốm."
+        },
+        {
+          "id": "C",
+          "english": "It lasted half an hour.",
+          "vietnamese": "Buổi đó kéo dài nửa giờ."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s013": {
+      "english": "Would you prefer a printed receipt or an email copy?",
+      "vietnamese": "Bạn muốn hóa đơn giấy hay bản sao qua email?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "It was reasonably priced.",
+          "vietnamese": "Giá của nó khá hợp lý."
+        },
+        {
+          "id": "B",
+          "english": "I prefer working alone.",
+          "vietnamese": "Tôi thích làm việc một mình."
+        },
+        {
+          "id": "C",
+          "english": "An email would be fine.",
+          "vietnamese": "Bản qua email là được."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s014": {
+      "english": "Is the west elevator working again?",
+      "vietnamese": "Thang máy phía tây hoạt động trở lại chưa?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Yes, the repairs are finished.",
+          "vietnamese": "Rồi, việc sửa chữa đã xong."
+        },
+        {
+          "id": "B",
+          "english": "On the west coast.",
+          "vietnamese": "Ở bờ biển phía tây."
+        },
+        {
+          "id": "C",
+          "english": "The stairs are steep.",
+          "vietnamese": "Cầu thang dốc."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s015": {
+      "english": "How many delegates have registered so far?",
+      "vietnamese": "Đến nay có bao nhiêu đại biểu đăng ký?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Through the online form.",
+          "vietnamese": "Qua biểu mẫu trực tuyến."
+        },
+        {
+          "id": "B",
+          "english": "By Friday afternoon.",
+          "vietnamese": "Muộn nhất chiều thứ Sáu."
+        },
+        {
+          "id": "C",
+          "english": "Thirty-two, including the speakers.",
+          "vietnamese": "Ba mươi hai, tính cả các diễn giả."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s016": {
+      "english": "You submitted the travel claim, did you not?",
+      "vietnamese": "Bạn đã nộp yêu cầu thanh toán chi phí đi công tác rồi, đúng không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A claim about the weather.",
+          "vietnamese": "Một nhận định về thời tiết."
+        },
+        {
+          "id": "B",
+          "english": "Yes, yesterday afternoon.",
+          "vietnamese": "Rồi, vào chiều hôm qua."
+        },
+        {
+          "id": "C",
+          "english": "I enjoyed traveling there.",
+          "vietnamese": "Tôi thích chuyến đi đến đó."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s017": {
+      "english": "Which desk is reserved for temporary staff?",
+      "vietnamese": "Bàn nào được dành cho nhân viên thời vụ?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The one beside the photocopier.",
+          "vietnamese": "Chiếc bàn cạnh máy photocopy."
+        },
+        {
+          "id": "B",
+          "english": "The reservation was canceled.",
+          "vietnamese": "Việc đặt chỗ đã bị hủy."
+        },
+        {
+          "id": "C",
+          "english": "They work on Tuesdays.",
+          "vietnamese": "Họ làm việc vào các ngày thứ Ba."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s018": {
+      "english": "Should we order more envelopes now?",
+      "vietnamese": "Chúng ta có nên đặt thêm phong bì ngay không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Let us check the stock first.",
+          "vietnamese": "Hãy kiểm tra hàng tồn trước."
+        },
+        {
+          "id": "B",
+          "english": "Please open the envelope.",
+          "vietnamese": "Vui lòng mở phong bì."
+        },
+        {
+          "id": "C",
+          "english": "The order arrived intact.",
+          "vietnamese": "Đơn hàng đã đến nguyên vẹn."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s019": {
+      "english": "How often is the air filter replaced?",
+      "vietnamese": "Bao lâu thì bộ lọc không khí được thay một lần?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "By a maintenance technician.",
+          "vietnamese": "Do một kỹ thuật viên bảo trì thay."
+        },
+        {
+          "id": "B",
+          "english": "It filters the air well.",
+          "vietnamese": "Nó lọc không khí tốt."
+        },
+        {
+          "id": "C",
+          "english": "Every three months.",
+          "vietnamese": "Ba tháng một lần."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s020": {
+      "english": "Do you know whether the museum allows photography?",
+      "vietnamese": "Bạn có biết bảo tàng cho phép chụp ảnh không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The photographer is from Leeds.",
+          "vietnamese": "Nhiếp ảnh gia đến từ Leeds."
+        },
+        {
+          "id": "B",
+          "english": "There is a notice by the entrance.",
+          "vietnamese": "Có thông báo cạnh lối vào."
+        },
+        {
+          "id": "C",
+          "english": "I bought a photograph.",
+          "vietnamese": "Tôi đã mua một bức ảnh."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s021": {
+      "english": "Could we move our appointment to Wednesday?",
+      "vietnamese": "Chúng ta có thể chuyển cuộc hẹn sang thứ Tư không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Yes, I have an opening at two.",
+          "vietnamese": "Được, tôi còn trống lúc hai giờ."
+        },
+        {
+          "id": "B",
+          "english": "The appointment book is full of names.",
+          "vietnamese": "Sổ hẹn có rất nhiều tên."
+        },
+        {
+          "id": "C",
+          "english": "I moved here in winter.",
+          "vietnamese": "Tôi chuyển đến đây vào mùa đông."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s022": {
+      "english": "Whose laptop was left in the training room?",
+      "vietnamese": "Chiếc máy tính xách tay để lại trong phòng tập huấn là của ai?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "It was a useful training session.",
+          "vietnamese": "Đó là một buổi tập huấn hữu ích."
+        },
+        {
+          "id": "B",
+          "english": "On the second floor.",
+          "vietnamese": "Ở tầng hai."
+        },
+        {
+          "id": "C",
+          "english": "I will ask the participants.",
+          "vietnamese": "Tôi sẽ hỏi những người tham dự."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s023": {
+      "english": "Why not ask the hotel to store our bags?",
+      "vietnamese": "Hay là nhờ khách sạn giữ hộ hành lý của chúng ta?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "I packed a blue bag.",
+          "vietnamese": "Tôi đã xếp đồ vào một chiếc túi màu xanh."
+        },
+        {
+          "id": "B",
+          "english": "Good idea; we can collect them later.",
+          "vietnamese": "Ý hay đấy; chúng ta có thể lấy lại sau."
+        },
+        {
+          "id": "C",
+          "english": "The hotel has six floors.",
+          "vietnamese": "Khách sạn có sáu tầng."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s024": {
+      "english": "Will the replacement part arrive today or tomorrow?",
+      "vietnamese": "Linh kiện thay thế sẽ đến hôm nay hay ngày mai?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Tomorrow, according to the tracking page.",
+          "vietnamese": "Ngày mai, theo trang theo dõi vận chuyển."
+        },
+        {
+          "id": "B",
+          "english": "It fits perfectly.",
+          "vietnamese": "Nó vừa khít."
+        },
+        {
+          "id": "C",
+          "english": "Please replace the page.",
+          "vietnamese": "Vui lòng thay trang đó."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s025": {
+      "english": "How did you hear about the vacancy?",
+      "vietnamese": "Bạn biết đến vị trí tuyển dụng này bằng cách nào?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The room is vacant.",
+          "vietnamese": "Căn phòng đang trống."
+        },
+        {
+          "id": "B",
+          "english": "For the marketing department.",
+          "vietnamese": "Cho phòng tiếp thị."
+        },
+        {
+          "id": "C",
+          "english": "A colleague sent me the posting.",
+          "vietnamese": "Một đồng nghiệp gửi tin tuyển dụng cho tôi."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s026": {
+      "english": "May I pay the deposit by bank transfer?",
+      "vietnamese": "Tôi có thể trả tiền đặt cọc bằng chuyển khoản ngân hàng không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A transfer to another department.",
+          "vietnamese": "Việc chuyển sang một phòng ban khác."
+        },
+        {
+          "id": "B",
+          "english": "Yes, the account details are on the invoice.",
+          "vietnamese": "Được, thông tin tài khoản nằm trên hóa đơn."
+        },
+        {
+          "id": "C",
+          "english": "The bank closes at five.",
+          "vietnamese": "Ngân hàng đóng cửa lúc năm giờ."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s027": {
+      "english": "The projector is not bright enough, is it?",
+      "vietnamese": "Máy chiếu chưa đủ sáng, phải không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "No, let us lower the blinds.",
+          "vietnamese": "Đúng là chưa, hãy hạ rèm xuống."
+        },
+        {
+          "id": "B",
+          "english": "A bright career ahead.",
+          "vietnamese": "Một sự nghiệp tươi sáng phía trước."
+        },
+        {
+          "id": "C",
+          "english": "The project ends in May.",
+          "vietnamese": "Dự án kết thúc vào tháng Năm."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s028": {
+      "english": "Who will cover the front desk during lunch?",
+      "vietnamese": "Ai sẽ trực quầy lễ tân trong giờ ăn trưa?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Lunch was delicious.",
+          "vietnamese": "Bữa trưa rất ngon."
+        },
+        {
+          "id": "B",
+          "english": "Nora volunteered.",
+          "vietnamese": "Nora đã tình nguyện."
+        },
+        {
+          "id": "C",
+          "english": "A desk cover.",
+          "vietnamese": "Một tấm phủ bàn."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s029": {
+      "english": "Are the visitor badges reusable?",
+      "vietnamese": "Thẻ khách có dùng lại được không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The visitors arrived by bus.",
+          "vietnamese": "Khách đã đến bằng xe buýt."
+        },
+        {
+          "id": "B",
+          "english": "I used to work here.",
+          "vietnamese": "Tôi từng làm việc ở đây."
+        },
+        {
+          "id": "C",
+          "english": "Yes, please return them when you leave.",
+          "vietnamese": "Có, vui lòng trả lại khi ra về."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s030": {
+      "english": "Have you finished editing the brochure?",
+      "vietnamese": "Bạn đã biên tập xong tờ giới thiệu chưa?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The editor speaks French.",
+          "vietnamese": "Biên tập viên nói tiếng Pháp."
+        },
+        {
+          "id": "B",
+          "english": "Almost; I am checking the contact numbers.",
+          "vietnamese": "Gần xong rồi; tôi đang kiểm tra các số liên hệ."
+        },
+        {
+          "id": "C",
+          "english": "A newly opened branch.",
+          "vietnamese": "Một chi nhánh mới mở."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s031": {
+      "english": "Where can I find the conference agenda?",
+      "vietnamese": "Tôi có thể tìm chương trình hội nghị ở đâu?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "It is attached to your confirmation email.",
+          "vietnamese": "Nó được đính kèm trong email xác nhận của bạn."
+        },
+        {
+          "id": "B",
+          "english": "I attended last year.",
+          "vietnamese": "Tôi đã tham dự năm ngoái."
+        },
+        {
+          "id": "C",
+          "english": "The conference was postponed.",
+          "vietnamese": "Hội nghị đã bị hoãn."
+        }
+      ]
+    },
+    "bank2026-mock-listening:s032": {
+      "english": "Buyer: We received the fabric samples, but the silver one looks darker than the catalog image. Can you send a sample cut from the current roll?\nSupplier: Certainly. The catalog was photographed under studio lighting. I can dispatch a larger piece today, but it will arrive on Thursday.\nBuyer: Thursday is fine. Our designer is away until Friday anyway. Please hold the bulk order until she approves it.\nSupplier: Understood. I will mark the order as pending approval and email you the tracking number this afternoon.",
+      "vietnamese": "Người mua: Chúng tôi đã nhận mẫu vải, nhưng mẫu màu bạc trông tối hơn ảnh trong danh mục. Bạn có thể gửi một mẫu cắt từ cuộn vải hiện tại không?\nNhà cung cấp: Được chứ. Ảnh danh mục được chụp dưới ánh sáng studio. Tôi có thể gửi một mảnh lớn hơn hôm nay, nhưng thứ Năm mới đến.\nNgười mua: Thứ Năm cũng được. Đằng nào nhà thiết kế của chúng tôi cũng đi vắng đến thứ Sáu. Vui lòng tạm giữ đơn hàng số lượng lớn cho đến khi cô ấy phê duyệt.\nNhà cung cấp: Tôi hiểu rồi. Tôi sẽ đánh dấu đơn hàng là chờ phê duyệt và gửi mã theo dõi qua email chiều nay.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s033": {
+      "english": "Assistant: I reserved Cedar for tomorrow's video interview, but the confirmation shows Pine.\nCoordinator: Cedar is being used for an equipment demonstration. Pine has a screen, though its camera is not working.\nAssistant: We need a camera, and the candidate is joining from overseas. Is anything else available at ten?\nCoordinator: Look at the room list. Only one room has video equipment and seats at least eight. It is free until noon.\nAssistant: Please book that one and ask the IT team to test the connection today.",
+      "vietnamese": "Trợ lý: Tôi đã đặt phòng Cedar cho cuộc phỏng vấn qua video ngày mai, nhưng xác nhận lại ghi phòng Pine.\nĐiều phối viên: Phòng Cedar đang được dùng cho buổi trình diễn thiết bị. Phòng Pine có màn hình, nhưng camera không hoạt động.\nTrợ lý: Chúng tôi cần camera, và ứng viên sẽ tham gia từ nước ngoài. Có phòng nào khác trống lúc mười giờ không?\nĐiều phối viên: Hãy xem danh sách phòng. Chỉ có một phòng có thiết bị video và đủ chỗ cho ít nhất tám người. Phòng đó trống đến trưa.\nTrợ lý: Vui lòng đặt phòng đó và nhờ đội công nghệ thông tin kiểm tra kết nối hôm nay.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s034": {
+      "english": "Baker: The flour truck is delayed, so I cannot finish your bread order by six tomorrow morning.\nCafe owner: Our first customers arrive at seven. Could you deliver half the rolls by then and the rest later?\nBaker: I have enough flour for the plain rolls. I can send those at six thirty, but the seeded ones will have to wait until nine.\nCafe owner: That will work. Please put the early delivery at the side entrance, not at the locked front door. I will tell the opening team to expect it.",
+      "vietnamese": "Thợ làm bánh: Xe chở bột mì bị chậm, nên tôi không thể hoàn thành đơn bánh mì của bạn trước sáu giờ sáng mai.\nChủ quán cà phê: Những khách đầu tiên của chúng tôi đến lúc bảy giờ. Bạn có thể giao một nửa số bánh mì nhỏ trước giờ đó và phần còn lại sau được không?\nThợ làm bánh: Tôi có đủ bột cho bánh mì thường. Tôi có thể gửi loại đó lúc sáu giờ ba mươi, nhưng bánh có hạt phải đợi đến chín giờ.\nChủ quán cà phê: Như vậy được. Vui lòng để đợt giao sớm ở lối vào bên hông, đừng để ở cửa trước đang khóa. Tôi sẽ báo đội mở cửa chuẩn bị nhận.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s035": {
+      "english": "Visitor: I bought an audio guide online, but the code in my email is not being accepted.\nAttendant: Let me see. That code is for the photography exhibition next month, not today's sculpture show.\nVisitor: Oh, I booked the wrong one. Can I exchange it?\nAttendant: Yes, both guides cost the same. I can switch it without a charge, but I need the email receipt.\nVisitor: Here it is on my phone.\nAttendant: Thank you. I will send a new code, and you can collect headphones from the desk opposite the stairs.",
+      "vietnamese": "Khách tham quan: Tôi đã mua hướng dẫn âm thanh trực tuyến, nhưng mã trong email không được chấp nhận.\nNhân viên: Để tôi xem. Mã đó dành cho triển lãm ảnh tháng sau, không phải triển lãm điêu khắc hôm nay.\nKhách tham quan: À, tôi đặt nhầm rồi. Tôi có thể đổi không?\nNhân viên: Có, hai gói hướng dẫn cùng giá. Tôi có thể đổi miễn phí, nhưng cần hóa đơn qua email.\nKhách tham quan: Đây, hóa đơn trên điện thoại của tôi.\nNhân viên: Cảm ơn. Tôi sẽ gửi mã mới, và bạn có thể nhận tai nghe ở quầy đối diện cầu thang.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s036": {
+      "english": "Supervisor: The new scanners arrived this morning. Could your team begin using them after lunch?\nTrainer: Not safely. The devices look familiar, but the return-label process has changed. We should run a demonstration first.\nSupervisor: The loading bay is busy until three. Can we train in the break room?\nTrainer: Yes. I need six people at a time and about twenty minutes per group.\nSupervisor: I will split the team and post a schedule.\nTrainer: Please ask everyone to bring one of the old scanners so I can show both procedures side by side.",
+      "vietnamese": "Giám sát: Máy quét mới đã đến sáng nay. Đội của bạn có thể bắt đầu dùng sau bữa trưa không?\nNgười hướng dẫn: Chưa thể dùng an toàn ngay. Các thiết bị trông quen thuộc, nhưng quy trình nhãn trả hàng đã thay đổi. Chúng ta nên tổ chức hướng dẫn thực hành trước.\nGiám sát: Khu bốc dỡ hàng bận đến ba giờ. Chúng ta có thể tập huấn ở phòng nghỉ không?\nNgười hướng dẫn: Được. Mỗi lượt tôi cần sáu người và khoảng hai mươi phút cho mỗi nhóm.\nGiám sát: Tôi sẽ chia đội thành nhóm và dán lịch.\nNgười hướng dẫn: Vui lòng nhờ mọi người mang theo một máy quét cũ để tôi có thể minh họa hai quy trình cạnh nhau.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s037": {
+      "english": "Consultant: I need to be at your factory by nine thirty, but the first direct train arrives at ten.\nClient: Take the seven forty service to Ashton. It arrives at eight fifty, and our driver can meet you there.\nConsultant: Is that a long drive?\nClient: About twenty minutes. The station nearest us is closed for track repairs, so Ashton is the best option this week.\nConsultant: Excellent. I will send my mobile number in case the train is delayed.\nClient: Please do, and email your return time so the driver can plan both journeys.",
+      "vietnamese": "Chuyên viên tư vấn: Tôi cần đến nhà máy của bạn trước chín giờ ba mươi, nhưng chuyến tàu thẳng đầu tiên đến lúc mười giờ.\nKhách hàng: Hãy đi chuyến bảy giờ bốn mươi đến Ashton. Tàu đến lúc tám giờ năm mươi, và tài xế của chúng tôi có thể đón bạn ở đó.\nChuyên viên tư vấn: Đi ô tô từ đó có xa không?\nKhách hàng: Khoảng hai mươi phút. Ga gần chúng tôi nhất đang đóng để sửa đường ray, nên Ashton là lựa chọn tốt nhất tuần này.\nChuyên viên tư vấn: Tuyệt. Tôi sẽ gửi số di động phòng trường hợp tàu bị chậm.\nKhách hàng: Vâng, và hãy gửi email giờ về để tài xế lên kế hoạch cho cả hai lượt.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s038": {
+      "english": "Receptionist: A patient needs an interpreter for an appointment on Tuesday at four. Our usual interpreter cannot come then.\nNurse: Could we use the approved telephone service? It has worked well for short consultations.\nReceptionist: The appointment is a detailed assessment and may take an hour.\nNurse: Then an in-person interpreter would be better. Ask the patient if Wednesday morning is possible.\nReceptionist: I will check before changing anything in the booking system.\nNurse: Thank you. Keep the original slot until we have both the patient's agreement and a confirmed interpreter.",
+      "vietnamese": "Lễ tân: Một bệnh nhân cần phiên dịch cho cuộc hẹn lúc bốn giờ thứ Ba. Phiên dịch viên thường làm với chúng ta không đến được giờ đó.\nY tá: Chúng ta dùng dịch vụ phiên dịch qua điện thoại đã được phê duyệt được không? Dịch vụ đó hoạt động tốt với các buổi tư vấn ngắn.\nLễ tân: Cuộc hẹn này là một buổi đánh giá chi tiết và có thể mất một giờ.\nY tá: Vậy phiên dịch trực tiếp sẽ tốt hơn. Hãy hỏi bệnh nhân xem sáng thứ Tư có được không.\nLễ tân: Tôi sẽ kiểm tra trước khi thay đổi bất cứ điều gì trong hệ thống đặt lịch.\nY tá: Cảm ơn. Giữ khung giờ cũ cho đến khi vừa có sự đồng ý của bệnh nhân, vừa có phiên dịch viên được xác nhận.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s039": {
+      "english": "Account manager: Your subscription renews next week for forty users. Do you want the same number?\nCustomer: We only have thirty-four employees now, but four contractors will join in December. Can we add accounts later?\nAccount manager: Yes, extra seats are billed only for the remaining months. Reducing the number, however, is possible only at renewal.\nCustomer: Then renew thirty-four now. Please remove the six unused accounts, but send me the names before you disable them.\nAccount manager: I will prepare that list and wait for your approval.",
+      "vietnamese": "Quản lý tài khoản: Gói đăng ký của bạn sẽ gia hạn tuần sau cho bốn mươi người dùng. Bạn muốn giữ nguyên số lượng không?\nKhách hàng: Hiện chúng tôi chỉ có ba mươi bốn nhân viên, nhưng bốn cộng tác viên sẽ tham gia vào tháng Mười Hai. Sau này có thể thêm tài khoản không?\nQuản lý tài khoản: Có, tài khoản thêm chỉ bị tính phí cho những tháng còn lại. Tuy nhiên, giảm số lượng chỉ thực hiện được lúc gia hạn.\nKhách hàng: Vậy bây giờ gia hạn ba mươi bốn tài khoản. Vui lòng xóa sáu tài khoản không dùng, nhưng gửi tên cho tôi trước khi vô hiệu hóa chúng.\nQuản lý tài khoản: Tôi sẽ chuẩn bị danh sách đó và đợi bạn phê duyệt.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s040": {
+      "english": "Organizer: One guest has just told us she cannot eat nuts. Have the dessert trays already left your kitchen?\nCaterer: Not yet. The fruit cups are nut-free, but the chocolate tarts were prepared on the same surface as the almond cakes.\nOrganizer: Please set aside a sealed fruit cup with her name on it.\nCaterer: I can do that. We will label all the trays as well.\nOrganizer: Thank you. The guest is seated at Table Four, and the reception supervisor will introduce her to your serving team before dinner.",
+      "vietnamese": "Người tổ chức: Một khách vừa báo rằng cô ấy không ăn được các loại hạt. Các khay tráng miệng đã rời bếp của bạn chưa?\nNhà cung cấp tiệc: Chưa. Các cốc trái cây không có hạt, nhưng bánh tart sô cô la được chuẩn bị trên cùng bề mặt với bánh hạnh nhân.\nNgười tổ chức: Vui lòng để riêng một cốc trái cây đậy kín có ghi tên cô ấy.\nNhà cung cấp tiệc: Tôi làm được. Chúng tôi cũng sẽ dán nhãn tất cả các khay.\nNgười tổ chức: Cảm ơn. Vị khách ngồi bàn số Bốn, và giám sát tiệc sẽ giới thiệu cô ấy với đội phục vụ của bạn trước bữa tối.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s041": {
+      "english": "Tenant: We like the new office, but before signing I want to check the noise from the loading area.\nAgent: We viewed it on Sunday, when deliveries are not allowed. The busiest period is Monday morning.\nTenant: Could we visit then?\nAgent: Certainly. I can meet you at eight. Also, the landlord agreed to replace the carpets before you move in, but the lighting changes would be your responsibility.\nTenant: Please put both points in writing. We will decide after Monday's visit rather than pay a deposit today.",
+      "vietnamese": "Người thuê: Chúng tôi thích văn phòng mới, nhưng trước khi ký tôi muốn kiểm tra tiếng ồn từ khu bốc dỡ hàng.\nMôi giới: Chúng ta đã xem vào Chủ nhật, khi không được phép giao hàng. Thời điểm đông nhất là sáng thứ Hai.\nNgười thuê: Chúng ta có thể đến xem khi đó không?\nMôi giới: Được chứ. Tôi có thể gặp bạn lúc tám giờ. Ngoài ra, chủ nhà đồng ý thay thảm trước khi bạn chuyển vào, nhưng việc thay đổi hệ thống chiếu sáng do bạn chịu trách nhiệm.\nNgười thuê: Vui lòng ghi cả hai điểm đó thành văn bản. Chúng tôi sẽ quyết định sau buổi xem thứ Hai, thay vì trả tiền đặt cọc hôm nay.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s042": {
+      "english": "Employee: These safety shoes fit in the store, but after a full shift they are too tight.\nSales clerk: We can exchange unworn footwear, but I see these have been used.\nEmployee: The supervisor said you have a workplace trial arrangement with our company.\nSales clerk: You are right. If you have your employee number and receipt, the agreement allows one size exchange within fourteen days.\nEmployee: I bought them nine days ago, and I have both documents.\nSales clerk: Then let us find a wider pair rather than just a longer one.",
+      "vietnamese": "Nhân viên: Đôi giày bảo hộ này vừa khi thử ở cửa hàng, nhưng đi hết một ca thì quá chật.\nNhân viên bán hàng: Chúng tôi có thể đổi giày chưa mang, nhưng tôi thấy đôi này đã dùng rồi.\nNhân viên: Người giám sát nói cửa hàng có thỏa thuận dùng thử tại nơi làm việc với công ty chúng tôi.\nNhân viên bán hàng: Bạn nói đúng. Nếu có mã nhân viên và hóa đơn, thỏa thuận cho phép đổi cỡ một lần trong vòng mười bốn ngày.\nNhân viên: Tôi mua cách đây chín ngày và có cả hai giấy tờ.\nNhân viên bán hàng: Vậy hãy tìm đôi rộng hơn, thay vì chỉ dài hơn.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s043": {
+      "english": "Coordinator: We have enough volunteers for planting on Saturday, but nobody has signed up to distribute tools.\nVolunteer: I can help before planting starts. What time should I arrive?\nCoordinator: At eight fifteen, forty-five minutes before the planting teams. The tools are in the shed, and each team leader must sign for a set.\nVolunteer: Should I collect them afterward too?\nCoordinator: No, the afternoon team will do that. Please just explain that damaged tools should be reported, not returned to the shelf without a note.",
+      "vietnamese": "Điều phối viên: Chúng ta có đủ tình nguyện viên trồng cây thứ Bảy, nhưng chưa ai đăng ký phát dụng cụ.\nTình nguyện viên: Tôi có thể giúp trước khi bắt đầu trồng. Tôi nên đến lúc mấy giờ?\nĐiều phối viên: Lúc tám giờ mười lăm, sớm hơn các đội trồng cây bốn mươi lăm phút. Dụng cụ ở trong nhà kho, và mỗi trưởng nhóm phải ký nhận một bộ.\nTình nguyện viên: Sau đó tôi có cần thu lại dụng cụ không?\nĐiều phối viên: Không, đội buổi chiều sẽ làm. Bạn chỉ cần giải thích rằng dụng cụ hỏng phải được báo cáo, không được để lại lên kệ mà không có ghi chú.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s044": {
+      "english": "Analyst: The board liked the pilot, but they want evidence that the new packaging reduces waste.\nManager: We weighed discarded material for three weeks. The figures are in this table.\nAnalyst: The second week was our highest production week, correct?\nManager: Yes, so the total weight alone is misleading. Compare waste per hundred units.\nAnalyst: That makes the third week the most efficient. I will use that measure in the report and note that returned products were not included.\nManager: Good. We should repeat the study before making a company-wide claim.",
+      "vietnamese": "Chuyên viên phân tích: Ban lãnh đạo thích chương trình thử nghiệm, nhưng muốn có bằng chứng rằng bao bì mới giảm rác thải.\nQuản lý: Chúng tôi đã cân vật liệu bỏ đi trong ba tuần. Các số liệu nằm trong bảng này.\nChuyên viên phân tích: Tuần thứ hai là tuần sản xuất nhiều nhất, đúng không?\nQuản lý: Đúng, nên chỉ nhìn tổng khối lượng sẽ gây hiểu lầm. Hãy so lượng rác trên một trăm sản phẩm.\nChuyên viên phân tích: Theo cách đó, tuần thứ ba hiệu quả nhất. Tôi sẽ dùng chỉ số đó trong báo cáo và ghi rõ rằng không tính các sản phẩm bị trả lại.\nQuản lý: Tốt. Chúng ta nên lặp lại nghiên cứu trước khi đưa ra nhận định cho toàn công ty.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s045": {
+      "english": "Attention, passengers for the 8:20 service to Norchester. Because of a signal fault, this train will now depart from Platform Six rather than Platform Three. Please use the footbridge; the track-level crossing is closed. Staff can help passengers who need the lift. The departure time has not changed, and tickets marked for the 8:20 service remain valid. Passengers for the 8:35 stopping service should stay on Platform Three. We apologize for the short notice and ask you not to run on the stairs.",
+      "vietnamese": "Xin lưu ý hành khách đi chuyến tám giờ hai mươi đến Norchester. Do lỗi tín hiệu, tàu này sẽ khởi hành từ sân ga số Sáu thay vì số Ba. Vui lòng dùng cầu vượt dành cho người đi bộ; lối băng qua ngang đường ray đang đóng. Nhân viên có thể hỗ trợ hành khách cần thang máy. Giờ khởi hành không thay đổi, và vé ghi chuyến tám giờ hai mươi vẫn có hiệu lực. Hành khách đi chuyến tám giờ ba mươi lăm dừng ở các ga dọc đường vui lòng ở lại sân ga số Ba. Chúng tôi xin lỗi vì thông báo gấp và đề nghị quý khách không chạy trên cầu thang.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s046": {
+      "english": "Hello, Ms. Patel. This is Luis from Valley Growers. I am calling about the fruit baskets you ordered for your staff event. Yesterday's hail damaged our early peaches, so we cannot include them. We can replace them with pears at the same price, or reduce the basket size and adjust your invoice. Please call before two today so we can pack the baskets for tomorrow's delivery. If I do not hear from you, I will hold the order rather than make a substitution without your permission.",
+      "vietnamese": "Xin chào cô Patel. Tôi là Luis từ Valley Growers. Tôi gọi về các giỏ trái cây cô đặt cho sự kiện nhân viên. Trận mưa đá hôm qua làm hỏng đào đầu mùa, nên chúng tôi không thể cho đào vào giỏ. Chúng tôi có thể thay bằng lê với giá không đổi, hoặc giảm kích thước giỏ và điều chỉnh hóa đơn. Vui lòng gọi trước hai giờ hôm nay để chúng tôi đóng giỏ giao ngày mai. Nếu không nhận được phản hồi, tôi sẽ tạm giữ đơn hàng, thay vì tự thay sản phẩm khi chưa được cô cho phép.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s047": {
+      "english": "Before we tour the office, please check that your badge displays your first name and photograph correctly. You will use it to enter the staff areas, but it does not give access to the laboratory. Laboratory access requires separate safety training. If you forget your badge, report to reception for a temporary pass; do not borrow a colleague's card. At the end of today's tour, we will return here to collect your signed induction forms. Keep those forms with you until then rather than leaving them on your desks.",
+      "vietnamese": "Trước khi tham quan văn phòng, vui lòng kiểm tra thẻ hiển thị đúng tên gọi và ảnh của bạn. Bạn sẽ dùng thẻ để vào các khu vực dành cho nhân viên, nhưng thẻ không cho phép vào phòng thí nghiệm. Muốn vào phòng thí nghiệm phải tham gia tập huấn an toàn riêng. Nếu quên thẻ, hãy đến quầy lễ tân để nhận thẻ tạm; đừng mượn thẻ đồng nghiệp. Cuối buổi tham quan hôm nay, chúng ta sẽ quay lại đây để thu các mẫu xác nhận định hướng đã ký. Hãy giữ các mẫu đó bên mình đến lúc ấy, đừng để trên bàn làm việc.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s048": {
+      "english": "Welcome to our coastal habitat gallery. The animals in the large tank behind me were rescued locally and cannot yet be released. Please avoid tapping the glass because sudden vibrations can disturb them. Feeding normally takes place at eleven, but today the veterinary team is carrying out an examination, so it will begin at noon. While you wait, our volunteers are demonstrating water-quality testing at the small table near the exit. That demonstration is included in your admission and is suitable for visitors of all ages.",
+      "vietnamese": "Chào mừng đến khu trưng bày môi trường sống ven biển. Các động vật trong bể lớn phía sau tôi được cứu hộ tại địa phương và hiện chưa thể thả về tự nhiên. Vui lòng tránh gõ lên kính vì rung động đột ngột có thể làm chúng hoảng. Việc cho ăn thường diễn ra lúc mười một giờ, nhưng hôm nay đội thú y đang kiểm tra nên sẽ bắt đầu lúc mười hai giờ trưa. Trong lúc chờ, tình nguyện viên đang trình diễn kiểm tra chất lượng nước ở chiếc bàn nhỏ gần lối ra. Hoạt động đó đã bao gồm trong vé vào cửa và phù hợp với khách ở mọi độ tuổi.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s049": {
+      "english": "Our sales increased this quarter, but the growth was not evenly distributed. Look at the chart on your handout. The branch with the highest increase benefited from a new station opening nearby, not from extra advertising. We should therefore be cautious about applying its results to the other locations. Next month, each branch will interview recent customers to find out how they heard about us. Please submit the interview summaries by the fifteenth; raw customer contact details should remain in your branch files.",
+      "vietnamese": "Doanh số quý này tăng, nhưng mức tăng không đồng đều. Hãy xem biểu đồ trên tài liệu được phát. Chi nhánh tăng mạnh nhất hưởng lợi từ một nhà ga mới mở gần đó, chứ không phải từ việc tăng quảng cáo. Vì vậy, chúng ta nên thận trọng khi áp dụng kết quả của chi nhánh đó cho các địa điểm khác. Tháng tới, mỗi chi nhánh sẽ phỏng vấn khách hàng gần đây để tìm hiểu họ biết đến chúng ta bằng cách nào. Vui lòng nộp bản tóm tắt phỏng vấn trước hoặc trong ngày mười lăm; thông tin liên hệ gốc của khách hàng phải được giữ trong hồ sơ chi nhánh.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s050": {
+      "english": "Thank you for renting with Moorland Cars. Our airport office closes at ten tonight, but after-hours returns are available. Park in the numbered return bays behind the office, photograph the fuel gauge and mileage, and place the key in the secure drop box. Do not leave it in the vehicle. Your rental will end at the time recorded by the drop box, although the vehicle will be inspected tomorrow morning. If all return bays are occupied, call the number on your agreement before parking elsewhere.",
+      "vietnamese": "Cảm ơn bạn đã thuê xe của Moorland Cars. Văn phòng sân bay của chúng tôi đóng cửa lúc mười giờ tối nay, nhưng bạn vẫn có thể trả xe ngoài giờ. Hãy đỗ vào ô trả xe được đánh số phía sau văn phòng, chụp ảnh đồng hồ nhiên liệu và số kilômét, rồi bỏ chìa khóa vào hộp nhận an toàn. Đừng để chìa khóa trong xe. Thời gian thuê kết thúc theo giờ hộp nhận chìa khóa ghi lại, dù xe sẽ được kiểm tra vào sáng mai. Nếu mọi ô trả xe đều có xe, hãy gọi số trên hợp đồng trước khi đỗ ở nơi khác.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s051": {
+      "english": "Good morning. Today we will practice evaluating survey questions rather than collecting survey responses. Each table has three sample questionnaires. First, work in pairs to identify wording that could push respondents toward a particular answer. Then rewrite one question and test it with another pair. There are no real customer names in the samples. At eleven, Dr. Ivers will discuss the revised questions, so please upload your group's version to the shared folder before the break. You do not need to finish all three questionnaires.",
+      "vietnamese": "Xin chào. Hôm nay chúng ta sẽ luyện đánh giá câu hỏi khảo sát, thay vì thu thập câu trả lời khảo sát. Mỗi bàn có ba bảng hỏi mẫu. Đầu tiên, hãy làm việc theo cặp để tìm cách diễn đạt có thể dẫn người trả lời đến một đáp án nhất định. Sau đó viết lại một câu hỏi và thử với một cặp khác. Các mẫu không có tên khách hàng thật. Lúc mười một giờ, tiến sĩ Ivers sẽ thảo luận về các câu hỏi đã sửa, nên hãy tải bản của nhóm lên thư mục chung trước giờ nghỉ. Bạn không cần hoàn thành cả ba bảng hỏi.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s052": {
+      "english": "Drivers arriving at Eastport Distribution should check the load type on their dispatch note before approaching a dock. Chilled goods must use the dock marked for refrigerated deliveries, even if a general dock is empty. Our staff will record the temperature before unloading. If it is outside the agreed range, remain in the cab while the supervisor contacts your dispatcher. Please do not unload on the forecourt. Empty pallets can be collected only after your delivery has been accepted and your paperwork has been signed.",
+      "vietnamese": "Tài xế đến Eastport Distribution nên kiểm tra loại hàng trên phiếu điều phối trước khi tiến đến cửa bốc dỡ. Hàng giữ lạnh phải dùng cửa ghi dành cho giao hàng lạnh, kể cả khi cửa bốc dỡ thông thường còn trống. Nhân viên sẽ ghi nhiệt độ trước khi dỡ hàng. Nếu nhiệt độ ngoài phạm vi đã thỏa thuận, hãy ở trong cabin trong khi giám sát liên hệ người điều phối của bạn. Vui lòng không dỡ hàng trên khoảng sân phía trước. Chỉ được lấy pallet rỗng sau khi lô hàng đã được chấp nhận và giấy tờ đã có chữ ký.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s053": {
+      "english": "This month's digitization project will focus on newspapers published between 1920 and 1930. The originals are fragile, so trained staff will handle scanning. Volunteers can help by checking the searchable text against the scanned images. You can do this from home using the project portal; no special software is needed. Please correct only clear transcription errors and flag uncertain words instead of guessing. We will hold an online orientation on Saturday morning. Registration closes on Thursday, and the access link will be sent to registered volunteers on Friday.",
+      "vietnamese": "Dự án số hóa tháng này tập trung vào báo xuất bản từ năm 1920 đến 1930. Bản gốc dễ hư hỏng nên nhân viên đã được đào tạo sẽ thực hiện việc quét. Tình nguyện viên có thể giúp đối chiếu văn bản có thể tìm kiếm với ảnh quét. Bạn có thể làm tại nhà qua cổng dự án; không cần phần mềm đặc biệt. Chỉ sửa những lỗi chép lại rõ ràng và đánh dấu từ chưa chắc, thay vì đoán. Chúng tôi tổ chức buổi định hướng trực tuyến vào sáng thứ Bảy. Đăng ký kết thúc thứ Năm và liên kết truy cập sẽ được gửi cho tình nguyện viên đã đăng ký vào thứ Sáu.",
+      "choices": []
+    },
+    "bank2026-mock-listening:s054": {
+      "english": "This is a safety notice for owners of the Harborline K200 kettle. A small number of units manufactured in March may fail to switch off automatically. Check the manufacturing code on the base; the model name alone does not determine whether your kettle is affected. If the code begins M03, stop using it and complete the recall form on our website. We will arrange a free collection and replacement. Please do not send the kettle by post or attempt to repair it yourself. Other manufacturing codes are not included in this notice.",
+      "vietnamese": "Đây là thông báo an toàn cho người sở hữu ấm đun Harborline K200. Một số ít sản phẩm sản xuất trong tháng Ba có thể không tự ngắt. Hãy kiểm tra mã sản xuất dưới đáy; chỉ tên mẫu máy thôi chưa đủ để biết ấm của bạn có bị ảnh hưởng không. Nếu mã bắt đầu bằng M03, hãy ngừng dùng và điền biểu mẫu thu hồi trên trang web của chúng tôi. Chúng tôi sẽ thu gom và thay thế miễn phí. Vui lòng không gửi ấm qua bưu điện hoặc tự sửa. Các mã sản xuất khác không thuộc thông báo này.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s001": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Diners are sitting at outdoor tables.",
+          "vietnamese": "Thực khách đang ngồi ở các bàn ngoài trời."
+        },
+        {
+          "id": "B",
+          "english": "A bridge is being raised.",
+          "vietnamese": "Một cây cầu đang được nâng lên."
+        },
+        {
+          "id": "C",
+          "english": "A car is crossing a flooded road.",
+          "vietnamese": "Một chiếc xe đang đi qua con đường bị ngập."
+        },
+        {
+          "id": "D",
+          "english": "A building overlooks the water.",
+          "vietnamese": "Một tòa nhà nhìn ra mặt nước."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s002": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "All of the windows have been installed.",
+          "vietnamese": "Tất cả cửa sổ đã được lắp xong."
+        },
+        {
+          "id": "B",
+          "english": "A crane extends above an unfinished building.",
+          "vietnamese": "Một cần cẩu vươn lên phía trên một tòa nhà chưa hoàn thiện."
+        },
+        {
+          "id": "C",
+          "english": "Workers are planting trees on a roof.",
+          "vietnamese": "Công nhân đang trồng cây trên mái nhà."
+        },
+        {
+          "id": "D",
+          "english": "The building is being demolished.",
+          "vietnamese": "Tòa nhà đang bị phá dỡ."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s003": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Pendant lights hang above the seating area.",
+          "vietnamese": "Đèn thả treo phía trên khu vực chỗ ngồi."
+        },
+        {
+          "id": "B",
+          "english": "Customers are waiting outside a closed door.",
+          "vietnamese": "Khách hàng đang chờ bên ngoài một cánh cửa đóng."
+        },
+        {
+          "id": "C",
+          "english": "A waiter is clearing plates from a table.",
+          "vietnamese": "Một nhân viên phục vụ đang dọn đĩa khỏi bàn."
+        },
+        {
+          "id": "D",
+          "english": "The tables are covered with newspapers.",
+          "vietnamese": "Các bàn bị phủ kín bởi báo."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s004": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Computers have been placed along a counter.",
+          "vietnamese": "Các máy tính đã được đặt dọc theo một quầy dài."
+        },
+        {
+          "id": "B",
+          "english": "A technician is replacing a ceiling light.",
+          "vietnamese": "Một kỹ thuật viên đang thay đèn trần."
+        },
+        {
+          "id": "C",
+          "english": "The chairs are folded against a wall.",
+          "vietnamese": "Các ghế được gấp lại và đặt sát tường."
+        },
+        {
+          "id": "D",
+          "english": "Books are piled on every keyboard.",
+          "vietnamese": "Sách chất đống trên mọi bàn phím."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s005": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A woman is adjusting a hat.",
+          "vietnamese": "Một người phụ nữ đang chỉnh mũ."
+        },
+        {
+          "id": "B",
+          "english": "A man wearing a cap is smiling.",
+          "vietnamese": "Một người đàn ông đội mũ lưỡi trai đang mỉm cười."
+        },
+        {
+          "id": "C",
+          "english": "A man is reading a newspaper.",
+          "vietnamese": "Một người đàn ông đang đọc báo."
+        },
+        {
+          "id": "D",
+          "english": "Two men are shaking hands.",
+          "vietnamese": "Hai người đàn ông đang bắt tay."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s006": {
+      "english": "Look at the photograph and choose the best description.",
+      "vietnamese": "Nhìn vào ảnh và chọn mô tả phù hợp nhất.",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A train is moving through a tunnel.",
+          "vietnamese": "Một đoàn tàu đang đi qua đường hầm."
+        },
+        {
+          "id": "B",
+          "english": "People are washing the windows from ladders.",
+          "vietnamese": "Mọi người đang đứng trên thang lau cửa sổ."
+        },
+        {
+          "id": "C",
+          "english": "The street is blocked by fallen trees.",
+          "vietnamese": "Đường phố bị cây đổ chắn ngang."
+        },
+        {
+          "id": "D",
+          "english": "Cars are parked in front of a station building.",
+          "vietnamese": "Các ô tô đang đỗ trước một tòa nhà ga."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s007": {
+      "english": "Could you hold the door while I bring this trolley through?",
+      "vietnamese": "Bạn giữ cửa giúp trong lúc tôi đẩy xe hàng này qua được không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Of course, take your time.",
+          "vietnamese": "Được chứ, cứ từ từ."
+        },
+        {
+          "id": "B",
+          "english": "The door is made of glass.",
+          "vietnamese": "Cánh cửa làm bằng kính."
+        },
+        {
+          "id": "C",
+          "english": "We hold meetings here.",
+          "vietnamese": "Chúng tôi tổ chức họp ở đây."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s008": {
+      "english": "Why does the invoice include a handling fee?",
+      "vietnamese": "Tại sao hóa đơn có phí xử lý hàng?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Please handle it carefully.",
+          "vietnamese": "Vui lòng cầm nó cẩn thận."
+        },
+        {
+          "id": "B",
+          "english": "The fee was paid online.",
+          "vietnamese": "Khoản phí đã được thanh toán trực tuyến."
+        },
+        {
+          "id": "C",
+          "english": "The order needed special packaging.",
+          "vietnamese": "Đơn hàng cần đóng gói đặc biệt."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s009": {
+      "english": "When will we hear the interview results?",
+      "vietnamese": "Khi nào chúng ta biết kết quả phỏng vấn?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "I heard a strange noise.",
+          "vietnamese": "Tôi đã nghe thấy một tiếng động lạ."
+        },
+        {
+          "id": "B",
+          "english": "Early next week.",
+          "vietnamese": "Đầu tuần sau."
+        },
+        {
+          "id": "C",
+          "english": "In the interview room.",
+          "vietnamese": "Trong phòng phỏng vấn."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s010": {
+      "english": "Which entrance has a wheelchair ramp?",
+      "vietnamese": "Lối vào nào có đường dốc cho xe lăn?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A garden maintenance team.",
+          "vietnamese": "Một đội chăm sóc vườn."
+        },
+        {
+          "id": "B",
+          "english": "They entered quietly.",
+          "vietnamese": "Họ đã đi vào một cách yên lặng."
+        },
+        {
+          "id": "C",
+          "english": "The one facing the garden.",
+          "vietnamese": "Lối hướng ra vườn."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s011": {
+      "english": "Do we need permission to use the company logo?",
+      "vietnamese": "Chúng ta có cần xin phép để dùng logo công ty không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Ask the communications team first.",
+          "vietnamese": "Hãy hỏi bộ phận truyền thông trước."
+        },
+        {
+          "id": "B",
+          "english": "The company is ten years old.",
+          "vietnamese": "Công ty đã hoạt động mười năm."
+        },
+        {
+          "id": "C",
+          "english": "I used the copier.",
+          "vietnamese": "Tôi đã dùng máy photocopy."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s012": {
+      "english": "How much notice is required to cancel a booking?",
+      "vietnamese": "Cần báo trước bao lâu để hủy đặt chỗ?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The booking agent was polite.",
+          "vietnamese": "Nhân viên đặt chỗ rất lịch sự."
+        },
+        {
+          "id": "B",
+          "english": "At least forty-eight hours.",
+          "vietnamese": "Ít nhất bốn mươi tám giờ."
+        },
+        {
+          "id": "C",
+          "english": "The notice is on the wall.",
+          "vietnamese": "Thông báo ở trên tường."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s013": {
+      "english": "You have met our new accountant, have you not?",
+      "vietnamese": "Bạn đã gặp nữ kế toán mới của chúng ta rồi, phải không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The account number is correct.",
+          "vietnamese": "Số tài khoản chính xác."
+        },
+        {
+          "id": "B",
+          "english": "A new counting machine.",
+          "vietnamese": "Một máy đếm mới."
+        },
+        {
+          "id": "C",
+          "english": "Not yet; is she here today?",
+          "vietnamese": "Chưa; hôm nay cô ấy có ở đây không?"
+        }
+      ]
+    },
+    "bank2026-practice-listening:s014": {
+      "english": "Would it be better to repair the chair or replace it?",
+      "vietnamese": "Sửa chiếc ghế hay thay ghế sẽ tốt hơn?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A new one would cost less than the repair.",
+          "vietnamese": "Mua ghế mới sẽ ít tốn hơn sửa chữa."
+        },
+        {
+          "id": "B",
+          "english": "The chairperson has arrived.",
+          "vietnamese": "Chủ tọa đã đến."
+        },
+        {
+          "id": "C",
+          "english": "It is beside the table.",
+          "vietnamese": "Nó ở cạnh bàn."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s015": {
+      "english": "Who can authorize overtime this weekend?",
+      "vietnamese": "Ai có thể phê duyệt việc làm thêm giờ cuối tuần này?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "On Saturday morning.",
+          "vietnamese": "Vào sáng thứ Bảy."
+        },
+        {
+          "id": "B",
+          "english": "Only your department manager.",
+          "vietnamese": "Chỉ trưởng phòng của bạn."
+        },
+        {
+          "id": "C",
+          "english": "Over time, costs increased.",
+          "vietnamese": "Theo thời gian, chi phí đã tăng."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s016": {
+      "english": "Has the parcel been weighed?",
+      "vietnamese": "Bưu kiện đã được cân chưa?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A long waiting time.",
+          "vietnamese": "Một khoảng thời gian chờ dài."
+        },
+        {
+          "id": "B",
+          "english": "At the parcel counter.",
+          "vietnamese": "Tại quầy bưu kiện."
+        },
+        {
+          "id": "C",
+          "english": "Yes, it is two kilograms.",
+          "vietnamese": "Rồi, nó nặng hai kilôgam."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s017": {
+      "english": "Where did you save the signed contract?",
+      "vietnamese": "Bạn đã lưu hợp đồng có chữ ký ở đâu?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "In the shared legal folder.",
+          "vietnamese": "Trong thư mục pháp lý dùng chung."
+        },
+        {
+          "id": "B",
+          "english": "I saved ten dollars.",
+          "vietnamese": "Tôi đã tiết kiệm mười đô la."
+        },
+        {
+          "id": "C",
+          "english": "The signature is clear.",
+          "vietnamese": "Chữ ký rất rõ."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s018": {
+      "english": "Would you mind turning down the music?",
+      "vietnamese": "Bạn giảm âm lượng nhạc giúp được không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The music shop is downstairs.",
+          "vietnamese": "Cửa hàng nhạc ở tầng dưới."
+        },
+        {
+          "id": "B",
+          "english": "I turned right at the lights.",
+          "vietnamese": "Tôi đã rẽ phải tại chỗ đèn giao thông."
+        },
+        {
+          "id": "C",
+          "english": "Certainly, I will lower the volume.",
+          "vietnamese": "Được chứ, tôi sẽ giảm âm lượng."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s019": {
+      "english": "How long will the road inspection take?",
+      "vietnamese": "Việc kiểm tra đường sẽ mất bao lâu?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Roughly ninety minutes.",
+          "vietnamese": "Khoảng chín mươi phút."
+        },
+        {
+          "id": "B",
+          "english": "On the access road.",
+          "vietnamese": "Trên đường vào."
+        },
+        {
+          "id": "C",
+          "english": "A safety inspector.",
+          "vietnamese": "Một thanh tra an toàn."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s020": {
+      "english": "Why are the price labels being changed?",
+      "vietnamese": "Tại sao các nhãn giá đang được thay?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The label is attached securely.",
+          "vietnamese": "Nhãn được gắn chắc chắn."
+        },
+        {
+          "id": "B",
+          "english": "The seasonal sale starts tomorrow.",
+          "vietnamese": "Đợt giảm giá theo mùa bắt đầu ngày mai."
+        },
+        {
+          "id": "C",
+          "english": "At a printing company.",
+          "vietnamese": "Tại một công ty in."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s021": {
+      "english": "Can you recommend a quiet place for a client call?",
+      "vietnamese": "Bạn có thể gợi ý một chỗ yên tĩnh để gọi điện cho khách hàng không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The recommendation was accepted.",
+          "vietnamese": "Lời đề xuất đã được chấp nhận."
+        },
+        {
+          "id": "B",
+          "english": "Try the small room upstairs.",
+          "vietnamese": "Thử căn phòng nhỏ trên tầng đi."
+        },
+        {
+          "id": "C",
+          "english": "I called a client yesterday.",
+          "vietnamese": "Tôi đã gọi cho một khách hàng hôm qua."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s022": {
+      "english": "Are both swimming pools open to hotel guests?",
+      "vietnamese": "Cả hai hồ bơi đều mở cho khách lưu trú phải không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Only the indoor one this week.",
+          "vietnamese": "Tuần này chỉ có hồ trong nhà."
+        },
+        {
+          "id": "B",
+          "english": "The hotel has a swimming team.",
+          "vietnamese": "Khách sạn có một đội bơi."
+        },
+        {
+          "id": "C",
+          "english": "We opened the account yesterday.",
+          "vietnamese": "Chúng tôi đã mở tài khoản hôm qua."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s023": {
+      "english": "Should the application be mailed or uploaded?",
+      "vietnamese": "Nên gửi đơn qua bưu điện hay tải lên mạng?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A mail carrier.",
+          "vietnamese": "Một người đưa thư."
+        },
+        {
+          "id": "B",
+          "english": "The applicant arrived early.",
+          "vietnamese": "Ứng viên đã đến sớm."
+        },
+        {
+          "id": "C",
+          "english": "The instructions say to upload it.",
+          "vietnamese": "Hướng dẫn ghi là tải lên."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s024": {
+      "english": "Who arranged the flowers in the lobby?",
+      "vietnamese": "Ai đã cắm hoa ở sảnh?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The flowers need water.",
+          "vietnamese": "Hoa cần nước."
+        },
+        {
+          "id": "B",
+          "english": "Arrangements for tomorrow.",
+          "vietnamese": "Các sắp xếp cho ngày mai."
+        },
+        {
+          "id": "C",
+          "english": "The florist delivered them that way.",
+          "vietnamese": "Người bán hoa đã giao đến với cách cắm như vậy."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s025": {
+      "english": "How can I recover my account password?",
+      "vietnamese": "Làm sao để khôi phục mật khẩu tài khoản của tôi?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A powerful new computer.",
+          "vietnamese": "Một máy tính mới mạnh mẽ."
+        },
+        {
+          "id": "B",
+          "english": "Use the reset link on the login page.",
+          "vietnamese": "Dùng liên kết đặt lại trên trang đăng nhập."
+        },
+        {
+          "id": "C",
+          "english": "The account was created in June.",
+          "vietnamese": "Tài khoản được tạo vào tháng Sáu."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s026": {
+      "english": "Is there enough seating for sixty people?",
+      "vietnamese": "Có đủ chỗ ngồi cho sáu mươi người không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "We will need ten additional chairs.",
+          "vietnamese": "Chúng ta sẽ cần thêm mười chiếc ghế."
+        },
+        {
+          "id": "B",
+          "english": "The seat is near a window.",
+          "vietnamese": "Ghế ở gần cửa sổ."
+        },
+        {
+          "id": "C",
+          "english": "Sixty pages in total.",
+          "vietnamese": "Tổng cộng sáu mươi trang."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s027": {
+      "english": "When should I return the rental van?",
+      "vietnamese": "Khi nào tôi nên trả xe van đã thuê?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The rental rate includes insurance.",
+          "vietnamese": "Giá thuê bao gồm bảo hiểm."
+        },
+        {
+          "id": "B",
+          "english": "Before the office closes at six.",
+          "vietnamese": "Trước khi văn phòng đóng cửa lúc sáu giờ."
+        },
+        {
+          "id": "C",
+          "english": "A spacious van.",
+          "vietnamese": "Một chiếc xe van rộng rãi."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s028": {
+      "english": "The technician can come on Thursday, correct?",
+      "vietnamese": "Kỹ thuật viên có thể đến vào thứ Năm, đúng không?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "Actually, she has moved it to Friday.",
+          "vietnamese": "Thực ra cô ấy đã đổi sang thứ Sáu."
+        },
+        {
+          "id": "B",
+          "english": "The correction is in red.",
+          "vietnamese": "Phần sửa được viết bằng màu đỏ."
+        },
+        {
+          "id": "C",
+          "english": "A technical manual.",
+          "vietnamese": "Một sách hướng dẫn kỹ thuật."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s029": {
+      "english": "Why not send the draft to legal before printing?",
+      "vietnamese": "Hay là gửi bản nháp cho bộ phận pháp lý trước khi in?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The printer is beside legal.",
+          "vietnamese": "Máy in ở cạnh bộ phận pháp lý."
+        },
+        {
+          "id": "B",
+          "english": "A draft from the window.",
+          "vietnamese": "Một luồng gió lùa từ cửa sổ."
+        },
+        {
+          "id": "C",
+          "english": "That could prevent an expensive reprint.",
+          "vietnamese": "Làm vậy có thể tránh phải in lại tốn kém."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s030": {
+      "english": "Which of these two routes avoids the toll bridge?",
+      "vietnamese": "Trong hai tuyến đường này, tuyến nào tránh được cầu thu phí?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "The bridge was built in 1998.",
+          "vietnamese": "Cầu được xây vào năm 1998."
+        },
+        {
+          "id": "B",
+          "english": "The toll was two dollars.",
+          "vietnamese": "Phí qua cầu là hai đô la."
+        },
+        {
+          "id": "C",
+          "english": "The longer one along the river.",
+          "vietnamese": "Tuyến dài hơn chạy dọc theo sông."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s031": {
+      "english": "Have the new staff completed the online orientation?",
+      "vietnamese": "Nhân viên mới đã hoàn thành buổi định hướng trực tuyến chưa?",
+      "choices": [
+        {
+          "id": "A",
+          "english": "A staff discount.",
+          "vietnamese": "Một khoản giảm giá cho nhân viên."
+        },
+        {
+          "id": "B",
+          "english": "All except the two who started today.",
+          "vietnamese": "Tất cả trừ hai người mới bắt đầu hôm nay."
+        },
+        {
+          "id": "C",
+          "english": "The office faces east.",
+          "vietnamese": "Văn phòng hướng về phía đông."
+        }
+      ]
+    },
+    "bank2026-practice-listening:s032": {
+      "english": "Customer: I am collecting a suit for my colleague, but the ticket has my name instead of hers.\nClerk: Do you have the pickup code sent by text?\nCustomer: Yes, she forwarded it, and I have her written permission.\nClerk: That is enough. The jacket is ready, but we found a loose button on the trousers. We can repair it at no charge if you can wait twenty minutes.\nCustomer: Please do. She needs the suit tomorrow, so a short wait is better than another trip.",
+      "vietnamese": "Khách hàng: Tôi đến lấy bộ com lê cho đồng nghiệp, nhưng phiếu ghi tên tôi thay vì tên cô ấy.\nNhân viên: Bạn có mã nhận hàng gửi qua tin nhắn không?\nKhách hàng: Có, cô ấy đã chuyển tiếp mã, và tôi có giấy cho phép của cô ấy.\nNhân viên: Vậy là đủ. Áo khoác đã sẵn sàng, nhưng chúng tôi thấy một chiếc khuy lỏng trên quần. Chúng tôi có thể sửa miễn phí nếu bạn chờ hai mươi phút.\nKhách hàng: Vậy sửa giúp nhé. Cô ấy cần bộ đồ ngày mai, nên chờ một chút vẫn hơn phải quay lại thêm chuyến nữa.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s033": {
+      "english": "Building manager: The fire drill planned for this afternoon must be moved.\nInspector: Is the alarm system faulty?\nBuilding manager: No. A tenant is hosting visitors who need mobility assistance, and their evacuation arrangements are not ready.\nInspector: Then let us practice next Tuesday instead. Ask each floor representative to confirm their assistance plan by Monday noon.\nBuilding manager: I will send the change today and make clear that the usual emergency procedures still apply if a real alarm sounds before then.",
+      "vietnamese": "Quản lý tòa nhà: Buổi diễn tập phòng cháy dự kiến chiều nay phải đổi lịch.\nThanh tra: Hệ thống báo động bị lỗi à?\nQuản lý tòa nhà: Không. Một đơn vị thuê đang đón khách cần hỗ trợ di chuyển, và phương án sơ tán cho họ chưa sẵn sàng.\nThanh tra: Vậy hãy diễn tập vào thứ Ba tuần sau. Nhờ đại diện mỗi tầng xác nhận kế hoạch hỗ trợ trước trưa thứ Hai.\nQuản lý tòa nhà: Tôi sẽ gửi thông báo thay đổi hôm nay và nói rõ quy trình khẩn cấp thông thường vẫn áp dụng nếu có báo động thật trước lúc đó.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s034": {
+      "english": "Recruiter: Your portfolio link asks us to request access. Could you make it viewable by our interview panel?\nApplicant: I restricted it because it includes a client project. I can send a version with that material removed.\nRecruiter: That would be preferable. We do not need confidential work. Can it reach us by tomorrow morning?\nApplicant: Yes, I will create a PDF tonight.\nRecruiter: Please keep it under ten megabytes; our application system rejects larger files. You can reply directly to my email rather than upload it again.",
+      "vietnamese": "Nhà tuyển dụng: Liên kết hồ sơ tác phẩm của bạn yêu cầu chúng tôi xin quyền truy cập. Bạn cho hội đồng phỏng vấn xem được không?\nỨng viên: Tôi giới hạn quyền vì trong đó có dự án của khách hàng. Tôi có thể gửi bản đã loại phần đó.\nNhà tuyển dụng: Như vậy tốt hơn. Chúng tôi không cần tài liệu mật. Bạn gửi đến trước sáng mai được không?\nỨng viên: Được, tối nay tôi sẽ tạo một bản PDF.\nNhà tuyển dụng: Vui lòng giữ dung lượng dưới mười megabyte; hệ thống ứng tuyển của chúng tôi từ chối tệp lớn hơn. Bạn có thể trả lời trực tiếp email của tôi thay vì tải lên lại.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s035": {
+      "english": "Guest: I booked seats for Friday, but my father needs step-free access. Are our seats suitable?\nClerk: Row G is reached by stairs. We can move you to the front section using the side entrance.\nGuest: Will we still be able to sit together?\nClerk: Yes, there are two adjacent seats in Row C. There is no price difference.\nGuest: Please change them.\nClerk: I will email updated tickets. Keep those and delete the originals so the entrance scanner does not register the wrong seats.",
+      "vietnamese": "Khách: Tôi đã đặt chỗ cho thứ Sáu, nhưng bố tôi cần lối đi không có bậc thang. Chỗ chúng tôi có phù hợp không?\nNhân viên: Phải đi cầu thang để đến hàng G. Chúng tôi có thể chuyển bạn đến khu phía trước qua lối vào bên hông.\nKhách: Chúng tôi vẫn ngồi cạnh nhau được chứ?\nNhân viên: Có, còn hai ghế liền nhau ở hàng C. Không có chênh lệch giá.\nKhách: Vậy đổi giúp tôi.\nNhân viên: Tôi sẽ gửi vé cập nhật qua email. Hãy giữ vé mới và xóa vé cũ để máy quét ở lối vào không ghi nhận sai chỗ.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s036": {
+      "english": "Customer: My phone screen is cracked, but it still works. Can you replace it today?\nTechnician: Yes, if we have the right panel. Before I start, please back up your data.\nCustomer: Will the repair erase it?\nTechnician: Usually not, but we cannot guarantee data recovery if there is an unexpected hardware problem.\nCustomer: I will copy my photos to my laptop first.\nTechnician: Good. Bring the phone back before three, and I can finish by closing time. There is no need to leave your account password with us.",
+      "vietnamese": "Khách hàng: Màn hình điện thoại tôi nứt nhưng vẫn hoạt động. Bạn thay trong hôm nay được không?\nKỹ thuật viên: Được, nếu chúng tôi có đúng loại màn hình. Trước khi tôi bắt đầu, hãy sao lưu dữ liệu.\nKhách hàng: Việc sửa chữa có xóa dữ liệu không?\nKỹ thuật viên: Thường là không, nhưng chúng tôi không thể bảo đảm khôi phục dữ liệu nếu phát sinh sự cố phần cứng bất ngờ.\nKhách hàng: Tôi sẽ chép ảnh sang máy tính xách tay trước.\nKỹ thuật viên: Tốt. Mang điện thoại lại trước ba giờ thì tôi có thể làm xong trước giờ đóng cửa. Bạn không cần để lại mật khẩu tài khoản cho chúng tôi.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s037": {
+      "english": "Site manager: Rain has delayed the paving work. Can we keep the compactor for two more days?\nHire agent: The current unit is reserved for another customer tomorrow, but I have a comparable model available.\nSite manager: Would we have to collect it?\nHire agent: We can exchange the machines at your site at seven in the morning. The daily rate is the same; there is only a transport fee.\nSite manager: Send the amended agreement, including that fee, before I approve the extension.",
+      "vietnamese": "Quản lý công trường: Mưa làm chậm việc lát đường. Chúng tôi có thể giữ máy đầm thêm hai ngày không?\nNhân viên cho thuê: Máy hiện tại đã được khách khác đặt cho ngày mai, nhưng tôi còn một mẫu tương đương.\nQuản lý công trường: Chúng tôi có phải đến lấy không?\nNhân viên cho thuê: Chúng tôi có thể đổi máy tại công trường lúc bảy giờ sáng. Giá thuê mỗi ngày như cũ; chỉ thêm phí vận chuyển.\nQuản lý công trường: Hãy gửi thỏa thuận đã sửa, bao gồm phí đó, trước khi tôi phê duyệt gia hạn.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s038": {
+      "english": "Presenter: My poster is already printed at ninety centimeters wide. Will it fit on your display boards?\nOrganizer: The boards are one meter wide, but we require a five-centimeter margin on each side for clips.\nPresenter: So mine should just fit. Do I need to bring clips?\nOrganizer: No, we provide them. Please arrive by eight thirty to install the poster before visitors enter at nine.\nPresenter: I will. Is there a storage area for the tube?\nOrganizer: Leave it at the staffed cloakroom; unattended items are not allowed beside the boards.",
+      "vietnamese": "Người trình bày: Áp phích của tôi đã in rộng chín mươi xentimét. Có vừa bảng trưng bày của bạn không?\nNgười tổ chức: Bảng rộng một mét, nhưng chúng tôi yêu cầu chừa năm xentimét mỗi bên cho kẹp.\nNgười trình bày: Vậy áp phích của tôi vừa khít. Tôi có cần mang kẹp không?\nNgười tổ chức: Không, chúng tôi cung cấp. Vui lòng đến trước hoặc lúc tám giờ ba mươi để lắp áp phích trước khi khách vào lúc chín giờ.\nNgười trình bày: Tôi sẽ đến. Có chỗ để ống đựng áp phích không?\nNgười tổ chức: Hãy gửi ở phòng giữ đồ có nhân viên; không được để đồ không có người trông cạnh bảng.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s039": {
+      "english": "Bookkeeper: The purchase order was in euros, but this invoice is in dollars.\nSupplier: That is our default setting for new accounts. Was the agreed total nine hundred euros?\nBookkeeper: Correct. Please reissue the invoice in euros rather than converting today's dollar amount.\nSupplier: I will correct it and keep the original payment deadline.\nBookkeeper: Thank you. Mark the dollar invoice as canceled so our system does not treat both as payable.\nSupplier: You will receive a cancellation notice together with the replacement invoice.",
+      "vietnamese": "Nhân viên kế toán: Đơn đặt mua ghi bằng euro, nhưng hóa đơn này lại bằng đô la.\nNhà cung cấp: Đó là thiết lập mặc định cho tài khoản mới. Tổng tiền đã thỏa thuận là chín trăm euro phải không?\nNhân viên kế toán: Đúng. Vui lòng phát hành lại hóa đơn bằng euro, thay vì quy đổi số tiền đô la hôm nay.\nNhà cung cấp: Tôi sẽ sửa và giữ nguyên hạn thanh toán ban đầu.\nNhân viên kế toán: Cảm ơn. Hãy đánh dấu hóa đơn đô la là đã hủy để hệ thống của chúng tôi không coi cả hai đều phải thanh toán.\nNhà cung cấp: Bạn sẽ nhận thông báo hủy cùng với hóa đơn thay thế.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s040": {
+      "english": "Caretaker: The lobby monitor is showing a red warning, but the reading seems much higher than the portable meter.\nEngineer: The display averages yesterday's data until it receives a fresh sensor signal.\nCaretaker: We disconnected that sensor during cleaning this morning.\nEngineer: Reconnect it and wait ten minutes. The portable meter is calibrated, so use that reading for now.\nCaretaker: I will also place a note by the display explaining that it is being updated.\nEngineer: Good. Do not switch off the ventilation while you investigate.",
+      "vietnamese": "Người phụ trách tòa nhà: Màn hình ở sảnh đang hiện cảnh báo đỏ, nhưng chỉ số có vẻ cao hơn nhiều so với máy đo cầm tay.\nKỹ sư: Màn hình hiển thị trung bình dữ liệu hôm qua cho đến khi nhận được tín hiệu cảm biến mới.\nNgười phụ trách tòa nhà: Chúng tôi đã ngắt cảm biến đó khi vệ sinh sáng nay.\nKỹ sư: Hãy kết nối lại và đợi mười phút. Máy đo cầm tay đã được hiệu chuẩn, nên tạm thời dùng chỉ số đó.\nNgười phụ trách tòa nhà: Tôi cũng sẽ đặt ghi chú cạnh màn hình, giải thích rằng nó đang được cập nhật.\nKỹ sư: Tốt. Đừng tắt hệ thống thông gió trong khi kiểm tra.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s041": {
+      "english": "Bookseller: We have twenty signed copies for the author's visit, but fifteen are already reserved.\nAssistant: Should we put all twenty on the front table?\nBookseller: No, keep the reserved ones behind the counter with the customers' names. Put only the rest on display.\nAssistant: What if more people ask for a signed copy?\nBookseller: Take their contact details. The author may sign additional stock after the reading, but we cannot promise it.\nAssistant: I will make a waiting list and explain that ordinary copies are available immediately.",
+      "vietnamese": "Người bán sách: Chúng ta có hai mươi bản có chữ ký cho buổi tác giả đến, nhưng mười lăm bản đã được đặt trước.\nTrợ lý: Chúng ta có nên đặt cả hai mươi bản lên bàn phía trước không?\nNgười bán sách: Không, giữ các bản đã đặt phía sau quầy, kèm tên khách hàng. Chỉ trưng bày số còn lại.\nTrợ lý: Nếu có thêm người hỏi mua bản có chữ ký thì sao?\nNgười bán sách: Hãy ghi thông tin liên hệ của họ. Tác giả có thể ký thêm sách sau buổi đọc, nhưng chúng ta không thể hứa chắc.\nTrợ lý: Tôi sẽ lập danh sách chờ và giải thích rằng bản thường có sẵn ngay.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s042": {
+      "english": "A reminder to guests attending the wedding reception this evening: music in the garden must finish at ten, but the indoor lounge will remain open until midnight. Please use the corridor entrance to the lounge after ten rather than crossing the guest-room wing. Guests who need a taxi should give their names to reception before nine thirty so we can coordinate pickups. This is a booking request, not a fixed departure time; you may choose when to leave. Breakfast tomorrow will start at seven thirty as usual.",
+      "vietnamese": "Xin nhắc các khách dự tiệc cưới tối nay: âm nhạc ngoài vườn phải kết thúc lúc mười giờ, nhưng phòng khách trong nhà vẫn mở đến nửa đêm. Sau mười giờ, vui lòng dùng lối hành lang vào phòng khách, thay vì đi qua khu phòng lưu trú. Khách cần taxi hãy báo tên cho lễ tân trước chín giờ ba mươi để chúng tôi phối hợp đón. Đây là yêu cầu đặt xe, không phải giờ khởi hành cố định; bạn được chọn lúc ra về. Bữa sáng ngày mai vẫn bắt đầu lúc bảy giờ ba mươi như thường lệ.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s043": {
+      "english": "Due to high winds, the cliff path on today's coastal tour is closed. We will visit the maritime museum instead. The museum admission is included, and the cafe there offers lunch at your own expense. Our bus will still leave at eight and return at five. Those who would rather not join the revised itinerary may transfer to next Sunday's departure without a change fee, provided they contact us before six this evening. Please bring a waterproof jacket, as the harbor walking section remains on the program.",
+      "vietnamese": "Do gió mạnh, đường ven vách đá trong chuyến tham quan bờ biển hôm nay bị đóng. Thay vào đó chúng ta sẽ đến bảo tàng hàng hải. Vé bảo tàng đã bao gồm trong chương trình; bữa trưa tại quán cà phê ở đó do bạn tự trả. Xe buýt vẫn khởi hành lúc tám giờ và về lúc năm giờ. Ai không muốn tham gia lịch trình đã điều chỉnh có thể chuyển sang chuyến Chủ nhật tuần sau mà không mất phí đổi, miễn là liên hệ trước sáu giờ chiều nay. Hãy mang áo khoác chống nước, vì phần đi bộ ở cảng vẫn nằm trong chương trình.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s044": {
+      "english": "From Monday, confidential print jobs will wait in the queue until you enter your staff code at the printer. This prevents documents being left unattended in the output tray. Jobs not collected within twenty-four hours will be deleted from the queue, but the original files on your computer will not be affected. Large nonconfidential jobs can still be sent to the central print room. If you have forgotten your code, request a reset through the IT portal; the print-room staff cannot look it up for you.",
+      "vietnamese": "Từ thứ Hai, lệnh in tài liệu mật sẽ nằm trong hàng đợi đến khi bạn nhập mã nhân viên tại máy in. Cách này ngăn tài liệu bị để không có người trông ở khay ra giấy. Lệnh in không được nhận trong vòng hai mươi bốn giờ sẽ bị xóa khỏi hàng đợi, nhưng tệp gốc trên máy tính không bị ảnh hưởng. Các lệnh in lớn không chứa thông tin mật vẫn có thể gửi đến phòng in trung tâm. Nếu quên mã, hãy yêu cầu đặt lại qua cổng công nghệ thông tin; nhân viên phòng in không thể tra mã hộ bạn.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s045": {
+      "english": "Local groups applying for our community fund should submit a project plan and a separate cost sheet. We can support equipment purchases but not ongoing salaries. The maximum award is two thousand dollars, and each group may make only one application. If several activities form one project, include them in a single plan rather than sending separate requests. The deadline is May 12. Successful applicants will be contacted in June, and purchases made before an award is confirmed cannot be reimbursed from this fund.",
+      "vietnamese": "Các nhóm địa phương xin tài trợ từ quỹ cộng đồng nên nộp kế hoạch dự án và một bảng chi phí riêng. Chúng tôi có thể hỗ trợ mua thiết bị nhưng không hỗ trợ lương thường xuyên. Khoản tài trợ tối đa là hai nghìn đô la, và mỗi nhóm chỉ được nộp một đơn. Nếu nhiều hoạt động thuộc cùng một dự án, hãy gộp vào một kế hoạch, thay vì gửi các yêu cầu riêng. Hạn chót là ngày 12 tháng Năm. Các nhóm được duyệt sẽ được liên hệ vào tháng Sáu, và những khoản mua sắm trước khi tài trợ được xác nhận không thể được hoàn trả từ quỹ này.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s046": {
+      "english": "Today I will show you how to check whether a container plant actually needs water. A dry surface can be misleading, especially in deep pots. Push a finger a few centimeters into the soil or use a moisture probe. If the lower soil is still damp, wait before watering again. All the plants on this table tolerate a short dry period, but none should stand permanently in a tray of water. After the demonstration, you can try the probes yourself; please clean the tip between pots to avoid spreading plant disease.",
+      "vietnamese": "Hôm nay tôi sẽ chỉ cách kiểm tra cây trồng trong chậu có thực sự cần nước không. Bề mặt khô có thể gây nhầm, đặc biệt ở chậu sâu. Hãy ấn ngón tay xuống đất vài xentimét hoặc dùng que đo độ ẩm. Nếu lớp đất bên dưới vẫn ẩm, hãy đợi rồi mới tưới tiếp. Tất cả cây trên bàn này chịu được một thời gian khô ngắn, nhưng không cây nào nên ngâm thường xuyên trong khay nước. Sau phần hướng dẫn, bạn có thể tự thử que đo; hãy lau đầu que giữa các chậu để tránh lây bệnh cho cây.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s047": {
+      "english": "Beginning this Saturday, the early swim session will use a different lane arrangement. Look at the plan beside the entrance. During the first hour, the lane farthest from the windows is reserved for coached swimmers. Casual swimmers should choose a lane marked for their pace and should not enter the coached lane even if it appears empty. The children's session starts at ten, when all adults must leave the shallow end. Locker keys should be returned to the desk before you exit, not left in the lockers.",
+      "vietnamese": "Từ thứ Bảy này, buổi bơi sớm sẽ dùng cách bố trí làn khác. Hãy xem sơ đồ cạnh lối vào. Trong giờ đầu, làn xa cửa sổ nhất dành cho người bơi có huấn luyện viên. Người bơi tự do nên chọn làn được đánh dấu phù hợp với tốc độ của mình, và không vào làn có huấn luyện viên dù trông có vẻ trống. Buổi của trẻ em bắt đầu lúc mười giờ; khi đó mọi người lớn phải rời khu nước nông. Chìa khóa tủ đồ phải trả ở quầy trước khi ra về, không để trong tủ.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s048": {
+      "english": "Our repair cafe opens on the first Sunday of each month. Visitors bring small household items, and volunteer repairers explain what might be wrong. This is a learning event, not a guaranteed repair service. For safety reasons we cannot accept gas appliances, microwaves or devices with damaged lithium batteries. If a replacement part is needed, we help identify it, but the owner pays for it. Please reserve a time slot so we can match you with a volunteer who has the relevant experience, and bring the instruction manual if you have it.",
+      "vietnamese": "Quán sửa chữa cộng đồng của chúng tôi mở vào Chủ nhật đầu tiên mỗi tháng. Khách mang các vật dụng gia đình nhỏ đến và tình nguyện viên sửa chữa giải thích nguyên nhân có thể gây hỏng. Đây là hoạt động học hỏi, không phải dịch vụ bảo đảm sửa được đồ. Vì an toàn, chúng tôi không nhận thiết bị dùng khí đốt, lò vi sóng hoặc thiết bị có pin lithium bị hỏng. Nếu cần linh kiện thay thế, chúng tôi giúp xác định loại, nhưng chủ đồ tự trả tiền. Vui lòng đặt khung giờ để chúng tôi ghép bạn với tình nguyện viên có kinh nghiệm phù hợp, và mang sách hướng dẫn nếu có.",
+      "choices": []
+    },
+    "bank2026-practice-listening:s049": {
+      "english": "Starting next quarter, rail tickets for approved business travel should be purchased through the company portal. Personal purchases will still be reimbursed if the portal is unavailable, but you must attach a screenshot showing the outage and explain the alternative fare. This exception does not apply merely because a preferred departure is sold out. Hotel bookings follow the existing procedure and are not affected by this change. A short portal demonstration will be recorded on Thursday; you can watch it later if you cannot attend the live session.",
+      "vietnamese": "Từ quý tới, vé tàu cho chuyến công tác đã được phê duyệt nên mua qua cổng công ty. Vé tự mua vẫn được hoàn trả nếu cổng không hoạt động, nhưng bạn phải đính kèm ảnh chụp màn hình thể hiện sự cố và giải thích giá vé thay thế. Ngoại lệ này không áp dụng chỉ vì chuyến khởi hành mong muốn đã hết chỗ. Đặt khách sạn vẫn theo quy trình hiện hành và không bị ảnh hưởng bởi thay đổi này. Một buổi hướng dẫn ngắn về cổng sẽ được ghi hình vào thứ Năm; nếu không dự trực tiếp được, bạn có thể xem sau.",
+      "choices": []
+    }
+  }
+}

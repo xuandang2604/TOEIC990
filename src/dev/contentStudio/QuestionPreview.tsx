@@ -26,7 +26,7 @@ export function QuestionPreview({ question, bank }: { question: Question; bank: 
         Only this editor can deliberately reveal the key. No attempts or review ratings are written.
       </p>
       {stimulus && (
-        <StimulusView stimulus={stimulus} passages={bank.passages}>
+        <StimulusView stimulus={stimulus} passages={bank.passages} reveal={reveal}>
           {audio && <MediaPlayer audio={audio} />}
         </StimulusView>
       )}

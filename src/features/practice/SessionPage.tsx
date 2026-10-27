@@ -188,8 +188,7 @@ function ActiveSession({ session }: { session: StudySession }) {
       )}
       {!exam && (
         <p className="lookup-hint">
-          Tra từ/cụm: bôi chọn tiếng Anh rồi nhấn “Tra” hoặc Alt + Enter. Nháp lựa chọn được lưu,
-          chỉ nộp mới chấm điểm.
+          Chọn từ → Tra → Lưu từ. Lựa chọn được lưu nháp đến khi bạn nộp.
         </p>
       )}
       <UnitNavigation count={units.length} current={unitIndex}>

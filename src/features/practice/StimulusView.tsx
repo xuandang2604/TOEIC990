@@ -7,16 +7,19 @@ export function StimulusView({
   stimulus,
   passages,
   exam = false,
+  reveal = false,
   children,
   renderPassage,
 }: {
   stimulus: Stimulus
   passages: Passage[]
   exam?: boolean
+  reveal?: boolean
   children?: ReactNode
   renderPassage?: (passage: Passage) => ReactNode
 }) {
   const [imageFailed, setImageFailed] = useState(false)
+  const revealListening = reveal && !exam
   return (
     <article className="passage-panel shared-stimulus">
       <p className="eyebrow">
@@ -24,14 +27,18 @@ export function StimulusView({
           ? `${stimulus.passageIds.length} VĂN BẢN DÙNG CHUNG`
           : 'TƯ LIỆU DÙNG CHUNG'}
       </p>
-      <h2>{exam && stimulus.part <= 4 ? `Listening · Part ${stimulus.part}` : stimulus.title}</h2>
+      <h2>
+        {!revealListening && stimulus.part <= 4
+          ? `Listening · Part ${stimulus.part}`
+          : stimulus.title}
+      </h2>
       {stimulus.kind === 'photograph' &&
         (stimulus.photograph.status === 'ready' && !imageFailed ? (
           <figure className="practice-photo">
             <img
               src={assetUrl(stimulus.photograph.src)}
               alt={
-                exam
+                !revealListening
                   ? 'Photograph for this listening question. A visual description is available after submission.'
                   : stimulus.photograph.alt
               }
@@ -125,11 +132,6 @@ export function StimulusView({
             </p>
           )
         })}
-      {!exam && (
-        <p className="lookup-hint">
-          Chọn từ/cụm tiếng Anh, rồi nhấn “Tra” hoặc Alt + Enter. Chỉ bôi đen sẽ không mở nghĩa.
-        </p>
-      )}
     </article>
   )
 }

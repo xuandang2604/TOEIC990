@@ -78,25 +78,28 @@ function Exercise({
         </div>
       </fieldset>
       {result ? (
-        <div className="grammar-exercise-feedback" role="status">
-          <strong>
+        <div className="grammar-exercise-feedback">
+          <strong role="status">
             {result.correct ? 'Đúng rồi.' : `Cùng xem lại. Đáp án ${exercise.answer}.`}
           </strong>
-          <p>
-            {result.reasoning} {result.explanation}
-          </p>
-          <details>
-            <summary>Vì sao các lựa chọn khác không phù hợp?</summary>
-            {exercise.options
-              .filter((o) => o.id !== result.selected)
-              .map((o) => (
-                <p key={o.id}>
-                  <strong>
-                    {o.id}. {o.text}
-                  </strong>{' '}
-                  — {o.explanation}
-                </p>
-              ))}
+          <details className="feedback-disclosure">
+            <summary>Xem giải thích</summary>
+            <p>
+              {result.reasoning} {result.explanation}
+            </p>
+            <details>
+              <summary>Vì sao các lựa chọn khác không phù hợp?</summary>
+              {exercise.options
+                .filter((o) => o.id !== result.selected)
+                .map((o) => (
+                  <p key={o.id}>
+                    <strong>
+                      {o.id}. {o.text}
+                    </strong>{' '}
+                    — {o.explanation}
+                  </p>
+                ))}
+            </details>
           </details>
           <button
             type="button"
@@ -133,10 +136,7 @@ export function GrammarPractice({
   return (
     <section className="grammar-mini-practice">
       <h3>Tự kiểm tra ngay</h3>
-      <p className="small muted">
-        Chọn đáp án rồi kiểm tra cách suy luận. Kết quả được ghi ở kỹ năng ngữ pháp, tách khỏi thống
-        kê Part và lịch ôn thẻ.
-      </p>
+      <p className="small muted">Chọn đáp án, kiểm tra rồi mở giải thích nếu cần.</p>
       {lesson.practice.map((exercise, i) => (
         <Exercise
           key={exercise.id}

@@ -2,6 +2,7 @@ import type { VocabularyBase } from './schema'
 import { bankVocabulary } from './bankVocabulary'
 import { enrichVocabulary, starterNotes } from './lexicalNotes'
 import { additionalVocabulary } from './vocabularyExpansion'
+import { workplaceVocabulary } from './vocabularyWorkplace'
 
 // Original, curated bilingual mini dictionary. No remote dictionary or scraping.
 const starterVocabulary: VocabularyBase[] = [
@@ -478,5 +479,6 @@ export const vocabulary = [
   ...starterVocabulary.map((entry) => enrichVocabulary(entry, starterNotes[entry.id])),
   ...additionalVocabulary,
   ...bankVocabulary,
+  ...workplaceVocabulary,
 ].sort((a, b) => a.word.localeCompare(b.word, 'en'))
 export const vocabularyById = new Map(vocabulary.map((entry) => [entry.id, entry]))

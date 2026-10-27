@@ -11,6 +11,11 @@ import { useReferenceFocus } from '../../components/useReferenceFocus'
 import { VocabularyReminderSettings } from './VocabularyReminders'
 import { schedulableCard } from '../../domain/scheduler'
 import { localDayKey } from '../../domain/learning'
+import {
+  vocabularyBandFor,
+  vocabularyBands,
+  type VocabularyBandId,
+} from '../../content/vocabularyBands'
 
 export function VocabularyPage({ id }: { id?: string }) {
   const data = useStudy()
@@ -18,6 +23,8 @@ export function VocabularyPage({ id }: { id?: string }) {
   const [savedOnly, setSavedOnly] = useState(false)
   const [dueOnly, setDueOnly] = useState(false)
   const [topic, setTopic] = useState('')
+  const [band, setBand] = useState<VocabularyBandId | ''>('')
+  const [includeFoundation, setIncludeFoundation] = useState(true)
   const now = useNow()
   const cards = new Map(
     data.cards
@@ -42,31 +49,36 @@ export function VocabularyPage({ id }: { id?: string }) {
     .filter((entry) => !savedOnly || savedIds.has(entry.id))
     .filter((entry) => !dueOnly || dueIds.has(entry.id))
     .filter((entry) => !topic || entry.topic === topic)
+    .filter((entry) => {
+      if (!band) return true
+      const assigned = vocabularyBandFor(entry.id)
+      const target = vocabularyBands.find((item) => item.id === band)!
+      return (
+        assigned && (includeFoundation ? assigned.ceiling <= target.ceiling : assigned.id === band)
+      )
+    })
   const selected = id ? vocabularyById.get(id) : results[0]
   const detail = useReferenceFocus(id && selected ? id : undefined, 520)
   return (
     <>
       <PageHeading
-        eyebrow="TỪ VỰNG, ĐẶT TRONG NGỮ CẢNH"
-        title="Không chỉ biết một nghĩa."
-        description="Hiểu cách dùng, nhớ theo cụm và đưa từ trở lại đúng lúc."
+        eyebrow="SỔ TAY ANH – VIỆT"
+        title="Từ vựng"
+        description="Tra từ. Lưu lại. Ôn đúng lúc."
         action={<Tag>{vocabulary.length} mục từ ngoại tuyến</Tag>}
       />
-      <section className="vocabulary-notebook panel" aria-label="Sổ từ vựng cá nhân">
+      <section
+        className="vocabulary-notebook vocabulary-notebook-compact panel"
+        aria-label="Sổ từ vựng cá nhân"
+      >
         <div>
-          <span className="eyebrow">SỔ TỪ CỦA BẠN</span>
-          <h2>Từ trong bài, trở lại đúng lúc.</h2>
           <p>
-            {savedIds.size} từ đã lưu · {dueCards.length} đến hạn · {reviewedToday} từ đã ôn hôm
-            nay.
-          </p>
-          <p className="small muted">
-            Chọn từ trong bài rồi bấm tra cứu để lưu cùng ngữ cảnh. Lịch ôn dùng kết quả tự nhớ,
-            không đánh dấu thành thạo chỉ vì đã xem nghĩa.
+            <strong>{savedIds.size}</strong> đã lưu · <strong>{dueCards.length}</strong> đến hạn ·{' '}
+            {reviewedToday} đã ôn hôm nay
           </p>
         </div>
         <button className="button primary" onClick={() => navigate('review', 'vocabulary')}>
-          Mở hàng đợi từ
+          Ôn từ
           <ArrowRight size={16} />
         </button>
       </section>
@@ -103,25 +115,55 @@ export function VocabularyPage({ id }: { id?: string }) {
             </button>
           </div>
           <label className="form-label notebook-topic">
-            Chủ đề
-            <select value={topic} onChange={(e) => setTopic(e.target.value)}>
-              <option value="">Tất cả chủ đề</option>
-              {[...new Set(vocabulary.map((v) => v.topic))].sort().map((t) => (
-                <option key={t}>{t}</option>
+            Band điểm
+            <select value={band} onChange={(e) => setBand(e.target.value as VocabularyBandId | '')}>
+              <option value="">Tất cả band điểm</option>
+              {vocabularyBands.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.label} (
+                  {vocabulary.filter((word) => vocabularyBandFor(word.id)?.id === item.id).length})
+                </option>
               ))}
             </select>
           </label>
-          <label className="reminder-checkbox">
-            <input
-              type="checkbox"
-              checked={dueOnly}
-              onChange={(e) => {
-                setDueOnly(e.target.checked)
-                if (e.target.checked) setSavedOnly(true)
-              }}
-            />
-            Chỉ từ đến hạn ({dueCards.length})
-          </label>
+          <details className="vocabulary-filters">
+            <summary>
+              Bộ lọc khác{topic || dueOnly || (band && !includeFoundation) ? ' · đang áp dụng' : ''}
+            </summary>
+            <label className="form-label notebook-topic">
+              Chủ đề
+              <select value={topic} onChange={(e) => setTopic(e.target.value)}>
+                <option value="">Tất cả chủ đề</option>
+                {[...new Set(vocabulary.map((v) => v.topic))].sort().map((t) => (
+                  <option key={t}>{t}</option>
+                ))}
+              </select>
+            </label>
+            {band && (
+              <label className="reminder-checkbox">
+                <input
+                  type="checkbox"
+                  checked={includeFoundation}
+                  onChange={(e) => setIncludeFoundation(e.target.checked)}
+                />
+                Kèm từ ở các band nền tảng
+              </label>
+            )}
+            <p className="small muted vocabulary-band-note">
+              Band là gợi ý học, không phải phân loại ETS. Mục tiêu cao vẫn cần chắc từ nền tảng.
+            </p>
+            <label className="reminder-checkbox">
+              <input
+                type="checkbox"
+                checked={dueOnly}
+                onChange={(e) => {
+                  setDueOnly(e.target.checked)
+                  if (e.target.checked) setSavedOnly(true)
+                }}
+              />
+              Chỉ từ đến hạn ({dueCards.length})
+            </label>
+          </details>
           <p className="index-count small muted" aria-live="polite">
             {results.length} mục từ{deferred ? ` cho “${deferred}”` : ''}
           </p>
@@ -142,6 +184,9 @@ export function VocabularyPage({ id }: { id?: string }) {
                 <small>
                   <Highlight text={entry.meaning} query={deferred} />
                 </small>
+                <small className="vocabulary-band-label">
+                  Band {vocabularyBandFor(entry.id)?.shortLabel}
+                </small>
                 {cards.has(entry.id) && (
                   <small className="notebook-due">
                     {dueIds.has(entry.id)
@@ -154,11 +199,15 @@ export function VocabularyPage({ id }: { id?: string }) {
             {!results.length && (
               <EmptyState
                 icon={savedOnly ? Bookmark : Search}
-                title={savedOnly ? 'Sổ từ đang chờ bạn.' : 'Chưa tìm thấy từ phù hợp.'}
+                title={
+                  savedOnly && savedIds.size === 0
+                    ? 'Sổ từ đang chờ bạn.'
+                    : 'Chưa tìm thấy từ phù hợp.'
+                }
               >
-                {savedOnly
+                {savedOnly && savedIds.size === 0
                   ? 'Lưu một từ trong bài học hoặc từ điển để bắt đầu ôn lại.'
-                  : `Thử dạng gốc hoặc nghĩa tiếng Việt. Bộ từ hiện tại có ${vocabulary.length} mục.`}
+                  : 'Thử bỏ bộ lọc band, chủ đề hoặc đến hạn, hay tìm bằng dạng gốc/nghĩa tiếng Việt.'}
               </EmptyState>
             )}
           </div>
@@ -185,6 +234,7 @@ export function VocabularyPage({ id }: { id?: string }) {
                       setSavedOnly(false)
                       setDueOnly(false)
                       setTopic('')
+                      setBand('')
                     }}
                   >
                     Xem tất cả
@@ -192,13 +242,6 @@ export function VocabularyPage({ id }: { id?: string }) {
                 </div>
               )}
               <WordDetails key={selected.id} entry={selected} />
-              <div className="learning-tip">
-                <span className="eyebrow">THỬ CHỦ ĐỘNG NHỚ LẠI</span>
-                <p>
-                  Che nghĩa, tự đặt một câu có từ này, rồi đối chiếu với ví dụ. Khi đã lưu, bạn có
-                  thể ôn bằng thẻ lật ở mục Ôn tập.
-                </p>
-              </div>
             </>
           ) : (
             <EmptyState
@@ -210,9 +253,10 @@ export function VocabularyPage({ id }: { id?: string }) {
           )}
         </section>
       </div>
-      <div className="section-spaced">
+      <details className="section-spaced vocabulary-reminder-disclosure">
+        <summary>Nhắc ôn từ</summary>
         <VocabularyReminderSettings />
-      </div>
+      </details>
     </>
   )
 }

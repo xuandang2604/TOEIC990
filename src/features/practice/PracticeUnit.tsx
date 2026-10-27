@@ -15,7 +15,7 @@ import { QuestionFeedback, SaveQuestionButton } from './QuestionFeedback'
 import { StimulusView } from './StimulusView'
 import { useQuestionTiming } from '../../components/useQuestionTiming'
 import { ListeningLab } from '../listening/ListeningLab'
-import { EvidenceCheck } from '../reading/EvidenceCheck'
+import { ListeningTranscript } from '../listening/ListeningTranscript'
 import { ReadingDocument } from '../reading/ReadingDocument'
 import { ReportQuestion } from './ReportQuestion'
 import { questionQualityLabel } from '../../content/eligibility'
@@ -90,6 +90,12 @@ export function UnitContent({
           stimulus={stimulus}
           passages={passages}
           exam={exam}
+          reveal={
+            review ||
+            items.every((question) =>
+              data.attempts.some((attempt) => attempt.id === `${session.id}:${question.id}`),
+            )
+          }
           renderPassage={(passage) => <ReadingDocument passage={passage} />}
         >
           {audio && (
@@ -118,16 +124,12 @@ export function UnitContent({
               )}
               {!exam && (
                 <details className="transcript">
-                  <summary>Xem bản chép lời (gợi ý)</summary>
-                  <p lang="en" data-learning>
-                    {'audio' in stimulus ? stimulus.audio.transcript : ''}
-                  </p>
-                  {stimulus.part <= 2 &&
-                    items[0].options.map((o) => (
-                      <p key={o.id} lang="en" data-learning>
-                        {o.id}. {o.text}
-                      </p>
-                    ))}
+                  <summary>Xem bản chép lời · Anh – Việt (gợi ý)</summary>
+                  <ListeningTranscript
+                    stimulusId={stimulus.id}
+                    transcript={'audio' in stimulus ? stimulus.audio.transcript : ''}
+                    options={stimulus.part <= 2 ? items[0].options : []}
+                  />
                 </details>
               )}
             </>
@@ -236,11 +238,7 @@ function QuestionCard({
               : 'Chưa chọn đáp án.'}
         </p>
       )}
-      {!exam && attempt && (
-        <EvidenceCheck questionId={question.id} question={question}>
-          <QuestionFeedback question={question} attempt={attempt} />
-        </EvidenceCheck>
-      )}
+      {!exam && attempt && <QuestionFeedback question={question} attempt={attempt} />}
     </section>
   )
 }

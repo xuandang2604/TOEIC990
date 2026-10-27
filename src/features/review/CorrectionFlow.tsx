@@ -153,16 +153,19 @@ export function CorrectionFlow({ question, attempt }: { question: Question; atte
                 onSelect={setTransferSelected}
               />
               {transferResult ? (
-                <div role="status">
-                  <strong>
+                <div>
+                  <strong role="status">
                     {transferResult.transferCorrect ? 'Vận dụng đúng.' : 'Cùng đối chiếu lại.'}
                   </strong>
-                  <p>{transfer.current.explanation}</p>
-                  {transfer.current.options.map((o) => (
-                    <p key={o.id}>
-                      {o.id}. {o.reasoning}
-                    </p>
-                  ))}
+                  <details className="feedback-disclosure">
+                    <summary>Xem giải thích</summary>
+                    <p>{transfer.current.explanation}</p>
+                    {transfer.current.options.map((o) => (
+                      <p key={o.id}>
+                        {o.id}. {o.reasoning}
+                      </p>
+                    ))}
+                  </details>
                 </div>
               ) : (
                 <button

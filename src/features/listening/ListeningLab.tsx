@@ -5,32 +5,11 @@ import { saveLearningActivity } from '../../application/studioRepository'
 import { useAction } from '../../application/hooks'
 import { MediaPlayer } from '../../components/MediaPlayer'
 import { InlineError } from '../../components/ui'
-import { vocabulary } from '../../content/vocabulary'
 import { ShadowRecorder } from './ShadowRecorder'
+import { ListeningTranscript } from './ListeningTranscript'
 import { registerUpdatePreparation } from '../../application/updatePreparation'
 import { StudyOperationError } from '../../application/errors'
 
-function TranscriptWords({ text }: { text: string }) {
-  const known = new Set(
-    vocabulary
-      .filter((w) => !w.word.includes(' '))
-      .flatMap((w) => [w.word, ...w.forms])
-      .map((w) => w.toLowerCase()),
-  )
-  return (
-    <p lang="en" data-learning>
-      {text.split(/([A-Za-z]+(?:['’-][A-Za-z]+)*)/g).map((word, i) =>
-        known.has(word.toLowerCase()) ? (
-          <mark className="transcript-word" key={i}>
-            {word}
-          </mark>
-        ) : (
-          word
-        ),
-      )}
-    </p>
-  )
-}
 export function ListeningLab({ audio, stimulusId }: { audio: AudioAsset; stimulusId: string }) {
   const [mode, setMode] = useState<'listen' | 'dictation' | 'shadowing'>('listen')
   const segments = useMemo(() => transcriptSegments(audio.transcript), [audio.transcript])
@@ -126,8 +105,13 @@ export function ListeningLab({ audio, stimulusId }: { audio: AudioAsset; stimulu
       <MediaPlayer key={`${stimulusId}:${index}:${mode}`} audio={segmentAudio} />
       {mode === 'listen' && (
         <details className="transcript">
-          <summary>Tự nghe trước · mở câu để đối chiếu</summary>
-          <TranscriptWords text={reference} />
+          <summary>Tự nghe trước · đối chiếu Anh – Việt</summary>
+          <ListeningTranscript
+            stimulusId={stimulusId}
+            transcript={audio.transcript}
+            segment={synthetic ? segment : undefined}
+            highlight
+          />
           <p className="small muted">
             Từ đánh dấu có trong từ điển chọn lọc. Chọn từ/cụm → Tra hoặc Alt + Enter.
           </p>
@@ -210,8 +194,13 @@ export function ListeningLab({ audio, stimulusId }: { audio: AudioAsset; stimulu
       {mode === 'shadowing' && (
         <>
           <details className="transcript">
-            <summary>Xem câu để nhại lại</summary>
-            <TranscriptWords text={reference} />
+            <summary>Xem câu & nghĩa để nhại lại</summary>
+            <ListeningTranscript
+              stimulusId={stimulusId}
+              transcript={audio.transcript}
+              segment={synthetic ? segment : undefined}
+              highlight
+            />
           </details>
           <ShadowRecorder />
         </>
