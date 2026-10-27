@@ -5,6 +5,9 @@ import { db } from '../persistence/database'
 import { StudyOperationError } from './errors'
 import { mockById, availableMockExams } from '../content/mockExams'
 import { questionAssessmentEligible } from '../content/eligibility'
+import { finishExam } from './examRepository'
+import { finishQuestionTiming } from './timingRepository'
+import { validRecord } from '../persistence/records'
 
 export async function startSession(
   kind: SessionKind,
@@ -118,4 +121,59 @@ export async function closeUnavailableSession(sessionId: string) {
     if (lease?.sessionId === sessionId) await db.timingLeases.delete('foreground')
     return updated
   })
+}
+
+/** One atomic checkpoint for an explicit "end sessions and update" action; no study drafts are graded. */
+export async function finishSessionsForUpdate() {
+  await db.transaction('rw', db.tables, async () => {
+    const sessions = await db.sessions.where('status').equals('active').toArray()
+    if (sessions.some((session) => !validRecord('sessions', session)))
+      throw new StudyOperationError(
+        'Có phiên học cần kiểm tra dữ liệu. Chưa kết thúc phiên hoặc cập nhật; hãy xuất sổ học để kiểm tra.',
+      )
+    for (const session of sessions) {
+      if (session.mode === 'exam') {
+        // Reuse the normal submission path: saved choices and omissions, with existing idempotency.
+        await finishExam(session.id)
+      } else {
+        const now = Date.now()
+        const attempts = await db.attempts.where('sessionId').equals(session.id).toArray()
+        const answered = new Set(
+          attempts.filter((a) => a.selected !== null).map((a) => a.questionId),
+        )
+        const complete = session.questionIds.every((id) => answered.has(id))
+        const lease = await db.timingLeases.get('foreground')
+        if (lease?.sessionId === session.id)
+          await finishQuestionTiming(session.id, lease.questionId, now)
+        await db.sessions.put(
+          complete
+            ? { ...session, status: 'completed', completedAt: now }
+            : {
+                ...session,
+                status: 'interrupted',
+                interruptedAt: now,
+                interruptionReason: 'app-update',
+              },
+        )
+        if (!complete) {
+          const plans = await db.dailyPlans
+            .where('status')
+            .equals('active')
+            .filter((plan) => plan.practiceSessionId === session.id)
+            .toArray()
+          for (const plan of plans)
+            await db.dailyPlans.put({ ...plan, status: 'archived', completedAt: now })
+        }
+      }
+      await db.playbacks
+        .where('sessionId')
+        .equals(session.id)
+        .filter((p) => p.status === 'started')
+        .modify({ status: 'failed', error: 'interrupted', assisted: true, updatedAt: Date.now() })
+    }
+  })
+}
+
+export async function hasActiveSessions() {
+  return (await db.sessions.where('status').equals('active').count()) > 0
 }

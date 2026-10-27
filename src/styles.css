@@ -6263,6 +6263,22 @@ mark.blank-marker {
   font-size: 0.75rem;
   min-height: 36px;
 }
+.offline-status .update-end-session {
+  color: var(--error);
+  border-color: var(--error);
+  background: var(--error-soft);
+  min-height: 44px;
+  max-width: 100%;
+  white-space: normal;
+}
+.update-progress-dialog {
+  max-width: min(440px, calc(100vw - 32px));
+}
+.update-progress-dialog > p:last-child {
+  margin-top: 18px;
+  color: var(--sage);
+  font-size: 0.85rem;
+}
 .data-page {
   max-width: 940px;
 }

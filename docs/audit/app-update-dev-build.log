@@ -1,0 +1,98 @@
+
+> study-990@0.1.0 build:dev
+> tsc -b && vite build --mode development --minify false
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - import "./build/studio" without a file extension (vite.config.ts:5:31). Add the file extension
+  - import "./studioStore" without a file extension (build/studio.ts:2:44). Add the file extension
+  - import "./contentFiles" without a file extension (build/studio.ts:3:52). Add the file extension
+  - import "../src/content/quality" without a file extension (build/studio.ts:4:30). Add the file extension
+  - import "../src/content/ingestion" without a file extension (build/studio.ts:5:61). Add the file extension
+  - import "../src/content/similarity" without a file extension (build/studio.ts:6:36). Add the file extension
+  - import "../src/content/validation" without a file extension (build/studio.ts:7:34). Add the file extension
+  - import "../src/domain/contentInventory" without a file extension (build/studio.ts:8:31). Add the file extension
+  - import "../src/domain/assessment" without a file extension (build/studio.ts:10:35). Add the file extension
+  - import "./validation" without a file extension (src/content/quality.ts:1:55). Add the file extension
+  - import "./validation" without a file extension (src/content/ingestion.ts:6:8). Add the file extension
+  - import "./validation" without a file extension (src/content/similarity.ts:1:34). Add the file extension
+  - import "../content/schema" without a file extension (src/domain/assessment.ts:1:76). Add the file extension
+  - import "./similarity" without a file extension (src/content/quality.ts:2:36). Add the file extension
+  - import "../domain/assessment" without a file extension (src/content/quality.ts:3:35). Add the file extension
+  - import "../domain/contentInventory" without a file extension (src/content/quality.ts:4:47). Add the file extension
+  - import "./editorial" without a file extension (src/content/ingestion.ts:7:75). Add the file extension
+  - import "./editorial" without a file extension (src/content/quality.ts:5:75). Add the file extension
+  - import "./ingestion" without a file extension (src/content/quality.ts:6:37). Add the file extension
+  - JSON import "../../content/assessment-policy.json" without import attributes (src/content/quality.ts:7:30). Add `with { type: 'json' }`
+  - import "./schema" without a file extension (src/content/quality.ts:8:31). Add the file extension
+  - import "./editorial" without a file extension (src/content/quality.ts:9:37). Add the file extension
+  - import "./models" without a file extension (src/domain/assessment.ts:2:74). Add the file extension
+  - import "./schema" without a file extension (src/content/validation.ts:1:50). Add the file extension
+  - import "./schema" without a file extension (src/content/editorial.ts:1:31). Add the file extension
+  - import "../content/schema" without a file extension (src/domain/contentInventory.ts:1:52). Add the file extension
+  - import "./assessment" without a file extension (src/domain/contentInventory.ts:2:46). Add the file extension
+  - import "../domain/skillTaxonomy" without a file extension (src/content/validation.ts:2:30). Add the file extension
+  - import "../content/schema" without a file extension (src/domain/skillTaxonomy.ts:1:28). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+vite v8.3.4 building client environment for development...
+transforming...
+✓ 2147 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                    1.07 kB │ gzip:   0.58 kB
+dist/assets/lora-vietnamese-400-normal-BxA6xcFr.woff2              5.29 kB
+dist/assets/lora-vietnamese-500-normal-LA4e_tum.woff2              5.52 kB
+dist/assets/lora-vietnamese-400-italic-DFs7jfwN.woff2              5.53 kB
+dist/assets/be-vietnam-pro-vietnamese-400-normal-CRcqvyg1.woff2   11.53 kB
+dist/assets/lora-latin-ext-400-normal-CyviI4c-.woff2              12.01 kB
+dist/assets/be-vietnam-pro-vietnamese-500-normal-DREgrEoJ.woff2   12.17 kB
+dist/assets/be-vietnam-pro-vietnamese-600-normal-nyU-ZL2p.woff2   12.17 kB
+dist/assets/lora-latin-ext-500-normal-CVMwgWlS.woff2              12.21 kB
+dist/assets/lora-latin-ext-400-italic-D02B-RQB.woff2              12.46 kB
+dist/assets/be-vietnam-pro-vietnamese-700-normal-Csr0PCuG.woff2   12.46 kB
+dist/assets/be-vietnam-pro-latin-ext-400-normal-CiZNW1ec.woff2    13.05 kB
+dist/assets/be-vietnam-pro-latin-ext-500-normal-h0Fp6aX0.woff2    13.54 kB
+dist/assets/be-vietnam-pro-latin-ext-600-normal-BNd8euf0.woff2    13.60 kB
+dist/assets/be-vietnam-pro-latin-ext-700-normal-C8_gqRu2.woff2    13.85 kB
+dist/.vite/manifest.json                                          15.78 kB │ gzip:   1.91 kB
+dist/assets/lora-latin-400-normal-DnxXpLNu.woff2                  21.14 kB
+dist/assets/be-vietnam-pro-latin-400-normal-PpnXBOrz.woff2        21.16 kB
+dist/assets/be-vietnam-pro-latin-500-normal-B6LVzGNe.woff2        21.89 kB
+dist/assets/lora-latin-500-normal-Dh16O2IA.woff2                  21.90 kB
+dist/assets/be-vietnam-pro-latin-600-normal-BZDkUTrt.woff2        22.03 kB
+dist/assets/be-vietnam-pro-latin-700-normal-DlW1Zbsh.woff2        22.15 kB
+dist/assets/lora-latin-400-italic-DYjZp4sZ.woff2                  22.75 kB
+dist/assets/GrammarPage-BBjRBBag.css                              11.43 kB │ gzip:   2.51 kB
+dist/assets/index-DvEKf0Va.css                                   157.06 kB │ gzip:  26.20 kB
+dist/assets/clock-3-Cc00dB8z.js                                    0.57 kB │ gzip:   0.38 kB
+dist/assets/circle-check-Biphx-oi.js                               0.63 kB │ gzip:   0.40 kB
+dist/assets/Highlight-ZxRQZz69.js                                  0.63 kB │ gzip:   0.32 kB
+dist/assets/lightbulb-B6vELYdx.js                                  0.72 kB │ gzip:   0.44 kB
+dist/assets/useReferenceFocus-DRJWAIUd.js                          0.81 kB │ gzip:   0.48 kB
+dist/assets/file-question-mark-DAAK3CSr.js                         0.82 kB │ gzip:   0.48 kB
+dist/assets/SaveKnowledgeButton-ByB0RVgp.js                        1.17 kB │ gzip:   0.60 kB
+dist/assets/referenceCatalog-D3mVMMRj.js                           1.49 kB │ gzip:   0.72 kB
+dist/assets/dictionary-B9niYEEM.js                                 4.15 kB │ gzip:   1.73 kB
+dist/assets/QuestionReferencePage-D7YRJFPa.js                      5.14 kB │ gzip:   1.77 kB
+dist/assets/studioRepository-PgUY-S-M.js                           5.17 kB │ gzip:   1.99 kB
+dist/assets/DailyPlanPage-Cr82hW6J.js                              9.03 kB │ gzip:   2.68 kB
+dist/assets/RecallCard-Y78386Ej.js                                 9.77 kB │ gzip:   3.06 kB
+dist/assets/VocabularyPage-BMKjThUX.js                            10.88 kB │ gzip:   3.19 kB
+dist/assets/QuickSearch-DbKwpVn7.js                               12.25 kB │ gzip:   3.65 kB
+dist/assets/microLessons-3V6KTh_w.js                              15.50 kB │ gzip:   5.12 kB
+dist/assets/backup-e_dB0ijo.js                                    20.53 kB │ gzip:   6.10 kB
+dist/assets/PracticePage-BwTz8kh9.js                              21.68 kB │ gzip:   5.70 kB
+dist/assets/DataPage-A_qdcg6U.js                                  22.11 kB │ gzip:   5.36 kB
+dist/assets/RoadmapPage-3DjoL91x.js                               25.89 kB │ gzip:   6.24 kB
+dist/assets/ProgressPage-CAU29-fx.js                              30.55 kB │ gzip:   7.69 kB
+dist/assets/ReviewPage-HmueZw9J.js                                30.80 kB │ gzip:   7.55 kB
+dist/assets/ReadingDocument-CcTvsGXX.js                           42.88 kB │ gzip:  11.01 kB
+dist/assets/TutorPage-ChaAuRWL.js                                 46.74 kB │ gzip:  11.20 kB
+dist/assets/GrammarPage-ludBOkxo.js                               49.73 kB │ gzip:  11.44 kB
+dist/assets/SessionPage-Bupep0_P.js                               56.06 kB │ gzip:  14.11 kB
+dist/assets/ContextLookup-2W15cEgX.js                             88.20 kB │ gzip:  20.33 kB
+dist/assets/StudyContext-C4Nfa606.js                             541.58 kB │ gzip: 149.34 kB
+dist/assets/index-DmF6Kybr.js                                    769.53 kB │ gzip: 153.78 kB
+dist/assets/records-BUqJPXgI.js                                  992.08 kB │ gzip: 147.87 kB
+
+✓ built in 755ms
+PWA: 80 packaged assets, 7.24 MB; shell e4d9f5007b600d084509

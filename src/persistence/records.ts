@@ -270,7 +270,8 @@ export function validRecord(table: LearningTable, value: unknown): boolean {
         (r.cursor as number) < (r.questionIds as string[]).length &&
         one(r.status, ['active', 'completed', 'interrupted']) &&
         (r.status !== 'interrupted' ||
-          (stamp(r.interruptedAt) && r.interruptionReason === 'content-unavailable')) &&
+          (stamp(r.interruptedAt) &&
+            one(r.interruptionReason, ['content-unavailable', 'app-update']))) &&
         stamp(r.startedAt) &&
         optional(r, 'completedAt', stamp) &&
         (r.mode !== 'exam' || stamp(r.deadlineAt)) &&

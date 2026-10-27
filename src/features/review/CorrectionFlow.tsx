@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { Attempt } from '../../domain/models'
 import type { OptionId, Question } from '../../content/schema'
 import type { LearningActivity } from '../../domain/studio'
@@ -13,6 +13,8 @@ import { StimulusView } from '../practice/StimulusView'
 import { MediaPlayer } from '../../components/MediaPlayer'
 import { InlineError } from '../../components/ui'
 import { ReadingDocument } from '../reading/ReadingDocument'
+import { registerUpdatePreparation } from '../../application/updatePreparation'
+import { StudyOperationError } from '../../application/errors'
 
 function CorrectionStimulus({ question }: { question: Question }) {
   const stimulus = stimulusFor(question)
@@ -38,6 +40,16 @@ export function CorrectionFlow({ question, attempt }: { question: Question; atte
   >(previous?.kind === 'correction' ? previous : undefined)
   const [selected, setSelected] = useState<OptionId | null>(null)
   const [reason, setReason] = useState('')
+  useEffect(
+    () =>
+      registerUpdatePreparation(async () => {
+        if (reason.trim() && !result)
+          throw new StudyOperationError(
+            'Phần giải thích trong Mistake Lab chưa lưu. Hoàn tất lượt sửa hoặc xóa phần viết nếu muốn bỏ, rồi cập nhật lại.',
+          )
+      }),
+    [reason, result],
+  )
   const [transferSelected, setTransferSelected] = useState<OptionId | null>(null)
   const [transferResult, setTransferResult] =
     useState<Extract<LearningActivity, { kind: 'correction' }>>()

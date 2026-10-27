@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { registerUpdatePreparation } from '../../application/updatePreparation'
+import { StudyOperationError } from '../../application/errors'
 
 /** Ephemeral local recording. No upload, persistent blob, background capture or speech grading. */
 export function ShadowRecorder() {
@@ -11,6 +13,16 @@ export function ShadowRecorder() {
   const generation = useRef(0)
   const locked = useRef(false)
   const alive = useRef(true)
+  useEffect(
+    () =>
+      registerUpdatePreparation(async () => {
+        if (state !== 'idle' || recorder.current || url)
+          throw new StudyOperationError(
+            'Shadowing còn lượt ghi hoặc bản ghi tạm trong tab. Dừng ghi, nghe lại và chọn “Xóa bản ghi” khi đã xong trước khi cập nhật.',
+          )
+      }),
+    [state, url],
+  )
   const supported =
     typeof navigator !== 'undefined' &&
     Boolean(navigator.mediaDevices?.getUserMedia) &&

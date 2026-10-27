@@ -6,6 +6,8 @@ import { useStudy } from '../../application/StudyContext'
 import { useAction } from '../../application/hooks'
 import { saveReadingWorkspace } from '../../application/studioRepository'
 import { InlineError } from '../../components/ui'
+import { registerUpdatePreparation } from '../../application/updatePreparation'
+import { StudyOperationError } from '../../application/errors'
 
 export function ReadingDocument({ passage }: { passage: Passage }) {
   const { readingWorkspaces } = useStudy()
@@ -70,6 +72,42 @@ export function ReadingDocument({ passage }: { passage: Passage }) {
     if (ok) setStatus('Đã lưu trên thiết bị.')
     return ok
   }
+  async function saveMark() {
+    if (!selection || stale) return false
+    const existing = workspace.marks.find(
+      (m) => m.start === selection.start && m.end === selection.end,
+    )
+    const marks = [
+      ...workspace.marks.filter((m) => m.id !== existing?.id),
+      {
+        start: selection.start,
+        end: selection.end,
+        quote: selection.quote,
+        id: existing?.id ?? crypto.randomUUID(),
+        note,
+      },
+    ]
+    const saved = await save({ marks, position: selection.start }, selection.revision)
+    if (saved) {
+      editing.current = false
+      setSelection(null)
+      setNote('')
+    }
+    return Boolean(saved)
+  }
+  useEffect(
+    () =>
+      registerUpdatePreparation(async () => {
+        const existing =
+          selection &&
+          workspace.marks.find((m) => m.start === selection.start && m.end === selection.end)
+        if (selection && note !== (existing?.note ?? '') && !(await saveMark()))
+          throw new StudyOperationError(
+            'Chưa lưu được ghi chú đoạn đọc. Giữ trang mở và lưu/đối chiếu ghi chú trước khi cập nhật.',
+          )
+      }),
+    [selection, note, workspace],
+  )
   const boundaries = [
     ...new Set([
       0,
@@ -184,28 +222,7 @@ export function ReadingDocument({ passage }: { passage: Passage }) {
             <button
               className="button secondary"
               disabled={action.busy || workspace.marks.length >= 100}
-              onClick={() =>
-                void (async () => {
-                  const existing = workspace.marks.find(
-                    (m) => m.start === selection.start && m.end === selection.end,
-                  )
-                  const marks = [
-                    ...workspace.marks.filter((m) => m.id !== existing?.id),
-                    {
-                      start: selection.start,
-                      end: selection.end,
-                      quote: selection.quote,
-                      id: existing?.id ?? crypto.randomUUID(),
-                      note,
-                    },
-                  ]
-                  if (await save({ marks, position: selection.start }, selection.revision)) {
-                    editing.current = false
-                    setSelection(null)
-                    setNote('')
-                  }
-                })()
-              }
+              onClick={() => void saveMark()}
             >
               Lưu đánh dấu & ghi chú
             </button>

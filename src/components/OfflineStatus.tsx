@@ -1,10 +1,13 @@
-import { useEffect, useState, useSyncExternalStore } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
 import { Download, RefreshCw, WifiOff } from 'lucide-react'
 import { useStudy } from '../application/StudyContext'
 import { hasUnsavedTutorWork, subscribeTutorDraftMemory } from '../application/tutorDraftRecovery'
 import { readPendingOperations, subscribeOperations, useAction } from '../application/hooks'
 import { StudyOperationError } from '../application/errors'
 import { InlineError } from './ui'
+import { prepareLearningForUpdate } from '../application/updatePreparation'
+import { finishSessionsForUpdate, hasActiveSessions } from '../application/sessionRepository'
 
 interface InstallEvent extends Event {
   prompt(): Promise<void>
@@ -17,10 +20,15 @@ export function OfflineStatus() {
   const [waiting, setWaiting] = useState(false)
   const [install, setInstall] = useState<InstallEvent>()
   const [status, setStatus] = useState('')
+  const [updating, setUpdating] = useState(false)
+  const [updateStep, setUpdateStep] = useState('')
+  const cancelActivation = useRef<(() => void) | null>(null)
   const action = useAction()
   const dirty = useSyncExternalStore(subscribeTutorDraftMemory, hasUnsavedTutorWork, () => false)
   const pending = useSyncExternalStore(subscribeOperations, readPendingOperations, () => 0)
   const active = data.sessions.some((s) => s.status === 'active')
+  const activeExam = data.sessions.some((s) => s.status === 'active' && s.mode === 'exam')
+  useEffect(() => () => cancelActivation.current?.(), [])
   useEffect(() => {
     const online = () => setOffline(!navigator.onLine)
     const installable = (event: Event) => {
@@ -92,31 +100,70 @@ export function OfflineStatus() {
     }
   }, [])
   async function update() {
-    if (active || hasUnsavedTutorWork() || readPendingOperations() > 1 || !registration?.waiting)
-      throw new StudyOperationError('Kết thúc phiên học và lưu nháp trước khi cập nhật.')
-    await new Promise<void>((resolve, reject) => {
-      const cleanup = () => {
-        navigator.serviceWorker.removeEventListener('controllerchange', changed)
-        window.clearTimeout(timer)
-      }
-      const changed = () => {
-        cleanup()
-        resolve()
-        window.location.reload()
-      }
-      const timer = window.setTimeout(() => {
-        cleanup()
-        reject(
-          new StudyOperationError(
-            'Chưa kích hoạt được bản cập nhật. Hãy thử lại. Dữ liệu học không bị thay đổi.',
-          ),
+    const worker = registration?.waiting
+    if (!worker)
+      throw new StudyOperationError('Chưa có bản mới sẵn sàng. Tiến độ hiện có vẫn được giữ.')
+    if (readPendingOperations() > 1)
+      throw new StudyOperationError(
+        'Đang lưu một thao tác khác. Chờ lưu xong rồi thử cập nhật lại.',
+      )
+    setUpdating(true)
+    try {
+      setUpdateStep('Đang lưu các bản nháp…')
+      await prepareLearningForUpdate()
+      if (hasUnsavedTutorWork())
+        throw new StudyOperationError(
+          'Còn nháp Tutor chưa lưu được. Giữ trang mở và giữ lại nội dung trước khi cập nhật.',
         )
-      }, 15000)
-      navigator.serviceWorker.addEventListener('controllerchange', changed)
-      registration.waiting?.postMessage({ type: 'ACTIVATE_UPDATE' })
-    })
+      if (registration?.waiting !== worker)
+        throw new StudyOperationError(
+          'Bản cập nhật vừa thay đổi. Nháp đã lưu; hãy thử cập nhật lại.',
+        )
+      setUpdateStep('Đang khép phiên và giữ kết quả đã làm…')
+      await finishSessionsForUpdate()
+      if ((await hasActiveSessions()) || hasUnsavedTutorWork() || readPendingOperations() > 1)
+        throw new StudyOperationError(
+          'Có thao tác học mới đang mở hoặc đang lưu. Chưa tải lại trang; hãy chờ thao tác đó hoàn tất rồi thử lại.',
+        )
+      setUpdateStep('Đang kích hoạt bản mới và mở lại…')
+      await new Promise<void>((resolve, reject) => {
+        const cleanup = () => {
+          navigator.serviceWorker.removeEventListener('controllerchange', changed)
+          window.clearTimeout(timer)
+          cancelActivation.current = null
+        }
+        const changed = () => {
+          cleanup()
+          resolve()
+          window.location.reload()
+        }
+        const timer = window.setTimeout(() => {
+          cleanup()
+          reject(
+            new StudyOperationError(
+              'Chưa kích hoạt được bản cập nhật. Phiên đã được khép và dữ liệu đã lưu; bấm cập nhật để thử lại.',
+            ),
+          )
+        }, 15000)
+        cancelActivation.current = () => {
+          cleanup()
+          reject(new StudyOperationError('Đã dừng chờ cập nhật; dữ liệu đã lưu được giữ nguyên.'))
+        }
+        navigator.serviceWorker.addEventListener('controllerchange', changed)
+        try {
+          worker.postMessage({ type: 'ACTIVATE_UPDATE' })
+        } catch {
+          cleanup()
+          reject(
+            new StudyOperationError('Chưa gửi được yêu cầu cập nhật. Tiến độ đã lưu; hãy thử lại.'),
+          )
+        }
+      })
+    } finally {
+      setUpdating(false)
+    }
   }
-  if (!offline && !waiting && !install && !status && !action.error) return null
+  if (!offline && !waiting && !install && !status && !action.error && !updating) return null
   return (
     <aside className="offline-status" aria-label="Trạng thái ứng dụng">
       {offline && (
@@ -129,14 +176,25 @@ export function OfflineStatus() {
         <div>
           <p>Có phiên bản mới. Tiến độ đã lưu nằm trên thiết bị.</p>
           <button
-            className="button secondary"
-            disabled={active || dirty || pending > 0}
+            className={`button secondary ${active ? 'update-end-session' : ''}`}
+            disabled={action.busy || pending > 0}
             onClick={() => void action.run(update)}
           >
-            <RefreshCw size={15} /> Cập nhật & mở lại
+            <RefreshCw size={15} />{' '}
+            {active
+              ? 'Kết thúc phiên & cập nhật'
+              : dirty
+                ? 'Lưu nháp & cập nhật'
+                : 'Cập nhật & mở lại'}
           </button>
           {(active || dirty) && (
-            <p className="small muted">Hoàn thành phiên học và lưu nháp trước khi cập nhật.</p>
+            <p className="small muted">
+              {activeExam
+                ? 'Bài thi sẽ được nộp với các lựa chọn đã lưu; câu còn trống được ghi nhận khi nộp.'
+                : active
+                  ? 'Giữ đáp án đã nộp và nháp. Phần chưa làm không bị chấm sai hoặc tính là đã hoàn thành.'
+                  : 'Nháp sẽ được lưu trước khi mở lại bản mới.'}
+            </p>
           )}
         </div>
       )}
@@ -166,6 +224,22 @@ export function OfflineStatus() {
         </p>
       )}
       <InlineError message={action.error} />
+      <Dialog.Root open={updating}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="dialog-overlay" />
+          <Dialog.Content
+            className="dialog update-progress-dialog"
+            onEscapeKeyDown={(event) => event.preventDefault()}
+            onInteractOutside={(event) => event.preventDefault()}
+          >
+            <Dialog.Title>Đang lưu và cập nhật</Dialog.Title>
+            <Dialog.Description>Trang sẽ tự mở lại khi bản mới sẵn sàng.</Dialog.Description>
+            <p role="status" aria-live="polite">
+              {updateStep}
+            </p>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </aside>
   )
 }

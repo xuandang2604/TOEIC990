@@ -12,6 +12,7 @@ import {
   setTutorDraftPending,
 } from '../../application/tutorDraftRecovery'
 import type { TutorDraft } from '../../domain/tutorModels'
+import { registerUpdatePreparation } from '../../application/updatePreparation'
 
 type Values = Pick<TutorDraft, 'text' | 'reasonId' | 'stance'>
 /** Serialized, optimistic draft writes. A stale tab never silently replaces a newer draft. */
@@ -153,6 +154,16 @@ export function useTutorDraft(
     })
     return pending.current
   }
+  useEffect(
+    () =>
+      registerUpdatePreparation(async () => {
+        if (dirty.current && !submitted.current && !(await flush()))
+          throw new StudyOperationError(
+            'Chưa lưu xong nháp Tutor. Giữ trang mở và dùng nút lưu/thử lại trong Tutor trước khi cập nhật.',
+          )
+      }),
+    [reflectionId, phase, baseRevision],
+  )
   useEffect(() => {
     if (!dirty.current) return
     const timer = window.setTimeout(() => {

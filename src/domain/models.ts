@@ -29,7 +29,7 @@ export interface StudySession {
   startedAt: number
   completedAt?: number
   interruptedAt?: number
-  interruptionReason?: 'content-unavailable'
+  interruptionReason?: 'content-unavailable' | 'app-update'
   deadlineAt?: number
   lastObservedAt?: number
   finishReason?: 'submitted' | 'timeout'

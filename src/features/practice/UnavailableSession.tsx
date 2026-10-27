@@ -11,13 +11,16 @@ export function UnavailableSession({ session }: { session: StudySession }) {
   const submitted = data.attempts.filter((a) => a.sessionId === session.id).length
   const selected = data.responses.filter((r) => r.sessionId === session.id).length
   const closed = session.status === 'interrupted'
+  const closedForUpdate = session.interruptionReason === 'app-update'
   return (
     <>
       <EmptyState
         icon={CircleHelp}
         title={
           closed
-            ? 'Phiên thiếu tư liệu đã được đóng.'
+            ? closedForUpdate
+              ? 'Phiên luyện đã được khép trước khi cập nhật.'
+              : 'Phiên thiếu tư liệu đã được đóng.'
             : 'Bộ bài hiện tại chưa có đủ tư liệu cho phiên này.'
         }
         action={

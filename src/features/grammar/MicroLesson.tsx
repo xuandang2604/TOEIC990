@@ -8,6 +8,8 @@ import { saveLearningActivity } from '../../application/studioRepository'
 import { InlineError } from '../../components/ui'
 import { SaveKnowledgeButton } from '../review/SaveKnowledgeButton'
 import { ChoiceChallenge } from './ChoiceChallenge'
+import { registerUpdatePreparation } from '../../application/updatePreparation'
+import { StudyOperationError } from '../../application/errors'
 
 const steps = ['Quan sát', 'Dự đoán', 'Giải thích', 'Luyện tập', 'Vận dụng', 'Ôn lại']
 type Progress = Extract<LearningActivity, { kind: 'micro-lesson' }>
@@ -33,9 +35,12 @@ function LessonFlow({ id }: { id: string }) {
         },
   )
   const [explanation, setExplanation] = useState(progress.explanation)
+  const draftText = useRef(explanation),
+    savedText = useRef(progress.explanation)
   useEffect(() => {
     if (explanation === progress.explanation) return
     const warn = (event: BeforeUnloadEvent) => {
+      if (draftText.current === savedText.current) return
       event.preventDefault()
       event.returnValue = ''
     }
@@ -59,8 +64,22 @@ function LessonFlow({ id }: { id: string }) {
       await saveLearningActivity(next)
       return true
     })
-    if (ok) setProgress({ ...next, revision: progress.revision + 1 })
+    if (ok) {
+      savedText.current = next.explanation
+      setProgress({ ...next, revision: progress.revision + 1 })
+    }
+    return Boolean(ok)
   }
+  useEffect(
+    () =>
+      registerUpdatePreparation(async () => {
+        if (explanation !== progress.explanation && !(await save({ explanation })))
+          throw new StudyOperationError(
+            'Chưa lưu được phần giải thích Feynman. Giữ trang mở, lưu đoạn viết rồi thử cập nhật lại.',
+          )
+      }),
+    [explanation, progress],
+  )
   return (
     <section className="micro-lesson">
       <div className="studio-heading">
@@ -130,7 +149,10 @@ function LessonFlow({ id }: { id: string }) {
               maxLength={2000}
               rows={3}
               value={explanation}
-              onChange={(e) => setExplanation(e.target.value)}
+              onChange={(e) => {
+                draftText.current = e.target.value
+                setExplanation(e.target.value)
+              }}
             />
           </label>
           <p className="small muted">

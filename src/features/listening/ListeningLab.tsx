@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { AudioAsset } from '../../content/schema'
 import { compareDictation, transcriptSegments, normalizeDictation } from '../../domain/studio'
 import { saveLearningActivity } from '../../application/studioRepository'
@@ -7,6 +7,8 @@ import { MediaPlayer } from '../../components/MediaPlayer'
 import { InlineError } from '../../components/ui'
 import { vocabulary } from '../../content/vocabulary'
 import { ShadowRecorder } from './ShadowRecorder'
+import { registerUpdatePreparation } from '../../application/updatePreparation'
+import { StudyOperationError } from '../../application/errors'
 
 function TranscriptWords({ text }: { text: string }) {
   const known = new Set(
@@ -37,6 +39,16 @@ export function ListeningLab({ audio, stimulusId }: { audio: AudioAsset; stimulu
   const [result, setResult] = useState<ReturnType<typeof compareDictation>>()
   const operation = useRef(crypto.randomUUID())
   const action = useAction()
+  useEffect(
+    () =>
+      registerUpdatePreparation(async () => {
+        if (input.trim() && !result)
+          throw new StudyOperationError(
+            'Bản chép Dictation chưa lưu. Bấm “Đối chiếu bản chép” để lưu, hoặc xóa phần nhập nếu muốn bỏ, rồi cập nhật lại.',
+          )
+      }),
+    [input, result],
+  )
   const segment = segments[index] ?? ''
   const synthetic = audio.kind === 'synthetic'
   const segmentAudio = useMemo<AudioAsset>(
