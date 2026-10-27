@@ -32,7 +32,7 @@ function dueLabel(card: ReviewCard, now: number) {
         })
 }
 
-export function ReviewPage() {
+export function ReviewPage({ vocabularyOnly = false }: { vocabularyOnly?: boolean }) {
   const data = useStudy(),
     now = useNow(),
     action = useAction()
@@ -40,7 +40,12 @@ export function ReviewPage() {
   const [flash, setFlash] = useState<ReviewCard | null>(null)
   const [reviewed, setReviewed] = useState(0)
   const [limit, setLimit] = useState(40)
-  const knownCards = data.cards.filter(knownCard)
+  const knownCards = data.cards
+    .filter(knownCard)
+    .filter((c) => !vocabularyOnly || c.kind === 'vocabulary')
+  const missingCards = data.cards.filter(
+    (c) => (!vocabularyOnly || c.kind === 'vocabulary') && !knownCard(c),
+  )
   const due = knownCards
     .filter((c) => schedulableCard(c) && c.dueAt <= now)
     .sort((a, b) => a.dueAt - b.dueAt || a.id.localeCompare(b.id))
@@ -65,7 +70,7 @@ export function ReviewPage() {
     <>
       <PageHeading
         eyebrow="QUAY LẠI ĐÚNG LÚC"
-        title="Nhớ lâu hơn, học nhẹ hơn."
+        title={vocabularyOnly ? 'Sổ từ đến hạn của bạn.' : 'Nhớ lâu hơn, học nhẹ hơn.'}
         description="Tự nhớ trước khi xem lại. Lịch ôn dùng những lượt trả lời và tự đánh giá đã được lưu."
       />
       <div className="review-intro">
@@ -86,10 +91,22 @@ export function ReviewPage() {
         </div>
         <RotateCcw size={58} strokeWidth={0.8} />
       </div>
-      {knownCards.length < data.cards.length && (
+      {vocabularyOnly && (
+        <div className="studio-actions">
+          <button className="text-link" onClick={() => navigate('vocabulary')}>
+            Mở từ điển & giờ nhắc
+            <ArrowRight size={15} />
+          </button>
+          <button className="text-link" onClick={() => navigate('review')}>
+            Xem mọi loại thẻ
+            <ArrowRight size={15} />
+          </button>
+        </div>
+      )}
+      {missingCards.length > 0 && (
         <p className="inline-error" role="status">
-          Có {data.cards.length - knownCards.length} thẻ thiếu nội dung tương ứng. Bản ghi được giữ
-          nguyên trong dữ liệu xuất.
+          Có {missingCards.length} thẻ thiếu nội dung tương ứng. Bản ghi được giữ nguyên trong dữ
+          liệu xuất.
         </p>
       )}
       {active && (
@@ -101,20 +118,24 @@ export function ReviewPage() {
           </button>
         </div>
       )}
-      <div className="review-modes three-review-modes">
-        <section className="panel review-mode">
-          <span className="small muted">01 / CÂU HỎI</span>
-          <h2>Hiểu lại một lần nữa.</h2>
-          <p>Giải lại câu đã lưu; chấm đúng/sai trước khi cập nhật lịch ôn.</p>
-          <button
-            className="button primary"
-            disabled={action.busy || !dueQuestions.length || Boolean(active)}
-            onClick={() => void reviewQuestions()}
-          >
-            Ôn {Math.min(6, dueQuestions.length)} câu hỏi
-            <ArrowRight size={16} />
-          </button>
-        </section>
+      <div
+        className={`review-modes ${vocabularyOnly ? 'vocabulary-review-mode' : 'three-review-modes'}`}
+      >
+        {!vocabularyOnly && (
+          <section className="panel review-mode">
+            <span className="small muted">01 / CÂU HỎI</span>
+            <h2>Hiểu lại một lần nữa.</h2>
+            <p>Giải lại câu đã lưu; chấm đúng/sai trước khi cập nhật lịch ôn.</p>
+            <button
+              className="button primary"
+              disabled={action.busy || !dueQuestions.length || Boolean(active)}
+              onClick={() => void reviewQuestions()}
+            >
+              Ôn {Math.min(6, dueQuestions.length)} câu hỏi
+              <ArrowRight size={16} />
+            </button>
+          </section>
+        )}
         <section className="panel review-mode">
           <span className="small muted">02 / TỪ VỰNG</span>
           <h2>Gợi lại, rồi đối chiếu.</h2>
@@ -128,19 +149,21 @@ export function ReviewPage() {
             <ArrowRight size={16} />
           </button>
         </section>
-        <section className="panel review-mode">
-          <span className="small muted">03 / KIẾN THỨC</span>
-          <h2>Giải thích bằng lời mình.</h2>
-          <p>Tự nêu cấu trúc và lý do dùng; sau đó đối chiếu quy tắc.</p>
-          <button
-            className="button secondary"
-            disabled={!dueKnowledge.length || Boolean(flash)}
-            onClick={() => setFlash(dueKnowledge[0])}
-          >
-            Ôn {dueKnowledge.length} quy tắc
-            <ArrowRight size={16} />
-          </button>
-        </section>
+        {!vocabularyOnly && (
+          <section className="panel review-mode">
+            <span className="small muted">03 / KIẾN THỨC</span>
+            <h2>Giải thích bằng lời mình.</h2>
+            <p>Tự nêu cấu trúc và lý do dùng; sau đó đối chiếu quy tắc.</p>
+            <button
+              className="button secondary"
+              disabled={!dueKnowledge.length || Boolean(flash)}
+              onClick={() => setFlash(dueKnowledge[0])}
+            >
+              Ôn {dueKnowledge.length} quy tắc
+              <ArrowRight size={16} />
+            </button>
+          </section>
+        )}
       </div>
       <InlineError message={action.error} />
       {flash && (
@@ -178,7 +201,9 @@ export function ReviewPage() {
             [
               { id: 'due', label: `Đến hạn (${due.length})` },
               { id: 'all', label: `Tất cả (${knownCards.length})` },
-              { id: 'mistakes', label: 'Câu sai / bỏ trống' },
+              ...(!vocabularyOnly
+                ? [{ id: 'mistakes' as const, label: 'Câu sai / bỏ trống' }]
+                : []),
             ] as const
           ).map((item) => (
             <button
@@ -267,7 +292,7 @@ export function ReviewPage() {
           Xem thêm 40 mục ({Math.min(limit, visible.length)}/{visible.length})
         </button>
       )}
-      <MistakeReview />
+      {!vocabularyOnly && <MistakeReview />}
       <p className="small muted review-method">
         Lịch FSRS dùng đánh giá nhớ lại và lịch sử thực tế. Tham số hiện là mặc định chung, chưa
         được tối ưu riêng cho bạn. Lịch cũ được giữ khi nâng dữ liệu; lượt ôn mới bắt đầu dùng FSRS.

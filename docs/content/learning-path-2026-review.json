@@ -1,0 +1,50 @@
+{
+  "format": "study990.import-report",
+  "version": 1,
+  "status": "validated-only",
+  "installedNew": 0,
+  "candidateByPartIncludingTutor": [
+    {
+      "part": 1,
+      "count": 13
+    },
+    {
+      "part": 2,
+      "count": 66
+    },
+    {
+      "part": 3,
+      "count": 78
+    },
+    {
+      "part": 4,
+      "count": 60
+    },
+    {
+      "part": 5,
+      "count": 130
+    },
+    {
+      "part": 6,
+      "count": 40
+    },
+    {
+      "part": 7,
+      "count": 107
+    }
+  ],
+  "revisedPackages": [],
+  "historyAcknowledged": false,
+  "revisionImpact": [],
+  "packages": [
+    {
+      "file": "content/packages/learning-path-2026.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 42
+    }
+  ],
+  "examIssues": [],
+  "bankIssues": [],
+  "nearDuplicates": [],
+  "note": "AI drafts are not human-reviewed. No IndexedDB or user history was changed."
+}

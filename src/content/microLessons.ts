@@ -1,4 +1,6 @@
 import type { GrammarExercise, OptionId } from './schema'
+import { grammarById } from './grammar'
+import { handbookGuides } from './handbook'
 
 export interface MicroLesson {
   id: string
@@ -11,6 +13,7 @@ export interface MicroLesson {
   prediction: GrammarExercise
   practice: GrammarExercise
   transfer: GrammarExercise
+  coaching?: { why: string; prompt: string; selfCheck: string[] }
 }
 function exercise(
   id: string,
@@ -32,7 +35,7 @@ function exercise(
   }
 }
 /** Original offline teaching material, editorial draft; no semantic analysis of learners' writing. */
-export const microLessons: MicroLesson[] = [
+const originalMicroLessons: MicroLesson[] = [
   {
     id: 'although-despite',
     practice: exercise(
@@ -451,3 +454,25 @@ export const microLessons: MicroLesson[] = [
     ),
   },
 ]
+
+const handbookMicroLessons: MicroLesson[] = handbookGuides.flatMap((guide) => {
+  const lesson = grammarById.get(guide.lessonId)
+  // The catalog validator reports missing links before learner routes open.
+  if (!lesson || lesson.practice.length < 2 || !lesson.examples.length) return []
+  return [
+    {
+      id: `handbook-${lesson.id}`,
+      lessonId: lesson.id,
+      title: `Feynman · ${lesson.title}`,
+      observe: lesson.examples[0].correct,
+      contrast: lesson.examples[0].incorrect,
+      principle: guide.plain,
+      hint: guide.selfCheck[0],
+      prediction: guide.prediction,
+      practice: lesson.practice[0],
+      transfer: lesson.practice[1],
+      coaching: { why: guide.why, prompt: guide.prompt, selfCheck: guide.selfCheck },
+    },
+  ]
+})
+export const microLessons: MicroLesson[] = [...originalMicroLessons, ...handbookMicroLessons]

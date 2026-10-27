@@ -13,6 +13,7 @@ import { makeUnits, questionAvailable } from './assessment'
 import { localDayKey } from './learning'
 import { schedulableCard } from './scheduler'
 import { SKILL_LABELS } from './skillTaxonomy'
+import { learningRoadmap } from './roadmap'
 
 export interface PlanInput {
   questions: Question[]
@@ -45,9 +46,18 @@ export function recommendDailyPlan(
   now: number,
 ): PlanRecommendation {
   const { attempts, cards, sessions, preferences, skillEvidence } = input
+  const roadmap = learningRoadmap(preferences, skillEvidence, now)
   const usable = input.questions.filter((q) => questionAvailable(q, input.stimuli))
   const byId = new Map(usable.map((q) => [q.id, q]))
   const answered = attempts.filter((a) => a.selected !== null && a.occurredAt <= now)
+  const observedParts = new Set(
+    answered.map((a) => a.questionSnapshot?.part ?? byId.get(a.questionId)?.part),
+  )
+  const diagnosticParts = new Set<ToeicPart>(
+    roadmap?.profile.baselineScore === null
+      ? ([1, 2, 3, 4, 5, 6, 7] as const).filter((part) => !observedParts.has(part))
+      : [],
+  )
   const today = new Set(
     answered.filter((a) => localDayKey(a.occurredAt) === localDayKey(now)).map((a) => a.questionId),
   )
@@ -130,7 +140,8 @@ export function recommendDailyPlan(
         : 2
       : q.difficulty === 'intermediate'
         ? 6
-        : advancedReady
+        : advancedReady &&
+            (!roadmap || preferences.targetScore >= 800 || roadmap.current.id !== 'foundation')
           ? 6
           : -25
   const score = (q: Question) =>
@@ -138,6 +149,17 @@ export function recommendDailyPlan(
     (!seen.has(q.id) ? 20 : 0) +
     (lowConfidenceCorrect.has(q.id) && !today.has(q.id) ? 10 : 0) +
     difficultyValue(q) +
+    (diagnosticParts.has(q.part) ? 48 : 0) +
+    (roadmap && !roadmap.ended && roadmap.current.parts.includes(q.part) ? 12 : 0) +
+    (roadmap && !roadmap.ended && q.part === roadmap.dailyPart ? 6 : 0) +
+    (roadmap && !roadmap.ended
+      ? q.skills.filter((s) => roadmap.prioritySkills.includes(s)).length * 5
+      : 0) +
+    (roadmap?.profile.focus === 'listening' && q.part <= 4
+      ? 8
+      : roadmap?.profile.focus === 'reading' && q.part >= 5
+        ? 8
+        : 0) +
     q.skills.reduce((n, skill) => {
       const stat = misses.get(skill)
       return n + (stat?.missed ? Math.min(12, stat.missed * 3) : 0)
@@ -189,6 +211,19 @@ export function recommendDailyPlan(
         ? 'Các lượt gần đây có độ chính xác cao trên nhiều câu khác nhau; cho phép thêm bài vận dụng.'
         : 'Chưa đủ bằng chứng để tăng độ khó; bắt đầu từ nền tảng và vận dụng vừa sức.',
   ]
+  if (roadmap && !roadmap.ended) {
+    summary.push(
+      `Lộ trình mục tiêu ${preferences.targetScore}: ${roadmap.current.title.toLocaleLowerCase('vi')}. Bài được ưu tiên theo giai đoạn và lượt sai thực tế.`,
+    )
+    if (diagnosticParts.size)
+      summary.push(
+        `Còn ${diagnosticParts.size} Part chưa có lượt trả lời; ưu tiên lấy mẫu trước khi kết luận điểm yếu.`,
+      )
+    if (!roadmap.isStudyDay)
+      summary.push(
+        'Hôm nay ngoài lịch học bạn chọn; phiên này là tự chọn, không có bài học bù bắt buộc.',
+      )
+  }
   if (seconds < budget * 0.6)
     summary.push(
       'Bộ mẫu phù hợp còn ít; kế hoạch không được kéo dài bằng nội dung lặp cho đủ phút.',

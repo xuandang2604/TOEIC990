@@ -95,18 +95,17 @@ export function SettingsDialog({
             </label>
             <label className="form-label">
               Mục tiêu TOEIC
-              <select
+              <input
+                type="number"
+                min={10}
+                max={990}
+                step={5}
+                required
                 value={draft.targetScore}
                 onChange={(event) =>
                   setDraft({ ...draft, targetScore: Number(event.target.value) })
                 }
-              >
-                {[450, 650, 800, 900, 990].map((n) => (
-                  <option key={n} value={n}>
-                    {n} điểm
-                  </option>
-                ))}
-              </select>
+              />
             </label>
             <p className="small muted">
               Đây là mục tiêu cá nhân. Ứng dụng không dự đoán điểm thi TOEIC.
@@ -133,6 +132,28 @@ export function SettingsDialog({
               </button>
             </div>
           </form>
+          <div className="studio-actions">
+            <button
+              className="text-link"
+              disabled={action.busy}
+              onClick={() => {
+                onOpenChange(false)
+                navigate('roadmap')
+              }}
+            >
+              Nhập trình độ & thiết kế lộ trình
+            </button>
+            <button
+              className="text-link"
+              disabled={action.busy}
+              onClick={() => {
+                onOpenChange(false)
+                navigate('vocabulary')
+              }}
+            >
+              Sổ từ & nhắc ôn
+            </button>
+          </div>
           <div className="export-section">
             <h3>Sổ học trên thiết bị</h3>
             <p className="small muted">

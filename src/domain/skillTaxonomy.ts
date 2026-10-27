@@ -27,6 +27,12 @@ const branches: SkillNode[] = [
   { id: 'listening.visual', parentId: 'listening', label: 'Kết hợp hình ảnh', leaf: false },
 ]
 const leaves: Record<Skill, { label: string; parentId: string }> = {
+  'noun-phrases': { label: 'Cụm danh từ & từ hạn định', parentId: 'reading.grammar.syntax' },
+  'pronoun-reference': { label: 'Đại từ & quy chiếu', parentId: 'reading.grammar.syntax' },
+  'sentence-structure': { label: 'Cấu trúc câu & mệnh đề', parentId: 'reading.grammar.syntax' },
+  'reported-speech': { label: 'Câu tường thuật', parentId: 'reading.grammar.syntax' },
+  inversion: { label: 'Đảo ngữ', parentId: 'reading.grammar.syntax' },
+  emphasis: { label: 'Nhấn mạnh & tỉnh lược', parentId: 'reading.grammar.syntax' },
   'word-form': { label: 'Từ loại', parentId: 'reading.grammar.syntax' },
   agreement: { label: 'Hòa hợp chủ ngữ & động từ', parentId: 'reading.grammar.verbs' },
   tenses: { label: 'Thì động từ', parentId: 'reading.grammar.verbs' },

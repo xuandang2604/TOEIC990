@@ -9,6 +9,7 @@ import { navigate, navigateReference, useAction } from '../../application/hooks'
 import { InlineError } from '../../components/ui'
 import { MistakeNote } from '../review/MistakeNote'
 import { ReportQuestion } from './ReportQuestion'
+import { SaveWordButton } from '../dictionary/WordDetails'
 
 export function SaveQuestionButton({ question }: { question: Question }) {
   const data = useStudy()
@@ -94,23 +95,33 @@ export function QuestionFeedback({
             </button>
           ))}
       </div>
-      <div className="tag-list">
-        {question.vocabularyIds.map((id) => (
-          <button
-            key={id}
-            className="word-chip"
-            onClick={() =>
-              navigateReference('vocabulary', id, {
-                sessionId: attempt.sessionId,
-                questionId: question.id,
-              })
-            }
-            lang="en"
-          >
-            {vocabularyById.get(id)?.word}
-          </button>
-        ))}
-      </div>
+      {question.vocabularyIds.length > 0 && (
+        <section className="question-word-notes" aria-label="Từ vựng liên quan">
+          <h4>Từ vựng liên quan · lưu để ôn lại</h4>
+          {question.vocabularyIds.map((id) => {
+            const entry = vocabularyById.get(id)
+            if (!entry) return null
+            return (
+              <div className="question-word-row" key={id}>
+                <button
+                  className="word-chip"
+                  lang="en"
+                  onClick={() =>
+                    navigateReference('vocabulary', id, {
+                      sessionId: attempt.sessionId,
+                      questionId: question.id,
+                    })
+                  }
+                >
+                  {entry.word}
+                </button>
+                <span className="small muted">{entry.meaning}</span>
+                <SaveWordButton entry={entry} compact />
+              </div>
+            )
+          })}
+        </section>
+      )}
       <div className="feedback-tools">
         {attempt.selected && (
           <button className="text-link" onClick={() => navigate('tutor', attempt.id)}>

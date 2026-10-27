@@ -24,6 +24,7 @@ import { db } from '../persistence/database'
 import { StudyOperationError } from './errors'
 import { emptyLearningData, inspectLearningData } from '../persistence/records'
 import { textVersion } from '../domain/studio'
+import { validScore } from '../domain/roadmap'
 
 export async function readStudyData() {
   return db.transaction('r', db.tables, async () => {
@@ -381,12 +382,23 @@ export const rateVocabulary = rateRecallCard
 export async function savePreferences(preferences: Preferences) {
   if (
     ![3, 6, 9, 12].includes(preferences.dailyGoal) ||
-    ![450, 650, 800, 900, 990].includes(preferences.targetScore) ||
+    !validScore(preferences.targetScore) ||
     !['system', 'light', 'dark'].includes(preferences.theme) ||
     ![10, 20, 40].includes(preferences.studyMinutes)
   )
     throw new StudyOperationError('Thiết lập không hợp lệ.')
-  await db.preferences.put({ ...preferences, id: 'preferences' })
+  await db.transaction('rw', db.preferences, async () => {
+    const current = (await db.preferences.get('preferences')) ?? DEFAULT_PREFERENCES
+    // This form owns these four fields only; keep newer roadmap/reminder changes from other tabs.
+    await db.preferences.put({
+      ...current,
+      id: 'preferences',
+      dailyGoal: preferences.dailyGoal,
+      targetScore: preferences.targetScore,
+      theme: preferences.theme,
+      studyMinutes: preferences.studyMinutes,
+    })
+  })
 }
 
 export { saveReflection, startTransfer } from './tutorRepository'

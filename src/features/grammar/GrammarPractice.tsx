@@ -122,7 +122,13 @@ function Exercise({
     </form>
   )
 }
-export function GrammarPractice({ lesson }: { lesson: GrammarLesson }) {
+export function GrammarPractice({
+  lesson,
+  enabled = true,
+}: {
+  lesson: GrammarLesson
+  enabled?: boolean
+}) {
   const [activeId, setActiveId] = useState<string | null>(null)
   return (
     <section className="grammar-mini-practice">
@@ -137,7 +143,7 @@ export function GrammarPractice({ lesson }: { lesson: GrammarLesson }) {
           exercise={exercise}
           number={i + 1}
           lessonId={lesson.id}
-          active={activeId === exercise.id}
+          active={enabled && activeId === exercise.id}
           onActivate={() => setActiveId(exercise.id)}
         />
       ))}

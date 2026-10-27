@@ -10,6 +10,8 @@ import { validateTutorLessons } from './tutorValidation'
 import { mockIssues } from './mockExams'
 import { installedPackages } from './generated'
 import { editorialIssues, packageFingerprint } from './editorial'
+import { handbookGuides } from './handbook'
+import { validateHandbook } from './handbook/validation'
 
 /** Validate once before any learning route can consume the bundled bank. No data is deleted on failure. */
 export const contentBank = {
@@ -20,6 +22,7 @@ export const contentBank = {
   vocabularyIds: vocabulary.map((v) => v.id),
 }
 export const contentIssues = [
+  ...validateHandbook(grammar, handbookGuides),
   ...installedPackages
     .filter((p) => p.formatVersion === 3)
     .flatMap((p) =>

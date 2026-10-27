@@ -13,6 +13,12 @@ export type Skill =
   | 'prepositions'
   | 'comparisons'
   | 'modals'
+  | 'noun-phrases'
+  | 'pronoun-reference'
+  | 'sentence-structure'
+  | 'reported-speech'
+  | 'inversion'
+  | 'emphasis'
   | 'listening-intent'
   | 'listening-detail'
   | 'reading-detail'
@@ -184,6 +190,7 @@ export interface GrammarExercise {
   explanation: string
 }
 export interface GrammarLesson extends GrammarBase {
+  coverage?: 'question-linked' | 'reference-only'
   vocabularyIds: string[]
   questionIds: string[]
   practice: GrammarExercise[]

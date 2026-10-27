@@ -12,6 +12,10 @@ import { SettingsDialog } from './components/SettingsDialog'
 import { EmptyState, InlineError } from './components/ui'
 import { DictionaryProvider } from './features/dictionary/Dictionary'
 import { TodayPage } from './features/today/TodayPage'
+import { VocabularyReminderBanner } from './features/vocabulary/VocabularyReminders'
+const RoadmapPage = lazy(() =>
+  import('./features/roadmap/RoadmapPage').then((m) => ({ default: m.RoadmapPage })),
+)
 const PracticePage = lazy(() =>
   import('./features/practice/PracticePage').then((m) => ({ default: m.PracticePage })),
 )
@@ -61,6 +65,8 @@ function Workspace() {
         return <TodayPage onSettings={() => setSettings(true)} />
       case 'practice':
         return <PracticePage />
+      case 'roadmap':
+        return <RoadmapPage />
       case 'plan':
         return <DailyPlanPage key={route.id} id={route.id} />
       case 'session':
@@ -72,7 +78,7 @@ function Workspace() {
       case 'reference':
         return <QuestionReferencePage id={route.id} />
       case 'review':
-        return <ReviewPage />
+        return <ReviewPage key={route.id} vocabularyOnly={route.id === 'vocabulary'} />
       case 'progress':
         return <ProgressPage />
       case 'data':
@@ -100,6 +106,7 @@ function Workspace() {
     <DictionaryProvider>
       <AppShell route={route} onSettings={() => setSettings(true)}>
         <OfflineStatus />
+        <VocabularyReminderBanner />
         {data.invalidRecordCount > 0 && (
           <p className="notice" role="alert">
             {data.invalidRecordCount} bản ghi chưa dùng được. Nội dung gốc được giữ lại.{' '}

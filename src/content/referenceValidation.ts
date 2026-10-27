@@ -125,7 +125,16 @@ export function validateReferences(input: unknown, questionIds: string[]): Conte
       fail(`${path}.skills`, 'Known, non-duplicate skill tags required.')
     refs(row.vocabularyIds, wordIds, `${path}.vocabularyIds`)
     refs(row.questionIds, questions, `${path}.questionIds`)
-    if (!list(row.questionIds).length) fail(`${path}.questionIds`, 'Question references required.')
+    if (
+      row.coverage !== undefined &&
+      !['question-linked', 'reference-only'].includes(String(row.coverage))
+    )
+      fail(`${path}.coverage`, 'Unknown grammar coverage status.')
+    if (!list(row.questionIds).length && row.coverage !== 'reference-only')
+      fail(
+        `${path}.questionIds`,
+        'Question references or explicit reference-only coverage required.',
+      )
     const exercises = list(row.practice)
     ids(exercises, `${path}.practice`)
     if (exercises.length < 2) fail(`${path}.practice`, 'At least two original exercises required.')

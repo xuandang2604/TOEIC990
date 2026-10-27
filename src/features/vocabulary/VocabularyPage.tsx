@@ -1,25 +1,47 @@
 import { useDeferredValue, useState } from 'react'
-import { Bookmark, BookOpen, Search } from 'lucide-react'
+import { ArrowRight, Bookmark, BookOpen, Search } from 'lucide-react'
 import { localDictionary } from '../../providers/dictionary'
 import { useStudy } from '../../application/StudyContext'
-import { navigateReference } from '../../application/hooks'
+import { navigate, navigateReference, useNow } from '../../application/hooks'
 import { vocabulary, vocabularyById } from '../../content/vocabulary'
 import { EmptyState, PageHeading, Tag } from '../../components/ui'
 import { WordDetails } from '../dictionary/Dictionary'
 import { Highlight } from '../dictionary/Highlight'
 import { useReferenceFocus } from '../../components/useReferenceFocus'
+import { VocabularyReminderSettings } from './VocabularyReminders'
+import { schedulableCard } from '../../domain/scheduler'
+import { localDayKey } from '../../domain/learning'
 
 export function VocabularyPage({ id }: { id?: string }) {
   const data = useStudy()
   const [query, setQuery] = useState('')
   const [savedOnly, setSavedOnly] = useState(false)
-  const deferred = useDeferredValue(query)
-  const savedIds = new Set(
-    data.cards.filter((c) => c.kind === 'vocabulary').map((c) => c.contentId),
+  const [dueOnly, setDueOnly] = useState(false)
+  const [topic, setTopic] = useState('')
+  const now = useNow()
+  const cards = new Map(
+    data.cards
+      .filter((c) => c.kind === 'vocabulary' && vocabularyById.has(c.contentId))
+      .map((c) => [c.contentId, c]),
   )
+  const dueCards = [...cards.values()].filter(
+    (c) => vocabularyById.has(c.contentId) && schedulableCard(c) && c.dueAt <= now,
+  )
+  const dueIds = new Set(dueCards.map((c) => c.contentId))
+  const reviewedToday = new Set(
+    data.reviewEvents
+      .filter(
+        (e) => e.source === 'vocabulary-recall' && localDayKey(e.occurredAt) === localDayKey(now),
+      )
+      .map((e) => e.cardId),
+  ).size
+  const deferred = useDeferredValue(query)
+  const savedIds = new Set(cards.keys())
   const results = localDictionary
     .search(deferred)
     .filter((entry) => !savedOnly || savedIds.has(entry.id))
+    .filter((entry) => !dueOnly || dueIds.has(entry.id))
+    .filter((entry) => !topic || entry.topic === topic)
   const selected = id ? vocabularyById.get(id) : results[0]
   const detail = useReferenceFocus(id && selected ? id : undefined, 520)
   return (
@@ -30,6 +52,24 @@ export function VocabularyPage({ id }: { id?: string }) {
         description="Hiểu cách dùng, nhớ theo cụm và đưa từ trở lại đúng lúc."
         action={<Tag>{vocabulary.length} mục từ ngoại tuyến</Tag>}
       />
+      <section className="vocabulary-notebook panel" aria-label="Sổ từ vựng cá nhân">
+        <div>
+          <span className="eyebrow">SỔ TỪ CỦA BẠN</span>
+          <h2>Từ trong bài, trở lại đúng lúc.</h2>
+          <p>
+            {savedIds.size} từ đã lưu · {dueCards.length} đến hạn · {reviewedToday} từ đã ôn hôm
+            nay.
+          </p>
+          <p className="small muted">
+            Chọn từ trong bài rồi bấm tra cứu để lưu cùng ngữ cảnh. Lịch ôn dùng kết quả tự nhớ,
+            không đánh dấu thành thạo chỉ vì đã xem nghĩa.
+          </p>
+        </div>
+        <button className="button primary" onClick={() => navigate('review', 'vocabulary')}>
+          Mở hàng đợi từ
+          <ArrowRight size={16} />
+        </button>
+      </section>
       <div className="vocabulary-layout">
         <section className="dictionary-index panel">
           <label className="search-field">
@@ -45,7 +85,10 @@ export function VocabularyPage({ id }: { id?: string }) {
             <button
               aria-pressed={!savedOnly}
               className={!savedOnly ? 'active' : ''}
-              onClick={() => setSavedOnly(false)}
+              onClick={() => {
+                setSavedOnly(false)
+                setDueOnly(false)
+              }}
             >
               <BookOpen size={15} />
               Tất cả
@@ -59,6 +102,26 @@ export function VocabularyPage({ id }: { id?: string }) {
               Đã lưu ({savedIds.size})
             </button>
           </div>
+          <label className="form-label notebook-topic">
+            Chủ đề
+            <select value={topic} onChange={(e) => setTopic(e.target.value)}>
+              <option value="">Tất cả chủ đề</option>
+              {[...new Set(vocabulary.map((v) => v.topic))].sort().map((t) => (
+                <option key={t}>{t}</option>
+              ))}
+            </select>
+          </label>
+          <label className="reminder-checkbox">
+            <input
+              type="checkbox"
+              checked={dueOnly}
+              onChange={(e) => {
+                setDueOnly(e.target.checked)
+                if (e.target.checked) setSavedOnly(true)
+              }}
+            />
+            Chỉ từ đến hạn ({dueCards.length})
+          </label>
           <p className="index-count small muted" aria-live="polite">
             {results.length} mục từ{deferred ? ` cho “${deferred}”` : ''}
           </p>
@@ -79,6 +142,13 @@ export function VocabularyPage({ id }: { id?: string }) {
                 <small>
                   <Highlight text={entry.meaning} query={deferred} />
                 </small>
+                {cards.has(entry.id) && (
+                  <small className="notebook-due">
+                    {dueIds.has(entry.id)
+                      ? 'Đến hạn ôn'
+                      : `Ôn tiếp: ${new Date(cards.get(entry.id)!.dueAt).toLocaleDateString('vi-VN')}`}
+                  </small>
+                )}
               </button>
             ))}
             {!results.length && (
@@ -113,6 +183,8 @@ export function VocabularyPage({ id }: { id?: string }) {
                     onClick={() => {
                       setQuery('')
                       setSavedOnly(false)
+                      setDueOnly(false)
+                      setTopic('')
                     }}
                   >
                     Xem tất cả
@@ -137,6 +209,9 @@ export function VocabularyPage({ id }: { id?: string }) {
             </EmptyState>
           )}
         </section>
+      </div>
+      <div className="section-spaced">
+        <VocabularyReminderSettings />
       </div>
     </>
   )

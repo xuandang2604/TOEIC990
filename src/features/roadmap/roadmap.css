@@ -1,0 +1,419 @@
+.roadmap-entry,
+.vocabulary-notebook,
+.roadmap-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 28px;
+}
+.roadmap-entry {
+  margin-bottom: 24px;
+}
+.roadmap-entry h2,
+.vocabulary-notebook h2 {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+.roadmap-entry p,
+.vocabulary-notebook p,
+.roadmap-next p {
+  color: var(--muted);
+}
+.roadmap-entry > .button,
+.vocabulary-notebook > .button {
+  flex-shrink: 0;
+}
+.vocabulary-notebook.panel {
+  margin-bottom: 24px;
+  border-left: 3px solid var(--sage);
+}
+.roadmap-setup {
+  padding: 28px;
+}
+.roadmap-setup h2 {
+  margin: 6px 0 12px;
+}
+.roadmap-setup form {
+  margin-top: 20px;
+}
+.roadmap-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 24px;
+}
+.roadmap-fields .form-label {
+  min-width: 0;
+}
+.roadmap-fields input,
+.roadmap-fields select {
+  min-width: 0;
+  width: 100%;
+  min-height: 44px;
+}
+.roadmap-days {
+  border: 0;
+  margin: 0 0 18px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.roadmap-days legend {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.roadmap-days label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  min-height: 44px;
+  cursor: pointer;
+}
+.roadmap-days label:has(input:checked) {
+  background: var(--sage-soft);
+  border-color: var(--sage);
+}
+.roadmap-days input,
+.reminder-checkbox input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--sage);
+}
+.roadmap-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.roadmap-overview {
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 20px 32px;
+  margin-top: 24px;
+}
+.roadmap-overview h2 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  line-height: 1.5;
+}
+.roadmap-overview h2 small {
+  font: 500 0.85rem var(--font-sans);
+  color: var(--muted);
+}
+.roadmap-overview dl {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  align-self: center;
+}
+.roadmap-overview dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+}
+.roadmap-overview dt {
+  color: var(--muted);
+}
+.roadmap-overview dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+.roadmap-calendar-progress {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--sage);
+  font-weight: 600;
+}
+.roadmap-overview > .small {
+  grid-column: 1 / -1;
+}
+.roadmap-caveats {
+  border-left: 2px solid var(--brass);
+  margin-top: 20px;
+  padding: 4px 0 4px 18px;
+  color: var(--muted);
+}
+.roadmap-caveats p + p {
+  margin-top: 8px;
+}
+.roadmap-workload {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
+}
+.roadmap-focus-note {
+  margin-bottom: 14px;
+}
+.roadmap-workload article {
+  min-width: 0;
+  padding: 22px 20px;
+}
+.roadmap-workload article + article {
+  border-left: 1px solid var(--line);
+}
+.roadmap-workload h3 {
+  margin: 8px 0;
+}
+.roadmap-workload p {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.roadmap-next.panel {
+  margin-top: 20px;
+  background: var(--sage-soft);
+}
+.roadmap-next > svg {
+  color: var(--sage);
+}
+.roadmap-next .button {
+  flex-shrink: 0;
+}
+.roadmap-phases {
+  display: grid;
+  gap: 12px;
+}
+.roadmap-phase summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  cursor: pointer;
+  padding: 20px 24px;
+  min-height: 64px;
+}
+.roadmap-phase summary::after {
+  content: '+';
+  margin-left: auto;
+  font-size: 1.3rem;
+}
+.roadmap-phase[open] summary::after {
+  content: '−';
+}
+.roadmap-phase summary strong,
+.roadmap-phase summary small {
+  display: block;
+}
+.roadmap-phase summary small {
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 3px;
+}
+.roadmap-phase-number {
+  font: 1.6rem var(--font-serif);
+  color: var(--brass-text);
+}
+.roadmap-phase-body {
+  padding: 0 24px 24px 67px;
+}
+.roadmap-phase-body ul {
+  padding-left: 18px;
+  color: var(--muted);
+  margin: 14px 0;
+}
+.roadmap-phase-body li + li {
+  margin-top: 7px;
+}
+.roadmap-reference-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 16px;
+}
+.roadmap-week {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.roadmap-week li {
+  display: grid;
+  grid-template-columns: 18px 65px 1fr 18px;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 8px;
+  border-bottom: 1px solid var(--line);
+}
+.roadmap-week svg {
+  color: var(--sage);
+}
+.vocabulary-reminder-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--sage);
+  border-radius: 6px;
+  margin-bottom: 22px;
+  background: var(--sage-soft);
+}
+.vocabulary-reminder-banner > div {
+  flex: 1;
+  min-width: 180px;
+}
+.vocabulary-reminder-banner p {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.vocabulary-reminder-settings {
+  padding: 28px;
+}
+.vocabulary-reminder-settings h2 {
+  margin: 6px 0;
+}
+.vocabulary-reminder-settings > p {
+  margin-top: 12px;
+}
+.vocabulary-reminder-settings form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  margin: 20px 0;
+}
+.vocabulary-reminder-settings form .form-label {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.vocabulary-reminder-settings input[type='time'] {
+  padding: 8px 12px;
+  min-height: 44px;
+}
+.reminder-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  min-height: 44px;
+}
+.notebook-topic {
+  margin-top: 14px;
+}
+.vocab-row .notebook-due {
+  color: var(--sage);
+  font-size: 0.7rem;
+}
+.question-word-notes {
+  margin-top: 20px;
+}
+.question-word-notes h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.question-word-row {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.7fr) minmax(0, 1.3fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.question-word-row .word-chip {
+  justify-self: start;
+}
+.word-save-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--sage);
+  min-height: 44px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+.word-save-button:hover {
+  background: var(--sage-soft);
+}
+.review-modes.vocabulary-review-mode {
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (max-width: 1050px) {
+  .roadmap-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .roadmap-next {
+    flex-wrap: wrap;
+  }
+  .roadmap-next > div {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+@media (max-width: 640px) {
+  .question-word-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 12px;
+  }
+  .question-word-row > .small {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .question-word-row > div {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+  .roadmap-entry,
+  .vocabulary-notebook {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+  .roadmap-setup,
+  .roadmap-overview,
+  .vocabulary-reminder-settings {
+    padding: 20px;
+  }
+  .roadmap-fields,
+  .roadmap-overview,
+  .roadmap-workload {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .roadmap-workload article {
+    padding: 18px 0;
+  }
+  .roadmap-workload article + article {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .roadmap-phase summary {
+    padding: 16px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .roadmap-phase-body {
+    padding: 0 18px 18px;
+  }
+  .roadmap-phase-number {
+    font-size: 1.2rem;
+  }
+  .roadmap-phase summary .tag {
+    font-size: 0.65rem;
+  }
+  .roadmap-next {
+    padding: 20px;
+    gap: 12px;
+  }
+  .roadmap-week li {
+    gap: 10px;
+    grid-template-columns: 16px 48px 1fr 16px;
+    font-size: 0.8rem;
+  }
+}

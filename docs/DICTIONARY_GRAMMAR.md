@@ -1,5 +1,7 @@
 # Dictionary & Grammar — Task 03
 
+Cập nhật 2026-10-27: [Sổ tay ngữ pháp & Feynman](GRAMMAR_HANDBOOK.md) có 42 chủ điểm trong 7 chương, 84 bài tự kiểm tra và bố cục riêng cho iPhone. Các con số 12 bài dưới đây mô tả phiên bản Task 03 ban đầu.
+
 ## Phạm vi nội dung
 
 88 mục: **84 từ đơn + 4 cụm**, giữ nguyên 36 ID cũ. 12 bài ngữ pháp, **24 câu mini practice** có đáp án và phân tích từng lựa chọn. Bộ câu luyện Task 02 vẫn là 34 câu; Task 05 mở transfer pool từ 8 lên 18 câu. Các mục tham chiếu được biên soạn trực tiếp trong repo; không dùng Ddict, không scrape, không gọi dịch vụ từ điển/translation và không có API key trong client.

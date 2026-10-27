@@ -3,11 +3,7 @@
     {
       "id": "accommodate",
       "word": "accommodate",
-      "forms": [
-        "accommodates",
-        "accommodated",
-        "accommodating"
-      ]
+      "forms": ["accommodates", "accommodated", "accommodating"]
     },
     {
       "id": "accommodation",
@@ -17,69 +13,42 @@
     {
       "id": "agenda",
       "word": "agenda",
-      "forms": [
-        "agendas"
-      ]
+      "forms": ["agendas"]
     },
     {
       "id": "animal",
       "word": "animal",
-      "forms": [
-        "animals"
-      ]
+      "forms": ["animals"]
     },
     {
       "id": "applicant",
       "word": "applicant",
-      "forms": [
-        "applicants"
-      ]
+      "forms": ["applicants"]
     },
     {
       "id": "appointment",
       "word": "appointment",
-      "forms": [
-        "appointments"
-      ]
+      "forms": ["appointments"]
     },
     {
       "id": "approve",
       "word": "approve",
-      "forms": [
-        "approves",
-        "approved",
-        "approving"
-      ]
+      "forms": ["approves", "approved", "approving"]
     },
     {
       "id": "arrange",
       "word": "arrange",
-      "forms": [
-        "arranges",
-        "arranged",
-        "arranging"
-      ]
+      "forms": ["arranges", "arranged", "arranging"]
     },
     {
       "id": "attend",
       "word": "attend",
-      "forms": [
-        "attends",
-        "attended",
-        "attending"
-      ]
+      "forms": ["attends", "attended", "attending"]
     },
     {
       "id": "authorize",
       "word": "authorize",
-      "forms": [
-        "authorizes",
-        "authorized",
-        "authorizing",
-        "authorise",
-        "authorised",
-        "authorising"
-      ]
+      "forms": ["authorizes", "authorized", "authorizing", "authorise", "authorised", "authorising"]
     },
     {
       "id": "available",
@@ -100,83 +69,57 @@
     {
       "id": "bench",
       "word": "bench",
-      "forms": [
-        "benches"
-      ]
+      "forms": ["benches"]
     },
     {
       "id": "bicycle",
       "word": "bicycle",
-      "forms": [
-        "bicycles"
-      ]
+      "forms": ["bicycles"]
     },
     {
       "id": "branch",
       "word": "branch",
-      "forms": [
-        "branches"
-      ]
+      "forms": ["branches"]
     },
     {
       "id": "brochure",
       "word": "brochure",
-      "forms": [
-        "brochures"
-      ]
+      "forms": ["brochures"]
     },
     {
       "id": "budget",
       "word": "budget",
-      "forms": [
-        "budgets"
-      ]
+      "forms": ["budgets"]
     },
     {
       "id": "building",
       "word": "building",
-      "forms": [
-        "buildings"
-      ]
+      "forms": ["buildings"]
     },
     {
       "id": "cancel",
       "word": "cancel",
-      "forms": [
-        "cancels",
-        "canceled",
-        "cancelled",
-        "canceling",
-        "cancelling"
-      ]
+      "forms": ["cancels", "canceled", "cancelled", "canceling", "cancelling"]
     },
     {
       "id": "candidate",
       "word": "candidate",
-      "forms": [
-        "candidates"
-      ]
+      "forms": ["candidates"]
     },
     {
       "id": "cap",
       "word": "cap",
-      "forms": [
-        "caps"
-      ]
+      "forms": ["caps"]
     },
     {
       "id": "capacity",
       "word": "capacity",
-      "forms": [
-        "capacities"
-      ]
+      "forms": ["capacities"]
     },
     {
       "id": "colleague",
       "word": "colleague",
-      "forms": [
-        "colleagues"
-      ]
+      "forms": ["colleagues"]
     },
     {
       "id": "complimentary",
@@ -186,93 +129,62 @@
     {
       "id": "comply",
       "word": "comply",
-      "forms": [
-        "complies",
-        "complied",
-        "complying"
-      ]
+      "forms": ["complies", "complied", "complying"]
     },
     {
       "id": "conference",
       "word": "conference",
-      "forms": [
-        "conferences"
-      ]
+      "forms": ["conferences"]
     },
     {
       "id": "confirm",
       "word": "confirm",
-      "forms": [
-        "confirms",
-        "confirmed",
-        "confirming"
-      ]
+      "forms": ["confirms", "confirmed", "confirming"]
     },
     {
       "id": "contract",
       "word": "contract",
-      "forms": [
-        "contracts"
-      ]
+      "forms": ["contracts"]
     },
     {
       "id": "convenient",
       "word": "convenient",
-      "forms": [
-        "more convenient",
-        "most convenient"
-      ]
+      "forms": ["more convenient", "most convenient"]
     },
     {
       "id": "counter",
       "word": "counter",
-      "forms": [
-        "counters"
-      ]
+      "forms": ["counters"]
     },
     {
       "id": "crane",
       "word": "crane",
-      "forms": [
-        "cranes"
-      ]
+      "forms": ["cranes"]
     },
     {
       "id": "customer",
       "word": "customer",
-      "forms": [
-        "customers"
-      ]
+      "forms": ["customers"]
     },
     {
       "id": "deadline",
       "word": "deadline",
-      "forms": [
-        "deadlines"
-      ]
+      "forms": ["deadlines"]
     },
     {
       "id": "delivery",
       "word": "delivery",
-      "forms": [
-        "deliveries"
-      ]
+      "forms": ["deliveries"]
     },
     {
       "id": "depart",
       "word": "depart",
-      "forms": [
-        "departs",
-        "departed",
-        "departing"
-      ]
+      "forms": ["departs", "departed", "departing"]
     },
     {
       "id": "deposit",
       "word": "deposit",
-      "forms": [
-        "deposits"
-      ]
+      "forms": ["deposits"]
     },
     {
       "id": "despite",
@@ -282,40 +194,27 @@
     {
       "id": "discount",
       "word": "discount",
-      "forms": [
-        "discounts"
-      ]
+      "forms": ["discounts"]
     },
     {
       "id": "distribute",
       "word": "distribute",
-      "forms": [
-        "distributes",
-        "distributed",
-        "distributing"
-      ]
+      "forms": ["distributes", "distributed", "distributing"]
     },
     {
       "id": "door",
       "word": "door",
-      "forms": [
-        "doors"
-      ]
+      "forms": ["doors"]
     },
     {
       "id": "edge",
       "word": "edge",
-      "forms": [
-        "edges"
-      ]
+      "forms": ["edges"]
     },
     {
       "id": "efficient",
       "word": "efficient",
-      "forms": [
-        "more efficient",
-        "most efficient"
-      ]
+      "forms": ["more efficient", "most efficient"]
     },
     {
       "id": "eligible",
@@ -325,9 +224,7 @@
     {
       "id": "employee",
       "word": "employee",
-      "forms": [
-        "employees"
-      ]
+      "forms": ["employees"]
     },
     {
       "id": "equipment",
@@ -337,32 +234,22 @@
     {
       "id": "estimate",
       "word": "estimate",
-      "forms": [
-        "estimates"
-      ]
+      "forms": ["estimates"]
     },
     {
       "id": "expand",
       "word": "expand",
-      "forms": [
-        "expands",
-        "expanded",
-        "expanding"
-      ]
+      "forms": ["expands", "expanded", "expanding"]
     },
     {
       "id": "expense",
       "word": "expense",
-      "forms": [
-        "expenses"
-      ]
+      "forms": ["expenses"]
     },
     {
       "id": "facility",
       "word": "facility",
-      "forms": [
-        "facilities"
-      ]
+      "forms": ["facilities"]
     },
     {
       "id": "feedback",
@@ -377,39 +264,27 @@
     {
       "id": "invoice",
       "word": "invoice",
-      "forms": [
-        "invoices"
-      ]
+      "forms": ["invoices"]
     },
     {
       "id": "itinerary",
       "word": "itinerary",
-      "forms": [
-        "itineraries"
-      ]
+      "forms": ["itineraries"]
     },
     {
       "id": "journey",
       "word": "journey",
-      "forms": [
-        "journeys"
-      ]
+      "forms": ["journeys"]
     },
     {
       "id": "lane",
       "word": "lane",
-      "forms": [
-        "lanes"
-      ]
+      "forms": ["lanes"]
     },
     {
       "id": "look-forward-to",
       "word": "look forward to",
-      "forms": [
-        "looks forward to",
-        "looked forward to",
-        "looking forward to"
-      ]
+      "forms": ["looks forward to", "looked forward to", "looking forward to"]
     },
     {
       "id": "luggage",
@@ -429,36 +304,22 @@
     {
       "id": "negotiate",
       "word": "negotiate",
-      "forms": [
-        "negotiates",
-        "negotiated",
-        "negotiating"
-      ]
+      "forms": ["negotiates", "negotiated", "negotiating"]
     },
     {
       "id": "notify",
       "word": "notify",
-      "forms": [
-        "notifies",
-        "notified",
-        "notifying"
-      ]
+      "forms": ["notifies", "notified", "notifying"]
     },
     {
       "id": "nut",
       "word": "nut",
-      "forms": [
-        "nuts"
-      ]
+      "forms": ["nuts"]
     },
     {
       "id": "obtain",
       "word": "obtain",
-      "forms": [
-        "obtains",
-        "obtained",
-        "obtaining"
-      ]
+      "forms": ["obtains", "obtained", "obtaining"]
     },
     {
       "id": "on-behalf-of",
@@ -468,50 +329,32 @@
     {
       "id": "park",
       "word": "park",
-      "forms": [
-        "parks",
-        "parked",
-        "parking"
-      ]
+      "forms": ["parks", "parked", "parking"]
     },
     {
       "id": "participate",
       "word": "participate",
-      "forms": [
-        "participates",
-        "participated",
-        "participating"
-      ]
+      "forms": ["participates", "participated", "participating"]
     },
     {
       "id": "pendant-light",
       "word": "pendant light",
-      "forms": [
-        "pendant lights"
-      ]
+      "forms": ["pendant lights"]
     },
     {
       "id": "platform",
       "word": "platform",
-      "forms": [
-        "platforms"
-      ]
+      "forms": ["platforms"]
     },
     {
       "id": "policy",
       "word": "policy",
-      "forms": [
-        "policies"
-      ]
+      "forms": ["policies"]
     },
     {
       "id": "postpone",
       "word": "postpone",
-      "forms": [
-        "postpones",
-        "postponed",
-        "postponing"
-      ]
+      "forms": ["postpones", "postponed", "postponing"]
     },
     {
       "id": "prior",
@@ -521,224 +364,137 @@
     {
       "id": "process",
       "word": "process",
-      "forms": [
-        "processes",
-        "processed",
-        "processing"
-      ]
+      "forms": ["processes", "processed", "processing"]
     },
     {
       "id": "promote",
       "word": "promote",
-      "forms": [
-        "promotes",
-        "promoted",
-        "promoting"
-      ]
+      "forms": ["promotes", "promoted", "promoting"]
     },
     {
       "id": "proposal",
       "word": "proposal",
-      "forms": [
-        "proposals"
-      ]
+      "forms": ["proposals"]
     },
     {
       "id": "purchase",
       "word": "purchase",
-      "forms": [
-        "purchases",
-        "purchased",
-        "purchasing"
-      ]
+      "forms": ["purchases", "purchased", "purchasing"]
     },
     {
       "id": "receipt",
       "word": "receipt",
-      "forms": [
-        "receipts"
-      ]
+      "forms": ["receipts"]
     },
     {
       "id": "recommend",
       "word": "recommend",
-      "forms": [
-        "recommends",
-        "recommended",
-        "recommending"
-      ]
+      "forms": ["recommends", "recommended", "recommending"]
     },
     {
       "id": "recruit",
       "word": "recruit",
-      "forms": [
-        "recruits",
-        "recruited",
-        "recruiting"
-      ]
+      "forms": ["recruits", "recruited", "recruiting"]
     },
     {
       "id": "refund",
       "word": "refund",
-      "forms": [
-        "refunds"
-      ]
+      "forms": ["refunds"]
     },
     {
       "id": "register",
       "word": "register",
-      "forms": [
-        "registers",
-        "registered",
-        "registering"
-      ]
+      "forms": ["registers", "registered", "registering"]
     },
     {
       "id": "reimburse",
       "word": "reimburse",
-      "forms": [
-        "reimburses",
-        "reimbursed",
-        "reimbursing"
-      ]
+      "forms": ["reimburses", "reimbursed", "reimbursing"]
     },
     {
       "id": "reliable",
       "word": "reliable",
-      "forms": [
-        "more reliable",
-        "most reliable"
-      ]
+      "forms": ["more reliable", "most reliable"]
     },
     {
       "id": "relocate",
       "word": "relocate",
-      "forms": [
-        "relocates",
-        "relocated",
-        "relocating"
-      ]
+      "forms": ["relocates", "relocated", "relocating"]
     },
     {
       "id": "renew",
       "word": "renew",
-      "forms": [
-        "renews",
-        "renewed",
-        "renewing"
-      ]
+      "forms": ["renews", "renewed", "renewing"]
     },
     {
       "id": "renovation",
       "word": "renovation",
-      "forms": [
-        "renovations"
-      ]
+      "forms": ["renovations"]
     },
     {
       "id": "repair",
       "word": "repair",
-      "forms": [
-        "repairs",
-        "repaired",
-        "repairing"
-      ]
+      "forms": ["repairs", "repaired", "repairing"]
     },
     {
       "id": "request",
       "word": "request",
-      "forms": [
-        "requests",
-        "requested",
-        "requesting"
-      ]
+      "forms": ["requests", "requested", "requesting"]
     },
     {
       "id": "require",
       "word": "require",
-      "forms": [
-        "requires",
-        "required",
-        "requiring"
-      ]
+      "forms": ["requires", "required", "requiring"]
     },
     {
       "id": "reservation",
       "word": "reservation",
-      "forms": [
-        "reservations"
-      ]
+      "forms": ["reservations"]
     },
     {
       "id": "resolve",
       "word": "resolve",
-      "forms": [
-        "resolves",
-        "resolved",
-        "resolving"
-      ]
+      "forms": ["resolves", "resolved", "resolving"]
     },
     {
       "id": "retain",
       "word": "retain",
-      "forms": [
-        "retains",
-        "retained",
-        "retaining"
-      ]
+      "forms": ["retains", "retained", "retaining"]
     },
     {
       "id": "revenue",
       "word": "revenue",
-      "forms": [
-        "revenues"
-      ]
+      "forms": ["revenues"]
     },
     {
       "id": "schedule",
       "word": "schedule",
-      "forms": [
-        "schedules",
-        "scheduled",
-        "scheduling"
-      ]
+      "forms": ["schedules", "scheduled", "scheduling"]
     },
     {
       "id": "shipment",
       "word": "shipment",
-      "forms": [
-        "shipments"
-      ]
+      "forms": ["shipments"]
     },
     {
       "id": "signal",
       "word": "signal",
-      "forms": [
-        "signals"
-      ]
+      "forms": ["signals"]
     },
     {
       "id": "soil",
       "word": "soil",
-      "forms": [
-        "soils"
-      ]
+      "forms": ["soils"]
     },
     {
       "id": "submit",
       "word": "submit",
-      "forms": [
-        "submits",
-        "submitted",
-        "submitting"
-      ]
+      "forms": ["submits", "submitted", "submitting"]
     },
     {
       "id": "supplier",
       "word": "supplier",
-      "forms": [
-        "suppliers"
-      ]
+      "forms": ["suppliers"]
     },
     {
       "id": "temporary",
@@ -758,42 +514,27 @@
     {
       "id": "venue",
       "word": "venue",
-      "forms": [
-        "venues"
-      ]
+      "forms": ["venues"]
     },
     {
       "id": "waive",
       "word": "waive",
-      "forms": [
-        "waives",
-        "waived",
-        "waiving"
-      ]
+      "forms": ["waives", "waived", "waiving"]
     },
     {
       "id": "warranty",
       "word": "warranty",
-      "forms": [
-        "warranties"
-      ]
+      "forms": ["warranties"]
     },
     {
       "id": "withdraw",
       "word": "withdraw",
-      "forms": [
-        "withdraws",
-        "withdrew",
-        "withdrawn",
-        "withdrawing"
-      ]
+      "forms": ["withdraws", "withdrew", "withdrawn", "withdrawing"]
     },
     {
       "id": "workshop",
       "word": "workshop",
-      "forms": [
-        "workshops"
-      ]
+      "forms": ["workshops"]
     }
   ],
   "grammarIds": [
@@ -808,6 +549,36 @@
     "subjunctive",
     "prepositions",
     "comparisons",
-    "modals"
+    "modals",
+    "sentence-structure",
+    "nouns-countability",
+    "articles",
+    "determiners-quantifiers",
+    "pronouns",
+    "possessives",
+    "present-simple-continuous",
+    "present-perfect-past",
+    "past-continuous-perfect",
+    "perfect-continuous",
+    "future-forms",
+    "future-perfect",
+    "modal-perfects",
+    "causatives",
+    "phrasal-verbs",
+    "used-to",
+    "noun-clauses",
+    "adverb-clauses",
+    "reported-speech",
+    "questions",
+    "mixed-conditionals",
+    "wish-if-only",
+    "adjectives-adverbs",
+    "participial-adjectives",
+    "inversion",
+    "reduced-relatives",
+    "participle-clauses",
+    "emphasis-clefts",
+    "ellipsis-substitution",
+    "parallelism"
   ]
 }

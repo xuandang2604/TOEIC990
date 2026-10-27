@@ -1,0 +1,2661 @@
+{
+  "format": "study990.content",
+  "formatVersion": 3,
+  "id": "learning-path-2026",
+  "revision": "2026-10-27-r1",
+  "purpose": "practice",
+  "media": [],
+  "review": {
+    "status": "unreviewed",
+    "author": "STUDY 990 · AI-assisted adaptation/authoring",
+    "date": "2026-10-27",
+    "note": "Needs named human review. Source license archive is stored alongside the batch; no original attempt or score changed."
+  },
+  "bank": {
+    "questions": [
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:booths-purpose",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "reservation",
+          "candidate"
+        ],
+        "part": 3,
+        "topic": "office",
+        "stimulusId": "learning-path-2026:conversation-booths",
+        "prompt": "Why does the member want to change the reservation?",
+        "difficulty": "intermediate",
+        "skills": [
+          "listening-main-idea"
+        ],
+        "answer": "C",
+        "options": [
+          {
+            "id": "A",
+            "text": "More interviewers will attend.",
+            "reasoning": "Ba người mỗi lượt vẫn là số đã nêu; không có tăng số người."
+          },
+          {
+            "id": "B",
+            "text": "The lounge has no available seats.",
+            "reasoning": "Vấn đề được nêu là thông tin mật, không phải thiếu ghế."
+          },
+          {
+            "id": "C",
+            "text": "The interviews require a private setting.",
+            "reasoning": "Confidential information giải thích yêu cầu phòng kín."
+          },
+          {
+            "id": "D",
+            "text": "The interviews will finish later than planned.",
+            "reasoning": "Không có thay đổi giờ kết thúc."
+          }
+        ],
+        "explanation": "Người đặt nói các ứng viên sẽ trao đổi thông tin mật, nên xin đổi từ lounge mở sang phòng kín. Đây là nhu cầu riêng tư, không phải thay đổi số người hay giờ.",
+        "takeaway": "Xác định nguyên nhân thay đổi trước khi nghe giải pháp."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:booths-exhibit",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "available",
+          "capacity"
+        ],
+        "part": 3,
+        "topic": "office",
+        "stimulusId": "learning-path-2026:conversation-booths",
+        "prompt": "Look at the room list. Which room meets the needs and is available?",
+        "difficulty": "intermediate",
+        "skills": [
+          "visual-integration",
+          "listening-detail"
+        ],
+        "answer": "B",
+        "options": [
+          {
+            "id": "A",
+            "text": "Elm",
+            "reasoning": "Đủ ghế và kín nhưng đã được đặt cả chiều."
+          },
+          {
+            "id": "B",
+            "text": "Pine",
+            "reasoning": "Kín, có sáu ghế và được xác nhận trống từ hai đến bốn giờ."
+          },
+          {
+            "id": "C",
+            "text": "Lounge",
+            "reasoning": "Có ghế nhưng không kín."
+          },
+          {
+            "id": "D",
+            "text": "Oak",
+            "reasoning": "Chỉ có hai ghế, không đủ ba người."
+          }
+        ],
+        "explanation": "Cần đồng thời phòng kín, ít nhất ba ghế và trống hai–bốn giờ. Elm bận, Oak thiếu ghế, Lounge mở; Pine đáp ứng cả ba điều kiện.",
+        "takeaway": "Ghép bảng biểu với điều kiện nghe được; một điều kiện đúng chưa đủ."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:booths-next",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "confirm",
+          "reservation"
+        ],
+        "part": 3,
+        "topic": "office",
+        "stimulusId": "learning-path-2026:conversation-booths",
+        "prompt": "What will the coordinator send to the member?",
+        "difficulty": "foundation",
+        "skills": [
+          "listening-detail"
+        ],
+        "answer": "D",
+        "options": [
+          {
+            "id": "A",
+            "text": "A list of interview candidates",
+            "reasoning": "Danh sách ứng viên không được yêu cầu."
+          },
+          {
+            "id": "B",
+            "text": "A request to rent a monitor",
+            "reasoning": "Monitor đã nằm trong đặt phòng, không cần thuê thêm."
+          },
+          {
+            "id": "C",
+            "text": "A revised interview schedule",
+            "reasoning": "Giờ phỏng vấn không thay đổi."
+          },
+          {
+            "id": "D",
+            "text": "An updated booking and an access code",
+            "reasoning": "Câu cuối hứa gửi đặt phòng cập nhật và mã cửa."
+          }
+        ],
+        "explanation": "I’ll email you an updated booking and the door access code nêu hai thứ sẽ gửi. Monitor được bao gồm nhưng không phải tài liệu sẽ email.",
+        "takeaway": "Nghe trọn cụm danh từ sau động từ hành động ở cuối hội thoại."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:visit-problem",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "cancel",
+          "journey"
+        ],
+        "part": 3,
+        "topic": "travel",
+        "stimulusId": "learning-path-2026:conversation-site-visit",
+        "prompt": "What problem are the speakers discussing?",
+        "difficulty": "foundation",
+        "skills": [
+          "listening-main-idea"
+        ],
+        "answer": "A",
+        "options": [
+          {
+            "id": "A",
+            "text": "A ferry service has been suspended.",
+            "reasoning": "Câu mở đầu nói phà tạm ngừng vì gió lớn."
+          },
+          {
+            "id": "B",
+            "text": "The demonstration equipment is broken.",
+            "reasoning": "Buổi trình diễn vẫn diễn ra lúc mười giờ."
+          },
+          {
+            "id": "C",
+            "text": "The bridge is closed to buses.",
+            "reasoning": "Xe buýt qua cầu chính là phương án thay thế."
+          },
+          {
+            "id": "D",
+            "text": "The island office has relocated.",
+            "reasoning": "Không có thông tin văn phòng chuyển địa điểm."
+          }
+        ],
+        "explanation": "Vấn đề ban đầu là ferry suspended vì gió lớn; chuyến thăm vẫn có thể thực hiện nhờ xe buýt qua cầu.",
+        "takeaway": "Phân biệt trở ngại ban đầu với giải pháp được nhắc ngay sau."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:visit-arrival",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "arrange",
+          "schedule"
+        ],
+        "part": 3,
+        "topic": "travel",
+        "stimulusId": "learning-path-2026:conversation-site-visit",
+        "prompt": "How long before the demonstration will the bus arrive?",
+        "difficulty": "intermediate",
+        "skills": [
+          "listening-detail"
+        ],
+        "answer": "C",
+        "options": [
+          {
+            "id": "A",
+            "text": "Twenty minutes",
+            "reasoning": "Nhầm mốc 9:20 thành còn 20 phút."
+          },
+          {
+            "id": "B",
+            "text": "One hour and twenty minutes",
+            "reasoning": "Đây là khoảng 8:40 đến 10:00, lấy nhầm giờ khởi hành."
+          },
+          {
+            "id": "C",
+            "text": "Forty minutes",
+            "reasoning": "10:00 trừ 9:20 bằng 40 phút."
+          },
+          {
+            "id": "D",
+            "text": "Two hours",
+            "reasoning": "Không có khoảng chênh hai giờ."
+          }
+        ],
+        "explanation": "Xe đến 9:20, trình diễn bắt đầu 10:00, nên có 40 phút trước buổi trình diễn. 8:40 là giờ khởi hành.",
+        "takeaway": "Ghi vai trò từng mốc thời gian trước khi tính khoảng chênh."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:visit-refund",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "refund",
+          "receipt"
+        ],
+        "part": 3,
+        "topic": "travel",
+        "stimulusId": "learning-path-2026:conversation-site-visit",
+        "prompt": "What will the visitor most likely do this evening?",
+        "difficulty": "intermediate",
+        "skills": [
+          "listening-inference"
+        ],
+        "answer": "B",
+        "options": [
+          {
+            "id": "A",
+            "text": "Buy a replacement ferry ticket",
+            "reasoning": "Phà dừng ngày mai; kế hoạch là đi xe buýt."
+          },
+          {
+            "id": "B",
+            "text": "Request a refund online",
+            "reasoning": "I’ll do that nối với việc nộp yêu cầu hoàn tiền trên website."
+          },
+          {
+            "id": "C",
+            "text": "Meet a colleague at the terminal",
+            "reasoning": "Việc đón ở terminal diễn ra khi đến nơi ngày mai."
+          },
+          {
+            "id": "D",
+            "text": "Cancel the equipment demonstration",
+            "reasoning": "Buổi trình diễn vẫn được giữ nguyên."
+          }
+        ],
+        "explanation": "I’ll do that this evening quy chiếu về apply through its website để hoàn tiền vé phà. Không phải mua vé phà khác hay hủy buổi trình diễn.",
+        "takeaway": "Theo dõi this/that bằng hành động được nhắc ngay trước."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:returns-purpose",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "equipment",
+          "customer"
+        ],
+        "part": 4,
+        "topic": "shopping",
+        "stimulusId": "learning-path-2026:talk-tool-return",
+        "prompt": "Who is the message intended for?",
+        "difficulty": "foundation",
+        "skills": [
+          "listening-main-idea"
+        ],
+        "answer": "D",
+        "options": [
+          {
+            "id": "A",
+            "text": "New employees learning to repair tools",
+            "reasoning": "Hướng dẫn dành cho khách trả đồ thuê, không đào tạo sửa chữa."
+          },
+          {
+            "id": "B",
+            "text": "Drivers delivering new rental equipment",
+            "reasoning": "Không nói nhận lô thiết bị mới."
+          },
+          {
+            "id": "C",
+            "text": "People applying for a store account",
+            "reasoning": "Không có quy trình đăng ký tài khoản."
+          },
+          {
+            "id": "D",
+            "text": "Customers returning rented tools",
+            "reasoning": "Toàn bài hướng dẫn khách trả thiết bị thuê."
+          }
+        ],
+        "explanation": "Mở đầu cảm ơn thuê dụng cụ, sau đó hướng dẫn trả đồ và hoàn cọc. Đối tượng là khách trả dụng cụ thuê.",
+        "takeaway": "Dùng mục đích và hành động được yêu cầu để nhận diện người nghe."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:returns-keys",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "equipment"
+        ],
+        "part": 4,
+        "topic": "shopping",
+        "stimulusId": "learning-path-2026:talk-tool-return",
+        "prompt": "Where should customers leave the keys?",
+        "difficulty": "foundation",
+        "skills": [
+          "listening-detail"
+        ],
+        "answer": "A",
+        "options": [
+          {
+            "id": "A",
+            "text": "In a separate red box",
+            "reasoning": "Separate red key box là vị trí dành riêng cho chìa khóa."
+          },
+          {
+            "id": "B",
+            "text": "Inside the rental agreement envelope",
+            "reasoning": "Người nói nêu rõ không để chìa trong phong bì."
+          },
+          {
+            "id": "C",
+            "text": "On the closed service desk",
+            "reasoning": "Không yêu cầu để ở quầy đã đóng."
+          },
+          {
+            "id": "D",
+            "text": "Beside the tools in an open bag",
+            "reasoning": "Thiết bị vào lồng khóa; không có túi mở."
+          }
+        ],
+        "explanation": "Hợp đồng vào phong bì, còn chìa khóa vào hộp đỏ riêng. Do not đánh dấu thông tin cần phân biệt.",
+        "takeaway": "Khi có phủ định, ghép đúng từng đồ vật với đúng nơi đặt."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:returns-deposit",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "deposit",
+          "refund"
+        ],
+        "part": 4,
+        "topic": "shopping",
+        "stimulusId": "learning-path-2026:talk-tool-return",
+        "prompt": "When will a customer’s deposit be refunded?",
+        "difficulty": "intermediate",
+        "skills": [
+          "listening-detail"
+        ],
+        "answer": "C",
+        "options": [
+          {
+            "id": "A",
+            "text": "As soon as an envelope is posted",
+            "reasoning": "Bỏ phong bì chưa đáp ứng điều kiện kiểm tra."
+          },
+          {
+            "id": "B",
+            "text": "Before the store closes this evening",
+            "reasoning": "Kiểm tra chỉ diễn ra sáng mai."
+          },
+          {
+            "id": "C",
+            "text": "After the equipment passes the inspection",
+            "reasoning": "Hoàn cọc sau kiểm tra nếu không mất hoặc hỏng."
+          },
+          {
+            "id": "D",
+            "text": "When the customer rents another tool",
+            "reasoning": "Không có điều kiện phải thuê tiếp."
+          }
+        ],
+        "explanation": "Tiền cọc hoàn sau kiểm tra sáng mai, với điều kiện không thiếu hoặc hư hại. Chỉ để đồ lại chưa tự động đủ điều kiện hoàn cọc.",
+        "takeaway": "Nghe cả mốc thời gian và điều kiện provided."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:each-supplier",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "agreement"
+        ],
+        "vocabularyIds": [
+          "supplier",
+          "invoice"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "Each of the suppliers ------- a separate invoice for the shipment.",
+        "answer": "B",
+        "options": [
+          {
+            "id": "A",
+            "text": "issue",
+            "reasoning": "Issue không hòa hợp với chủ ngữ số ít each."
+          },
+          {
+            "id": "B",
+            "text": "issues",
+            "reasoning": "Each là trung tâm chủ ngữ số ít, nên dùng issues."
+          },
+          {
+            "id": "C",
+            "text": "issuing",
+            "reasoning": "Phân từ không tự làm vị ngữ hữu hạn."
+          },
+          {
+            "id": "D",
+            "text": "have issued",
+            "reasoning": "Have là dạng số nhiều; each cần has nếu dùng hoàn thành."
+          }
+        ],
+        "explanation": "Each of + danh từ số nhiều vẫn có chủ ngữ số ít là each. Động từ hiện tại đơn là issues; suppliers không quyết định số của động từ.",
+        "takeaway": "Tìm từ trung tâm của chủ ngữ, không lấy danh từ gần động từ nhất.",
+        "skills": [
+          "agreement"
+        ],
+        "difficulty": "foundation"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:report-passive",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "passive",
+          "modals"
+        ],
+        "vocabularyIds": [
+          "approve",
+          "require"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "The revised safety report must ------- by the site manager before it is circulated.",
+        "answer": "D",
+        "options": [
+          {
+            "id": "A",
+            "text": "approve",
+            "reasoning": "Báo cáo không tự phê duyệt; cần bị động."
+          },
+          {
+            "id": "B",
+            "text": "approving",
+            "reasoning": "Must không đi trực tiếp với V-ing."
+          },
+          {
+            "id": "C",
+            "text": "approved",
+            "reasoning": "Thiếu be sau must trong cấu trúc bị động."
+          },
+          {
+            "id": "D",
+            "text": "be approved",
+            "reasoning": "Must + be + V3, chủ thể phê duyệt là site manager."
+          }
+        ],
+        "explanation": "Báo cáo là đối tượng được phê duyệt; by the site manager chỉ tác nhân. Dùng must be approved.",
+        "takeaway": "Sau modal ở bị động cần be + phân từ quá khứ.",
+        "skills": [
+          "passive",
+          "modals"
+        ],
+        "difficulty": "intermediate"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:careful-estimate",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "word-forms"
+        ],
+        "vocabularyIds": [
+          "estimate",
+          "customer"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "Please check the measurements ------- before sending the estimate to the customer.",
+        "answer": "C",
+        "options": [
+          {
+            "id": "A",
+            "text": "careful",
+            "reasoning": "Tính từ không mô tả trực tiếp cách thực hiện check ở đây."
+          },
+          {
+            "id": "B",
+            "text": "care",
+            "reasoning": "Danh từ care không phù hợp vị trí bổ nghĩa check."
+          },
+          {
+            "id": "C",
+            "text": "carefully",
+            "reasoning": "Trạng từ mô tả cách kiểm tra."
+          },
+          {
+            "id": "D",
+            "text": "carefulness",
+            "reasoning": "Danh từ trừu tượng không bổ nghĩa trực tiếp động từ."
+          }
+        ],
+        "explanation": "Vị trí này diễn tả cách kiểm tra các số đo, nên dùng trạng từ carefully bổ nghĩa check.",
+        "takeaway": "Xác định từ cần được bổ nghĩa rồi chọn từ loại.",
+        "skills": [
+          "word-form"
+        ],
+        "difficulty": "foundation"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:avoid-delaying",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "verb-patterns"
+        ],
+        "vocabularyIds": [
+          "submit",
+          "deadline"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "To avoid ------- the inspection, please submit the completed forms by noon.",
+        "answer": "A",
+        "options": [
+          {
+            "id": "A",
+            "text": "delaying",
+            "reasoning": "Avoid đi với V-ing: tránh làm chậm."
+          },
+          {
+            "id": "B",
+            "text": "delay",
+            "reasoning": "Avoid không theo sau bởi động từ nguyên mẫu trần."
+          },
+          {
+            "id": "C",
+            "text": "to delay",
+            "reasoning": "Không dùng avoid to do."
+          },
+          {
+            "id": "D",
+            "text": "delayed",
+            "reasoning": "Phân từ quá khứ không phù hợp sau avoid trong cấu trúc này."
+          }
+        ],
+        "explanation": "Avoid + V-ing là cấu trúc đúng, nên chọn delaying. To avoid mở cụm chỉ mục đích, không làm thay đổi bổ ngữ của avoid.",
+        "takeaway": "Phân biệt to của cụm mục đích với dạng động từ sau avoid.",
+        "skills": [
+          "verb-patterns"
+        ],
+        "difficulty": "intermediate"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:despite-renovation",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "prepositions",
+          "connectors"
+        ],
+        "vocabularyIds": [
+          "despite",
+          "renovation"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "------- the ongoing renovation, the ground-floor reception desk will remain open.",
+        "answer": "D",
+        "options": [
+          {
+            "id": "A",
+            "text": "Although",
+            "reasoning": "Although cần mệnh đề hữu hạn; the ongoing renovation chỉ là cụm danh từ."
+          },
+          {
+            "id": "B",
+            "text": "Even though",
+            "reasoning": "Even though cũng cần mệnh đề, không phải cụm danh từ này."
+          },
+          {
+            "id": "C",
+            "text": "Because",
+            "reasoning": "Because cần mệnh đề và không thể hiện tương phản."
+          },
+          {
+            "id": "D",
+            "text": "Despite",
+            "reasoning": "Despite + cụm danh từ, diễn tả dù đang sửa chữa."
+          }
+        ],
+        "explanation": "The ongoing renovation là cụm danh từ, nên giới từ despite phù hợp để diễn tả tương phản với remain open.",
+        "takeaway": "Despite + danh từ/V-ing; although + mệnh đề.",
+        "skills": [
+          "prepositions",
+          "connectors"
+        ],
+        "difficulty": "intermediate"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:unless-confirmed",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "connectors",
+          "conditionals"
+        ],
+        "vocabularyIds": [
+          "venue",
+          "deposit",
+          "unless"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "The venue will release our provisional booking tomorrow ------- we pay the deposit today.",
+        "answer": "B",
+        "options": [
+          {
+            "id": "A",
+            "text": "because",
+            "reasoning": "Because đổi thành quan hệ nguyên nhân trái ý: trả tiền lại khiến mất chỗ."
+          },
+          {
+            "id": "B",
+            "text": "unless",
+            "reasoning": "Unless nghĩa là nếu không; trả cọc hôm nay là điều kiện giữ đặt chỗ."
+          },
+          {
+            "id": "C",
+            "text": "although",
+            "reasoning": "Although không thiết lập điều kiện để tránh mất chỗ."
+          },
+          {
+            "id": "D",
+            "text": "whereas",
+            "reasoning": "Whereas đối chiếu hai sự thật, không diễn tả điều kiện ngoại lệ."
+          }
+        ],
+        "explanation": "Nơi tổ chức sẽ bỏ đặt chỗ tạm nếu hôm nay không trả cọc. Unless tương đương if we do not pay the deposit today.",
+        "takeaway": "Đọc quan hệ nghĩa cả câu, không chỉ kiểm tra cấu trúc mệnh đề.",
+        "skills": [
+          "connectors",
+          "conditionals"
+        ],
+        "difficulty": "intermediate"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:whose-application",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "relatives"
+        ],
+        "vocabularyIds": [
+          "candidate",
+          "applicant"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "Candidates ------- applications are incomplete will receive an email requesting the missing documents.",
+        "answer": "C",
+        "options": [
+          {
+            "id": "A",
+            "text": "who",
+            "reasoning": "Who làm chủ ngữ/tân ngữ; không bổ nghĩa sở hữu trực tiếp applications."
+          },
+          {
+            "id": "B",
+            "text": "whom",
+            "reasoning": "Whom là đại từ tân ngữ, không phải từ hạn định sở hữu."
+          },
+          {
+            "id": "C",
+            "text": "whose",
+            "reasoning": "Whose applications nghĩa là đơn của các ứng viên."
+          },
+          {
+            "id": "D",
+            "text": "which",
+            "reasoning": "Which không thể hiện quan hệ sở hữu người–đơn ở đây."
+          }
+        ],
+        "explanation": "Cần quan hệ sở hữu giữa candidates và applications, nên dùng whose trước danh từ applications.",
+        "takeaway": "Whose có thể đứng trước danh từ làm chủ ngữ của mệnh đề quan hệ.",
+        "skills": [
+          "relative-clauses"
+        ],
+        "difficulty": "intermediate"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:counterfactual-shipment",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "conditionals"
+        ],
+        "vocabularyIds": [
+          "notify",
+          "shipment"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "If the supplier had notified us earlier, we ------- the shipment to our new address.",
+        "answer": "A",
+        "options": [
+          {
+            "id": "A",
+            "text": "would have redirected",
+            "reasoning": "If + had V3, mệnh đề chính would have V3 cho giả định quá khứ."
+          },
+          {
+            "id": "B",
+            "text": "will redirect",
+            "reasoning": "Tương lai đơn không phù hợp điều kiện trái quá khứ đã cho."
+          },
+          {
+            "id": "C",
+            "text": "are redirecting",
+            "reasoning": "Hiện tại tiếp diễn không phù hợp tình huống giả định quá khứ."
+          },
+          {
+            "id": "D",
+            "text": "had redirected",
+            "reasoning": "Past perfect ở đây không tạo mệnh đề kết quả giả định cần thiết."
+          }
+        ],
+        "explanation": "Had notified là điều kiện trái quá khứ. Kết quả giả định cần would have redirected: nếu được báo sớm thì đã chuyển hướng hàng.",
+        "takeaway": "Phân biệt điều kiện giả định quá khứ với kế hoạch tương lai.",
+        "skills": [
+          "conditionals"
+        ],
+        "difficulty": "advanced"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:fewer-errors",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "comparisons"
+        ],
+        "vocabularyIds": [
+          "process",
+          "efficient"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "The automated process produces ------- errors than the manual procedure did.",
+        "answer": "D",
+        "options": [
+          {
+            "id": "A",
+            "text": "little",
+            "reasoning": "Little dùng với danh từ không đếm được và không là dạng so sánh này."
+          },
+          {
+            "id": "B",
+            "text": "few",
+            "reasoning": "Có than nên cần dạng so sánh fewer."
+          },
+          {
+            "id": "C",
+            "text": "least",
+            "reasoning": "Least là so sánh nhất, không phù hợp cấu trúc than."
+          },
+          {
+            "id": "D",
+            "text": "fewer",
+            "reasoning": "Errors đếm được số nhiều; fewer ... than."
+          }
+        ],
+        "explanation": "Errors là danh từ đếm được số nhiều. Cấu trúc so sánh với than cần fewer.",
+        "takeaway": "Fewer đi với danh từ đếm được số nhiều; less thường đi với lượng không đếm được.",
+        "skills": [
+          "comparisons"
+        ],
+        "difficulty": "foundation"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:may-reschedule",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "modals"
+        ],
+        "vocabularyIds": [
+          "employee",
+          "appointment"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "Employees may ------- their appointments online until 24 hours before the scheduled time.",
+        "answer": "B",
+        "options": [
+          {
+            "id": "A",
+            "text": "rescheduled",
+            "reasoning": "May không đi trực tiếp với phân từ quá khứ chủ động."
+          },
+          {
+            "id": "B",
+            "text": "reschedule",
+            "reasoning": "Động từ nguyên mẫu không to sau modal may."
+          },
+          {
+            "id": "C",
+            "text": "rescheduling",
+            "reasoning": "May không đi trực tiếp với V-ing."
+          },
+          {
+            "id": "D",
+            "text": "to reschedule",
+            "reasoning": "Không dùng to sau modal may."
+          }
+        ],
+        "explanation": "May chỉ sự cho phép và được theo sau bởi động từ nguyên mẫu trần reschedule.",
+        "takeaway": "Modal + động từ nguyên mẫu không to.",
+        "skills": [
+          "modals"
+        ],
+        "difficulty": "foundation"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:recommend-be",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "subjunctive",
+          "passive"
+        ],
+        "vocabularyIds": [
+          "invoice",
+          "authorize"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "The auditor recommended that the outstanding invoices ------- reviewed before any payment was authorized.",
+        "answer": "C",
+        "options": [
+          {
+            "id": "A",
+            "text": "are",
+            "reasoning": "Are là hiện tại chỉ định; không phù hợp cấu trúc đề nghị trang trọng trong câu này."
+          },
+          {
+            "id": "B",
+            "text": "were",
+            "reasoning": "Were không phải dạng giả định nguyên mẫu sau đề nghị này."
+          },
+          {
+            "id": "C",
+            "text": "be",
+            "reasoning": "Recommend that + chủ ngữ + động từ nguyên mẫu; bị động là be reviewed."
+          },
+          {
+            "id": "D",
+            "text": "being",
+            "reasoning": "Being không tạo vị ngữ hữu hạn trong mệnh đề that ở đây."
+          }
+        ],
+        "explanation": "Recommended that diễn tả đề nghị. Dùng giả định nguyên mẫu be reviewed, không thêm s hay chia theo số nhiều; invoices là đối tượng được xem xét.",
+        "takeaway": "Trong mẫu đề nghị trang trọng, that + S + be/V nguyên mẫu.",
+        "skills": [
+          "subjunctive",
+          "passive"
+        ],
+        "difficulty": "advanced"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:past-launch",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "tenses"
+        ],
+        "vocabularyIds": [
+          "branch",
+          "employee"
+        ],
+        "part": 5,
+        "topic": "grammar",
+        "prompt": "The branch manager ------- the revised opening hours at yesterday’s staff meeting.",
+        "answer": "A",
+        "options": [
+          {
+            "id": "A",
+            "text": "announced",
+            "reasoning": "Yesterday’s staff meeting là mốc quá khứ đã kết thúc."
+          },
+          {
+            "id": "B",
+            "text": "has announced",
+            "reasoning": "Hiện tại hoàn thành không đi với mốc quá khứ xác định yesterday trong câu này."
+          },
+          {
+            "id": "C",
+            "text": "will announce",
+            "reasoning": "Tương lai không phù hợp yesterday."
+          },
+          {
+            "id": "D",
+            "text": "is announcing",
+            "reasoning": "Hiện tại tiếp diễn không phù hợp mốc hôm qua."
+          }
+        ],
+        "explanation": "At yesterday’s staff meeting xác định sự kiện đã kết thúc trong quá khứ, nên dùng announced.",
+        "takeaway": "Dùng mốc thời gian làm bằng chứng chọn thì, rồi kiểm tra cấu trúc.",
+        "skills": [
+          "tenses"
+        ],
+        "difficulty": "foundation"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:badges-check",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "verb-patterns"
+        ],
+        "vocabularyIds": [
+          "appointment",
+          "temporary"
+        ],
+        "part": 6,
+        "topic": "office",
+        "stimulusId": "learning-path-2026:text-visitor-badges",
+        "blankKey": "1",
+        "blankType": "word",
+        "prompt": "Choose the best word for blank [1].",
+        "difficulty": "foundation",
+        "skills": [
+          "verb-patterns"
+        ],
+        "answer": "B",
+        "options": [
+          {
+            "id": "A",
+            "text": "check",
+            "reasoning": "Sau giới từ after cần danh từ hoặc V-ing ở cấu trúc này."
+          },
+          {
+            "id": "B",
+            "text": "checking",
+            "reasoning": "After checking: sau khi đối chiếu tên với danh sách."
+          },
+          {
+            "id": "C",
+            "text": "checked",
+            "reasoning": "Ở đây tiếp tân chủ động kiểm tra; không dùng phân từ bị động checked."
+          },
+          {
+            "id": "D",
+            "text": "to check",
+            "reasoning": "After không đi với to-infinitive trong cấu trúc này."
+          }
+        ],
+        "explanation": "After checking the visitor’s name là cụm chỉ hành động trước khi phát thẻ. Checking là dạng V-ing sau giới từ after.",
+        "takeaway": "Xác định từ đứng trước là giới từ hay liên từ để chọn dạng động từ."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:badges-sentence",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "counter",
+          "request"
+        ],
+        "part": 6,
+        "topic": "office",
+        "stimulusId": "learning-path-2026:text-visitor-badges",
+        "blankKey": "2",
+        "blankType": "sentence",
+        "prompt": "Choose the best sentence for blank [2].",
+        "difficulty": "intermediate",
+        "skills": [
+          "text-cohesion"
+        ],
+        "answer": "D",
+        "options": [
+          {
+            "id": "A",
+            "text": "Visitors should keep their badges for future appointments.",
+            "reasoning": "Mâu thuẫn với yêu cầu trả thẻ khi rời đi."
+          },
+          {
+            "id": "B",
+            "text": "Parking permits will no longer be available.",
+            "reasoning": "Mâu thuẫn đoạn cuối và không nối việc thu thẻ."
+          },
+          {
+            "id": "C",
+            "text": "The office floors will remain closed to all visitors.",
+            "reasoning": "Không có việc cấm mọi khách; đoạn trước hướng dẫn cho khách vào."
+          },
+          {
+            "id": "D",
+            "text": "Place it in the collection tray on the counter.",
+            "reasoning": "It chỉ badge; khay thu giúp tiếp tân lấy thẻ mà không làm chậm khách đến."
+          }
+        ],
+        "explanation": "Câu cần nối yêu cầu trả thẻ với This will allow the receptionist to collect it. Đặt thẻ vào khay thu là hành động tạo ra kết quả đó.",
+        "takeaway": "Kiểm tra cả câu trước, câu sau và các đại từ it/this."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:badges-advance",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "prepositions"
+        ],
+        "vocabularyIds": [
+          "in-advance",
+          "notify"
+        ],
+        "part": 6,
+        "topic": "office",
+        "stimulusId": "learning-path-2026:text-visitor-badges",
+        "blankKey": "3",
+        "blankType": "word",
+        "prompt": "Choose the best word for blank [3].",
+        "difficulty": "foundation",
+        "skills": [
+          "prepositions"
+        ],
+        "answer": "A",
+        "options": [
+          {
+            "id": "A",
+            "text": "advance",
+            "reasoning": "In advance là cụm cố định nghĩa là trước."
+          },
+          {
+            "id": "B",
+            "text": "advancement",
+            "reasoning": "Advancement nghĩa là tiến bộ/thăng tiến, không dùng trong cụm thời gian này."
+          },
+          {
+            "id": "C",
+            "text": "advanced",
+            "reasoning": "Advanced là tính từ/phân từ, không tạo cụm in advance."
+          },
+          {
+            "id": "D",
+            "text": "advancing",
+            "reasoning": "Advancing không hoàn thành thành ngữ thời gian này."
+          }
+        ],
+        "explanation": "At least one day in advance nghĩa là báo trước ít nhất một ngày. Đây là cụm từ cố định.",
+        "takeaway": "Học cụm in advance trong câu có khoảng thời gian cụ thể."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:badges-unchanged",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [
+          "word-forms"
+        ],
+        "vocabularyIds": [
+          "policy",
+          "require"
+        ],
+        "part": 6,
+        "topic": "office",
+        "stimulusId": "learning-path-2026:text-visitor-badges",
+        "blankKey": "4",
+        "blankType": "word",
+        "prompt": "Choose the best word for blank [4].",
+        "difficulty": "intermediate",
+        "skills": [
+          "reading-detail",
+          "word-form"
+        ],
+        "answer": "C",
+        "options": [
+          {
+            "id": "A",
+            "text": "unavailable",
+            "reasoning": "Câu sau nói vẫn có thể xin giấy phép đỗ xe, nên không phải unavailable."
+          },
+          {
+            "id": "B",
+            "text": "changing",
+            "reasoning": "Although đối lập thủ tục thẻ đổi với quy định đỗ xe giữ nguyên."
+          },
+          {
+            "id": "C",
+            "text": "unchanged",
+            "reasoning": "Remain unchanged phù hợp đối lập và được câu sau xác nhận."
+          },
+          {
+            "id": "D",
+            "text": "change",
+            "reasoning": "Remain cần tính từ/phân từ bổ nghĩa chủ ngữ ở cấu trúc này; change là danh từ/động từ."
+          }
+        ],
+        "explanation": "Although đối lập thủ tục badge thay đổi với quy định parking không đổi. Câu sau nói permits can still be requested củng cố unchanged.",
+        "takeaway": "Dùng liên kết ý và thông tin câu sau để chọn nghĩa, không chỉ từ loại."
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:rental-total",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "invoice",
+          "deposit"
+        ],
+        "part": 7,
+        "topic": "shopping",
+        "stimulusId": "learning-path-2026:reading-rental",
+        "prompt": "What should the total due be after the requested correction?",
+        "difficulty": "advanced",
+        "skills": [
+          "cross-text",
+          "reading-inference"
+        ],
+        "answer": "B",
+        "options": [
+          {
+            "id": "A",
+            "text": "$210",
+            "reasoning": "Chỉ gồm phí thuê, bỏ quên cọc 80 đô phải trả trước."
+          },
+          {
+            "id": "B",
+            "text": "$290",
+            "reasoning": "310 trừ phí giao 20 bằng 290, vẫn bao gồm cọc."
+          },
+          {
+            "id": "C",
+            "text": "$230",
+            "reasoning": "Gồm thuê 210 và phí giao 20, vừa bỏ cọc vừa giữ phí không cần."
+          },
+          {
+            "id": "D",
+            "text": "$310",
+            "reasoning": "Đây là tổng hóa đơn nháp chưa bỏ phí giao."
+          }
+        ],
+        "explanation": "Email xác nhận tự đến lấy nên theo điều khoản không mất phí giao. Tổng nháp 310 đô trừ delivery 20 đô còn 290 đô; cọc 80 đô vẫn phải thanh toán trước, dù có thể hoàn sau.",
+        "takeaway": "Phân biệt tổng phải trả trước với chi phí cuối cùng sau hoàn cọc.",
+        "evidence": [
+          {
+            "passageId": "learning-path-2026:rental-booking",
+            "quote": "We will collect all three items on Tuesday morning",
+            "explanation": "Tự đến lấy, không cần giao."
+          },
+          {
+            "passageId": "learning-path-2026:rental-rates",
+            "quote": "no delivery charge for customers who collect equipment.",
+            "explanation": "Điều kiện miễn phí giao."
+          },
+          {
+            "passageId": "learning-path-2026:rental-invoice",
+            "quote": "Total due = $310",
+            "explanation": "Tổng ban đầu để trừ 20 đô."
+          }
+        ]
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:rental-purpose",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "invoice",
+          "request"
+        ],
+        "part": 7,
+        "topic": "shopping",
+        "stimulusId": "learning-path-2026:reading-rental",
+        "prompt": "Why did Linh write the email?",
+        "difficulty": "foundation",
+        "skills": [
+          "reading-detail"
+        ],
+        "answer": "D",
+        "options": [
+          {
+            "id": "A",
+            "text": "To extend the rental period",
+            "reasoning": "Email xác nhận ngày thuê đang đúng."
+          },
+          {
+            "id": "B",
+            "text": "To request a second screen",
+            "reasoning": "Linh vẫn cần một màn hình."
+          },
+          {
+            "id": "C",
+            "text": "To arrange home delivery",
+            "reasoning": "Khách tự đến lấy và muốn bỏ phí giao."
+          },
+          {
+            "id": "D",
+            "text": "To ask for a billing correction",
+            "reasoning": "Please remove that charge and send us a corrected invoice nêu yêu cầu."
+          }
+        ],
+        "explanation": "Linh yêu cầu bỏ delivery và gửi hóa đơn đã sửa. Email nói số thiết bị và ngày thuê đúng nên không cần sửa chúng.",
+        "takeaway": "Mục đích email thường nằm ở hành động người gửi yêu cầu người nhận thực hiện.",
+        "evidence": [
+          {
+            "passageId": "learning-path-2026:rental-booking",
+            "quote": "Please remove that charge and send us a corrected invoice.",
+            "explanation": "Yêu cầu chính là sửa hóa đơn."
+          }
+        ]
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:rental-deposit",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "deposit",
+          "refund"
+        ],
+        "part": 7,
+        "topic": "shopping",
+        "stimulusId": "learning-path-2026:reading-rental",
+        "prompt": "How much can Linh recover if all rented items are returned undamaged and pass inspection?",
+        "difficulty": "intermediate",
+        "skills": [
+          "cross-text",
+          "reading-detail"
+        ],
+        "answer": "A",
+        "options": [
+          {
+            "id": "A",
+            "text": "$80",
+            "reasoning": "Cọc tính một lần cho cả booking, không nhân theo ba thiết bị."
+          },
+          {
+            "id": "B",
+            "text": "$20",
+            "reasoning": "Đây là phí giao được bỏ khỏi hóa đơn, không phải tiền cọc hoàn sau kiểm tra."
+          },
+          {
+            "id": "C",
+            "text": "$160",
+            "reasoning": "Nhân cọc theo hai máy chiếu, trái quy định per booking."
+          },
+          {
+            "id": "D",
+            "text": "$240",
+            "reasoning": "Nhân cọc theo cả ba thiết bị, trái quy định regardless of the number of items."
+          }
+        ],
+        "explanation": "Quy định cọc là 80 đô mỗi booking, không phụ thuộc số món. Cọc được hoàn sau khi đồ được kiểm tra không hư hại.",
+        "takeaway": "Đọc đơn vị tính phí: per booking khác per item và per day.",
+        "evidence": [
+          {
+            "passageId": "learning-path-2026:rental-rates",
+            "quote": "Refundable deposit: $80 per booking, regardless of the number of items.",
+            "explanation": "Một lần cọc cho toàn bộ đặt thuê."
+          },
+          {
+            "passageId": "learning-path-2026:rental-rates",
+            "quote": "The deposit is returned after all items have been inspected and found undamaged.",
+            "explanation": "Điều kiện hoàn cọc."
+          }
+        ]
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:rental-next-step",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "confirm",
+          "invoice"
+        ],
+        "part": 7,
+        "topic": "shopping",
+        "stimulusId": "learning-path-2026:reading-rental",
+        "prompt": "What should Luma do in response to Linh’s email?",
+        "difficulty": "intermediate",
+        "skills": [
+          "cross-text",
+          "reading-inference"
+        ],
+        "answer": "C",
+        "options": [
+          {
+            "id": "A",
+            "text": "Reduce the projector quantity to one",
+            "reasoning": "Email xác nhận số lượng đúng."
+          },
+          {
+            "id": "B",
+            "text": "Refund the deposit immediately",
+            "reasoning": "Cọc chỉ hoàn sau trả và kiểm tra."
+          },
+          {
+            "id": "C",
+            "text": "Send a revised invoice without delivery",
+            "reasoning": "Thực hiện yêu cầu sửa phí giao, giữ ngày thuê và số lượng."
+          },
+          {
+            "id": "D",
+            "text": "Move the return time to Thursday",
+            "reasoning": "Khách dự định trả thứ Tư, không đề nghị đổi ngày."
+          }
+        ],
+        "explanation": "Luma cần gửi bản hóa đơn sửa, bỏ đúng dòng delivery. Các dòng số lượng và ngày thuê được khách xác nhận đúng.",
+        "takeaway": "Suy ra bước tiếp theo trong phạm vi yêu cầu thực tế, không thêm thay đổi không được đề nghị.",
+        "evidence": [
+          {
+            "passageId": "learning-path-2026:rental-booking",
+            "quote": "The equipment quantities and rental dates are correct.",
+            "explanation": "Giữ nguyên các thông tin này."
+          },
+          {
+            "passageId": "learning-path-2026:rental-booking",
+            "quote": "Please remove that charge and send us a corrected invoice.",
+            "explanation": "Gửi hóa đơn sửa phí giao."
+          }
+        ]
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:rental-late",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "grammarIds": [],
+        "vocabularyIds": [
+          "require",
+          "expense"
+        ],
+        "part": 7,
+        "topic": "shopping",
+        "stimulusId": "learning-path-2026:reading-rental",
+        "prompt": "According to the terms, what would happen if the equipment were returned at 6:30 p.m. on Wednesday?",
+        "difficulty": "intermediate",
+        "skills": [
+          "reading-detail"
+        ],
+        "answer": "B",
+        "options": [
+          {
+            "id": "A",
+            "text": "Only the delivery fee would be added.",
+            "reasoning": "Phí giao không liên quan đến việc trả muộn."
+          },
+          {
+            "id": "B",
+            "text": "An additional rental day would be charged.",
+            "reasoning": "6:30 p.m. muộn hơn hạn 6 p.m., nên thêm một ngày thuê."
+          },
+          {
+            "id": "C",
+            "text": "The deposit would automatically be doubled.",
+            "reasoning": "Không có quy định nhân đôi cọc."
+          },
+          {
+            "id": "D",
+            "text": "The return would qualify for a discount.",
+            "reasoning": "Không có giảm giá khi trả muộn."
+          }
+        ],
+        "explanation": "Hạn trả là 6 giờ tối ngày thuê cuối. 6:30 tối thứ Tư vượt hạn nên bị tính thêm một ngày; không có quy định tăng cọc hay phí giao.",
+        "takeaway": "Dùng điều kiện và ngoại lệ của văn bản để xử lý tình huống giả định.",
+        "evidence": [
+          {
+            "passageId": "learning-path-2026:rental-rates",
+            "quote": "Returns after 6 p.m. are charged for an additional rental day.",
+            "explanation": "Hệ quả trực tiếp khi vượt hạn trả."
+          }
+        ]
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-088",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-088",
+        "options": [
+          {
+            "id": "A",
+            "text": "At the reception desk.",
+            "reasoning": "At the reception desk chỉ nơi chốn, không giải thích chậm trễ."
+          },
+          {
+            "id": "B",
+            "text": "Two large envelopes.",
+            "reasoning": "Two large envelopes nói số lượng bưu phẩm."
+          },
+          {
+            "id": "C",
+            "text": "The highway is closed for repairs.",
+            "reasoning": "Đường đóng giải thích vì sao người giao chưa đến."
+          }
+        ],
+        "answer": "C",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-088. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "Why chưa tới hỏi nguyên nhân. Đường cao tốc đóng để sửa chữa giải thích trực tiếp việc người chuyển phát bị chậm.",
+        "takeaway": "Nghe loại thông tin được hỏi trước khi đối chiếu từ khóa.",
+        "skills": [
+          "listening-detail"
+        ],
+        "vocabularyIds": [
+          "delivery",
+          "repair"
+        ],
+        "topic": "office",
+        "difficulty": "foundation"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-089",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-089",
+        "options": [
+          {
+            "id": "A",
+            "text": "On the shelf beside the maintenance office.",
+            "reasoning": "On the shelf… trả lời đúng địa điểm."
+          },
+          {
+            "id": "B",
+            "text": "They were replaced yesterday.",
+            "reasoning": "Yesterday cho thời gian thay, không phải nơi cất."
+          },
+          {
+            "id": "C",
+            "text": "The air conditioner is quieter now.",
+            "reasoning": "Thiết bị chạy êm hơn là kết quả, không phải địa điểm."
+          }
+        ],
+        "answer": "A",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-089. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "Where should I store hỏi chỗ cất bộ lọc thay thế. Kệ cạnh văn phòng bảo trì là vị trí cụ thể.",
+        "takeaway": "Phân biệt nơi cất với thời gian thay thiết bị.",
+        "skills": [
+          "listening-detail"
+        ],
+        "vocabularyIds": [
+          "maintenance",
+          "equipment"
+        ],
+        "topic": "facilities",
+        "difficulty": "foundation"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-090",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-090",
+        "options": [
+          {
+            "id": "A",
+            "text": "The auditorium seats two hundred.",
+            "reasoning": "Sức chứa của hội trường không trả lời việc gửi sơ đồ."
+          },
+          {
+            "id": "B",
+            "text": "I'll attach it to an email now.",
+            "reasoning": "Đính kèm vào email là hành động đáp ứng yêu cầu."
+          },
+          {
+            "id": "C",
+            "text": "No, the meeting starts at nine.",
+            "reasoning": "Giờ bắt đầu không liên quan đến việc gửi tài liệu."
+          }
+        ],
+        "answer": "B",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-090. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "Could you send… là yêu cầu gửi sơ đồ chỗ ngồi. Người đáp đồng ý thực hiện bằng cách đính kèm email ngay.",
+        "takeaway": "Could you + động từ thường là lời nhờ, không hỏi khả năng theo nghĩa đen.",
+        "skills": [
+          "listening-intent"
+        ],
+        "vocabularyIds": [
+          "request",
+          "conference"
+        ],
+        "topic": "office",
+        "difficulty": "foundation"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-091",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-091",
+        "options": [
+          {
+            "id": "A",
+            "text": "The copies are on my desk.",
+            "reasoning": "Copies lặp âm copier nhưng nói vị trí bản sao."
+          },
+          {
+            "id": "B",
+            "text": "A technician fixed the scanner.",
+            "reasoning": "Sửa máy quét không xác nhận thời hạn bảo hành máy photocopy."
+          },
+          {
+            "id": "C",
+            "text": "No, it expired last month.",
+            "reasoning": "Expired last month cho biết bảo hành không còn hiệu lực."
+          }
+        ],
+        "answer": "C",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-091. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "Người hỏi đang xác nhận bảo hành còn hiệu lực. No, it expired last month sửa lại giả định đó: bảo hành đã hết tháng trước.",
+        "takeaway": "Với câu hỏi phủ định, hiểu mệnh đề theo sau yes/no để xác định thực trạng.",
+        "skills": [
+          "listening-intent"
+        ],
+        "vocabularyIds": [
+          "warranty",
+          "repair"
+        ],
+        "topic": "facilities",
+        "difficulty": "intermediate"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-092",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-092",
+        "options": [
+          {
+            "id": "A",
+            "text": "Every six months.",
+            "reasoning": "Every six months đưa ra chu kỳ."
+          },
+          {
+            "id": "B",
+            "text": "By a certified technician.",
+            "reasoning": "By a technician nói người thực hiện."
+          },
+          {
+            "id": "C",
+            "text": "In the equipment cabinet.",
+            "reasoning": "In the cabinet nói nơi cất."
+          }
+        ],
+        "answer": "A",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-092. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "How often hỏi chu kỳ hiệu chuẩn cân. Every six months nghĩa là sáu tháng một lần.",
+        "takeaway": "How often hỏi tần suất; how long hỏi khoảng thời gian kéo dài.",
+        "skills": [
+          "listening-detail"
+        ],
+        "vocabularyIds": [
+          "equipment",
+          "maintenance"
+        ],
+        "topic": "facilities",
+        "difficulty": "foundation"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-094",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-094",
+        "options": [
+          {
+            "id": "A",
+            "text": "In the finance director's office.",
+            "reasoning": "Văn phòng giám đốc là địa điểm, không phải lúc gặp."
+          },
+          {
+            "id": "B",
+            "text": "They reviewed the annual report.",
+            "reasoning": "Việc đã xem báo cáo không cho thời điểm cuộc gặp."
+          },
+          {
+            "id": "C",
+            "text": "Right after lunch.",
+            "reasoning": "Ngay sau bữa trưa trả lời đúng when."
+          }
+        ],
+        "answer": "C",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-094. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "When hỏi thời điểm kiểm toán viên gặp nhóm tài chính. Right after lunch trả lời mốc thời gian.",
+        "takeaway": "Không chọn một thông tin công sở hợp chủ đề nhưng sai loại thông tin.",
+        "skills": [
+          "listening-detail"
+        ],
+        "vocabularyIds": [
+          "appointment",
+          "schedule"
+        ],
+        "topic": "office",
+        "difficulty": "foundation"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-095",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-095",
+        "options": [
+          {
+            "id": "A",
+            "text": "Then I'll use the parking-garage entrance.",
+            "reasoning": "Đổi sang lối bãi xe giải quyết việc lối đông bị đóng."
+          },
+          {
+            "id": "B",
+            "text": "The contractor submitted an estimate.",
+            "reasoning": "Dự toán của nhà thầu không giải quyết nhu cầu đi vào."
+          },
+          {
+            "id": "C",
+            "text": "It closes at seven on weekdays.",
+            "reasoning": "Giờ đóng thường ngày không xử lý việc đóng vì sửa chữa."
+          }
+        ],
+        "answer": "A",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-095. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "Lối vào phía đông đóng trong đợt sửa chữa. Phản hồi dùng lối từ bãi xe là quyết định hợp lý từ thông tin vừa nghe.",
+        "takeaway": "Một phát biểu có thể được đáp bằng hành động tiếp theo, không cần lặp lại nó.",
+        "skills": [
+          "listening-intent"
+        ],
+        "vocabularyIds": [
+          "renovation",
+          "temporary"
+        ],
+        "topic": "facilities",
+        "difficulty": "intermediate"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-097",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-097",
+        "options": [
+          {
+            "id": "A",
+            "text": "The software license is renewable.",
+            "reasoning": "Khả năng gia hạn giấy phép không quyết định lịch trình diễn."
+          },
+          {
+            "id": "B",
+            "text": "It was demonstrated in the lobby.",
+            "reasoning": "Việc từng trình diễn ở sảnh không trả lời đề nghị hoãn."
+          },
+          {
+            "id": "C",
+            "text": "Let's wait for the client's reply first.",
+            "reasoning": "Đợi khách phản hồi là bước cần làm trước khi quyết định hoãn."
+          }
+        ],
+        "answer": "C",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-097. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "Should we postpone…? đề nghị quyết định có hoãn hay không. Chờ phản hồi khách trước là câu trả lời trì hoãn quyết định một cách phù hợp.",
+        "takeaway": "Câu trả lời gián tiếp vẫn đúng nếu giải quyết ý định giao tiếp.",
+        "skills": [
+          "listening-intent"
+        ],
+        "vocabularyIds": [
+          "postpone",
+          "customer"
+        ],
+        "topic": "office",
+        "difficulty": "advanced"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-101",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-101",
+        "options": [
+          {
+            "id": "A",
+            "text": "That would solve the room shortage.",
+            "reasoning": "Giải quyết thiếu phòng là lý do ủng hộ phương án online."
+          },
+          {
+            "id": "B",
+            "text": "The training manual is on my desk.",
+            "reasoning": "Vị trí sổ tay không phản hồi phương án chuyển buổi học."
+          },
+          {
+            "id": "C",
+            "text": "Because the network was upgraded.",
+            "reasoning": "Because khiến câu có vẻ trả lời why nhưng bỏ qua chức năng đề xuất."
+          }
+        ],
+        "answer": "A",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-101. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "Why don’t we…? là lời đề xuất chuyển buổi đào tạo lên mạng. That would solve… đồng tình vì giải quyết thiếu phòng.",
+        "takeaway": "Why don’t we khác câu hỏi Why thông thường: đây là đề nghị.",
+        "skills": [
+          "listening-intent"
+        ],
+        "vocabularyIds": [
+          "workshop"
+        ],
+        "topic": "training",
+        "difficulty": "intermediate"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-102",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-102",
+        "options": [
+          {
+            "id": "A",
+            "text": "The clients requested itemized bills.",
+            "reasoning": "Khách yêu cầu hóa đơn chi tiết không nói chúng đã gửi chưa."
+          },
+          {
+            "id": "B",
+            "text": "They're still waiting for the director's signature.",
+            "reasoning": "Còn chờ chữ ký cho biết công việc chưa hoàn tất."
+          },
+          {
+            "id": "C",
+            "text": "We sent three sales representatives.",
+            "reasoning": "Gửi đại diện kinh doanh khác với gửi hóa đơn."
+          }
+        ],
+        "answer": "B",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-102. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "Câu hỏi kiểm tra hóa đơn đã gửi chưa. Chúng còn chờ chữ ký giám đốc ngụ ý chưa thể gửi, đồng thời nêu việc đang chờ.",
+        "takeaway": "Tìm phản hồi về trạng thái hoàn thành, không chỉ từ invoice hay client.",
+        "skills": [
+          "listening-inference"
+        ],
+        "vocabularyIds": [
+          "invoice",
+          "approve"
+        ],
+        "topic": "office",
+        "difficulty": "advanced"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-104",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-104",
+        "options": [
+          {
+            "id": "A",
+            "text": "As soon as I finish this inventory check.",
+            "reasoning": "Nêu điều kiện thời gian để người hỏi có thể mượn."
+          },
+          {
+            "id": "B",
+            "text": "The barcodes were printed yesterday.",
+            "reasoning": "Ngày in mã vạch không trả lời việc cho mượn máy."
+          },
+          {
+            "id": "C",
+            "text": "It takes only a few minutes.",
+            "reasoning": "Thời gian thao tác ngắn không xác nhận có thể cho mượn."
+          }
+        ],
+        "answer": "A",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-104. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "Can I borrow…? xin mượn máy quét. As soon as I finish… cho phép mượn sau khi người nói kiểm kho xong.",
+        "takeaway": "Mệnh đề thời gian có thể thay cho câu đồng ý trực tiếp.",
+        "skills": [
+          "listening-intent"
+        ],
+        "vocabularyIds": [
+          "equipment",
+          "request"
+        ],
+        "topic": "shopping",
+        "difficulty": "intermediate"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "learning-path-2026:p2-106",
+        "part": 2,
+        "prompt": "Choose the best response.",
+        "stimulusId": "learning-path-2026:ocean-p2-106",
+        "options": [
+          {
+            "id": "A",
+            "text": "The interviews begin on Monday.",
+            "reasoning": "Monday là ngày bắt đầu, không phải số ứng viên."
+          },
+          {
+            "id": "B",
+            "text": "Six have confirmed so far.",
+            "reasoning": "Six đưa ra đúng số người đã xác nhận."
+          },
+          {
+            "id": "C",
+            "text": "In the human resources office.",
+            "reasoning": "Văn phòng nhân sự là nơi chốn, không phải số lượng."
+          }
+        ],
+        "answer": "B",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-106. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "grammarIds": [],
+        "explanation": "How many candidates hỏi số ứng viên đã xác nhận. Six have confirmed so far trả lời hiện đã có sáu người.",
+        "takeaway": "Tách câu hỏi số lượng khỏi lịch hoặc địa điểm phỏng vấn.",
+        "skills": [
+          "listening-detail"
+        ],
+        "vocabularyIds": [
+          "candidate",
+          "confirm"
+        ],
+        "topic": "office",
+        "difficulty": "foundation"
+      }
+    ],
+    "stimuli": [
+      {
+        "id": "learning-path-2026:conversation-booths",
+        "kind": "conversation",
+        "part": 3,
+        "title": "Private interview room",
+        "topic": "office",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Member: I booked the open lounge for tomorrow’s interviews, but the candidates will be discussing confidential information. Can we move to an enclosed room?\nCoordinator: Certainly. You said there would be three people at a time, correct?\nMember: Yes, and we need the room from two until four.\nCoordinator: Look at the room list. Elm is occupied all afternoon. Pine is free during those hours and has enough seats.\nMember: That works. Does the reservation include a monitor?\nCoordinator: It does. I’ll email you an updated booking and the door access code."
+        },
+        "exhibit": {
+          "kind": "table",
+          "title": "Room list",
+          "columns": [
+            "Room",
+            "Seats",
+            "Layout"
+          ],
+          "rows": [
+            [
+              "Elm",
+              "4",
+              "Enclosed"
+            ],
+            [
+              "Pine",
+              "6",
+              "Enclosed"
+            ],
+            [
+              "Lounge",
+              "10",
+              "Open"
+            ],
+            [
+              "Oak",
+              "2",
+              "Enclosed"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "learning-path-2026:conversation-site-visit",
+        "kind": "conversation",
+        "part": 3,
+        "title": "Site visit transport",
+        "topic": "travel",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Organizer: The ferry to the island office is suspended tomorrow because of high winds. We can still hold the site visit if we take the bridge bus.\nVisitor: Will that get us there before the equipment demonstration at ten?\nOrganizer: Yes. The bus leaves the station at eight forty and arrives at nine twenty. A colleague will meet us at the terminal.\nVisitor: All right. I’ve already bought a ferry ticket.\nOrganizer: Keep the receipt. The ferry company will refund cancelled services, but we need to apply through its website.\nVisitor: I’ll do that this evening."
+        }
+      },
+      {
+        "id": "learning-path-2026:talk-tool-return",
+        "kind": "talk",
+        "part": 4,
+        "title": "After-hours equipment returns",
+        "topic": "shopping",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Thank you for renting from Craftway Tools. Our desk closes at six this evening. If you return equipment after six, leave the tools in the secure return cage beside the rear entrance. Put the rental agreement in the envelope provided and post the envelope through the slot in the cage. Do not leave keys in the envelope; place them in the separate red key box. A staff member will inspect your equipment tomorrow morning. Your deposit will be refunded after that inspection, provided nothing is missing or damaged. Please keep the emailed return confirmation until the refund appears in your account."
+        }
+      },
+      {
+        "id": "learning-path-2026:text-visitor-badges",
+        "kind": "text-completion",
+        "part": 6,
+        "title": "Visitor check-in",
+        "topic": "office",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "passageIds": [
+          "learning-path-2026:passage-visitor-badges"
+        ]
+      },
+      {
+        "id": "learning-path-2026:reading-rental",
+        "kind": "reading",
+        "part": 7,
+        "title": "Triple passage · Correct a rental invoice",
+        "topic": "shopping",
+        "provenance": {
+          "kind": "original",
+          "author": "STUDY 990 · AI-assisted authoring",
+          "revision": "2026-10-27-r1",
+          "editorialStatus": "ai-draft",
+          "note": "Tình huống và lời giải gốc. Chưa thẩm định thủ công; không phải đề ETS."
+        },
+        "passageIds": [
+          "learning-path-2026:rental-rates",
+          "learning-path-2026:rental-booking",
+          "learning-path-2026:rental-invoice"
+        ]
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-088",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-088",
+        "topic": "office",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-088. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Why hasn't the courier arrived yet?"
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-089",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-089",
+        "topic": "facilities",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-089. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Where should I store the replacement filters?"
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-090",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-090",
+        "topic": "office",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-090. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Could you send me the revised seating chart?"
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-091",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-091",
+        "topic": "facilities",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-091. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Isn't the copier warranty still valid?"
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-092",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-092",
+        "topic": "facilities",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-092. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "How often are the laboratory scales recalibrated?"
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-094",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-094",
+        "topic": "office",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-094. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "When will the auditors meet with the finance team?"
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-095",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-095",
+        "topic": "facilities",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-095. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "The east entrance will be closed during the renovation."
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-097",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-097",
+        "topic": "office",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-097. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Should we postpone the software demonstration?"
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-101",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-101",
+        "topic": "training",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-101. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Why don't we move tomorrow's training session online?"
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-102",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-102",
+        "topic": "office",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-102. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Haven't the revised invoices been sent to the clients?"
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-104",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-104",
+        "topic": "shopping",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-104. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "Can I borrow the barcode scanner for a few minutes?"
+        }
+      },
+      {
+        "id": "learning-path-2026:ocean-p2-106",
+        "kind": "question-response",
+        "part": 2,
+        "title": "Question–Response · P2-106",
+        "topic": "office",
+        "provenance": {
+          "kind": "licensed",
+          "author": "Chun-Hsiung Luo; Vietnamese adaptation: STUDY 990 (AI-assisted)",
+          "revision": "2026-10-27-r1",
+          "note": "Adapted from P2-106. English prompt/choices retained under MIT; Vietnamese guidance and tags newly authored. No human review recorded.",
+          "provider": "TOEIC Question Ocean",
+          "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+          "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+          "license": "MIT",
+          "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE"
+        },
+        "audio": {
+          "kind": "synthetic",
+          "transcript": "How many candidates have confirmed their interview times?"
+        }
+      }
+    ],
+    "passages": [
+      {
+        "id": "learning-path-2026:passage-visitor-badges",
+        "title": "Notice · Visitor badges",
+        "format": "notice",
+        "text": "VISITOR BADGE PROCEDURE\n\nFrom August 1, visitors must sign in at reception before entering the office floors. The receptionist will issue a temporary badge after {{1}} the visitor’s name against the appointment list.\n\nPlease return the badge to reception when leaving. {{2}} This will allow the receptionist to collect it without delaying other arrivals.\n\nEmployees expecting more than five visitors should notify reception at least one day in {{3}}. Although the badge procedure is changing, the rules for parking will remain {{4}}. Parking permits can still be requested through the staff portal."
+      },
+      {
+        "id": "learning-path-2026:rental-rates",
+        "title": "Document 1 · Rental terms",
+        "format": "notice",
+        "text": "LUMA PRESENTATION RENTALS\nProjector: $45 per unit per day\nScreen: $15 per unit per day\nDelivery: $20 per booking; no delivery charge for customers who collect equipment.\nRefundable deposit: $80 per booking, regardless of the number of items.\n\nEquipment must be returned by 6 p.m. on the final rental day. Returns after 6 p.m. are charged for an additional rental day. The deposit is returned after all items have been inspected and found undamaged."
+      },
+      {
+        "id": "learning-path-2026:rental-booking",
+        "title": "Document 2 · Booking email",
+        "format": "email",
+        "text": "To: Luma Presentation Rentals\nFrom: Linh Tran\nSubject: Booking LR218\n\nWe need two projectors and one screen for Tuesday and Wednesday, two rental days. We will collect all three items on Tuesday morning and return them on Wednesday at 5 p.m.\n\nThe attached draft invoice includes delivery, which we do not need. Please remove that charge and send us a corrected invoice. The equipment quantities and rental dates are correct.\n\nLinh"
+      },
+      {
+        "id": "learning-path-2026:rental-invoice",
+        "title": "Document 3 · Draft invoice LR218",
+        "format": "notice",
+        "text": "DRAFT INVOICE LR218\n2 projectors × 2 days × $45 = $180\n1 screen × 2 days × $15 = $30\nDelivery = $20\nRefundable deposit = $80\nTotal due = $310\n\nPayment is required before equipment collection."
+      }
+    ],
+    "grammarIds": [
+      "agreement",
+      "passive",
+      "modals",
+      "word-forms",
+      "verb-patterns",
+      "prepositions",
+      "connectors",
+      "conditionals",
+      "relatives",
+      "comparisons",
+      "subjunctive",
+      "tenses"
+    ],
+    "vocabularyIds": [
+      "reservation",
+      "candidate",
+      "available",
+      "capacity",
+      "confirm",
+      "cancel",
+      "journey",
+      "arrange",
+      "schedule",
+      "refund",
+      "receipt",
+      "equipment",
+      "customer",
+      "deposit",
+      "supplier",
+      "invoice",
+      "approve",
+      "require",
+      "estimate",
+      "submit",
+      "deadline",
+      "despite",
+      "renovation",
+      "venue",
+      "unless",
+      "applicant",
+      "notify",
+      "shipment",
+      "process",
+      "efficient",
+      "employee",
+      "appointment",
+      "authorize",
+      "branch",
+      "temporary",
+      "counter",
+      "request",
+      "in-advance",
+      "policy",
+      "expense",
+      "delivery",
+      "repair",
+      "maintenance",
+      "conference",
+      "warranty",
+      "postpone",
+      "workshop"
+    ]
+  },
+  "editorial": {
+    "state": "NEEDS_REVIEW",
+    "fingerprint": "72310-cf88dcb6-9c0b9a4a",
+    "history": [
+      {
+        "state": "DRAFT",
+        "fingerprint": "72310-cf88dcb6-9c0b9a4a",
+        "actor": "STUDY 990 authoring tool",
+        "at": "2026-10-27T00:00:00.000Z"
+      },
+      {
+        "state": "VALIDATED",
+        "fingerprint": "72310-cf88dcb6-9c0b9a4a",
+        "actor": "STUDY 990 structural validation",
+        "at": "2026-10-27T08:54:08.815Z"
+      },
+      {
+        "state": "NEEDS_REVIEW",
+        "fingerprint": "72310-cf88dcb6-9c0b9a4a",
+        "actor": "STUDY 990 review queue",
+        "at": "2026-10-27T08:54:08.815Z"
+      }
+    ],
+    "eligibility": {
+      "practice": true,
+      "assessment": "none"
+    }
+  }
+}

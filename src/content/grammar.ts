@@ -1,5 +1,6 @@
 import type { GrammarBase } from './schema'
 import { additionalGrammar, enrichGrammar } from './grammarExpansion'
+import { handbookEntries } from './handbook'
 
 const starterGrammar: GrammarBase[] = [
   {
@@ -300,5 +301,8 @@ const starterGrammar: GrammarBase[] = [
     skills: ['subjunctive'],
   },
 ]
-export const grammar = [...starterGrammar, ...additionalGrammar].map(enrichGrammar)
+export const grammar = [
+  ...[...starterGrammar, ...additionalGrammar].map(enrichGrammar),
+  ...handbookEntries.map((e) => e.lesson),
+]
 export const grammarById = new Map(grammar.map((lesson) => [lesson.id, lesson]))

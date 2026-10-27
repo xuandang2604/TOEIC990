@@ -1,0 +1,335 @@
+{
+  "format": "study990.collected-source",
+  "version": 1,
+  "commit": "a940bb8b479ef4d06af468015d757041c3d2e457",
+  "sourceUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/question-bank-v40.js",
+  "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE",
+  "license": "MIT",
+  "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+  "sourceSha256": "9945759bb157e0c07f43b8a027d955182a65a7952bf2c70bfb2f2967c8ee77d6",
+  "licenseSha256": "9d58a6ceeaab47fae1a77aa5ce2f96393c6c117e4e82ea6c28e878d408f128de",
+  "status": "unreviewed-source-candidates",
+  "note": "Collected source data only, not active questions. Requires Vietnamese adaptation, independent key check and the existing human editorial gate.",
+  "items": [
+    {
+      "id": "P2-087",
+      "audioText": "Who approved the revised travel policy?",
+      "choices": [
+        "The trip takes about three hours.",
+        "Ms. Delgado said she would.",
+        "It is available on the intranet."
+      ],
+      "answer": 1,
+      "tags": [
+        "listening",
+        "part2",
+        "who",
+        "elliptical-response"
+      ]
+    },
+    {
+      "id": "P2-088",
+      "audioText": "Why hasn't the courier arrived yet?",
+      "choices": [
+        "At the reception desk.",
+        "Two large envelopes.",
+        "The highway is closed for repairs."
+      ],
+      "answer": 2,
+      "tags": [
+        "listening",
+        "part2",
+        "why",
+        "delay"
+      ]
+    },
+    {
+      "id": "P2-089",
+      "audioText": "Where should I store the replacement filters?",
+      "choices": [
+        "On the shelf beside the maintenance office.",
+        "They were replaced yesterday.",
+        "The air conditioner is quieter now."
+      ],
+      "answer": 0,
+      "tags": [
+        "listening",
+        "part2",
+        "where",
+        "maintenance"
+      ]
+    },
+    {
+      "id": "P2-090",
+      "audioText": "Could you send me the revised seating chart?",
+      "choices": [
+        "The auditorium seats two hundred.",
+        "I'll attach it to an email now.",
+        "No, the meeting starts at nine."
+      ],
+      "answer": 1,
+      "tags": [
+        "listening",
+        "part2",
+        "request",
+        "future-action"
+      ]
+    },
+    {
+      "id": "P2-091",
+      "audioText": "Isn't the copier warranty still valid?",
+      "choices": [
+        "The copies are on my desk.",
+        "A technician fixed the scanner.",
+        "No, it expired last month."
+      ],
+      "answer": 2,
+      "tags": [
+        "listening",
+        "part2",
+        "negative-question",
+        "warranty"
+      ]
+    },
+    {
+      "id": "P2-092",
+      "audioText": "How often are the laboratory scales recalibrated?",
+      "choices": [
+        "Every six months.",
+        "By a certified technician.",
+        "In the equipment cabinet."
+      ],
+      "answer": 0,
+      "tags": [
+        "listening",
+        "part2",
+        "frequency",
+        "laboratory"
+      ]
+    },
+    {
+      "id": "P2-093",
+      "audioText": "Which loading dock is the produce shipment going to?",
+      "choices": [
+        "About forty crates.",
+        "The one behind Warehouse B.",
+        "It arrived before sunrise."
+      ],
+      "answer": 1,
+      "tags": [
+        "listening",
+        "part2",
+        "which",
+        "shipping"
+      ]
+    },
+    {
+      "id": "P2-094",
+      "audioText": "When will the auditors meet with the finance team?",
+      "choices": [
+        "In the finance director's office.",
+        "They reviewed the annual report.",
+        "Right after lunch."
+      ],
+      "answer": 2,
+      "tags": [
+        "listening",
+        "part2",
+        "when",
+        "audit"
+      ]
+    },
+    {
+      "id": "P2-095",
+      "audioText": "The east entrance will be closed during the renovation.",
+      "choices": [
+        "Then I'll use the parking-garage entrance.",
+        "The contractor submitted an estimate.",
+        "It closes at seven on weekdays."
+      ],
+      "answer": 0,
+      "tags": [
+        "listening",
+        "part2",
+        "statement",
+        "next-action"
+      ]
+    },
+    {
+      "id": "P2-096",
+      "audioText": "Would you mind checking these sales figures again?",
+      "choices": [
+        "Sales increased in the northern region.",
+        "Sure, which quarter should I start with?",
+        "The figures are printed in blue."
+      ],
+      "answer": 1,
+      "tags": [
+        "listening",
+        "part2",
+        "request",
+        "indirect-response"
+      ]
+    },
+    {
+      "id": "P2-097",
+      "audioText": "Should we postpone the software demonstration?",
+      "choices": [
+        "The software license is renewable.",
+        "It was demonstrated in the lobby.",
+        "Let's wait for the client's reply first."
+      ],
+      "answer": 2,
+      "tags": [
+        "listening",
+        "part2",
+        "suggestion",
+        "indirect-response"
+      ]
+    },
+    {
+      "id": "P2-098",
+      "audioText": "How long is the conference room reserved for?",
+      "choices": [
+        "Until four thirty.",
+        "For the regional managers.",
+        "On the twelfth floor."
+      ],
+      "answer": 0,
+      "tags": [
+        "listening",
+        "part2",
+        "duration",
+        "reservation"
+      ]
+    },
+    {
+      "id": "P2-099",
+      "audioText": "What time does the airport shuttle leave?",
+      "choices": [
+        "From the main hotel entrance.",
+        "It holds twelve passengers.",
+        "At a quarter past six."
+      ],
+      "answer": 2,
+      "tags": [
+        "listening",
+        "part2",
+        "time",
+        "transportation"
+      ]
+    },
+    {
+      "id": "P2-100",
+      "audioText": "Who's giving the orientation to the new interns?",
+      "choices": [
+        "The session lasts all morning.",
+        "Daniel from human resources is.",
+        "In the training suite."
+      ],
+      "answer": 1,
+      "tags": [
+        "listening",
+        "part2",
+        "who",
+        "orientation"
+      ]
+    },
+    {
+      "id": "P2-101",
+      "audioText": "Why don't we move tomorrow's training session online?",
+      "choices": [
+        "That would solve the room shortage.",
+        "The training manual is on my desk.",
+        "Because the network was upgraded."
+      ],
+      "answer": 0,
+      "tags": [
+        "listening",
+        "part2",
+        "suggestion",
+        "function-over-keyword"
+      ]
+    },
+    {
+      "id": "P2-102",
+      "audioText": "Haven't the revised invoices been sent to the clients?",
+      "choices": [
+        "The clients requested itemized bills.",
+        "They're still waiting for the director's signature.",
+        "We sent three sales representatives."
+      ],
+      "answer": 1,
+      "tags": [
+        "listening",
+        "part2",
+        "negative-question",
+        "status"
+      ]
+    },
+    {
+      "id": "P2-103",
+      "audioText": "Where did you put the inspection forms?",
+      "choices": [
+        "The inspection took two hours.",
+        "I filled out all six forms.",
+        "In the top drawer of the filing cabinet."
+      ],
+      "answer": 2,
+      "tags": [
+        "listening",
+        "part2",
+        "where",
+        "documents"
+      ]
+    },
+    {
+      "id": "P2-104",
+      "audioText": "Can I borrow the barcode scanner for a few minutes?",
+      "choices": [
+        "As soon as I finish this inventory check.",
+        "The barcodes were printed yesterday.",
+        "It takes only a few minutes."
+      ],
+      "answer": 0,
+      "tags": [
+        "listening",
+        "part2",
+        "permission",
+        "indirect-response"
+      ]
+    },
+    {
+      "id": "P2-105",
+      "audioText": "The data migration will take two hours longer than expected.",
+      "choices": [
+        "The database contains customer records.",
+        "It was expected by the technical team.",
+        "Then let's notify the evening-shift staff."
+      ],
+      "answer": 2,
+      "tags": [
+        "listening",
+        "part2",
+        "statement",
+        "inference"
+      ]
+    },
+    {
+      "id": "P2-106",
+      "audioText": "How many candidates have confirmed their interview times?",
+      "choices": [
+        "The interviews begin on Monday.",
+        "Six have confirmed so far.",
+        "In the human resources office."
+      ],
+      "answer": 1,
+      "tags": [
+        "listening",
+        "part2",
+        "quantity",
+        "recruiting"
+      ]
+    }
+  ]
+}

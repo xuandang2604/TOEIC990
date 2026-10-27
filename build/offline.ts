@@ -27,6 +27,13 @@ self.addEventListener('activate', event => event.waitUntil((async () => {
 self.addEventListener('message', event => {
   if (event.data?.type === 'ACTIVATE_UPDATE') event.waitUntil(self.skipWaiting());
 });
+self.addEventListener('notificationclick', event => {
+  if (event.notification.tag !== 'study990-vocabulary-review') return;
+  event.notification.close();
+  const reviewUrl = new URL('./#/review/vocabulary', self.registration.scope).href;
+  // A separate tab preserves unsaved writing and active sessions in existing tabs.
+  event.waitUntil(self.clients.openWindow(reviewUrl));
+});
 self.addEventListener('fetch', event => {
   const req = event.request;
   const url = new URL(req.url);

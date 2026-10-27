@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import {
   BarChart3,
+  Map,
   BookOpen,
   ChevronRight,
   House,
@@ -27,9 +28,10 @@ import { ReferenceReturn } from './ReferenceReturn'
 
 const navigation = [
   { id: 'today', title: 'Hôm nay', icon: House },
+  { id: 'roadmap', title: 'Lộ trình của tôi', icon: Map },
   { id: 'practice', title: 'Luyện tập', icon: Target },
   { id: 'vocabulary', title: 'Từ vựng', icon: BookOpen },
-  { id: 'grammar', title: 'Ngữ pháp', icon: BookOpen },
+  { id: 'grammar', title: 'Sổ tay ngữ pháp', icon: BookOpen },
   { id: 'review', title: 'Ôn tập', icon: RotateCcw },
   { id: 'progress', title: 'Tiến độ', icon: BarChart3 },
   { id: 'tutor', title: 'Học cùng Tutor', icon: MessageSquareText },

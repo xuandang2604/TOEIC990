@@ -21,6 +21,7 @@ import { InlineError, ProgressRing, SectionTitle, Tag, TextLink } from '../../co
 import { SaveWordButton } from '../dictionary/Dictionary'
 import { isAnsweredAttempt, type StudyMinutes } from '../../domain/models'
 import { AdaptivePlanPreview } from './AdaptivePlanPreview'
+import { learningRoadmap } from '../../domain/roadmap'
 
 function LearningIllustration() {
   return (
@@ -89,6 +90,7 @@ export function TodayPage({ onSettings }: { onSettings: () => void }) {
   const dayWord =
     vocabulary[Math.floor(new Date(localDayKey(now)).getTime() / 86_400_000) % vocabulary.length]
   const targetMet = today.length >= data.preferences.dailyGoal
+  const roadmap = learningRoadmap(data.preferences, data.skillEvidence, now)
   async function begin() {
     if (active) {
       navigate('session', active.id)
@@ -151,6 +153,25 @@ export function TodayPage({ onSettings }: { onSettings: () => void }) {
           <InlineError message={action.error} />
         </div>
         <LearningIllustration />
+      </section>
+      <section className="roadmap-entry panel" aria-label="Lộ trình học cá nhân">
+        <div>
+          <span className="eyebrow">LỘ TRÌNH CỦA BẠN</span>
+          <h2>
+            {roadmap
+              ? `${data.preferences.targetScore} TOEIC · ${roadmap.totalDays} ngày`
+              : 'Bắt đầu từ trình độ và mục tiêu của bạn.'}
+          </h2>
+          <p>
+            {roadmap
+              ? `${roadmap.current.title} · ${roadmap.profile.minutesPerDay} phút/ngày, ${roadmap.profile.studyDays.length} ngày/tuần.`
+              : 'Tự chọn điểm đầu vào, điểm đích, thời hạn và lịch học. Có sẵn gợi ý 700/60 ngày và 990/30 ngày để điều chỉnh.'}
+          </p>
+        </div>
+        <button className="button secondary" onClick={() => navigate('roadmap')}>
+          {roadmap ? 'Xem lộ trình' : 'Thiết kế lộ trình'}
+          <ArrowRight size={16} />
+        </button>
       </section>
       <section className="next-study-note" aria-label="Nên học gì ngay bây giờ">
         <span className="eyebrow">BƯỚC HỌC TIẾP THEO</span>

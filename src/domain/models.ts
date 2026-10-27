@@ -1,5 +1,6 @@
 import type { OptionId, Question, Skill, ToeicPart } from '../content/schema'
 import type { TutorLearningState } from './tutorModels'
+import type { LearningProfile, VocabularyReminder } from './roadmap'
 
 export type Confidence = 1 | 2 | 3
 export type SessionKind = 'daily' | 'practice' | 'review' | 'tutor' | 'mini-exam'
@@ -15,6 +16,8 @@ export interface Preferences {
   targetScore: number
   theme: Theme
   studyMinutes: StudyMinutes
+  learningProfile?: LearningProfile
+  vocabularyReminder?: VocabularyReminder
 }
 export interface StudySession {
   id: string

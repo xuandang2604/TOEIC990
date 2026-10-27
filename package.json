@@ -24,6 +24,7 @@
     "audit:architecture": "tsx --tsconfig tsconfig.tests.json scripts/audit-architecture.ts",
     "lint": "prettier --check src scripts build tests index.html vite.config.ts package.json tsconfig*.json && npm run audit:architecture",
     "content:import": "tsx --tsconfig tsconfig.tests.json scripts/import-content.ts",
+    "content:collect": "tsx --tsconfig tsconfig.tests.json scripts/collect-open-content.ts",
     "content:generate": "python content/author_bank2026.py"
   },
   "dependencies": {

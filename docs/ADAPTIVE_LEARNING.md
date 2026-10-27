@@ -1,5 +1,7 @@
 # Adaptive learning — Task 04
 
+Cập nhật 2026-10-27: lộ trình theo trình độ đầu vào, mục tiêu, thời hạn và lịch học tự chọn được mô tả tại [LEARNING_PATH_AND_VOCABULARY.md](LEARNING_PATH_AND_VOCABULARY.md). Lộ trình bổ sung trọng số cho engine hiện có, giữ lịch FSRS và phiên đang học; các số lượng/v4-v5 bên dưới là lịch sử Task 04/05.
+
 Task 05 giữ scheduler/policy của Task 04, mở bank TOEIC/transfer từ 42 lên 52 câu và thêm Tutor turns/drafts trong database/export v5. Phần viết không tạo skill evidence hoặc rating; transfer thực tế vẫn đi qua pipeline bên dưới. Chi tiết: [FEYNMAN_TUTOR.md](FEYNMAN_TUTOR.md). Các mô tả v4 bên dưới ghi lại migration đã có, không phải phiên bản export hiện tại.
 
 ## Ranh giới khoa học và sản phẩm

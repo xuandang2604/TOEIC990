@@ -7,7 +7,15 @@ import { grammarById } from '../../content/grammar'
 import { PronunciationControls } from '../../components/PronunciationControls'
 import { InlineError, Tag } from '../../components/ui'
 
-export function SaveWordButton({ entry, context }: { entry: VocabularyEntry; context?: string }) {
+export function SaveWordButton({
+  entry,
+  context,
+  compact = false,
+}: {
+  entry: VocabularyEntry
+  context?: string
+  compact?: boolean
+}) {
   const { cards, vocabularyContexts } = useStudy()
   const saved = cards.some((card) => card.id === `vocabulary:${entry.id}`)
   const contextSaved =
@@ -17,7 +25,8 @@ export function SaveWordButton({ entry, context }: { entry: VocabularyEntry; con
     <div>
       <button
         type="button"
-        className={`button ${saved ? 'saved' : 'secondary'}`}
+        className={`${compact ? 'word-save-button' : 'button'} ${saved ? 'saved' : 'secondary'}`}
+        aria-label={compact ? `${saved ? 'Đã lưu' : 'Lưu'} từ ${entry.word} vào sổ ôn` : undefined}
         disabled={(context ? Boolean(contextSaved) : saved) || action.busy}
         onClick={() =>
           void action.run(() =>
@@ -39,9 +48,13 @@ export function SaveWordButton({ entry, context }: { entry: VocabularyEntry; con
               ? 'Đang lưu…'
               : context
                 ? 'Lưu từ cùng câu nguồn'
-                : saved
-                  ? 'Đã lưu vào ôn tập'
-                  : 'Lưu từ'}
+                : compact
+                  ? saved
+                    ? 'Đã lưu'
+                    : 'Lưu từ'
+                  : saved
+                    ? 'Đã lưu vào ôn tập'
+                    : 'Lưu từ'}
         </span>
       </button>
       <InlineError message={action.error} />

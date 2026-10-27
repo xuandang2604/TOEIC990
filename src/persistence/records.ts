@@ -23,6 +23,7 @@ import { validStudioRecord } from './studioRecords'
 import { FEEDBACK_CATEGORIES, type ContentFeedback } from '../domain/contentFeedback'
 import { questionFingerprint } from '../content/editorial'
 import type { Question } from '../content/schema'
+import { validLearningProfile, validScore, validVocabularyReminder } from '../domain/roadmap'
 
 export interface RecordTypes {
   contentFeedback: ContentFeedback
@@ -253,8 +254,10 @@ export function validRecord(table: LearningTable, value: unknown): boolean {
         r.id === 'preferences' &&
         one(r.dailyGoal, [3, 6, 9, 12]) &&
         one(r.studyMinutes, [10, 20, 40]) &&
-        one(r.targetScore, [450, 650, 800, 900, 990]) &&
-        one(r.theme, ['system', 'light', 'dark'])
+        validScore(r.targetScore) &&
+        one(r.theme, ['system', 'light', 'dark']) &&
+        optional(r, 'learningProfile', validLearningProfile) &&
+        optional(r, 'vocabularyReminder', validVocabularyReminder)
       )
     case 'sessions':
       return (

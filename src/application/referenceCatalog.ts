@@ -4,6 +4,7 @@ import { SKILL_LABELS } from '../domain/learning'
 import { vocabularyDocuments } from '../providers/dictionary'
 import { createReferenceIndex } from '../domain/referenceSearch'
 import { microLessons } from '../content/microLessons'
+import { handbookGuideById } from '../content/handbook'
 
 export const searchReferences = createReferenceIndex([
   ...vocabularyDocuments,
@@ -14,10 +15,11 @@ export const searchReferences = createReferenceIndex([
     title: lesson.title,
     description: lesson.englishTitle,
     label: 'Ngữ pháp',
-    aliases: microLessons
-      .filter((micro) => micro.lessonId === lesson.id)
-      .map((micro) => micro.title),
-    keywords: `${lesson.summary} ${lesson.rules.map((r) => `${r.title} ${r.description} ${r.formula}`).join(' ')} ${lesson.traps.join(' ')}`,
+    aliases: [
+      ...(handbookGuideById.get(lesson.id)?.aliases ?? []),
+      ...microLessons.filter((micro) => micro.lessonId === lesson.id).map((micro) => micro.title),
+    ],
+    keywords: `${lesson.summary} ${handbookGuideById.get(lesson.id)?.why ?? ''} ${lesson.rules.map((r) => `${r.title} ${r.description} ${r.formula}`).join(' ')} ${lesson.traps.join(' ')}`,
   })),
   ...questions.map((question) => ({
     key: `reference:${question.id}`,

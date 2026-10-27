@@ -1,5 +1,7 @@
 /** Authored retrieval prompts. Answers come from the corresponding validated grammar lesson. */
+import { handbookEntries } from './handbook'
 export const knowledgePrompts: Record<string, string> = {
+  ...Object.fromEntries(handbookEntries.map(({ guide }) => [guide.lessonId, guide.prompt])),
   'word-forms':
     'Làm sao xác định cần danh từ, tính từ hay trạng từ trong một chỗ trống? Hãy nêu một ví dụ với efficient.',
   agreement:

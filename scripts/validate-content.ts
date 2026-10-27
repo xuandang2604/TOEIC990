@@ -12,10 +12,25 @@ import { availableMockExams } from '../src/content/mockExams'
 import { findNearDuplicates } from '../src/content/similarity'
 import { inspectMediaFiles, referencedMedia } from '../build/contentFiles'
 import { installedPackages } from '../src/content/generated'
+import { grammar } from '../src/content/grammar'
+import { vocabulary } from '../src/content/vocabulary'
+import { chapters, handbookGuides } from '../src/content/handbook'
+import { microLessons } from '../src/content/microLessons'
+import referenceIndex from '../content/reference-index.json'
 
 async function main() {
   const file = process.argv[2]
   if (!file) {
+    const indexedGrammar = new Set(referenceIndex.grammarIds)
+    const referenceIssues =
+      grammar.length === indexedGrammar.size && grammar.every((l) => indexedGrammar.has(l.id))
+        ? []
+        : [
+            {
+              path: 'reference-index.grammarIds',
+              message: 'Authoring reference index differs from active grammar IDs.',
+            },
+          ]
     const near = findNearDuplicates(contentBank)
     const mediaIssues = await inspectMediaFiles(
       [
@@ -33,6 +48,18 @@ async function main() {
           availablePractice: practiceQuestions.length,
           reservedMockQuestions: mockQuestions.length,
           completeMockSets: availableMockExams.length,
+          referenceCoverage: {
+            vocabulary: vocabulary.length,
+            grammarLessons: grammar.length,
+            grammarExercises: grammar.reduce((sum, l) => sum + l.practice.length, 0),
+            feynmanGuides: handbookGuides.length,
+            guidedFlows: microLessons.length,
+            chapters: chapters.map((c) => ({
+              id: c.id,
+              lessons: handbookGuides.filter((g) => g.chapterId === c.id).length,
+            })),
+            referenceOnlyGrammar: grammar.filter((l) => l.coverage === 'reference-only').length,
+          },
           byPart: [1, 2, 3, 4, 5, 6, 7].map((part) => ({
             part,
             practice: practiceQuestions.filter((q) => q.part === part).length,
@@ -40,13 +67,14 @@ async function main() {
             total: questions.filter((q) => q.part === part).length,
           })),
           nearDuplicates: near,
-          issues: [...contentIssues, ...mediaIssues],
+          issues: [...contentIssues, ...mediaIssues, ...referenceIssues],
         },
         null,
         2,
       ),
     )
-    if (contentIssues.length || mediaIssues.length || near.length) process.exitCode = 1
+    if (contentIssues.length || mediaIssues.length || referenceIssues.length || near.length)
+      process.exitCode = 1
     return
   }
   if ((await stat(file)).size > 10 * 1024 * 1024) throw new Error('Content JSON exceeds 10 MB.')

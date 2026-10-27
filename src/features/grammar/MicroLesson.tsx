@@ -33,6 +33,15 @@ function LessonFlow({ id }: { id: string }) {
         },
   )
   const [explanation, setExplanation] = useState(progress.explanation)
+  useEffect(() => {
+    if (explanation === progress.explanation) return
+    const warn = (event: BeforeUnloadEvent) => {
+      event.preventDefault()
+      event.returnValue = ''
+    }
+    window.addEventListener('beforeunload', warn)
+    return () => window.removeEventListener('beforeunload', warn)
+  }, [explanation, progress.explanation])
   const [hint, setHint] = useState(false)
   const action = useAction()
   const stepHeading = useRef<HTMLHeadingElement>(null)
@@ -115,7 +124,7 @@ function LessonFlow({ id }: { id: string }) {
             <p>{lesson.principle}</p>
           </div>
           <label className="form-label">
-            Giải thích quy tắc bằng lời của bạn
+            {lesson.coaching?.prompt ?? 'Giải thích quy tắc bằng lời của bạn'}
             <textarea
               disabled={action.busy}
               maxLength={2000}
@@ -127,6 +136,24 @@ function LessonFlow({ id }: { id: string }) {
           <p className="small muted">
             Bạn tự đối chiếu với quy tắc. Nội dung viết không được phần mềm chấm hiểu đúng/sai.
           </p>
+          {lesson.coaching && (
+            <details className="feynman-reference">
+              <summary>Đối chiếu cách giải thích & tự kiểm tra</summary>
+              <p>{lesson.coaching.why}</p>
+              <ul>
+                {lesson.coaching.selfCheck.map((check) => (
+                  <li key={check}>{check}</li>
+                ))}
+              </ul>
+            </details>
+          )}
+          <button
+            className="text-link"
+            disabled={explanation === progress.explanation || action.busy}
+            onClick={() => void save({ explanation })}
+          >
+            Lưu đoạn giải thích
+          </button>
           <button
             className="button secondary"
             disabled={!explanation.trim() || action.busy}
@@ -207,12 +234,27 @@ function LessonFlow({ id }: { id: string }) {
   )
 }
 export function MicroLessons({ lessonId }: { lessonId: string }) {
+  const { learningActivities } = useStudy()
   const lessons = microLessons.filter((l) => l.lessonId === lessonId)
-  const [chosen, setChosen] = useState(lessons[0]?.id)
+  const [chosen, setChosen] = useState(
+    () =>
+      lessons.find((l) =>
+        learningActivities.some(
+          (activity) =>
+            activity.kind === 'micro-lesson' && activity.contentId === l.id && !activity.completed,
+        ),
+      )?.id ??
+      lessons.find((l) => l.id.startsWith('handbook-'))?.id ??
+      lessons[0]?.id,
+  )
   if (!lessons.length) return null
   return (
     <section className="micro-lessons">
-      <h3>Hiểu qua một lần thử</h3>
+      <h3>Tự giải thích, rồi vận dụng.</h3>
+      <p className="small muted">
+        Giải thích như đang dạy một người mới. Đối chiếu quy tắc, tìm chỗ chưa rõ rồi áp dụng vào
+        câu khác. Hoàn thành các bước không tự đánh dấu thành thạo.
+      </p>
       {lessons.length > 1 && (
         <label className="form-label">
           Chủ đề bài ngắn

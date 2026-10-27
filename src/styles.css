@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './features/roadmap/roadmap.css';
 
 @theme {
   --font-sans: 'Be Vietnam Pro', sans-serif;
@@ -538,7 +539,7 @@ details > p {
   background: var(--sage);
   border-radius: 0 3px 3px 0;
 }
-.primary-nav a:nth-child(7) {
+.primary-nav a[href='#/tutor'] {
   margin-top: 18px;
 }
 .nav-badge {
