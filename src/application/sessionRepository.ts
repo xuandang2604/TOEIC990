@@ -1,5 +1,5 @@
 import { questionById, questions, stimuli } from '../content/questions'
-import { MINI_EXAM_MINUTES, questionAvailable } from '../domain/assessment'
+import { MINI_EXAM_MINUTES, questionAvailable, FULL_TEST_LISTENING_MS } from '../domain/assessment'
 import type { PracticeMode, SessionKind } from '../domain/models'
 import { db } from '../persistence/database'
 import { StudyOperationError } from './errors'
@@ -12,7 +12,12 @@ import { validRecord } from '../persistence/records'
 export async function startSession(
   kind: SessionKind,
   questionIds: string[],
-  options: { mode?: PracticeMode; durationMinutes?: number; mockExamId?: string } = {},
+  options: {
+    mode?: PracticeMode
+    durationMinutes?: number
+    mockExamId?: string
+    sectionTiming?: boolean
+  } = {},
 ) {
   const mode = kind === 'mini-exam' ? 'exam' : (options.mode ?? 'study')
   const duration = options.durationMinutes ?? MINI_EXAM_MINUTES
@@ -26,6 +31,8 @@ export async function startSession(
   )
     throw new StudyOperationError('Thiết lập phiên thi không hợp lệ.')
   const ids = [...new Set(questionIds)]
+  if (options.sectionTiming && (!options.mockExamId || mode !== 'exam'))
+    throw new StudyOperationError('Chia giờ Listening/Reading chỉ dành cho full test đủ 200 câu.')
   if (mode === 'exam' && ids.some((id) => !questionAssessmentEligible(id)))
     throw new StudyOperationError(
       'Nội dung này chưa được cho phép dùng trong lượt tự đánh giá. Hãy dùng Study Mode.',
@@ -35,10 +42,10 @@ export async function startSession(
     if (
       !exam ||
       !availableMockExams.includes(exam) ||
-      mode !== 'exam' ||
       kind !== 'practice' ||
-      duration !== exam.durationMinutes ||
-      ids.join('|') !== exam.questionIds.join('|')
+      (mode === 'exam' &&
+        (duration !== exam.durationMinutes || ids.join('|') !== exam.questionIds.join('|'))) ||
+      (mode === 'study' && ids.some((id) => !exam.questionIds.includes(id)))
     )
       throw new StudyOperationError('Bộ mock chưa đủ cấu trúc hoặc lựa chọn phiên không khớp đề.')
   }
@@ -48,7 +55,7 @@ export async function startSession(
     throw new StudyOperationError('Một câu chưa có tư liệu sẵn sàng để chấm. Hãy chọn nhóm khác.')
   if (kind === 'mini-exam' && new Set(ids.map((id) => questionById.get(id)!.part)).size !== 7)
     throw new StudyOperationError('Mini-test cần tư liệu sẵn sàng cho cả bảy Parts.')
-  if (mode === 'exam') {
+  if (mode === 'exam' || options.mockExamId) {
     for (const id of ids) {
       const question = questionById.get(id)!
       if (
@@ -65,6 +72,7 @@ export async function startSession(
   return db.transaction('rw', db.sessions, async () => {
     const active = await db.sessions.where('status').equals('active').first()
     if (active) return active
+    const startedAt = Date.now()
     const session = {
       id: crypto.randomUUID(),
       kind,
@@ -72,13 +80,21 @@ export async function startSession(
       questionIds: ids,
       cursor: 0,
       status: 'active' as const,
-      startedAt: Date.now(),
+      startedAt,
       ...(options.mockExamId ? { mockExamId: options.mockExamId } : {}),
       ...(mode === 'exam'
         ? {
-            deadlineAt: Date.now() + duration * 60_000,
-            lastObservedAt: Date.now(),
+            deadlineAt: startedAt + duration * 60_000,
+            lastObservedAt: startedAt,
             readingStarted: questionById.get(ids[0])!.part >= 5,
+            ...(options.sectionTiming
+              ? {
+                  sectionTiming: {
+                    version: 1 as const,
+                    listeningDeadlineAt: startedAt + FULL_TEST_LISTENING_MS,
+                  },
+                }
+              : {}),
           }
         : {}),
     }

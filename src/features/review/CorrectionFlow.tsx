@@ -5,7 +5,9 @@ import type { LearningActivity } from '../../domain/studio'
 import { useStudy } from '../../application/StudyContext'
 import { useAction, navigate } from '../../application/hooks'
 import { saveLearningActivity } from '../../application/studioRepository'
-import { practiceQuestions, passages, stimulusFor } from '../../content/questions'
+import { practiceQuestions, passages, stimuli, stimulusFor } from '../../content/questions'
+import { questionDesignFor } from '../../content/questionDesign'
+import { QuestionDesignAnalysis } from '../practice/QuestionDesignAnalysis'
 import { listeningAudio } from '../../domain/listening'
 import { QuestionRenderer } from '../practice/QuestionRenderer'
 import { QuestionFeedback, SaveQuestionButton } from '../practice/QuestionFeedback'
@@ -65,6 +67,9 @@ export function CorrectionFlow({ question, attempt }: { question: Question; atte
         !data.learningActivities.some((a) => a.kind === 'correction' && a.transferId === q.id),
     ),
   )
+  const transferDesign = transfer.current
+    ? questionDesignFor(transfer.current, stimuli, passages)
+    : undefined
   return (
     <div className="correction-flow">
       <p className="eyebrow">MISTAKE LAB · THỬ LẠI → GIẢI THÍCH → CHUYỂN GIAO</p>
@@ -160,9 +165,12 @@ export function CorrectionFlow({ question, attempt }: { question: Question; atte
                   <details className="feedback-disclosure">
                     <summary>Xem giải thích</summary>
                     <p>{transfer.current.explanation}</p>
+                    {transferDesign && <QuestionDesignAnalysis design={transferDesign} />}
                     {transfer.current.options.map((o) => (
                       <p key={o.id}>
-                        {o.id}. {o.reasoning}
+                        {o.id}.{' '}
+                        {transferDesign?.options.find((row) => row.id === o.id)?.reason ??
+                          o.reasoning}
                       </p>
                     ))}
                   </details>

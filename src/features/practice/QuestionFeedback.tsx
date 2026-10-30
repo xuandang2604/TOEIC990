@@ -11,6 +11,9 @@ import { MistakeNote } from '../review/MistakeNote'
 import { ReportQuestion } from './ReportQuestion'
 import { SaveWordButton } from '../dictionary/WordDetails'
 import { EvidenceCheck } from '../reading/EvidenceCheck'
+import { questionDesignFor } from '../../content/questionDesign'
+import { stimuli, passages } from '../../content/questions'
+import { QuestionDesignAnalysis } from './QuestionDesignAnalysis'
 
 export function SaveQuestionButton({ question }: { question: Question }) {
   const data = useStudy()
@@ -40,6 +43,7 @@ export function QuestionFeedback({
   attempt: Attempt
   showMistakeNote?: boolean
 }) {
+  const design = questionDesignFor(question, stimuli, passages)
   return (
     <section className="feedback-panel" aria-label="Giải thích đáp án">
       <h3 role="status" className={attempt.correct ? 'success-text' : 'brass-text'}>
@@ -54,22 +58,43 @@ export function QuestionFeedback({
         <summary>Xem giải thích</summary>
         <div className="feedback-details">
           <p data-learning>{question.explanation}</p>
-          <EvidenceCheck questionId={question.id} question={question} />
+          {design ? (
+            <QuestionDesignAnalysis design={design} />
+          ) : (
+            <EvidenceCheck questionId={question.id} question={question} />
+          )}
           <div className="answer-reasoning">
-            {question.options.map((option) => (
-              <div key={option.id}>
-                <span
-                  className={`reasoning-letter ${question.answer === option.id ? 'correct' : ''}`}
-                >
-                  {option.id}
-                </span>
-                <p>{option.reasoning}</p>
-              </div>
-            ))}
+            {question.options.map((option) => {
+              const note = design?.options.find((row) => row.id === option.id)
+              return (
+                <div key={option.id}>
+                  <span
+                    className={`reasoning-letter ${question.answer === option.id ? 'correct' : ''}`}
+                  >
+                    {option.id}
+                  </span>
+                  <div className="option-analysis">
+                    {note && note.frame !== 'not-rated' && (
+                      <small className="option-frame-label">
+                        {note.frame === 'fits-frame'
+                          ? 'Hợp khung cấu trúc'
+                          : 'Không hợp cấu trúc này'}
+                      </small>
+                    )}
+                    <p>{note?.reason ?? option.reasoning}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
+          {design &&
+            ['context', 'cohesion'].includes(design.kind) &&
+            design.options.some((option) => option.frame === 'fits-frame') && (
+              <p className="small muted">Hợp khung cấu trúc chưa có nghĩa đúng toàn bộ ngữ cảnh.</p>
+            )}
           <div className="takeaway">
             <Lightbulb size={19} />
-            <p>{question.takeaway}</p>
+            <p>{design?.decisivePoint ?? question.takeaway}</p>
           </div>
           <p className="small muted">
             {attempt.timeSpentMs == null

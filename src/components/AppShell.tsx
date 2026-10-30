@@ -17,6 +17,7 @@ import {
   Settings2,
   Sun,
   Target,
+  Files,
   X,
 } from 'lucide-react'
 import { useStudy } from '../application/StudyContext'
@@ -30,6 +31,7 @@ const navigation = [
   { id: 'today', title: 'Hôm nay', icon: House },
   { id: 'roadmap', title: 'Lộ trình của tôi', icon: Map },
   { id: 'practice', title: 'Luyện tập', icon: Target },
+  { id: 'tests', title: 'Full test', icon: Files },
   { id: 'vocabulary', title: 'Từ vựng', icon: BookOpen },
   { id: 'grammar', title: 'Sổ tay ngữ pháp', icon: BookOpen },
   { id: 'review', title: 'Ôn tập', icon: RotateCcw },
@@ -71,13 +73,19 @@ export function AppShell({
   const action = useAction()
   const due = data.cards.filter((c) => c.dueAt <= now).length
   const currentPage =
-    route.page === 'session' ? 'practice' : route.page === 'plan' ? 'today' : route.page
+    route.page === 'session' || route.page === 'sources'
+      ? 'practice'
+      : route.page === 'plan'
+        ? 'today'
+        : route.page
   const pageTitle =
     route.page === 'session'
       ? 'Phiên học'
       : route.page === 'plan'
         ? 'Kế hoạch học tập'
-        : (navigation.find((item) => item.id === route.page)?.title ?? 'Không gian học')
+        : route.page === 'sources'
+          ? 'Nguồn luyện chính thức'
+          : (navigation.find((item) => item.id === route.page)?.title ?? 'Không gian học')
   const ThemeIcon =
     data.preferences.theme === 'system' ? Monitor : data.preferences.theme === 'dark' ? Moon : Sun
   useEffect(() => {

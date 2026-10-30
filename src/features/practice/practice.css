@@ -1,0 +1,130 @@
+.practice-source {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(180px, 1fr);
+  align-items: center;
+  gap: 4px 24px;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border-block: 1px solid var(--line);
+}
+.practice-source .form-label {
+  margin: 0;
+  min-width: 0;
+}
+.practice-source select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+.practice-source > div {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.practice-source strong {
+  color: var(--ink);
+}
+.practice-source > p {
+  grid-column: 1 / -1;
+  margin: 8px 0 0;
+}
+.practice-extra {
+  border-top: 1px solid var(--line);
+  margin-block: 18px;
+  min-width: 0;
+}
+.practice-extra > summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding-block: 13px;
+  font-size: 0.82rem;
+  color: var(--sage);
+}
+.practice-extra .studio-launchers {
+  margin-block: 8px 20px;
+}
+.practice-workspace .part-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+  gap: 10px;
+}
+.practice-workspace .seven-parts .part-card {
+  min-width: 0;
+  padding: 16px;
+  border-radius: 6px;
+}
+.practice-workspace .seven-parts .part-card h3 {
+  font-family: var(--font-sans);
+  font-size: 0.83rem;
+  line-height: 1.6;
+  font-weight: 500;
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+.practice-workspace .seven-parts .part-card.selected {
+  padding: 15px;
+}
+.practice-workspace .part-card-top {
+  gap: 7px;
+}
+.practice-workspace .part-card-top > svg {
+  width: 17px;
+  height: 17px;
+}
+.practice-workspace .part-card-bottom {
+  flex-wrap: wrap;
+  gap: 3px 10px;
+  margin-top: 12px;
+  font-size: 0.7rem;
+}
+.practice-workspace .practice-filters {
+  margin-top: 8px;
+}
+.practice-workspace .session-config {
+  border-radius: 6px;
+  scroll-margin-block-start: 20px;
+}
+.practice-workspace .session-config .config-footer {
+  margin-top: 18px;
+  padding-top: 16px;
+}
+.practice-workspace .mini-exam-panel {
+  margin: 6px 0 18px;
+}
+.practice-mobile-start {
+  display: none;
+}
+@media (max-width: 800px) {
+  .practice-workspace .practice-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .practice-workspace .session-config {
+    position: static;
+  }
+  .practice-mobile-start {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .practice-mobile-start > span {
+    flex: 1 1 130px;
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 640px) {
+  .practice-source {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .practice-source > p {
+    margin: 0;
+  }
+  .practice-workspace .part-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .practice-source select,
+  .practice-workspace .practice-filters select,
+  .practice-workspace .session-config select {
+    font-size: 16px;
+  }
+}

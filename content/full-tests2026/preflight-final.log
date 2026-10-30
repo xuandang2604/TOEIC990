@@ -1,0 +1,94 @@
+
+> study-990@0.1.0 content:import
+> tsx --tsconfig tsconfig.tests.json scripts/import-content.ts content/full-tests2026/form-02.json content/full-tests2026/form-03.json content/full-tests2026/form-04.json content/full-tests2026/form-05.json content/full-tests2026/form-06.json content/full-tests2026/form-07.json content/full-tests2026/form-08.json content/full-tests2026/form-09.json content/full-tests2026/form-10.json --report-name=fulltests2026-preflight-final
+
+{
+  "format": "study990.import-report",
+  "version": 1,
+  "status": "validated-only",
+  "installedNew": 0,
+  "candidateByPartIncludingTutor": [
+    {
+      "part": 1,
+      "count": 67
+    },
+    {
+      "part": 2,
+      "count": 279
+    },
+    {
+      "part": 3,
+      "count": 423
+    },
+    {
+      "part": 4,
+      "count": 327
+    },
+    {
+      "part": 5,
+      "count": 388
+    },
+    {
+      "part": 6,
+      "count": 180
+    },
+    {
+      "part": 7,
+      "count": 588
+    }
+  ],
+  "revisedPackages": [],
+  "historyAcknowledged": false,
+  "revisionImpact": [],
+  "packages": [
+    {
+      "file": "content/full-tests2026/form-02.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 200
+    },
+    {
+      "file": "content/full-tests2026/form-03.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 200
+    },
+    {
+      "file": "content/full-tests2026/form-04.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 200
+    },
+    {
+      "file": "content/full-tests2026/form-05.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 200
+    },
+    {
+      "file": "content/full-tests2026/form-06.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 200
+    },
+    {
+      "file": "content/full-tests2026/form-07.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 200
+    },
+    {
+      "file": "content/full-tests2026/form-08.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 200
+    },
+    {
+      "file": "content/full-tests2026/form-09.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 200
+    },
+    {
+      "file": "content/full-tests2026/form-10.json",
+      "status": "validated-ai-draft-or-declared-review",
+      "questions": 200
+    }
+  ],
+  "examIssues": [],
+  "bankIssues": [],
+  "nearDuplicates": [],
+  "note": "AI drafts are not human-reviewed. No IndexedDB or user history was changed."
+}

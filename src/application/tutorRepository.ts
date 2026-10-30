@@ -1,5 +1,6 @@
 import { db } from '../persistence/database'
-import { allQuestions, questionById, stimuli } from '../content/questions'
+import { allQuestions, questionById, stimuli, passages } from '../content/questions'
+import { questionDesignFor } from '../content/questionDesign'
 import { grammarById } from '../content/grammar'
 import { tutorLessonByQuestion } from '../content/tutorLessons'
 import type { TutorContext, TutorDraft, TutorTurn, RevisionStance } from '../domain/tutorModels'
@@ -199,6 +200,7 @@ export async function submitTutorExplanation(
       const context: TutorContext = {
         schemaVersion: 1,
         question,
+        analysis: questionDesignFor(question, stimuli, passages),
         answer: {
           selected: attempt.selected,
           correct: attempt.correct,

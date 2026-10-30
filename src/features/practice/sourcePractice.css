@@ -1,0 +1,332 @@
+.source-evidence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  padding: 20px 24px;
+  margin-block: 20px;
+  min-width: 0;
+}
+.source-evidence > div {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+.source-evidence h2 {
+  font-size: 1.04rem;
+  margin-block: 6px;
+}
+.source-evidence > details {
+  flex-basis: 100%;
+  min-width: 0;
+  border-top: 1px solid var(--line);
+}
+.source-evidence summary,
+.source-personal > summary,
+.source-history > summary,
+.source-stop > summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding-block: 12px;
+  overflow-wrap: anywhere;
+}
+.source-conditions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
+  padding: 18px 24px;
+  margin-block: 20px;
+}
+.source-conditions .form-label {
+  margin: 0;
+  min-width: 0;
+}
+.source-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 0.8rem;
+}
+.source-checkbox input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--sage);
+}
+.source-part-tabs {
+  flex-wrap: wrap;
+}
+.source-catalog {
+  display: grid;
+  gap: 12px;
+}
+.source-catalog-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 24px;
+  padding: 24px;
+}
+.source-catalog-row > div {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+.source-catalog-row h2 {
+  font-size: 1.15rem;
+  margin-block: 8px;
+}
+.source-catalog-row p,
+.source-review p,
+.source-review li {
+  font-size: 0.84rem;
+  line-height: 1.85;
+}
+.source-catalog-row p {
+  margin-bottom: 10px;
+}
+.source-personal,
+.source-history,
+.source-review,
+.source-bulk-key {
+  margin-block: 20px;
+  padding: 12px 24px;
+  min-width: 0;
+}
+.source-bulk-key > summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding-block: 12px;
+}
+.source-bulk-key textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 90px;
+  padding: 12px;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+.source-bulk-key .text-link {
+  min-height: 44px;
+  margin-inline-start: 16px;
+}
+.source-personal form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.7fr);
+  gap: 12px 24px;
+  padding-block: 10px;
+}
+.source-personal form > button {
+  justify-self: start;
+}
+.source-history-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--line);
+  padding: 14px 0;
+  text-align: start;
+  color: var(--ink);
+  background: transparent;
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  min-width: 0;
+}
+.source-history-row > span {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.source-history-row small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+}
+.source-history-row > strong {
+  font-size: 0.8rem;
+}
+.source-history-row svg {
+  flex-shrink: 0;
+}
+.source-workspace-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 24px;
+  margin-block: 20px;
+}
+.source-results {
+  padding: 24px;
+  margin-block: 20px;
+}
+.source-results > strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+}
+.source-results > strong small {
+  font-family: inherit;
+  font-size: 1rem;
+}
+.source-part-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+  gap: 0 24px;
+  margin-block: 12px;
+}
+.source-part-results > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 12px;
+  border-top: 1px solid var(--line);
+  padding-block: 12px;
+  font-size: 0.8rem;
+  min-width: 0;
+}
+.source-part-results .text-link {
+  flex-basis: 100%;
+  min-height: 44px;
+  font-size: 0.76rem;
+}
+.source-sheet {
+  max-width: 780px;
+  margin-block: 20px;
+  padding: 24px;
+  min-width: 0;
+}
+.source-group-picker {
+  max-width: 380px;
+}
+.source-answer-row {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  min-width: 0;
+  margin: 16px 0 0;
+  padding: 0 0 16px;
+}
+.source-answer-row legend {
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.source-answer-row p {
+  font-size: 0.84rem;
+}
+.source-answer-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.source-answer-choices > label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 60px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.source-answer-choices input {
+  accent-color: var(--sage);
+  width: 16px;
+  height: 16px;
+}
+.source-answer-choices > label:has(input:checked) {
+  border-color: var(--sage);
+  background: var(--sage-soft);
+}
+.source-answer-choices > label:has(input:focus-visible) {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+}
+.source-answer-choices .text-link {
+  min-height: 44px;
+  padding-inline: 10px;
+}
+.source-sheet-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-block: 24px;
+}
+.source-stop {
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+.source-stop p {
+  margin-bottom: 12px;
+}
+.source-review h2 {
+  font-size: 1.1rem;
+  padding-block: 10px;
+}
+.source-review ol {
+  padding-left: 20px;
+  margin-block: 12px;
+}
+.source-review > .text-link {
+  min-height: 44px;
+  margin-inline-end: 20px;
+}
+.source-footnote {
+  max-width: 85ch;
+  margin-block: 20px;
+}
+[data-page='sources'] .button {
+  white-space: normal;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+[data-page='sources'] select,
+[data-page='sources'] input[type='text'],
+.source-personal input {
+  max-width: 100%;
+  min-height: 44px;
+}
+@media (max-width: 640px) {
+  .source-conditions,
+  .source-catalog-row,
+  .source-personal,
+  .source-history,
+  .source-sheet,
+  .source-results,
+  .source-workspace-bar,
+  .source-review,
+  .source-evidence {
+    padding-inline: 16px;
+  }
+  .source-personal form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-page='sources'] select,
+  .source-personal input {
+    font-size: 16px;
+  }
+  .source-bulk-key textarea {
+    font-size: 16px;
+  }
+  .source-answer-choices > label {
+    min-width: 52px;
+    padding-inline: 8px;
+  }
+}

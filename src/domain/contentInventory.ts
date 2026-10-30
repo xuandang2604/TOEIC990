@@ -1,4 +1,5 @@
 import type { Question, Stimulus, ToeicPart } from '../content/schema'
+import type { StudySession } from './models'
 import { makeUnits, questionAvailable } from './assessment'
 
 export const OFFICIAL_PART_COUNTS = [6, 25, 39, 30, 30, 16, 54] as const
@@ -11,6 +12,13 @@ export interface MockExam {
   editorialStatus: 'ai-draft' | 'human-reviewed'
   note: string
   eligibility?: 'unreviewed-practice' | 'reviewed'
+}
+export function sessionMatchesMock(session: StudySession, exam: MockExam) {
+  return (
+    session.mode === 'exam' &&
+    session.mockExamId === exam.id &&
+    session.questionIds.join('|') === exam.questionIds.join('|')
+  )
 }
 /** Completeness is a structural/media contract, not editorial certification or score calibration. */
 export function mockExamIssues(exam: MockExam, questions: Question[], stimuli: Stimulus[]) {

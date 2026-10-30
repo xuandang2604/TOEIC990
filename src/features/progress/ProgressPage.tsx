@@ -1,4 +1,5 @@
 import { LearningMilestones } from '../../components/LearningMilestones'
+import { SourceEvidencePanel } from '../practice/SourceEvidencePanel'
 import { useState } from 'react'
 import {
   ArrowRight,
@@ -88,6 +89,7 @@ export function ProgressPage() {
         title="Thấy rõ cách mình học."
         description="Quan sát kết quả và nhịp học đã ghi nhận. Không dự đoán điểm TOEIC hoặc tuyên bố đã thành thạo."
       />
+      <SourceEvidencePanel />
       <div className="filter-tabs" aria-label="Khoảng dữ liệu">
         {(
           [

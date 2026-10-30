@@ -14,6 +14,10 @@ import { handbookGuides } from './handbook'
 import { validateHandbook } from './handbook/validation'
 import { validateVocabularyBands } from './vocabularyBands'
 import { validateListeningTranslations } from './listeningTranslations'
+import { validateCurriculum } from './curriculum'
+import { validateQuestionDesigns } from './questionDesign'
+import { officialSourceIssues } from './officialSources'
+import { practiceReleaseIssues } from './ingestion'
 
 /** Validate once before any learning route can consume the bundled bank. No data is deleted on failure. */
 export const contentBank = {
@@ -24,6 +28,10 @@ export const contentBank = {
   vocabularyIds: vocabulary.map((v) => v.id),
 }
 export const contentIssues = [
+  ...installedPackages.flatMap(practiceReleaseIssues),
+  ...officialSourceIssues(grammar.map((lesson) => lesson.id)),
+  ...validateQuestionDesigns(allQuestions, stimuli, passages),
+  ...validateCurriculum(grammar.map((lesson) => lesson.id)),
   ...validateVocabularyBands(vocabulary),
   ...validateListeningTranslations(stimuli, allQuestions),
   ...validateHandbook(grammar, handbookGuides),

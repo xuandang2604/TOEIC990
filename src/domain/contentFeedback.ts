@@ -1,7 +1,7 @@
 import type { Question } from '../content/schema'
 export const FEEDBACK_CATEGORIES = {
   answer: 'Có thể sai đáp án',
-  wording: 'Cách viết có thể mơ hồ',
+  wording: 'Câu mơ hồ / có thể có nhiều đáp án',
   explanation: 'Lời giải chưa rõ',
   media: 'Media bị lỗi',
   translation: 'Bản dịch chưa đúng',

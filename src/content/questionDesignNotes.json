@@ -1,0 +1,818 @@
+[
+  {
+    "questionId": "p3-route",
+    "sourceFingerprint": "2266-58fd6849-172e01e9",
+    "kind": "integration",
+    "target": "Ghép mã tuyến nghe được với khung giờ trong bảng.",
+    "decisivePoint": "Audio xác định Route B; bảng mới cung cấp giờ 10:00 a.m.–noon.",
+    "evidence": [
+      {
+        "source": "audio",
+        "quote": "Your driver is on Route B",
+        "note": "Bước 1: xác định đúng tuyến của khách."
+      },
+      {
+        "source": "table",
+        "quote": "10:00 a.m.–noon",
+        "note": "Bước 2: đọc đúng hàng B trong bảng, không lấy giờ của tuyến khác."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "Khung giờ thật trong bảng nhưng thuộc Route A, không phải tuyến nghe được."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "Đây là giờ của Route C. Một thông tin có thật trong bảng vẫn có thể trả lời sai câu hỏi về Route B."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "Đúng vì nối được hai nguồn: driver → Route B trong audio → 10:00 a.m.–noon trong bảng."
+      },
+      {
+        "id": "D",
+        "frame": "not-rated",
+        "reason": "Giờ của Route D không phù hợp với mã tuyến của người giao hàng này."
+      }
+    ],
+    "demandNote": "Không thể hoàn tất bằng chỉ nghe hoặc chỉ nhìn bảng. Khó ở liên kết hai nguồn, không phải từ vựng hiếm.",
+    "reviewPrompt": "Nếu che bảng, bạn còn biết giờ không? Nếu tắt audio, bạn còn biết phải đọc hàng nào không?"
+  },
+  {
+    "questionId": "p3-call-ahead",
+    "sourceFingerprint": "2273-856c4d44-25fb1530",
+    "kind": "context",
+    "target": "Nhận ra yêu cầu cụ thể khi đáp án dùng paraphrase.",
+    "decisivePoint": "Call fifteen minutes before arriving được diễn đạt lại thành call shortly before arriving.",
+    "evidence": [
+      {
+        "source": "audio",
+        "quote": "Could the driver call fifteen minutes before arriving?",
+        "note": "Lời yêu cầu trực tiếp; nguyên nhân dùng chung khu dỡ hàng giúp xác nhận cách hiểu."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "Địa chỉ cũ là thông tin cần sửa, không phải nơi tài xế được yêu cầu chờ."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "Chairs là chủ đề có xuất hiện, nhưng không có yêu cầu mang thêm số lượng ghế."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "Next week thay sai thời gian: cuộc gọi vẫn nói về giao hàng ngày mai."
+      },
+      {
+        "id": "D",
+        "frame": "not-rated",
+        "reason": "Shortly before arriving giữ đúng hành động gọi trước khi tới, diễn đạt lại mốc fifteen minutes."
+      }
+    ],
+    "demandNote": "Dữ kiện chính nằm trong một lượt nói. Cần nhận ra cùng ý qua cách diễn đạt khác, chưa cần bảng biểu.",
+    "reviewPrompt": "Nêu cụm trong audio tương đương shortly before arriving, rồi chỉ ra A/B/C đổi sai thông tin gì."
+  },
+  {
+    "questionId": "p4-floor",
+    "sourceFingerprint": "2049-e1bace4d-2a07e951",
+    "kind": "integration",
+    "target": "Theo dõi thay đổi địa điểm rồi dùng phòng mới để tra tầng.",
+    "decisivePoint": "Lấy Maple Room sau thay đổi; không lấy Cedar Room cũ hoặc tầng của quầy nhận thẻ.",
+    "evidence": [
+      {
+        "source": "audio",
+        "quote": "has moved from Cedar Room to Maple Room",
+        "note": "Bước 1: thay địa điểm cũ bằng địa điểm mới."
+      },
+      {
+        "source": "table",
+        "quote": "Second floor",
+        "note": "Bước 2: Maple trong bảng ứng với Second floor."
+      },
+      {
+        "source": "audio",
+        "quote": "collect your name badge from the reception desk here on the ground floor",
+        "note": "Ground floor có thật trong audio nhưng là nơi nhận thẻ, không phải tầng học mới."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "Ground floor vừa là tầng Cedar cũ trong bảng, vừa là nơi nhận thẻ trong audio. Hai chi tiết thật này không trả lời tầng của Maple Room mới."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "First floor thuộc Willow Room, không phải phòng vừa được thông báo chuyển tới."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "Third floor thuộc Birch Room; đây là ghép sai hàng dữ liệu."
+      },
+      {
+        "id": "D",
+        "frame": "not-rated",
+        "reason": "Đúng chuỗi: chuyển sang Maple → Maple ở Second floor trong bảng."
+      }
+    ],
+    "demandNote": "Có hai việc cần làm: xử lý thông tin được cập nhật và đối chiếu bảng. Chọn một địa điểm chỉ vì nó được đọc lên có thể dẫn tới A.",
+    "reviewPrompt": "Vì sao ground floor là thông tin đúng trong bài nhưng vẫn là đáp án sai cho câu này?"
+  },
+  {
+    "questionId": "p4-badge",
+    "sourceFingerprint": "2104-20b410c6-822bf800",
+    "kind": "context",
+    "target": "Giữ đúng hành động được yêu cầu và điều kiện trước khi lên tầng.",
+    "decisivePoint": "Người tham gia phải nhận name badge; workbook đã ở chỗ ngồi nên không cần lấy từ lễ tân.",
+    "evidence": [
+      {
+        "source": "audio",
+        "quote": "Before going upstairs, collect your name badge",
+        "note": "Yêu cầu trực tiếp gắn với đúng mốc trước khi lên tầng."
+      },
+      {
+        "source": "audio",
+        "quote": "A printed workbook is waiting at each seat",
+        "note": "Chi tiết này loại việc nhận workbook ở lễ tân."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "Workbook được nhắc thật nhưng bài nói nó đã ở mỗi chỗ ngồi. Lựa chọn đổi sai vật cần nhận và nơi nhận."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "Pick up là paraphrase của collect; đối tượng name badge và thứ tự trước khi lên tầng đều khớp."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "Bài nói giờ bắt đầu vẫn giữ nguyên, không yêu cầu người tham gia đổi giờ."
+      },
+      {
+        "id": "D",
+        "frame": "not-rated",
+        "reason": "Nhu cầu thêm ghế giải thích việc đổi phòng, không biến thành yêu cầu người nghe chuyển ghế."
+      }
+    ],
+    "demandNote": "Cần phân biệt thông tin nền với chỉ dẫn dành cho người nghe. Từ có xuất hiện trong audio không đủ để chọn.",
+    "reviewPrompt": "Tách ba cột khi nghe lại: lý do đổi phòng, thông tin giữ nguyên, hành động người nghe phải làm."
+  },
+  {
+    "questionId": "p6-sentence",
+    "sourceFingerprint": "2493-874495be-4e141fd8",
+    "kind": "cohesion",
+    "target": "Nối câu trước và câu sau bằng quan hệ thêm thủ tục → cần thêm thời gian.",
+    "decisivePoint": "Câu được chèn phải vừa tiếp nối yêu cầu hồ sơ, vừa giải thích Therefore ở câu sau về international deliveries.",
+    "evidence": [
+      {
+        "source": "passage",
+        "sourceId": "p6-courier",
+        "quote": "The courier will not accept parcels without a completed shipping form.",
+        "note": "Phía trước chỗ trống đang nói yêu cầu hồ sơ."
+      },
+      {
+        "source": "passage",
+        "sourceId": "p6-courier",
+        "quote": "Therefore, staff should allow extra time to prepare international deliveries.",
+        "note": "Phía sau đòi một lý do liên quan hàng quốc tế và thời gian chuẩn bị."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "fits-frame",
+        "reason": "Customs declaration là thêm hồ sơ cho hàng quốc tế; also nối yêu cầu trước và tạo lý do cần thêm thời gian ở câu sau."
+      },
+      {
+        "id": "B",
+        "frame": "fits-frame",
+        "reason": "Câu về nhà ăn có thể đúng ngữ pháp khi đứng riêng nhưng không nối được hai phía của chỗ trống."
+      },
+      {
+        "id": "C",
+        "frame": "fits-frame",
+        "reason": "Câu về hủy họp hoàn chỉnh về cấu trúc, nhưng không giải thích yêu cầu chuẩn bị hàng quốc tế."
+      },
+      {
+        "id": "D",
+        "frame": "fits-frame",
+        "reason": "Việc mua ghế lễ tân cùng xuất hiện ở bối cảnh văn phòng, nhưng không tạo quan hệ nhân quả cần có với Therefore."
+      }
+    ],
+    "demandNote": "Cả bốn lựa chọn là câu hoàn chỉnh. Tuy nhiên, phương án sai trong mẫu này khá lạc chủ đề nên dễ loại; chưa thể dùng nó làm đại diện cho độ khó cao của Part 6.",
+    "reviewPrompt": "Che câu sau: bạn còn kiểm tra được quan hệ với Therefore không? Hãy giải thích vì sao cần đọc cả hai phía."
+  },
+  {
+    "questionId": "p6-before",
+    "sourceFingerprint": "2261-c502dc8e-e2548eda",
+    "kind": "context",
+    "target": "Phân biệt hạn cần hoàn tất liên hệ với khoảng thời gian hành động kéo dài.",
+    "decisivePoint": "Muốn được thu xếp lấy hàng riêng sau 4 giờ chiều, nhân viên phải liên hệ trước trưa, không phải liên tục liên hệ đến trưa.",
+    "evidence": [
+      {
+        "source": "passage",
+        "sourceId": "p6-courier",
+        "quote": "please contact reception {{3}} noon so that a separate collection can be arranged",
+        "note": "So that cho biết mục đích cần đủ thời gian để thu xếp một chuyến riêng."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "fits-frame",
+        "reason": "During có thể nhận cụm thời gian nhưng thường dùng cho một khoảng như during the morning; during noon không tự nhiên và không nêu hạn hoàn tất liên hệ cần có."
+      },
+      {
+        "id": "B",
+        "frame": "fails-frame",
+        "reason": "Between cần hai mốc tương ứng trong cách nói thời gian này; một mình noon không tạo đủ khung between X and Y."
+      },
+      {
+        "id": "C",
+        "frame": "fits-frame",
+        "reason": "Until noon có thể tạo cụm thời gian đúng, nhưng gợi hoạt động tiếp tục đến trưa. Nó không diễn đạt yêu cầu liên hệ xong trước hạn để sắp xếp chuyến riêng."
+      },
+      {
+        "id": "D",
+        "frame": "fits-frame",
+        "reason": "Before noon đặt hạn liên hệ sớm hơn trưa, phù hợp với mục đích để lễ tân còn thời gian thu xếp."
+      }
+    ],
+    "demandNote": "Không được coi mọi giới từ khác đáp án là sai vì từ loại. Cần xét cách kết hợp với noon và kiểu thời gian mà hành động contact cần diễn tả.",
+    "reviewPrompt": "Đặt một câu mới trong đó until noon phù hợp, rồi so sánh với yêu cầu contact before noon."
+  },
+  {
+    "questionId": "p7-fees",
+    "sourceFingerprint": "2196-1b764330-86ad2b48",
+    "kind": "inference",
+    "target": "Áp một chính sách có điều kiện thời gian cho trường hợp được hỏi.",
+    "decisivePoint": "June 10 nằm trong June 3–14; miễn phí trễ áp dụng cho sách đến hạn trong giai đoạn đó.",
+    "evidence": [
+      {
+        "source": "passage",
+        "sourceId": "library-notice",
+        "quote": "From June 3 to June 14",
+        "note": "Xác định khoảng thời gian được văn bản nói tới."
+      },
+      {
+        "source": "passage",
+        "sourceId": "library-notice",
+        "quote": "No late fees will be charged for books due during this period.",
+        "note": "Giữ đúng điều kiện books due, rồi áp vào ngày June 10 trong câu hỏi."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "Thông báo không yêu cầu người đọc mua sách. Đây là một nghĩa vụ được tự thêm vào."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "Chỉ được trả sau June 14 mâu thuẫn với lựa chọn trả ở quầy trong thời gian cải tạo."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "Hộp trả sách ngoài cửa chính không dùng được; lựa chọn nêu sai kênh trả sách."
+      },
+      {
+        "id": "D",
+        "frame": "not-rated",
+        "reason": "Đúng vì kết hợp khoảng ngày với điều kiện được miễn phí trễ, không cần thêm giả định về nghĩa vụ mua hay trì hoãn trả sách."
+      }
+    ],
+    "demandNote": "Hai câu thông tin phải được nối với trường hợp cụ thể trong câu hỏi; không chỉ tìm một từ trùng với lựa chọn.",
+    "reviewPrompt": "Nếu sách đến hạn ngoài June 3–14, bạn có còn đủ bằng chứng để kết luận cùng chính sách không?"
+  },
+  {
+    "questionId": "p7-optional",
+    "sourceFingerprint": "2443-d8c618d2-87908b14",
+    "kind": "inference",
+    "target": "Suy ra khả năng tham gia từ xa từ thông tin về đường dẫn video.",
+    "decisivePoint": "Join through the video link hỗ trợ can participate remotely. Việc tham gia optional là thông tin khác, không phải bằng chứng chính của câu này.",
+    "evidence": [
+      {
+        "source": "passage",
+        "sourceId": "workshop-email",
+        "quote": "Employees working at our branch offices can join through the video link in their confirmation email.",
+        "note": "Dữ kiện trực tiếp về cách nhân viên chi nhánh tham gia; chuyển sang diễn đạt remotely."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "Must travel thêm yêu cầu bắt buộc đi lại, trái với khả năng tham gia qua video link."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "Can participate remotely là diễn đạt lại khả năng join through the video link, đúng mức bằng chứng hỗ trợ."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "Không có lệnh cấm nhân viên chi nhánh đăng ký; chính văn bản còn chỉ cách tham gia cho họ."
+      },
+      {
+        "id": "D",
+        "frame": "not-rated",
+        "reason": "Không có bằng chứng rằng nhân viên chi nhánh phải trả tiền tài liệu. Không được suy từ làm việc ở xa sang nghĩa vụ trả phí."
+      }
+    ],
+    "demandNote": "Chuyển cách diễn đạt từ phương tiện video sang ý tham gia từ xa. Không cần suy diễn nghĩa vụ đi lại hoặc chi phí.",
+    "reviewPrompt": "Bằng chứng của remotely nằm ở câu về video link hay câu về participation is optional? Vì sao?"
+  },
+  {
+    "questionId": "p7-double-cost",
+    "sourceFingerprint": "2635-8e68c8d2-1ee499a8",
+    "kind": "integration",
+    "target": "Kết hợp báo giá, khoản đã thanh toán và dịch vụ thực tế được chọn.",
+    "decisivePoint": "Tiền phòng $320 trừ cọc đã trả $100 là $220. Nhóm tự mang bữa trưa nên không cộng 26 × $15.",
+    "evidence": [
+      {
+        "source": "passage",
+        "sourceId": "p7-quote",
+        "quote": "The room fee is $320 and includes a projector.",
+        "note": "Báo giá phí phòng và thiết bị đã bao gồm."
+      },
+      {
+        "source": "passage",
+        "sourceId": "p7-quote",
+        "quote": "The deposit will be deducted from the final invoice.",
+        "note": "Quy tắc xử lý tiền cọc."
+      },
+      {
+        "source": "passage",
+        "sourceId": "p7-reply",
+        "quote": "I have transferred the deposit today, October 23.",
+        "note": "Email sau xác nhận khoản cọc thực sự đã được thanh toán."
+      },
+      {
+        "source": "passage",
+        "sourceId": "p7-reply",
+        "quote": "Our group will bring its own lunches",
+        "note": "Dịch vụ ăn trưa tùy chọn không được mua."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "$100 là khoản đã trả, không phải số còn phải trả. Nhầm vai trò con số."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "$320 − $100 = $220. Cần vừa biết quy tắc trừ cọc, vừa xác nhận cọc đã trả ở email sau."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "$320 là giá phòng ban đầu, bỏ sót khoản cọc phải khấu trừ."
+      },
+      {
+        "id": "D",
+        "frame": "not-rated",
+        "reason": "$610 có thể được tạo bằng $220 + 26 × $15, nhưng cộng sai dịch vụ ăn trưa mà nhóm nói sẽ tự mang."
+      }
+    ],
+    "demandNote": "Phép tính đơn giản; khó ở chọn đúng dữ kiện và điều kiện dịch vụ qua hai email. Các số sai không nhất thiết là số vô nghĩa.",
+    "reviewPrompt": "Giải thích được nguồn của $100, $320 và $610, thay vì chỉ tính ra $220."
+  },
+  {
+    "questionId": "p7-double-deposit",
+    "sourceFingerprint": "2599-6680e1f7-f6dfdfad",
+    "kind": "integration",
+    "target": "Đối chiếu hạn đặt cọc với ngày thanh toán thực tế ở nguồn khác.",
+    "decisivePoint": "Hạn October 25 ở báo giá, đã trả October 23 ở thư đáp: thanh toán trước hạn.",
+    "evidence": [
+      {
+        "source": "passage",
+        "sourceId": "p7-quote",
+        "quote": "please pay a $100 deposit by October 25",
+        "note": "Xác định đúng hạn đặt cọc, không nhầm với ngày sự kiện hoặc hạn chốt bữa trưa."
+      },
+      {
+        "source": "passage",
+        "sourceId": "p7-reply",
+        "quote": "I have transferred the deposit today, October 23.",
+        "note": "Ngày thanh toán thực tế trước October 25."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "Đúng vì nối hạn ở thư đầu và hành động đã hoàn tất ở thư sau."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "Khoản $100 không thanh toán hết tiền phòng $320; lựa chọn đánh đồng một phần với toàn bộ."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "Nhóm không mua bữa trưa. Cọc được trừ vào hóa đơn, không phải khoản để mua 26 suất ăn."
+      },
+      {
+        "id": "D",
+        "frame": "not-rated",
+        "reason": "November 8 là ngày tổ chức, không phải hạn thanh toán cọc. Nhầm vai trò mốc ngày có thật trong bài."
+      }
+    ],
+    "demandNote": "Hai nguồn nhưng chỉ một phép đối chiếu thời gian. Nhiều văn bản không tự động làm mọi câu trở thành câu suy luận phức tạp.",
+    "reviewPrompt": "Chỉ ra vai trò riêng của October 23, October 25, November 1 và November 8."
+  },
+  {
+    "questionId": "p5-efficiently",
+    "sourceFingerprint": "1241-537d0d69-caf1f01f",
+    "kind": "structure",
+    "target": "Nhận diện từ loại bổ nghĩa cho hành động, rồi giữ cấu trúc so sánh.",
+    "decisivePoint": "Processes là hành động cần được mô tả; more … than không tự làm tính từ efficient trở thành trạng từ.",
+    "evidence": [
+      {
+        "source": "prompt",
+        "quote": "processes customer requests more ------- than",
+        "note": "Vị trí trống nói hệ thống xử lý như thế nào, trong một phép so sánh."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "fails-frame",
+        "reason": "Efficient là tính từ. Nó có thể mô tả a system, nhưng không làm trạng từ mô tả processes trong câu này."
+      },
+      {
+        "id": "B",
+        "frame": "fails-frame",
+        "reason": "Efficiency là danh từ chỉ hiệu suất; không đảm nhiệm vị trí trạng từ bổ nghĩa hành động ở đây."
+      },
+      {
+        "id": "C",
+        "frame": "fits-frame",
+        "reason": "Efficiently là trạng từ; more efficiently than so sánh cách xử lý của hai hệ thống."
+      },
+      {
+        "id": "D",
+        "frame": "fails-frame",
+        "reason": "Efficiencies là danh từ số nhiều; thêm s không giải quyết được nhiệm vụ bổ nghĩa cho động từ."
+      }
+    ],
+    "demandNote": "Chủ yếu là một quyết định cấu trúc tại chỗ trống. Không cần suy luận từ nhiều văn bản.",
+    "reviewPrompt": "Nếu đổi thành a more ___ system, bạn phải dùng dạng nào và vì sao?"
+  },
+  {
+    "questionId": "p5-connectors",
+    "sourceFingerprint": "1179-2bf038fb-688fe6b1",
+    "kind": "structure",
+    "target": "Kiểm tra đồng thời cấu trúc sau từ nối và quan hệ nhượng bộ.",
+    "decisivePoint": "The unexpected delivery delay là cụm danh từ, không phải mệnh đề có động từ hữu hạn.",
+    "evidence": [
+      {
+        "source": "prompt",
+        "quote": "the unexpected delivery delay, the installation team finished on time",
+        "note": "Một trở ngại được đặt cạnh kết quả vẫn đúng hạn: quan hệ nhượng bộ, và phía sau chỗ trống là cụm danh từ."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "fails-frame",
+        "reason": "Although dùng để dẫn mệnh đề; cụm danh từ đang có chưa tạo thành mệnh đề đầy đủ trong câu này."
+      },
+      {
+        "id": "B",
+        "frame": "fails-frame",
+        "reason": "Because cần mệnh đề, và nghĩa nguyên nhân không thể hiện quan hệ trở ngại – kết quả vẫn đạt được ở đây."
+      },
+      {
+        "id": "C",
+        "frame": "fails-frame",
+        "reason": "However không làm giới từ đứng trực tiếp trước cụm danh từ theo khung này."
+      },
+      {
+        "id": "D",
+        "frame": "fits-frame",
+        "reason": "Despite nhận cụm danh từ và thể hiện việc vẫn hoàn thành đúng hạn dù có trở ngại."
+      }
+    ],
+    "demandNote": "Biết nghĩa 'mặc dù' chưa đủ; phải xác định danh từ hay mệnh đề theo sau.",
+    "reviewPrompt": "Viết lại phần đầu bằng although; bạn cần thêm thành phần nào?"
+  },
+  {
+    "questionId": "p5-tense",
+    "sourceFingerprint": "1205-ad934b95-e12ed487",
+    "kind": "context",
+    "target": "Chọn dạng động từ giữ đúng khoảng thời gian từ quá khứ đến hiện tại.",
+    "decisivePoint": "Since she joined … in 2021 nêu mốc bắt đầu, và câu nói về việc quản lý kéo dài đến hiện tại.",
+    "evidence": [
+      {
+        "source": "prompt",
+        "quote": "since she joined the company in 2021",
+        "note": "Phải giải thích mối quan hệ thời gian này, không chỉ ghép một động từ sau chủ ngữ."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "fits-frame",
+        "reason": "Has managed nối mốc bắt đầu trong quá khứ với hiện tại và phù hợp với toàn bộ câu."
+      },
+      {
+        "id": "B",
+        "frame": "fits-frame",
+        "reason": "Ms. Patel manages the department có thể là câu hiện tại đơn đúng khi đứng riêng. Nhưng manages không thể hiện quãng kéo dài với since theo cách dùng của câu đang xét."
+      },
+      {
+        "id": "C",
+        "frame": "fits-frame",
+        "reason": "Will manage có thể đứng sau chủ ngữ để nói tương lai, nhưng không khớp khoảng thời gian đã bắt đầu từ 2021 đến hiện tại ở đây."
+      },
+      {
+        "id": "D",
+        "frame": "fits-frame",
+        "reason": "Is managing có khung chủ ngữ – động từ hợp lệ, nhưng không phải dạng diễn tả thời gian kéo dài với since trong câu này."
+      }
+    ],
+    "demandNote": "Các lựa chọn đều có thể tạo vị ngữ trong câu khác. Hợp khung cú pháp không có nghĩa đúng toàn bộ câu, bao gồm quan hệ thì – thời gian.",
+    "reviewPrompt": "Nếu thay since bằng at the moment và bỏ mốc 2021, dạng nào có thể trở nên phù hợp?"
+  },
+  {
+    "questionId": "p5-gerund",
+    "sourceFingerprint": "1114-ebe1a5f-3f4398af",
+    "kind": "structure",
+    "target": "Nhận diện dạng bổ ngữ mà động từ postpone cho phép.",
+    "decisivePoint": "Khi nói hoãn làm một việc, dùng postpone + V-ing.",
+    "evidence": [
+      {
+        "source": "prompt",
+        "quote": "postponed ------- its new branch",
+        "note": "Postponed là từ chi phối dạng của hành động theo sau."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "fails-frame",
+        "reason": "Open nguyên mẫu không to không làm bổ ngữ đúng cho postponed trong khung này."
+      },
+      {
+        "id": "B",
+        "frame": "fits-frame",
+        "reason": "Opening làm danh động từ, diễn tả việc mở chi nhánh bị hoãn."
+      },
+      {
+        "id": "C",
+        "frame": "fails-frame",
+        "reason": "To open phù hợp sau một số động từ như plan, nhưng không thay thế opening sau postpone ở đây."
+      },
+      {
+        "id": "D",
+        "frame": "fails-frame",
+        "reason": "Opened không tạo được dạng bổ ngữ cần có; 'đã mở' còn khác với việc hoãn mở."
+      }
+    ],
+    "demandNote": "Đây là kiến thức cấu trúc động từ. Từ vựng công sở không làm câu tự nhiên trở thành bài suy luận nhiều bước.",
+    "reviewPrompt": "Nói lại câu bằng tiếng Việt rồi nêu đúng cụm postpone doing something, thay vì chỉ nhớ chữ B."
+  },
+  {
+    "questionId": "p5-subjunctive",
+    "sourceFingerprint": "1133-1f8cbab5-b8700d1",
+    "kind": "structure",
+    "target": "Kết hợp đề nghị ở thức giả định với ý bị động.",
+    "decisivePoint": "Trong cấu trúc đề nghị trang trọng recommends that, khách là người được đi cùng: be accompanied.",
+    "evidence": [
+      {
+        "source": "prompt",
+        "quote": "recommends that every visitor ------- accompanied by a staff member",
+        "note": "Recommends that chi phối dạng động từ; accompanied by cho biết quan hệ bị động."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "fails-frame",
+        "reason": "Been là phân từ quá khứ, không tự tạo vị ngữ cho mệnh đề that ở đây."
+      },
+      {
+        "id": "B",
+        "frame": "fits-frame",
+        "reason": "Be giữ dạng nguyên mẫu trong thức giả định và kết hợp với accompanied để diễn tả bị động."
+      },
+      {
+        "id": "C",
+        "frame": "fails-frame",
+        "reason": "Being đứng một mình sau chủ ngữ không tạo vị ngữ phù hợp cho mệnh đề that này."
+      },
+      {
+        "id": "D",
+        "frame": "fails-frame",
+        "reason": "To be không đứng như động từ của mệnh đề that ngay sau every visitor trong khung câu này."
+      }
+    ],
+    "demandNote": "Cấu trúc có thể ít quen nhưng dữ kiện quyết định nằm ngay trong một câu. Nhãn advanced là phân loại biên soạn, chưa phải độ khó đo trên thí sinh.",
+    "reviewPrompt": "Vì sao every visitor không làm be đổi thành is trong cấu trúc đề nghị này?"
+  },
+  {
+    "questionId": "bank2026-practice-reading:q038",
+    "sourceFingerprint": "1261-9a539196-644d14a6",
+    "kind": "context",
+    "target": "Phân biệt quan hệ hệ quả với đối lập hoặc điều kiện khác, khi cả bốn từ cùng hợp vị trí cú pháp.",
+    "decisivePoint": "Cửa bắc đóng là lý do khiến hàng phải đi cổng đông; vế sau là hệ quả của vế trước.",
+    "evidence": [
+      {
+        "source": "prompt",
+        "quote": "The north entrance is closed;",
+        "note": "Dữ kiện nguyên nhân."
+      },
+      {
+        "source": "prompt",
+        "quote": "all deliveries must use the east gate",
+        "note": "Kết quả hoặc chỉ dẫn phát sinh từ việc cửa bắc đóng."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "fits-frame",
+        "reason": "Otherwise có thể đứng ở vị trí trạng từ liên kết này, nhưng mang nghĩa 'nếu không thì/trong trường hợp khác'; không nêu đúng quan hệ nguyên nhân → hệ quả của hai vế."
+      },
+      {
+        "id": "B",
+        "frame": "fits-frame",
+        "reason": "Therefore diễn tả 'vì vậy', nối việc cửa bắc đóng với yêu cầu dùng cổng đông. Nó khớp cả vị trí lẫn quan hệ nghĩa."
+      },
+      {
+        "id": "C",
+        "frame": "fits-frame",
+        "reason": "However có cùng khả năng đứng ở vị trí này về cú pháp, nhưng báo hiệu đối lập. Việc chuyển cổng là hệ quả chứ không phải ý đối lập với cửa bắc đóng."
+      },
+      {
+        "id": "D",
+        "frame": "fits-frame",
+        "reason": "Nevertheless mang nghĩa 'tuy vậy/dù vậy', phù hợp với kết quả trái kỳ vọng sau một trở ngại. Nó không thể hiện quan hệ giải thích – hệ quả cần có ở đây."
+      }
+    ],
+    "demandNote": "Không nên loại A/C/D bằng lý do 'không đứng được ở chỗ trống'. Câu này phải xét quan hệ ý của cả hai vế.",
+    "reviewPrompt": "Tự nói lại quan hệ giữa hai vế bằng tiếng Việt, rồi giải thích vì sao however không thay được therefore ở đây."
+  },
+  {
+    "questionId": "bank2026-practice-reading:q048",
+    "sourceFingerprint": "1270-a7da18f7-966ed791",
+    "kind": "structure",
+    "target": "Phân biệt đại từ quan hệ làm thành phần của mệnh đề với trạng từ quan hệ chỉ nơi chốn.",
+    "decisivePoint": "We store temperature-sensitive products đã có chủ ngữ và tân ngữ; phần còn thiếu là ý 'ở kho đó'.",
+    "evidence": [
+      {
+        "source": "prompt",
+        "quote": "the warehouse ______ we store temperature-sensitive products",
+        "note": "Không chọn where chỉ vì thấy danh từ nơi chốn; kiểm tra vai trò còn thiếu bên trong mệnh đề."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "fails-frame",
+        "reason": "Whose cần nối quan hệ sở hữu với danh từ theo sau, không tạo khung whose we store … như câu này."
+      },
+      {
+        "id": "B",
+        "frame": "fits-frame",
+        "reason": "Where bổ sung ý nơi diễn ra hành động; có thể diễn đạt lại bằng in which trong cấu trúc tương ứng."
+      },
+      {
+        "id": "C",
+        "frame": "fails-frame",
+        "reason": "Which đứng một mình không cung cấp ý in the warehouse ở đây. Store đã có tân ngữ products, nên không cần which làm tân ngữ nữa."
+      },
+      {
+        "id": "D",
+        "frame": "fails-frame",
+        "reason": "Who không quy chiếu warehouse theo nghĩa nơi chốn, và không cung cấp quan hệ nơi cần có trong mệnh đề."
+      }
+    ],
+    "demandNote": "Đây là phân tích vị trí thiếu trong mệnh đề, không phải mẹo 'địa điểm luôn chọn where'.",
+    "reviewPrompt": "Nếu câu sau đổi thành we renovated last year, bạn còn chọn where được không? Thành phần nào đang thiếu?"
+  },
+  {
+    "questionId": "p1-bookshelves",
+    "sourceFingerprint": "1876-b28b114e-db87fc94",
+    "kind": "photo",
+    "target": "Đối chiếu chủ thể và trạng thái trong audio với chi tiết nhìn thấy.",
+    "decisivePoint": "Ảnh có sách trên nhiều tầng kệ; không có người đang mang hộp hoặc sơn tường.",
+    "evidence": [
+      {
+        "source": "photo",
+        "note": "Sách hiện diện trên các kệ; các hành động có người trong lựa chọn B/D không được ảnh hỗ trợ."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "Mô tả đúng chủ thể books và trạng thái arranged on shelves."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "Câu có thể mô tả một ảnh khác, nhưng ảnh này không có người mang hộp."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "Completely empty mâu thuẫn với sách nhìn thấy trên kệ."
+      },
+      {
+        "id": "D",
+        "frame": "not-rated",
+        "reason": "Không có bằng chứng về người đang sơn; không được tự thêm một hoạt động ngoài ảnh."
+      }
+    ],
+    "demandNote": "Đây là mẫu đối chiếu trực tiếp với ảnh. Các lựa chọn sai khá rõ, chưa đại diện cho mọi độ khó của Part 1.",
+    "reviewPrompt": "Mỗi lựa chọn sai mâu thuẫn hoặc thiếu bằng chứng ở chủ thể, hành động hay trạng thái nào?"
+  },
+  {
+    "questionId": "p2-time",
+    "sourceFingerprint": "1492-9d68a8ff-81f348f",
+    "kind": "response",
+    "target": "Chọn lời đáp đúng loại thông tin được hỏi, không chỉ cùng chủ đề.",
+    "decisivePoint": "When … deadline hỏi hạn cuối; lời đáp phải cung cấp mốc thời gian.",
+    "evidence": [
+      {
+        "source": "audio",
+        "quote": "When is the deadline for submitting the proposal?",
+        "note": "Thành phần quyết định là loại thông tin cần đáp: thời gian nộp muộn nhất."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "Nêu cách gửi và người nhận; có thể đúng trong một hội thoại khác nhưng không giải quyết câu hỏi khi nào."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "By five o’clock on Friday nêu hạn muộn nhất, đúng nhu cầu thông tin của câu hỏi."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "Nhận xét về bản đề xuất có cùng chủ đề proposal, nhưng không đưa ra thời hạn."
+      }
+    ],
+    "demandNote": "Không cần lời đáp là câu trọn vẹn. Một cụm thời gian có thể đáp đúng chức năng giao tiếp.",
+    "reviewPrompt": "Nếu thay When bằng How should I submit …, lựa chọn nào có thể trở nên thích hợp hơn?"
+  },
+  {
+    "questionId": "p2-indirect",
+    "sourceFingerprint": "1617-818aca68-f952598a",
+    "kind": "response",
+    "target": "Hiểu lời đáp gián tiếp giúp người hỏi tìm đúng nơi liên hệ.",
+    "decisivePoint": "Cung cấp số của booking desk giải quyết nhu cầu đổi đặt chỗ, dù không nêu tên người.",
+    "evidence": [
+      {
+        "source": "audio",
+        "quote": "Who should I contact to change my reservation?",
+        "note": "Người hỏi cần một đầu mối liên hệ cho việc đổi đặt chỗ."
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "frame": "not-rated",
+        "reason": "Chỉ nơi tìm số bộ phận đặt chỗ, tức một bước liên hệ hữu ích. Who không bắt buộc lời đáp phải chứa tên riêng."
+      },
+      {
+        "id": "B",
+        "frame": "not-rated",
+        "reason": "For three nights nói về độ dài lưu trú, không chỉ đầu mối cần liên hệ."
+      },
+      {
+        "id": "C",
+        "frame": "not-rated",
+        "reason": "Changed lặp gốc change nhưng đang nói đổi tàu. Trùng từ không tạo hội thoại phù hợp với reservation."
+      }
+    ],
+    "demandNote": "Cần hiểu chức năng lời đáp hơn là ghép máy móc Who với tên người hoặc chọn câu lặp từ change.",
+    "reviewPrompt": "Diễn đạt ý của A bằng một lời đáp trực tiếp hơn mà vẫn giữ đúng chức năng giúp liên hệ."
+  }
+]

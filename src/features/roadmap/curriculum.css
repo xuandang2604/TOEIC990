@@ -1,0 +1,301 @@
+.curriculum {
+  margin-block: 28px;
+  min-width: 0;
+}
+.curriculum-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px 24px;
+  margin-bottom: 20px;
+}
+.curriculum-heading h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  font-weight: 500;
+  margin: 6px 0;
+}
+.curriculum-heading p,
+.curriculum-outcome {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.curriculum-phases {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  border-block: 1px solid var(--line);
+  padding-block: 5px;
+  margin: 16px 0;
+}
+.curriculum-phases button {
+  min-height: 44px;
+  padding: 8px;
+  font-size: 0.78rem;
+  border-radius: 4px;
+}
+.curriculum-phases button[aria-pressed='true'] {
+  background: var(--sage-soft);
+  color: var(--sage);
+  font-weight: 600;
+}
+.curriculum-workspace {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.85fr) minmax(0, 2fr);
+  gap: 22px;
+  align-items: start;
+}
+.curriculum-index {
+  display: grid;
+  gap: 4px;
+}
+.curriculum-index button {
+  text-align: left;
+  padding: 12px;
+  min-height: 56px;
+  border-inline-start: 2px solid transparent;
+  border-radius: 0 4px 4px 0;
+  overflow-wrap: anywhere;
+}
+.curriculum-index button:hover {
+  background: var(--surface);
+}
+.curriculum-index button[aria-current='true'] {
+  border-color: var(--sage);
+  background: var(--sage-soft);
+}
+.curriculum-index strong {
+  display: block;
+  font-weight: 500;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.curriculum-index small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.67rem;
+  margin-top: 5px;
+}
+.curriculum-lesson {
+  padding: 24px 28px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.curriculum-lesson-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.curriculum-lesson > h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  margin: 15px 0 10px;
+}
+.curriculum-evidence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+  padding-block: 15px;
+  border-block: 1px solid var(--line);
+}
+.curriculum-evidence dt {
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+.curriculum-evidence dd {
+  font-size: 0.94rem;
+  font-weight: 600;
+  margin: 6px 0 0;
+}
+.curriculum-content-note {
+  border-inline-start: 2px solid var(--brass);
+  padding-inline-start: 12px;
+  color: var(--brass-text);
+  font-size: 0.78rem;
+  margin: 12px 0;
+}
+.curriculum-session-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+  margin-block: 20px;
+}
+.curriculum-session-controls label {
+  display: grid;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.curriculum-session-controls select {
+  min-height: 44px;
+  padding: 8px 12px;
+  max-width: 100%;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.curriculum-session-controls .button {
+  min-height: 44px;
+  max-width: 100%;
+  white-space: normal;
+}
+.curriculum-guide {
+  border-top: 1px solid var(--line);
+  margin-top: 14px;
+}
+.curriculum-guide > summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding-block: 12px;
+  font-size: 0.8rem;
+  color: var(--sage);
+}
+.curriculum-guide p,
+.curriculum-guide li {
+  font-size: 0.82rem;
+  line-height: 1.9;
+  margin-block: 10px;
+}
+.curriculum-guide ol {
+  padding-inline-start: 22px;
+}
+.curriculum-guide blockquote {
+  border-inline-start: 2px solid var(--brass);
+  background: var(--surface);
+  padding: 10px 16px;
+  margin-block: 16px;
+}
+.curriculum-guide blockquote p {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+}
+.curriculum-guide blockquote footer {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.8;
+}
+.curriculum-self-check {
+  color: var(--sage);
+}
+.curriculum-reference-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding-block: 12px;
+}
+.curriculum-reference-links .text-link {
+  min-height: 44px;
+  max-width: 100%;
+  text-align: left;
+}
+.curriculum-method,
+.curriculum-checkpoint {
+  padding-inline: 4px;
+  overflow-wrap: anywhere;
+}
+.roadmap-calendar-details > summary,
+.today-secondary > summary {
+  min-height: 44px;
+  cursor: pointer;
+  padding-block: 12px;
+  color: var(--sage);
+  font-size: 0.85rem;
+}
+.today-secondary {
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.today-hero.today-hero-focused {
+  padding-block: 28px;
+}
+.today-hero-focused .hero-copy h1 {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+.today-hero-focused .learning-illustration {
+  max-height: 190px;
+}
+.today-hero-focused .hero-copy > p:not(.eyebrow):not(.inline-error) {
+  max-width: 600px;
+  margin-top: 12px;
+}
+.today-hero .hero-duration {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 16px 0 0;
+}
+.today-hero .hero-duration button {
+  padding: 7px 14px;
+  min-height: 44px;
+  font-size: 0.76rem;
+  border-radius: 4px;
+}
+.today-hero .hero-duration button[aria-pressed='true'] {
+  color: var(--sage);
+  border-color: var(--sage);
+  background: var(--panel);
+}
+@media (max-width: 900px) {
+  .curriculum-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .curriculum-index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .curriculum-lesson {
+    padding: 22px;
+  }
+}
+@media (max-width: 600px) {
+  .curriculum-phases {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .curriculum-index {
+    grid-template-columns: minmax(0, 1fr);
+    max-height: 230px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .curriculum-lesson {
+    padding: 18px;
+  }
+  .curriculum-evidence {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .curriculum-evidence > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .curriculum-evidence dd {
+    margin: 0;
+  }
+  .curriculum-session-controls {
+    align-items: stretch;
+  }
+  .curriculum-session-controls label,
+  .curriculum-session-controls .button {
+    width: 100%;
+  }
+  .curriculum-session-controls select {
+    font-size: 16px;
+    width: 100%;
+  }
+  .today-hero-focused .learning-illustration {
+    display: none;
+  }
+  .today-hero.today-hero-focused {
+    padding: 22px;
+  }
+}

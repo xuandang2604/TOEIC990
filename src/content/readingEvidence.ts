@@ -38,8 +38,9 @@ export const readingEvidence: Record<string, { passageId: string; quote: string;
     'p7-optional': [
       {
         passageId: 'workshop-email',
-        quote: 'Participation is optional, but new team members are encouraged to attend.',
-        note: 'Encouraged không đồng nghĩa với bắt buộc.',
+        quote:
+          'Employees working at our branch offices can join through the video link in their confirmation email.',
+        note: 'Join through the video link hỗ trợ suy ra có thể tham gia từ xa. Optional nói về mức bắt buộc, không phải bằng chứng chính cho remotely.',
       },
     ],
   }

@@ -10,6 +10,7 @@ import {
   examExpired,
   sessionUnits,
   type PracticeUnit,
+  readingTransitionDue,
 } from '../../domain/assessment'
 import { useStudy } from '../../application/StudyContext'
 import { useAction, navigate } from '../../application/hooks'
@@ -20,11 +21,13 @@ import {
   finishExam,
   navigateExam,
   skipExamAudio,
+  observeExamClock,
 } from '../../application/examRepository'
 import { EmptyState, InlineError, Tag } from '../../components/ui'
 import { UnitContent } from './PracticeUnit'
 import { SessionResults } from './SessionResults'
 import { UnavailableSession } from './UnavailableSession'
+import { ExamAnswerSheet } from './ExamAnswerSheet'
 
 export function SessionPage({ id }: { id?: string }) {
   const data = useStudy()
@@ -74,6 +77,7 @@ function ActiveSession({ session }: { session: StudySession }) {
   )
   const unit = units[unitIndex]
   const requestedUnit = useRef<string | null>(null)
+  const requestedQuestion = useRef<string | null>(null)
   useEffect(() => {
     if (requestedUnit.current === unit?.id) {
       document
@@ -81,9 +85,25 @@ function ActiveSession({ session }: { session: StudySession }) {
         ?.scrollIntoView({ block: 'start', behavior: 'instant' })
       requestedUnit.current = null
     }
-  }, [unit?.id])
+    if (requestedQuestion.current && unit?.questionIds.includes(requestedQuestion.current)) {
+      const card = [...document.querySelectorAll<HTMLElement>('.question-card')].find(
+        (element) => element.dataset.questionId === requestedQuestion.current,
+      )
+      const heading = card?.querySelector<HTMLElement>('.question-prompt')
+      if (heading) {
+        heading.tabIndex = -1
+        heading.focus({ preventScroll: true })
+        heading.scrollIntoView({ block: 'center', behavior: 'instant' })
+      }
+      requestedQuestion.current = null
+    }
+  }, [unit?.id, session.cursor])
   const expired = examExpired(session, now)
   const exam = session.mode === 'exam'
+  const transitionDue = readingTransitionDue(session, now)
+  useEffect(() => {
+    if (session.readingStarted) setConfirm((value) => (value === 'reading' ? null : value))
+  }, [session.readingStarted])
   useEffect(() => {
     if (!exam) return
     const update = () => setNow(Date.now())
@@ -95,20 +115,21 @@ function ActiveSession({ session }: { session: StudySession }) {
     }
   }, [exam])
   useEffect(() => {
-    if (expired) void timerAction.run(() => finishExam(session.id))
-  }, [expired, session.id])
+    if (expired || transitionDue) void timerAction.run(() => observeExamClock(session.id))
+  }, [expired, transitionDue, session.id])
   const answered = exam
     ? data.responses.filter((r) => r.sessionId === session.id).length
     : data.attempts.filter((a) => a.sessionId === session.id).length
-  async function go(target: PracticeUnit) {
+  async function go(target: PracticeUnit, questionId = target.questionIds[0]) {
     if (exam && unit.part <= 4 && target.part >= 5) {
       openConfirm('reading')
       return
     }
     await action.run(async () => {
       requestedUnit.current = target.id
-      if (exam) await navigateExam(session.id, target.questionIds[0])
-      else await navigateStudyQuestion(session.id, target.questionIds[0])
+      requestedQuestion.current = questionId
+      if (exam) await navigateExam(session.id, questionId)
+      else await navigateStudyQuestion(session.id, questionId)
     })
   }
   if (!unit)
@@ -124,7 +145,13 @@ function ActiveSession({ session }: { session: StudySession }) {
   const audioPending = exam && unit.part <= 4 && (!playback || playback.status === 'started')
   const remaining = Math.max(
     0,
-    Math.ceil(((session.deadlineAt ?? now) - Math.max(now, session.lastObservedAt ?? now)) / 1000),
+    Math.ceil(
+      ((session.sectionTiming && !session.readingStarted
+        ? session.sectionTiming.listeningDeadlineAt
+        : (session.deadlineAt ?? now)) -
+        Math.max(now, session.lastObservedAt ?? now)) /
+        1000,
+    ),
   )
   return (
     <div className="study-space" data-lookup-disabled={exam || undefined}>
@@ -146,9 +173,10 @@ function ActiveSession({ session }: { session: StudySession }) {
           <span
             className={`exam-clock ${remaining < 60 ? 'brass-text' : ''}`}
             role="timer"
-            aria-label={`Còn ${Math.floor(remaining / 60)} phút ${remaining % 60} giây`}
+            aria-label={`${session.sectionTiming ? (session.readingStarted ? 'Reading' : 'Listening') : 'Bài làm'} còn ${Math.floor(remaining / 60)} phút ${remaining % 60} giây`}
           >
             <Clock3 size={16} />
+            {session.sectionTiming ? (session.readingStarted ? 'Reading · ' : 'Listening · ') : ''}
             {Math.floor(remaining / 60)}:{String(remaining % 60).padStart(2, '0')}
           </span>
         ) : (
@@ -191,49 +219,70 @@ function ActiveSession({ session }: { session: StudySession }) {
           Chọn từ → Tra → Lưu từ. Lựa chọn được lưu nháp đến khi bạn nộp.
         </p>
       )}
-      <UnitNavigation count={units.length} current={unitIndex}>
-        <nav className="unit-navigation" aria-label="Điều hướng nhóm câu hỏi">
-          {units.map((u, i) => {
-            const count = u.questionIds.filter((id) =>
-              exam
-                ? data.responses.some((r) => r.id === `${session.id}:${id}`)
-                : data.attempts.some((a) => a.id === `${session.id}:${id}`),
-            ).length
-            return (
-              <button
-                key={u.id}
-                className={i === unitIndex ? 'active' : ''}
-                aria-current={i === unitIndex ? 'step' : undefined}
-                disabled={
-                  action.busy ||
-                  expired ||
-                  (exam &&
-                    ((audioPending && i !== unitIndex) ||
-                      !canNavigateExam(session, allQuestions, u.questionIds[0])))
-                }
-                onClick={() => void go(u)}
-              >
-                P{u.part} · {i + 1}
-                <small>
-                  {count}/{u.questionIds.length}
-                </small>
-              </button>
-            )
-          })}
-        </nav>
-      </UnitNavigation>
+      {session.mockExamId ? (
+        <ExamAnswerSheet
+          session={session}
+          currentId={session.questionIds[session.cursor]}
+          onSelect={(id) => {
+            const target = units.find((u) => u.questionIds.includes(id))
+            if (target) void go(target, id)
+          }}
+          disabled={(id) =>
+            action.busy ||
+            expired ||
+            transitionDue ||
+            (exam &&
+              ((audioPending && !unit.questionIds.includes(id)) ||
+                !canNavigateExam(session, allQuestions, id)))
+          }
+        />
+      ) : (
+        <UnitNavigation count={units.length} current={unitIndex}>
+          <nav className="unit-navigation" aria-label="Điều hướng nhóm câu hỏi">
+            {units.map((u, i) => {
+              const count = u.questionIds.filter((id) =>
+                exam
+                  ? data.responses.some((r) => r.id === `${session.id}:${id}`)
+                  : data.attempts.some((a) => a.id === `${session.id}:${id}`),
+              ).length
+              return (
+                <button
+                  key={u.id}
+                  className={i === unitIndex ? 'active' : ''}
+                  aria-current={i === unitIndex ? 'step' : undefined}
+                  disabled={
+                    action.busy ||
+                    expired ||
+                    (exam &&
+                      ((audioPending && i !== unitIndex) ||
+                        !canNavigateExam(session, allQuestions, u.questionIds[0])))
+                  }
+                  onClick={() => void go(u)}
+                >
+                  P{u.part} · {i + 1}
+                  <small>
+                    {count}/{u.questionIds.length}
+                  </small>
+                </button>
+              )
+            })}
+          </nav>
+        </UnitNavigation>
+      )}
       <InlineError message={action.error ?? mediaAction.error ?? timerAction.error} />
-      {expired ? (
+      {expired || transitionDue ? (
         <div className="resume-banner" role="status">
           <p>
-            Đã hết giờ. Đang chốt bài từ các lựa chọn đã lưu; chưa có lựa chọn nào được nhận thêm.
+            {transitionDue && !expired
+              ? 'Đã hết giờ phần nghe. Đang chuyển sang Reading; lựa chọn phần nghe được giữ nguyên.'
+              : 'Đã hết giờ. Đang chốt bài từ các lựa chọn đã lưu; chưa có lựa chọn nào được nhận thêm.'}
           </p>
           <button
             className="button secondary"
             disabled={timerAction.busy}
-            onClick={() => void timerAction.run(() => finishExam(session.id))}
+            onClick={() => void timerAction.run(() => observeExamClock(session.id))}
           >
-            Thử chốt bài lại
+            {transitionDue && !expired ? 'Thử chuyển phần lại' : 'Thử chốt bài lại'}
           </button>
         </div>
       ) : (
@@ -310,7 +359,7 @@ function ActiveSession({ session }: { session: StudySession }) {
         </>
       )}
       <Dialog.Root
-        open={Boolean(confirm) && !expired}
+        open={Boolean(confirm) && !expired && !transitionDue}
         onOpenChange={(open) => {
           if (!open && !action.busy) setConfirm(null)
         }}
@@ -325,11 +374,11 @@ function ActiveSession({ session }: { session: StudySession }) {
             }}
           >
             <Dialog.Title>
-              {confirm === 'reading' ? 'Chuyển sang phần đọc?' : 'Nộp mini practice?'}
+              {confirm === 'reading' ? 'Chuyển sang phần đọc?' : 'Nộp bài đang làm?'}
             </Dialog.Title>
             <Dialog.Description className="muted">
               {confirm === 'reading'
-                ? 'Bạn sẽ không quay lại câu hỏi nghe. Lựa chọn đã lưu được giữ, câu chưa chọn sẽ để trống.'
+                ? `Bạn sẽ không quay lại câu hỏi nghe. Lựa chọn đã lưu được giữ, câu chưa chọn sẽ để trống.${session.sectionTiming ? ' Reading có 75 phút, bắt đầu ngay khi bạn xác nhận.' : ''}`
                 : `Đã lưu ${answered}/${session.questionIds.length} câu. ${session.questionIds.length - answered} câu còn trống sẽ được tính là chưa đúng. Sau khi nộp, bạn có thể xem lời giải từng câu.`}
             </Dialog.Description>
             <InlineError message={action.error} />
@@ -349,7 +398,8 @@ function ActiveSession({ session }: { session: StudySession }) {
                 onClick={() =>
                   void action.run(async () => {
                     if (confirm === 'reading') {
-                      await navigateExam(session.id, units[unitIndex + 1].questionIds[0])
+                      const firstReading = units.find((unit) => unit.part >= 5)
+                      if (firstReading) await navigateExam(session.id, firstReading.questionIds[0])
                       setConfirm(null)
                     } else await finishExam(session.id)
                   })

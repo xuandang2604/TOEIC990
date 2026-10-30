@@ -7,17 +7,21 @@ import type { Question } from '../../content/schema'
 export function EvidenceCheck({
   questionId,
   question,
+  references,
 }: {
   questionId: string
   question?: Question
+  references?: { passageId: string; quote: string; note: string }[]
 }) {
   const { readingWorkspaces } = useStudy()
   const specified =
+    references ??
     question?.evidence?.map((e) => ({
       passageId: e.passageId,
       quote: e.quote,
       note: e.explanation,
-    })) ?? readingEvidence[questionId]
+    })) ??
+    readingEvidence[questionId]
   const evidence = specified?.filter((e) => passageById.get(e.passageId)?.text.includes(e.quote))
   if (specified && !evidence?.length)
     return (

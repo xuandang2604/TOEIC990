@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 @import './features/roadmap/roadmap.css';
+@import './features/roadmap/curriculum.css';
+@import './features/practice/sourcePractice.css';
+@import './features/practice/fullTest.css';
+@import './features/practice/practice.css';
 
 @theme {
   --font-sans: 'Be Vietnam Pro', sans-serif;
@@ -5295,6 +5299,50 @@ kbd {
   padding-top: 8px;
   min-width: 0;
   overflow-wrap: anywhere;
+}
+.question-design-analysis {
+  border-block: 1px solid var(--line);
+  margin-block: 16px;
+  padding-block: 4px;
+  min-width: 0;
+}
+.question-design-analysis > summary {
+  color: var(--sage);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding-block: 12px;
+  min-height: 44px;
+  overflow-wrap: anywhere;
+}
+.question-design-analysis > p,
+.question-design-evidence p {
+  font-size: 0.8rem;
+  line-height: 1.9;
+  margin-block: 12px;
+}
+.question-design-evidence > div {
+  margin-block: 14px;
+}
+.question-design-evidence blockquote {
+  border-inline-start: 2px solid var(--brass);
+  padding-inline-start: 12px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+.question-design-analysis .question-design-recall {
+  color: var(--sage);
+}
+.option-analysis {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.option-frame-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 .question-options {
   margin-top: 10px;

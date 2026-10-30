@@ -3,11 +3,30 @@ import { recommendDailyPlan } from '../domain/adaptivePlan'
 import type { DailyPlan, StudyMinutes } from '../domain/models'
 import { vocabularyById } from '../content/vocabulary'
 import { grammarById } from '../content/grammar'
-import { questionById, practiceQuestions as questions, stimuli } from '../content/questions'
+import { questionById, stimuli } from '../content/questions'
+import { learningQuestionPool } from './learningQuestionPool'
 import { readStudyData, startSession, type StudyData } from './studyRepository'
 import { StudyOperationError } from './errors'
+import { learningRoadmap, validLearningProfile } from '../domain/roadmap'
+import { curriculumProgress, nextCurriculumFocus, curriculumPool } from '../domain/curriculum'
+import { makeUnits } from '../domain/assessment'
+import { schedulableCard } from '../domain/scheduler'
+import { sourceReviewParts } from '../domain/sourcePractice'
+
+export function plannedCurriculumFocus(data: StudyData, now: number) {
+  if (data.preferences.targetScore < 900) return null
+  const roadmap = learningRoadmap(data.preferences, data.skillEvidence, now)
+  return roadmap
+    ? nextCurriculumFocus(
+        curriculumProgress(learningQuestionPool(data.sessions), stimuli, data.attempts, now),
+        roadmap.current.id,
+        sourceReviewParts(data.learningActivities, now),
+      )
+    : null
+}
 
 export function adaptiveRecommendation(data: StudyData, minutes: StudyMinutes, now: number) {
+  const questions = learningQuestionPool(data.sessions)
   const cards = data.cards.filter((c) =>
     c.kind === 'vocabulary'
       ? vocabularyById.has(c.contentId)
@@ -15,7 +34,47 @@ export function adaptiveRecommendation(data: StudyData, minutes: StudyMinutes, n
         ? grammarById.has(c.contentId)
         : questionById.has(c.contentId),
   )
-  return recommendDailyPlan({ ...data, cards, questions, stimuli }, minutes, now)
+  const focus = plannedCurriculumFocus(data, now)
+  const structured =
+    data.preferences.targetScore >= 900 && validLearningProfile(data.preferences.learningProfile)
+  let pool = questions
+  if (structured) {
+    const selected = new Set(
+      focus
+        ? curriculumPool(focus.unit, questions, stimuli).questions.map((question) => question.id)
+        : [],
+    )
+    const due = new Set(
+      cards
+        .filter((card) => card.kind === 'question' && schedulableCard(card) && card.dueAt <= now)
+        .map((card) => card.contentId),
+    )
+    for (const group of makeUnits(questions))
+      if (group.questionIds.some((id) => due.has(id)))
+        group.questionIds.forEach((id) => selected.add(id))
+    pool = questions.filter((question) => selected.has(question.id))
+  }
+  const plan = recommendDailyPlan(
+    {
+      ...data,
+      cards,
+      questions: pool,
+      stimuli,
+      priorityParts: focus?.unit.id === 'diagnostic' ? focus.unmetParts : undefined,
+      reviewParts: sourceReviewParts(data.learningActivities, now),
+    },
+    minutes,
+    now,
+  )
+  if (focus)
+    plan.summary.unshift(
+      `Chuyên đề ưu tiên: ${focus.unit.title}. Giữ nguyên nhóm câu và ôn câu đến hạn.`,
+    )
+  else if (structured)
+    plan.summary.unshift(
+      'Chưa có chuyên đề cần mở thêm lúc này. Ưu tiên ôn đến hạn; có thể mở sổ tay hoặc tự chọn bài trong lộ trình.',
+    )
+  return plan
 }
 export function planProgress(plan: DailyPlan, data: Pick<StudyData, 'reviewEvents' | 'sessions'>) {
   const reviewedIds = new Set(

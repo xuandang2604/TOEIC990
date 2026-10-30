@@ -1,4 +1,5 @@
 import { compareDictation, normalizeDictation } from '../domain/studio'
+import { validSourcePractice } from '../domain/sourcePractice'
 
 const object = (v: unknown): v is Record<string, unknown> =>
   typeof v === 'object' && v !== null && !Array.isArray(v)
@@ -44,6 +45,7 @@ export function validStudioRecord(table: string, row: Record<string, unknown>) {
       integer(row.createdAt)
     )
   if (table !== 'learningActivities' || !id(row.contentId) || !integer(row.occurredAt)) return false
+  if (row.kind === 'source-practice') return validSourcePractice(row)
   if (row.kind === 'dictation') {
     if (!text(row.input, 3000) || !text(row.reference, 3000)) return false
     if (

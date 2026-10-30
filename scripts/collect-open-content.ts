@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import ts from 'typescript'
+import { collectQuestionOcean } from './collect-question-ocean'
 
 /** One documented, pinned, openly licensed source adapter. Never executes downloaded JavaScript. */
 const commit = 'a940bb8b479ef4d06af468015d757041c3d2e457'
@@ -168,7 +169,16 @@ async function main() {
     ),
   )
 }
-main().catch((error: unknown) => {
+const args = process.argv.slice(2)
+const run = async () => {
+  if (args.some((arg) => !['--all', '--offline'].includes(arg)))
+    throw new Error('Unknown collector flag. Use --all for the pinned complete source archive.')
+  if (args.includes('--offline') && !args.includes('--all'))
+    throw new Error('--offline requires --all.')
+  if (args.includes('--all')) await collectQuestionOcean(args.includes('--offline'))
+  else await main()
+}
+run().catch((error: unknown) => {
   console.error(error instanceof Error ? error.message : 'Collection failed.')
   process.exitCode = 1
 })

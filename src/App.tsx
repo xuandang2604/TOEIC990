@@ -2,8 +2,8 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import { ArrowRight, Compass } from 'lucide-react'
 import { StudyProvider, useStudy } from './application/StudyContext'
 import { navigate, useAction, useRoute } from './application/hooks'
-import { finishExam } from './application/examRepository'
-import { examExpired } from './domain/assessment'
+import { observeExamClock } from './application/examRepository'
+import { examExpired, readingTransitionDue } from './domain/assessment'
 import { hasUnsavedTutorWork } from './application/tutorDraftRecovery'
 import type { StudySession } from './domain/models'
 import { OfflineStatus } from './components/OfflineStatus'
@@ -18,6 +18,14 @@ const RoadmapPage = lazy(() =>
 )
 const PracticePage = lazy(() =>
   import('./features/practice/PracticePage').then((m) => ({ default: m.PracticePage })),
+)
+const OfficialPracticePage = lazy(() =>
+  import('./features/practice/OfficialPracticePage').then((m) => ({
+    default: m.OfficialPracticePage,
+  })),
+)
+const FullTestLibrary = lazy(() =>
+  import('./features/practice/FullTestLibrary').then((m) => ({ default: m.FullTestLibrary })),
 )
 const DailyPlanPage = lazy(() =>
   import('./features/today/DailyPlanPage').then((m) => ({ default: m.DailyPlanPage })),
@@ -64,7 +72,11 @@ function Workspace() {
       case 'today':
         return <TodayPage onSettings={() => setSettings(true)} />
       case 'practice':
-        return <PracticePage />
+        return <PracticePage key={route.id} initialPart={route.id} />
+      case 'sources':
+        return <OfficialPracticePage key={route.id} id={route.id} />
+      case 'tests':
+        return <FullTestLibrary key={route.id} id={route.id} />
       case 'roadmap':
         return <RoadmapPage />
       case 'plan':
@@ -135,9 +147,12 @@ function ExamGate({ session }: { session: StudySession }) {
   useEffect(() => {
     let checking = true
     const tick = () => {
-      if (checking && examExpired(session, Date.now())) {
+      if (
+        checking &&
+        (examExpired(session, Date.now()) || readingTransitionDue(session, Date.now()))
+      ) {
         checking = false
-        void action.run(() => finishExam(session.id))
+        void action.run(() => observeExamClock(session.id))
       }
     }
     tick()
@@ -146,7 +161,7 @@ function ExamGate({ session }: { session: StudySession }) {
       checking = false
       window.clearInterval(interval)
     }
-  }, [session.id, session.deadlineAt])
+  }, [session.id, session.deadlineAt, session.readingStarted])
   return (
     <>
       <EmptyState

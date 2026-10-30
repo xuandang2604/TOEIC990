@@ -23,6 +23,9 @@ export interface PlanInput {
   skillEvidence: SkillEvidence[]
   sessions: StudySession[]
   preferences: Preferences
+  budgetSeconds?: number
+  priorityParts?: ToeicPart[]
+  reviewParts?: ToeicPart[]
 }
 export type PlanRecommendation = Omit<DailyPlan, 'id' | 'status'>
 const DEFAULT_SECONDS: Record<ToeicPart, number> = {
@@ -54,9 +57,10 @@ export function recommendDailyPlan(
     answered.map((a) => a.questionSnapshot?.part ?? byId.get(a.questionId)?.part),
   )
   const diagnosticParts = new Set<ToeicPart>(
-    roadmap?.profile.baselineScore === null
-      ? ([1, 2, 3, 4, 5, 6, 7] as const).filter((part) => !observedParts.has(part))
-      : [],
+    input.priorityParts ??
+      (roadmap && (roadmap.profile.baselineScore === null || preferences.targetScore >= 900)
+        ? ([1, 2, 3, 4, 5, 6, 7] as const).filter((part) => !observedParts.has(part))
+        : []),
   )
   const today = new Set(
     answered.filter((a) => localDayKey(a.occurredAt) === localDayKey(now)).map((a) => a.questionId),
@@ -72,11 +76,18 @@ export function recommendDailyPlan(
   const previous = answered.filter((a) => a.sessionId === lastSession?.id)
   const recovering =
     previous.length >= 3 && previous.filter((a) => a.correct).length / previous.length < 0.6
-  const recentAnswers = [...answered].sort((a, b) => b.occurredAt - a.occurredAt).slice(0, 20)
+  const firstAnswers = new Map<string, Attempt>()
+  for (const answer of attempts
+    .filter((attempt) => attempt.occurredAt <= now)
+    .sort((a, b) => a.occurredAt - b.occurredAt || a.id.localeCompare(b.id)))
+    if (byId.has(answer.questionId) && !firstAnswers.has(answer.questionId))
+      firstAnswers.set(answer.questionId, answer)
+  const recentAnswers = [...firstAnswers.values()]
+    .sort((a, b) => b.occurredAt - a.occurredAt || a.id.localeCompare(b.id))
+    .slice(0, 20)
   const advancedReady =
     !recovering &&
     recentAnswers.length >= 12 &&
-    new Set(recentAnswers.map((a) => a.questionId)).size >= 8 &&
     recentAnswers.filter((a) => a.correct).length / recentAnswers.length >= 0.85
   const dueCards = cards
     .filter((c) => schedulableCard(c) && c.dueAt <= now)
@@ -116,7 +127,9 @@ export function recommendDailyPlan(
         ),
       )
   }
-  const budget = minutes * 60
+  const budget = input.budgetSeconds ?? minutes * 60
+  if (!Number.isFinite(budget) || budget < 0 || budget > 240 * 60)
+    throw new Error('Practice budget must be between zero and 240 minutes.')
   const cardIds: string[] = [],
     questionIds: string[] = [],
     reasons: DailyPlan['reasons'] = []
@@ -150,6 +163,7 @@ export function recommendDailyPlan(
     (lowConfidenceCorrect.has(q.id) && !today.has(q.id) ? 10 : 0) +
     difficultyValue(q) +
     (diagnosticParts.has(q.part) ? 48 : 0) +
+    (input.reviewParts?.includes(q.part) ? 24 : 0) +
     (roadmap && !roadmap.ended && roadmap.current.parts.includes(q.part) ? 12 : 0) +
     (roadmap && !roadmap.ended && q.part === roadmap.dailyPart ? 6 : 0) +
     (roadmap && !roadmap.ended
@@ -192,11 +206,13 @@ export function recommendDailyPlan(
         ? 'Câu đã lưu đến hạn ôn.'
         : missed
           ? `Có lượt sai gần đây ở ${SKILL_LABELS[missed]}; cần thêm bằng chứng qua luyện tập.`
-          : !seen.has(id)
-            ? 'Nội dung chưa có lượt trả lời trong sổ học.'
-            : lowConfidenceCorrect.has(id)
-              ? 'Đã trả lời đúng nhưng tự tin thấp; thử nhớ lại sau một khoảng nghỉ.'
-              : 'Luyện truy hồi và xen kẽ kỹ năng đã gặp.'
+          : input.reviewParts?.includes(q.part)
+            ? `Ôn Part ${q.part} theo phiếu đối chiếu từ nguồn gốc; khóa đáp án do bạn nhập, không phải điểm TOEIC.`
+            : !seen.has(id)
+              ? 'Nội dung chưa có lượt trả lời trong sổ học.'
+              : lowConfidenceCorrect.has(id)
+                ? 'Đã trả lời đúng nhưng tự tin thấp; thử nhớ lại sau một khoảng nghỉ.'
+                : 'Luyện truy hồi và xen kẽ kỹ năng đã gặp.'
       reasons.push({ contentId: id, text: reason })
     }
   }
@@ -208,9 +224,15 @@ export function recommendDailyPlan(
     recovering
       ? 'Phiên gần nhất có ít nhất 3 câu trả lời, độ chính xác dưới 60%; ưu tiên câu nền tảng.'
       : advancedReady
-        ? 'Các lượt gần đây có độ chính xác cao trên nhiều câu khác nhau; cho phép thêm bài vận dụng.'
+        ? 'Kết quả lần làm đầu trên ít nhất 12 câu khác nhau trong bộ phù hợp đạt ngưỡng nội bộ; cho phép thêm bài vận dụng.'
         : 'Chưa đủ bằng chứng để tăng độ khó; bắt đầu từ nền tảng và vận dụng vừa sức.',
   ]
+  const sourceParts =
+    input.reviewParts?.filter((part) => questionIds.some((id) => byId.get(id)?.part === part)) ?? []
+  if (sourceParts.length)
+    summary.push(
+      `Ưu tiên ôn Part ${sourceParts.join(', ')} từ phiếu đối chiếu: ít nhất 4 câu khác nhau, lần đầu tự làm dưới 80%. Đây là quy tắc chọn bài nội bộ, không phải hiệu chuẩn điểm.`,
+    )
   if (roadmap && !roadmap.ended) {
     summary.push(
       `Lộ trình mục tiêu ${preferences.targetScore}: ${roadmap.current.title.toLocaleLowerCase('vi')}. Bài được ưu tiên theo giai đoạn và lượt sai thực tế.`,
@@ -226,7 +248,7 @@ export function recommendDailyPlan(
   }
   if (seconds < budget * 0.6)
     summary.push(
-      'Bộ mẫu phù hợp còn ít; kế hoạch không được kéo dài bằng nội dung lặp cho đủ phút.',
+      `Đã chọn khoảng ${Math.ceil(seconds / 60)} phút nội dung trong khung ${Math.ceil(budget / 60)} phút. Có thể dành phần còn lại để phân tích lỗi; không thêm câu lặp chỉ để đủ phút.`,
     )
   return {
     version: 1,

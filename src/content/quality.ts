@@ -3,15 +3,13 @@ import { findNearDuplicates } from './similarity'
 import { questionAvailable } from '../domain/assessment'
 import { mockExamIssues, type MockExam } from '../domain/contentInventory'
 import { editorialIssues, packageFingerprint, type EditorialRecord } from './editorial'
-import type { ContentPackage } from './ingestion'
+import { practiceReleaseIssues, type ContentPackage } from './ingestion'
 import assessmentPolicy from '../../content/assessment-policy.json'
 import type { Question } from './schema'
 import { questionFingerprint } from './editorial'
 export function legacySamplePackageEligible(pkg: ContentPackage) {
-  return (
-    (assessmentPolicy.legacyPackageFingerprints as Record<string, string>)[pkg.id] ===
-    packageFingerprint(pkg)
-  )
+  const expected = (assessmentPolicy.legacyPackageFingerprints as Record<string, string>)[pkg.id]
+  return typeof expected === 'string' && expected === packageFingerprint(pkg)
 }
 export function legacySampleQuestionEligible(q: Question) {
   return (
@@ -32,6 +30,7 @@ export function editorialStatus(pkg: ContentPackage | undefined) {
   }
 }
 export function assessmentEligible(pkg: ContentPackage | undefined, sampleExplicit = false) {
+  if (pkg?.formatVersion === 4) return !practiceReleaseIssues(pkg).length
   if (!pkg || pkg.formatVersion < 3) return sampleExplicit
   const status = editorialStatus(pkg)
   return (

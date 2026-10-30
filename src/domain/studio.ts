@@ -1,4 +1,5 @@
 import type { OptionId } from '../content/schema'
+import type { SourcePracticeActivity } from './sourcePractice'
 
 export interface ReadingWorkspace {
   id: string // stable passage ID
@@ -20,6 +21,7 @@ export type LearningActivity = {
   contentId: string
   occurredAt: number
 } & (
+  | Omit<SourcePracticeActivity, 'id' | 'contentId' | 'occurredAt'>
   | { kind: 'dictation'; input: string; reference: string; matched: number; total: number }
   | {
       kind: 'correction'

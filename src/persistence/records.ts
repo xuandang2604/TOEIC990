@@ -24,6 +24,7 @@ import { FEEDBACK_CATEGORIES, type ContentFeedback } from '../domain/contentFeed
 import { questionFingerprint } from '../content/editorial'
 import type { Question } from '../content/schema'
 import { validLearningProfile, validScore, validVocabularyReminder } from '../domain/roadmap'
+import { validSectionTiming } from '../domain/assessment'
 
 export interface RecordTypes {
   contentFeedback: ContentFeedback
@@ -278,6 +279,15 @@ export function validRecord(table: LearningTable, value: unknown): boolean {
         optional(r, 'lastObservedAt', stamp) &&
         optional(r, 'dailyPlanId', str) &&
         optional(r, 'mockExamId', str) &&
+        optional(r, 'sectionTiming', (v) => validSectionTiming(v, r)) &&
+        optional(
+          r,
+          'flaggedQuestionIds',
+          (v) =>
+            strings(v) &&
+            new Set(v as string[]).size === (v as string[]).length &&
+            (v as string[]).every((id) => (r.questionIds as string[]).includes(id)),
+        ) &&
         optional(r, 'readingStarted', (v) => typeof v === 'boolean')
       )
     case 'attempts':

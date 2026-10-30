@@ -36,6 +36,9 @@ export interface StudySession {
   readingStarted?: boolean
   dailyPlanId?: string
   mockExamId?: string
+  /** Optional for new full tests only; older exam clocks retain their original deadline. */
+  sectionTiming?: { version: 1; listeningDeadlineAt: number; readingStartedAt?: number }
+  flaggedQuestionIds?: string[]
 }
 export interface Attempt {
   id: string

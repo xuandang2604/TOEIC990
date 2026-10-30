@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="免 API 的 TOEIC 多益題海學習網站，內建 1,443 題、Part 1–7、兩段式模考，以及 Part 5–7 共 28 回全題詳解。" />
+  <link rel="icon" href="data:," />
+  <title>TOEIC Question Ocean｜多益題海練習</title>
+  <link rel="stylesheet" href="./styles.css?v=5.2.0" />
+</head>
+<body>
+<a class="skip-link" href="#mainContent">跳到主要內容</a>
+<div class="app">
+  <aside class="sidebar" aria-label="主要功能選單">
+    <div class="brand">
+      <div class="brand-mark">TQ</div>
+      <div><small>TOEIC QUESTION OCEAN</small><strong>多益題海 <span id="brandVersion" style="font-size:11px;color:var(--primary)">v5.2.0</span></strong></div>
+    </div>
+    <nav class="nav" aria-label="主要導覽">
+      <button class="active nav-home" data-nav="homeView"><span>⌂</span><span>學習總覽</span></button>
+      <div class="nav-group" data-nav-group>
+        <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="navPractice"><span>▶</span><span>練習與衝刺</span><span class="nav-chevron">⌄</span></button>
+        <div class="nav-submenu" id="navPractice" hidden>
+          <button data-nav="setupView">開始練習</button>
+          <button data-nav="sprintView">五天衝刺</button>
+          <button data-nav="strategyView">答題技巧</button>
+          <button data-nav="readingView">閱讀素養</button>
+        </div>
+      </div>
+      <div class="nav-group" data-nav-group>
+        <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="navReview"><span>◇</span><span>複習與字彙</span><span class="nav-chevron">⌄</span></button>
+        <div class="nav-submenu" id="navReview" hidden>
+          <button data-nav="wrongView">錯題本</button>
+          <button data-nav="vocabView">個人單字本</button>
+          <button data-nav="autoVocabView">多益學習區</button>
+          <button data-nav="vocabReviewView">單字複習</button>
+        </div>
+      </div>
+      <div class="nav-group" data-nav-group>
+        <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="navProgress"><span>▥</span><span>成績與分析</span><span class="nav-chevron">⌄</span></button>
+        <div class="nav-submenu" id="navProgress" hidden>
+          <button data-nav="historyView">歷史成績</button>
+          <button data-nav="analyticsView">弱點分析</button>
+        </div>
+      </div>
+      <div class="nav-group" data-nav-group>
+        <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="navData"><span>▣</span><span>資料與題庫</span><span class="nav-chevron">⌄</span></button>
+        <div class="nav-submenu" id="navData" hidden>
+          <button data-nav="storageView">儲存中心</button>
+          <button data-nav="bankView">題庫管理</button>
+        </div>
+      </div>
+    </nav>
+    <div class="side-note">
+      <strong>靜態前端・雲端同步可選</strong><br>
+      題庫、錯題與成績預設保存在本機；選用雲端同步時，只會上傳裝置端加密後的密文。<br><br>本題庫為自製練習內容，非 ETS 官方試題。
+    </div>
+  </aside>
+  <button class="mobile-scrim" id="mobileScrim" aria-label="關閉選單"></button>
+
+  <main class="main" id="mainContent" tabindex="-1">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div style="display:flex;gap:11px;align-items:center">
+          <button class="icon-btn mobile-menu" id="mobileHome" aria-label="開啟選單" aria-expanded="false">☰</button>
+          <div class="page-title"><small id="todayLabel"></small><h1 id="viewTitle" tabindex="-1">多益題海學習儀表板</h1></div>
+        </div>
+        <div class="top-actions">
+          <button class="btn" id="quick10">隨機 10 題</button>
+          <button class="icon-btn" id="themeToggle" aria-label="切換深色模式">◐</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <section id="homeView" class="view active">
+        <div class="hero workspace-banner">
+          <small>今日學習工作台</small>
+          <h2>選一個明確任務，開始今天的練習。</h2>
+          <p><strong id="heroCount"></strong> 題已就緒。優先處理到期複習、閱讀素養或弱點題型。</p>
+          <div class="hero-actions">
+            <button class="btn primary" data-go-setup>建立練習</button>
+            <button class="btn" id="heroLiteracy">閱讀素養</button>
+            <button class="btn" id="heroQuick">隨機 20 題</button>
+          </div>
+        </div>
+
+        <section id="resumeBanner" class="resume-banner">
+          <h3>偵測到尚未完成的練習</h3>
+          <div id="resumeDescription" style="color:var(--muted);line-height:1.65"></div>
+          <div class="resume-actions">
+            <button class="btn primary" id="resumeSession">繼續作答</button>
+            <button class="btn danger" id="discardSession">放棄進度</button>
+          </div>
+        </section>
+
+        <article class="card" style="margin-top:18px;border-color:color-mix(in srgb,var(--primary) 35%,var(--line));">
+          <div class="badges" id="releaseBadges"><span class="badge">v5.2.0</span><span class="badge gray">1,443 題</span><span class="badge gray">跨裝置同步</span><span class="badge gray">裝置端加密</span></div>
+          <h3 id="releaseTitle" style="margin:13px 0 7px">加密跨裝置同步</h3>
+          <p id="releaseSummary" style="margin:0;color:var(--muted);line-height:1.75">收藏、錯題、單字、複習排程、歷史成績與逐題詳解可加密上雲，透過同步代碼在手機、平板與電腦預覽後合併或覆蓋。</p>
+        </article>
+
+        <div class="stats-grid">
+          <article class="card"><div class="stat-label">題庫總量</div><div class="stat-value" id="totalBank">0</div><div class="stat-foot">Part 1–7</div></article>
+          <article class="card"><div class="stat-label">累積作答</div><div class="stat-value" id="totalAnswered">0</div><div class="stat-foot">儲存在本機</div></article>
+          <article class="card"><div class="stat-label">歷史正確率</div><div class="stat-value" id="overallAccuracy">0%</div><div class="stat-foot">所有練習紀錄</div></article>
+          <article class="card"><div class="stat-label">錯題本</div><div class="stat-value" id="wrongCount">0</div><div class="stat-foot">間隔複習來源</div></article>
+          <article class="card"><div class="stat-label">題目收藏</div><div class="stat-value" id="favoriteCount">0</div><div class="stat-foot">長期保存</div></article>
+          <article class="card"><div class="stat-label">今日複習</div><div class="stat-value" id="dueReviewCount">0</div><div class="stat-foot">依間隔排程</div></article>
+        </div>
+
+        <div class="section-head"><div><h2>學習任務中心</h2><p>依錯題、到期複習、技巧弱點與題目品質，自動排今天的優先順序。</p></div></div>
+        <div class="mission-grid" id="studyMissionList"></div>
+
+        <div class="section-head"><div><h2>依題型進入</h2><p>先選題型，再由系統隨機抽題。</p></div></div>
+        <div class="module-grid" id="moduleGrid"></div>
+
+        <div class="section-head"><div><h2>最近紀錄</h2><p>快速掌握最近三次練習。</p></div></div>
+        <div class="card" id="recentHistory"></div>
+      </section>
+
+      <section id="setupView" class="view">
+        <div class="section-head"><div><h2>建立練習</h2><p>從內建題庫或你匯入的題庫中隨機抽題。</p></div></div>
+        <div class="setup-grid">
+          <article class="card">
+            <div class="form-grid">
+              <label><span>題型</span><select id="partSelect">
+                <option value="all">全部 Part 1–7</option>
+                <option value="1">Part 1 圖片描述</option>
+                <option value="2">Part 2 應答</option><option value="3">Part 3 對話</option>
+                <option value="4">Part 4 獨白</option><option value="5">Part 5 單句填空</option>
+                <option value="6">Part 6 短文填空</option><option value="7">Part 7 閱讀</option>
+              </select></label>
+              <label><span>難度</span><select id="difficultySelect">
+                <option value="all">全部難度</option><option value="400">基礎 400+</option>
+                <option value="600">中階 600+</option><option value="800">進階 800+</option>
+              </select></label>
+              <label><span>題目數量</span><select id="countSelect">
+                <option>5</option><option selected>10</option><option>20</option><option>30</option><option>50</option><option>100</option>
+              </select></label>
+              <label><span>每題時間</span><select id="timeSelect">
+                <option value="0">不限時</option><option value="30">30 秒</option><option value="45">45 秒</option>
+                <option value="60">60 秒</option><option value="90">90 秒</option>
+              </select></label>
+              <label><span>聽力播放上限</span><select id="playLimitSelect">
+                <option value="0">不限次數</option><option value="2" selected>最多 2 次</option><option value="1">最多 1 次</option>
+              </select></label>
+            </div>
+            <label class="check-row"><input id="instantFeedback" type="checkbox" checked> 作答後立即顯示答案與解析</label>
+            <label class="check-row"><input id="shuffleChoices" type="checkbox" checked> 隨機排列選項</label>
+            <label class="check-row"><input type="checkbox" checked disabled> Part 3、4、6、7 固定以完整題組抽取，整組完成後才揭曉解析</label>
+            <button class="btn primary" id="startPractice" style="width:100%;margin-top:18px;padding:14px">開始練習</button>
+          </article>
+          <article class="card">
+            <h3 style="margin-top:0">目前可抽題數</h3>
+            <div class="stat-value" id="availableCount">0</div>
+            <p style="color:var(--muted);line-height:1.7">若設定數量超過符合條件的題目，系統會自動改用全部可用題目。題目抽取會避免同一次練習中重複。</p>
+            <div class="mini-list" id="filterBreakdown"></div>
+          </article>
+        </div>
+
+        <article class="card directions-reference" aria-labelledby="directionsReferenceTitle">
+          <div class="directions-reference-head">
+            <div><span class="eyebrow">TEST DIRECTIONS</span><h3 id="directionsReferenceTitle">先熟悉正式作答指示</h3><p>專項練習前可切換 Listening、Part 1–7 與 Reading；進入題型第一題時也會再次顯示重點。</p></div>
+            <button class="btn" id="speakDirection">▶ 播放英文指示</button>
+          </div>
+          <div class="direction-tabs" id="directionTabs" role="tablist" aria-label="選擇作答指示"></div>
+          <div id="directionReferenceContent" class="direction-reference-content" aria-live="polite"></div>
+        </article>
+
+        <article class="card mock-card">
+          <div class="badges"><span class="badge">Mock Exam</span><span class="badge gray">Part 1–7</span><span class="badge gray">兩段式出分</span><span class="badge gray">分層隨機</span></div>
+          <h2 style="margin:13px 0 6px">Part 1–7 完整 200 題模考</h2>
+          <p style="color:var(--muted);line-height:1.75;margin:0">依正式題數配置 Part 1–7，共 200 題。Listening 完成後立即出分並暫停，準備好再啟動 75 分鐘 Reading；題目依 Part、難度、題組與考點分層抽取。</p>
+          <div class="mock-grid">
+            <div class="mock-metric"><strong>100 題</strong><span>Listening・45 分鐘</span></div>
+            <div class="mock-metric"><strong>100 題</strong><span>Reading・75 分鐘</span></div>
+            <div class="mock-metric"><strong>1 次</strong><span>聽力播放上限</span></div>
+          </div>
+          <button class="btn primary" id="startMockExam" style="width:100%;padding:14px">開始 200 題模考</button>
+          <div class="mock-blueprint-note"><strong>本次組卷規則</strong><span>固定 Part 配額 · 難度分層 · 題組不拆散 · 同類考點分散 · 近期題目降權</span></div>
+          <div class="mock-warning">本網站為自製題庫，並非 ETS 官方試題。Part 1 使用本地化的 Pexels 授權照片或本專案 AI 生成情境圖與原創敘述；模考時選項文字不顯示，請依音訊選擇 A–D。</div>
+        </article>
+      </section>
+
+      <section id="part5GuideView" class="view">
+        <div class="part5-guide-heading">
+          <div>
+            <span class="eyebrow">PART 5 STUDY GUIDE</span>
+            <h2>Exercise 1–10 範本詳解</h2>
+            <p>可直接查看題幹與選項，或啟動本回 12 題練習後再逐題核對詳解。</p>
+          </div>
+          <button class="btn" id="backToPart5Directions" type="button">← 返回 Part 5 指示</button>
+        </div>
+
+        <div class="part5-guide-metrics" aria-label="詳解資料摘要">
+          <div><strong>10</strong><span>Exercise</span></div>
+          <div><strong>120</strong><span>題中文解析</span></div>
+          <div><strong>5</strong><span>核心解析欄位</span></div>
+        </div>
+
+        <article class="part5-guide-source">
+          <div>
+            <span class="source-badge source-external">外部練習搭配</span>
+            <strong>題目來源：ESL Lounge Student</strong>
+            <p id="part5GuideNotice">題目與詳解由使用者提供的整理檔匯入；本站保留來源標示與原始練習連結。</p>
+          </div>
+          <a class="btn primary" id="part5GuideSourceLink" href="https://www.esl-lounge.com/student/toeic-reading-part-five.php" target="_blank" rel="noopener noreferrer">開啟 Exercise 1 原題 ↗</a>
+        </article>
+
+        <div class="part5-guide-tabs" id="part5GuideTabs" role="tablist" aria-label="選擇 Exercise"></div>
+
+        <div class="part5-guide-toolbar">
+          <div>
+            <span class="eyebrow" id="part5GuideCode">TOEIC045</span>
+            <h3 id="part5GuideTitle">Exercise 1</h3>
+            <p id="part5GuideFocus"></p>
+            <button class="btn primary part5-guide-practice" id="practicePart5GuideExercise" type="button">▶ 練習本回 12 題</button>
+          </div>
+          <label>
+            <span>搜尋本回詳解</span>
+            <input id="part5GuideSearch" type="search" placeholder="例如：副詞、被動、搭配" autocomplete="off">
+          </label>
+        </div>
+
+        <div class="part5-guide-answer-key" id="part5GuideAnswerKey" aria-label="本回答案總表"></div>
+        <div class="part5-guide-list" id="part5GuideList" role="tabpanel"></div>
+      </section>
+
+      <section id="readingExerciseGuideView" class="view">
+        <div class="reading-guide-heading">
+          <div>
+            <span class="eyebrow" id="readingGuideEyebrow">PART 6 STUDY GUIDE</span>
+            <h2 id="readingGuideHeading">Part 6 Exercise 1–10 全題詳解</h2>
+            <p id="readingGuideDescription">依文件閱讀完整題組，再核對選項、中文解析與篇章考點。</p>
+          </div>
+          <button class="btn" id="backToReadingDirections" type="button">← 返回 Part 6 指示</button>
+        </div>
+
+        <div class="reading-guide-metrics" aria-label="詳解資料摘要">
+          <div><strong id="readingGuideExerciseCount">10</strong><span>Exercise</span></div>
+          <div><strong id="readingGuideDocumentCount">30</strong><span>文件題組</span></div>
+          <div><strong id="readingGuideQuestionCount">120</strong><span>題完整解析</span></div>
+        </div>
+
+        <article class="reading-guide-source">
+          <div>
+            <span class="source-badge source-external">使用者整理題組</span>
+            <strong id="readingGuideSourceName">題目來源：ESL Lounge Student</strong>
+            <p id="readingGuideNotice"></p>
+          </div>
+          <a class="btn primary" id="readingGuideSourceLink" href="https://www.esl-lounge.com/student/toeic-reading-part-six.php" target="_blank" rel="noopener noreferrer">開啟 Exercise 1 原題 ↗</a>
+        </article>
+
+        <div class="reading-guide-tabs" id="readingGuideTabs" role="tablist" aria-label="選擇 Exercise"></div>
+
+        <div class="reading-guide-toolbar">
+          <div>
+            <span class="eyebrow" id="readingGuideCode">TOEIC055</span>
+            <h3 id="readingGuideTitle">Exercise 1</h3>
+            <p id="readingGuideFocus">3 篇文件 · 12 題</p>
+            <button class="btn primary reading-guide-practice" id="practiceReadingGuideExercise" type="button">▶ 練習本回 12 題</button>
+          </div>
+          <label>
+            <span>搜尋本回內容</span>
+            <input id="readingGuideSearch" type="search" placeholder="例如：invoice、推論、固定搭配" autocomplete="off">
+          </label>
+        </div>
+
+        <div class="reading-guide-answer-key" id="readingGuideAnswerKey" aria-label="本回答案總表"></div>
+        <div class="reading-guide-documents" id="readingGuideDocuments" role="tabpanel"></div>
+      </section>
+
+      <section id="practiceView" class="view">
+        <div class="practice-layout">
+          <article class="card quiz-card">
+            <div class="quiz-meta">
+              <div class="badges" id="quizBadges"></div>
+              <div class="timer" id="timerText">不限時</div>
+            </div>
+            <div class="progress" id="quizProgressTrack" role="progressbar" aria-label="作答進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="quizProgress"></div></div>
+            <div id="questionArea" role="region" aria-label="目前題目"></div>
+            <div class="quiz-actions">
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn danger" id="quitPractice">結束練習</button>
+                <button class="btn" id="prevQuestion">← 返回上一題</button>
+                <button class="btn" id="addSelectedVocab">＋選字翻譯</button>
+                <button class="btn" id="markReview">☆ 標記待檢查</button>
+                <button class="btn" id="favoriteQuestion">☆ 收藏題目</button>
+              </div>
+              <button class="btn primary" id="nextQuestion" disabled>下一題</button>
+            </div>
+          </article>
+          <aside class="side-stack">
+            <article class="card section-clock" id="mockSectionCard" hidden>
+              <span id="mockSectionLabel">Listening Section</span>
+              <strong id="mockSectionTime">45:00</strong>
+              <small id="mockSectionHint">時間到將鎖定 Listening 並立即出分。</small>
+              <small id="mockBlueprintStatus"></small>
+            </article>
+            <article class="card"><h3>本回合</h3><div class="mini-list" id="sessionStats"></div></article>
+            <article class="card">
+              <h3>題號導覽</h3>
+              <div class="nav-legend">
+                <span class="legend-dot"><i></i>未答</span>
+                <span class="legend-dot"><i style="background:var(--primary)"></i>已答</span>
+                <span class="legend-dot"><i style="background:var(--amber)"></i>待檢查</span>
+              </div>
+              <div id="questionNavigator" class="question-nav"></div>
+            </article>
+            <article class="card"><h3>快捷鍵</h3><div class="mini-list">
+              <div class="mini-item">1–4：選擇答案</div><div class="mini-item">Enter：下一題</div>
+              <div class="mini-item">L：播放聽力</div><div class="mini-item">R：標記待檢查</div><div class="mini-item">F：收藏／取消收藏</div>
+            </div></article>
+          </aside>
+        </div>
+      </section>
+
+      <section id="resultView" class="view">
+        <article class="card result-banner">
+          <div class="score-ring" id="scoreRing"><strong id="resultScore">0%</strong></div>
+          <h2 id="resultTitle">練習完成</h2>
+          <p id="resultSummary" style="color:var(--muted)"></p>
+          <div class="estimate-grid" id="estimateGrid"></div>
+          <div class="estimate-note">估分僅依本題庫作答比例做線性換算，並非 ETS 官方換算表或正式成績。</div>
+          <div class="hero-actions no-print" style="justify-content:center">
+            <button class="btn primary" id="retryWrong">重練本回錯題</button>
+            <button class="btn" data-go-setup>建立新練習</button>
+          </div>
+        </article>
+        <div class="section-head"><div><h2>分類成績</h2></div></div>
+        <div class="report-grid" id="categoryReport"></div>
+        <div class="section-head"><div><h2>作答明細</h2></div>
+          <div class="group no-print"><button class="btn" id="exportCsv">CSV</button><button class="btn" id="exportJson">JSON</button><button class="btn" id="printReport">列印 / PDF</button></div>
+        </div>
+        <article class="card strategy-result-card no-print" id="strategyResultCard" hidden></article>
+        <div class="card" style="overflow:auto"><table><thead><tr><th>#</th><th>題型</th><th>題目</th><th>你的答案</th><th>正解</th><th>結果</th></tr></thead><tbody id="resultRows"></tbody></table></div>
+        <div class="section-head"><div><h2>逐題答案與詳解</h2><p>答題後可回看選項、正解、中文解析與原文線索。</p></div></div>
+        <div id="answerReviewList" class="answer-review-list"></div>
+      </section>
+
+      <section id="wrongView" class="view">
+        <div class="toolbar">
+          <div><h2 style="margin:0">錯題與收藏</h2><p style="color:var(--muted);margin:5px 0 0">答錯題目進入間隔複習；星星收藏則長期保存想重看的題目。</p></div>
+          <div class="group"><button class="btn primary" id="practiceDue">今日複習</button><button class="btn" id="practiceWrong">練習錯題</button><button class="btn danger" id="clearWrong">清空錯題本</button></div>
+        </div>
+        <div class="section-head"><div><h2>題目收藏</h2><p>用「☆ 收藏題目」保存的題目，可獨立重練。</p></div><div class="group"><button class="btn" id="practiceFavorites">練習收藏</button><button class="btn danger" id="clearFavorites">清空收藏</button></div></div>
+        <div id="favoriteList"></div>
+        <div class="section-head"><div><h2>錯題本</h2><p>作答錯誤的題目會排入間隔複習。</p></div></div>
+        <div id="wrongList"></div>
+      </section>
+
+      <section id="vocabView" class="view">
+        <div class="toolbar">
+          <div><h2 style="margin:0">個人單字本</h2><p style="color:var(--muted);margin:5px 0 0">從 Part 5／7 題目選字加入，或手動記錄中文、例句、熟悉度與下次複習日。</p></div>
+          <div class="group"><button class="btn" id="exportVocab">匯出單字本</button><button class="btn danger" id="clearVocab">清空單字本</button></div>
+        </div>
+        <div class="setup-grid">
+          <article class="card">
+            <h3 style="margin-top:0">新增單字</h3>
+            <div class="form-grid">
+              <label><span>單字 / 片語</span><input id="vocabWord" type="text" placeholder="procurement"></label>
+              <label><span>來源 Part</span><select id="vocabPart"><option value="5">Part 5</option><option value="7">Part 7</option><option value="6">Part 6</option><option value="other">其他</option></select></label>
+              <label><span>中文 / 筆記</span><input id="vocabMeaning" type="text" placeholder="採購；取得"></label>
+              <label><span>熟悉度</span><select id="vocabFamiliarity"><option value="1">1 陌生</option><option value="2" selected>2 模糊</option><option value="3">3 普通</option><option value="4">4 熟悉</option><option value="5">5 已掌握</option></select></label>
+            </div>
+            <label style="margin-top:12px;display:block"><span>例句</span><textarea id="vocabExample" rows="4" placeholder="The revised delivery note was sent to procurement."></textarea></label>
+            <div class="storage-actions"><button class="btn primary" id="saveVocab">儲存單字</button><button class="btn" id="resetVocabForm">清空表單</button></div>
+          </article>
+          <article class="card">
+            <h3 style="margin-top:0">單字概況</h3>
+            <div class="mini-list" id="vocabSummary"></div>
+          </article>
+        </div>
+        <div class="section-head"><div><h2>單字清單</h2><p>熟悉度越低、到期日越早，越會排在前面。</p></div></div>
+        <div id="vocabList"></div>
+      </section>
+
+      <section id="autoVocabView" class="view">
+        <div class="toolbar">
+          <div>
+            <h2 style="margin:0">多益學習區</h2>
+            <p style="color:var(--muted);margin:5px 0 0">把題庫單字、核心文法、商務搭配與合法外部資源整理在同一個學習工作台。</p>
+          </div>
+          <div class="badges learning-hub-badges"><span class="badge">18 個文法主題</span><span class="badge gray">79 組搭配</span><span class="badge gray">170 詞廣域補庫</span></div>
+        </div>
+
+        <div class="learning-tabs" role="tablist" aria-label="多益學習內容">
+          <button class="learning-tab active" id="learningTabVocabulary" role="tab" aria-selected="true" aria-controls="learningVocabularyPanel" data-learning-tab="vocabulary">A-Z 單字詞庫</button>
+          <button class="learning-tab" id="learningTabGrammar" role="tab" aria-selected="false" aria-controls="learningGrammarPanel" tabindex="-1" data-learning-tab="grammar">文法教材</button>
+          <button class="learning-tab" id="learningTabCollocations" role="tab" aria-selected="false" aria-controls="learningCollocationsPanel" tabindex="-1" data-learning-tab="collocations">常用搭配</button>
+          <button class="learning-tab" id="learningTabResources" role="tab" aria-selected="false" aria-controls="learningResourcesPanel" tabindex="-1" data-learning-tab="resources">開放資源</button>
+        </div>
+
+        <section class="learning-panel active" id="learningVocabularyPanel" role="tabpanel" aria-labelledby="learningTabVocabulary" data-learning-panel="vocabulary">
+          <div class="learning-panel-head">
+            <div><h3>A-Z 分級單字詞庫</h3><p>整合題庫即時抽字與廣域教材補庫；依考試適配度分層，不把進階一般詞誤標成多益必背。</p></div>
+            <div class="group"><button class="btn primary" id="practiceCoreVocab">只練多益核心</button><button class="btn" id="refreshAutoVocab">重新整理詞庫</button></div>
+          </div>
+
+          <div class="stats-grid auto-vocab-stats">
+            <article class="card"><div class="stat-label">學習詞條總數</div><div class="stat-value" id="autoVocabTotal">0</div><div class="stat-foot">題庫抽字＋廣域補充</div></article>
+            <article class="card"><div class="stat-label">已完成詞條</div><div class="stat-value" id="autoVocabKnown">0</div><div class="stat-foot">含中文、KK、詞性</div></article>
+            <article class="card"><div class="stat-label">待補詞庫</div><div class="stat-value" id="autoVocabPending">0</div><div class="stat-foot">新題目會先進入這裡</div></article>
+            <article class="card"><div class="stat-label">目前篩選</div><div class="stat-value" id="autoVocabShown">0</div><div class="stat-foot">顯示於下方卡片</div></article>
+          </div>
+          <div class="fit-progress-grid" id="vocabFitProgress" aria-label="分級詞彙學習進度"></div>
+
+          <article class="card auto-vocab-panel">
+            <div class="form-grid">
+              <label><span>搜尋單字</span><input id="autoVocabSearch" type="text" placeholder="warranty / 採購 / /ˈvɛndɚ/"></label>
+              <label><span>顯示模式</span><select id="autoVocabStatus"><option value="all" selected>全部詞條</option><option value="known">完整詞條</option><option value="pending">待補資料</option></select></label>
+              <label><span>排序</span><select id="autoVocabSort"><option value="alpha" selected>A-Z</option><option value="frequency">題庫出現次數</option></select></label>
+              <label><span>來源 Part</span><select id="autoVocabPart"><option value="all" selected>全部 Part</option><option value="1">Part 1</option><option value="2">Part 2</option><option value="3">Part 3</option><option value="4">Part 4</option><option value="5">Part 5</option><option value="6">Part 6</option><option value="7">Part 7</option></select></label>
+              <label><span>詞庫來源</span><select id="autoVocabSource"><option value="all" selected>全部來源</option><option value="questions">現有題庫</option><option value="davinci">達文西廣域詞庫</option></select></label>
+              <label><span>考試適配</span><select id="autoVocabFit"><option value="all" selected>全部層級</option><option value="toeic-core">多益核心</option><option value="toeic-extended">多益延伸</option><option value="broad">雅思／托福廣域</option></select></label>
+            </div>
+            <div class="vocab-fit-legend" aria-label="單字適配度圖例">
+              <span class="fit-chip toeic-core">多益核心：商務與題庫高頻</span>
+              <span class="fit-chip toeic-extended">多益延伸：情境閱讀可見</span>
+              <span class="fit-chip broad">雅思／托福廣域：一般進階</span>
+            </div>
+            <p class="vocab-fit-note">適配度依本站題庫交集與常見商務情境人工判斷，並非 ETS、IELTS 或 TOEFL 官方字表。</p>
+            <div class="az-strip" id="autoVocabLetters"></div>
+          </article>
+
+          <div class="section-head">
+            <div><h2>單字卡</h2><p>題庫詞優先採用題目原句；廣域補充使用重新編寫的例句並標示教材來源頁。</p></div>
+          </div>
+          <div id="autoVocabList" class="auto-vocab-grid"></div>
+          <div class="learning-load-more" id="autoVocabLoadMoreWrap" hidden>
+            <span id="autoVocabDisplayCount">目前顯示 0 / 0 個</span>
+            <button class="btn" id="autoVocabLoadMore">再載入 100 個</button>
+          </div>
+        </section>
+
+        <section class="learning-panel" id="learningGrammarPanel" role="tabpanel" aria-labelledby="learningTabGrammar" data-learning-panel="grammar" hidden>
+          <div class="learning-panel-head">
+            <div><h3>多益文法路線</h3><p>從句子骨架到倒裝與省略；每個主題都會列出規則、雙語例句、常見陷阱與現有可練題數。</p></div>
+            <div class="learning-metrics" aria-live="polite">
+              <span><strong id="learningGrammarShown">0</strong> 個主題</span>
+              <span><strong id="learningGrammarQuestions">0</strong> 題可練</span>
+            </div>
+          </div>
+          <article class="card learning-filter-panel">
+            <div class="form-grid">
+              <label><span>搜尋文法</span><input id="learningGrammarSearch" type="search" placeholder="時態 / 倒裝 / 關係子句"></label>
+              <label><span>程度</span><select id="learningGrammarLevel"><option value="all" selected>全部程度</option><option value="basic">基礎 400–700</option><option value="advanced">進階 700–950</option></select></label>
+              <label><span>對應題型</span><select id="learningGrammarPart"><option value="all" selected>Part 5＋6</option><option value="5">Part 5</option><option value="6">Part 6</option></select></label>
+              <label><span>排序</span><select id="learningGrammarSort"><option value="path" selected>學習順序</option><option value="questions">可練題數</option><option value="title">主題名稱</option></select></label>
+            </div>
+          </article>
+          <div id="learningGrammarList" class="learning-topic-grid"></div>
+        </section>
+
+        <section class="learning-panel" id="learningCollocationsPanel" role="tabpanel" aria-labelledby="learningTabCollocations" data-learning-panel="collocations" hidden>
+          <div class="learning-panel-head">
+            <div><h3>高頻商務搭配</h3><p>以完整片語記憶動詞與名詞的自然組合，避免只靠單字中文硬湊答案。</p></div>
+            <div class="group"><span class="learning-result-count"><strong id="learningCollocationShown">0</strong> 組</span><button class="btn primary" id="practiceCollocations">練搭配題</button></div>
+          </div>
+          <article class="card learning-filter-panel">
+            <div class="form-grid">
+              <label><span>搜尋搭配</span><input id="learningCollocationSearch" type="search" placeholder="meeting / 付款 / verb + noun"></label>
+              <label><span>情境</span><select id="learningCollocationCategory"><option value="all" selected>全部情境</option><option value="meetings">會議與專案</option><option value="operations">營運與行政</option><option value="hr">人資與職涯</option><option value="finance">財務與採購</option><option value="customer">顧客服務</option><option value="travel">差旅與交通</option></select></label>
+              <label><span>來源 Part</span><select id="learningCollocationPart"><option value="all" selected>全部 Part</option><option value="2">Part 2</option><option value="3">Part 3</option><option value="4">Part 4</option><option value="5">Part 5</option><option value="7">Part 7</option></select></label>
+            </div>
+          </article>
+          <div id="learningCollocationList" class="collocation-grid"></div>
+        </section>
+
+        <section class="learning-panel" id="learningResourcesPanel" role="tabpanel" aria-labelledby="learningTabResources" data-learning-panel="resources" hidden>
+          <div class="learning-panel-head">
+            <div><h3>開放與官方學習資源</h3><p>以新分頁開啟來源網站；本站只做導讀與連結，不複製外部教材或未授權試題。</p></div>
+            <span class="learning-result-count"><strong id="learningResourceCount">0</strong> 個已核對來源</span>
+          </div>
+          <div class="resource-note">「開放授權」與「免費瀏覽」不是同一件事。每張資源卡會標示存取方式與授權摘要；實際再利用時仍以來源頁最新條款為準。</div>
+          <div id="learningResourceList" class="learning-resource-grid"></div>
+        </section>
+      </section>
+
+      <section id="vocabReviewView" class="view">
+        <div class="toolbar">
+          <div>
+            <h2 style="margin:0">單字複習</h2>
+            <p style="color:var(--muted);margin:5px 0 0">用分級完整詞條練英翻中、例句填空與聽音辨字。</p>
+          </div>
+        </div>
+
+        <div class="setup-grid">
+          <article class="card">
+            <h3 style="margin-top:0">建立單字測驗</h3>
+            <div class="form-grid">
+              <label><span>題型</span><select id="vocabReviewMode"><option value="mixed" selected>混合題型</option><option value="meaning">英翻中</option><option value="cloze">例句填空</option><option value="audio">聽音辨字</option></select></label>
+              <label><span>題數</span><select id="vocabReviewCount"><option>5</option><option selected>10</option><option>20</option><option>30</option></select></label>
+              <label><span>來源 Part</span><select id="vocabReviewPart"><option value="all" selected>全部 Part</option><option value="1">Part 1</option><option value="2">Part 2</option><option value="3">Part 3</option><option value="4">Part 4</option><option value="5">Part 5</option><option value="6">Part 6</option><option value="7">Part 7</option></select></label>
+              <label><span>出題來源</span><select id="vocabReviewSource"><option value="known" selected>全部完整詞條</option><option value="toeic-core">只練多益核心</option><option value="toeic-extended">只練多益延伸</option><option value="broad">只練雅思／托福廣域</option><option value="personal">個人單字本</option></select></label>
+            </div>
+            <button class="btn primary" id="startVocabReview" style="width:100%;margin-top:18px;padding:14px">開始單字複習</button>
+          </article>
+
+          <article class="card">
+            <h3 style="margin-top:0">可用單字</h3>
+            <div class="mini-list" id="vocabReviewSummary"></div>
+          </article>
+        </div>
+
+        <article class="card vocab-quiz-card" id="vocabQuizCard">
+          <div class="quiz-meta">
+            <div class="badges" id="vocabQuizBadges"></div>
+            <div class="timer" id="vocabQuizScore">0/0</div>
+          </div>
+          <div class="progress"><div id="vocabQuizProgress"></div></div>
+          <div id="vocabQuizArea" class="vocab-quiz-area"></div>
+          <div class="quiz-actions">
+            <button class="btn danger" id="resetVocabReview">重設單字測驗</button>
+            <button class="btn primary" id="nextVocabQuestion" disabled>下一題</button>
+          </div>
+        </article>
+      </section>
+
+      <section id="sprintView" class="view">
+        <div class="toolbar sprint-toolbar">
+          <div>
+            <h2 style="margin:0">五天衝刺工作台</h2>
+            <p style="color:var(--muted);margin:5px 0 0">有一定底子者的考前壓縮計畫：每天只處理一組核心任務。</p>
+          </div>
+          <button class="btn danger" id="resetSprint">重設五天進度</button>
+        </div>
+
+        <section class="sprint-overview" aria-labelledby="sprintDayTitle">
+          <div class="sprint-overview-main">
+            <div class="badges"><span class="badge" id="sprintDayBadge">Day 1</span><span class="badge gray" id="sprintDayFocus">Part 5 + Part 1</span></div>
+            <h2 id="sprintDayTitle">建立弱點基準</h2>
+            <p id="sprintDayGoal"></p>
+            <div class="progress" role="progressbar" aria-label="五天任務完成率" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="sprintProgressTrack"><div id="sprintProgressBar"></div></div>
+            <small id="sprintProgressText">0 / 15 項任務</small>
+          </div>
+          <div class="sprint-day-tabs" id="sprintDayTabs" role="tablist" aria-label="選擇衝刺日"></div>
+        </section>
+
+        <div class="sprint-work-grid">
+          <section aria-labelledby="sprintTasksTitle">
+            <div class="section-head"><div><h2 id="sprintTasksTitle">今日任務</h2><p>完成後勾選，進度長期儲存在本機。</p></div></div>
+            <div class="sprint-task-list" id="sprintTaskList"></div>
+          </section>
+          <section aria-labelledby="sprintLogTitle">
+            <div class="section-head"><div><h2 id="sprintLogTitle">練習紀錄</h2><p>外部題目只記數據與主要錯因。</p></div></div>
+            <form class="card sprint-log-form" id="sprintLogForm">
+              <div class="form-grid">
+                <label><span>練習來源</span><select id="sprintLogSource"><option value="ets">ETS 官方</option><option value="abceed">abceed</option><option value="leaton">獵頓英語</option><option value="xdf">新東方</option><option value="other">其他合法素材</option></select></label>
+                <label><span>題數</span><input id="sprintLogTotal" type="number" min="1" max="200" value="20" required></label>
+                <label><span>答對</span><input id="sprintLogCorrect" type="number" min="0" max="200" value="0" required></label>
+                <label><span>主要錯因</span><select id="sprintLogError"></select></label>
+              </div>
+              <label><span>簡短備註</span><input id="sprintLogNote" type="text" maxlength="80" placeholder="例：because / because of 混淆"></label>
+              <div class="group"><button class="btn primary" type="submit">記錄這次練習</button><button class="btn" type="button" id="sprintFindCard">回手冊查考點</button></div>
+            </form>
+          </section>
+        </div>
+
+        <div class="stats-grid sprint-stats">
+          <article class="card"><div class="stat-label">累積題數</div><div class="stat-value" id="sprintLoggedTotal">0</div><div class="stat-foot">所有外部練習</div></article>
+          <article class="card"><div class="stat-label">整體正確率</div><div class="stat-value" id="sprintLoggedAccuracy">0%</div><div class="stat-foot">依紀錄計算</div></article>
+          <article class="card"><div class="stat-label">主要錯因</div><div class="stat-value" id="sprintTopError" style="font-size:21px">—</div><div class="stat-foot">V / G / L / P / T / C</div></article>
+          <article class="card"><div class="stat-label">手冊卡片</div><div class="stat-value" id="sprintCardCount">0</div><div class="stat-foot">原始 JSON 資料</div></article>
+        </div>
+
+        <div class="section-head"><div><h2>三軌資源配置</h2><p>50% 官方校準、30% 智慧刷題、20% 中文補強。</p></div></div>
+        <div class="sprint-source-grid" id="sprintSourceGrid"></div>
+
+        <div class="section-head"><div><h2>手冊技巧卡</h2><p id="sprintCardStatus">載入五天手冊卡片中。</p></div></div>
+        <article class="card sprint-card-filter">
+          <div class="form-grid">
+            <label><span>搜尋卡片</span><input id="sprintCardSearch" type="search" placeholder="because / Part 2 / 固定搭配"></label>
+            <label><span>分類</span><select id="sprintCardCategory"><option value="all">全部分類</option></select></label>
+            <label><span>顯示範圍</span><select id="sprintCardScope"><option value="day" selected>今天相關</option><option value="all">全部 103 張</option></select></label>
+          </div>
+        </article>
+        <div class="sprint-card-grid" id="sprintCardList"></div>
+      </section>
+
+      <section id="strategyView" class="view">
+        <div class="toolbar">
+          <div>
+            <h2 style="margin:0">答題技巧專區</h2>
+            <p style="color:var(--muted);margin:5px 0 0">把相同解題戰術的題目聚在一起：先學判斷訊號，再練同類題。</p>
+          </div>
+          <div class="group"><button class="btn primary" id="startStrategyMix">隨機技巧 20 題</button></div>
+        </div>
+
+        <div class="stats-grid strategy-stats">
+          <article class="card"><div class="stat-label">技巧分類</div><div class="stat-value" id="strategyTotal">0</div><div class="stat-foot">依題庫自動歸類</div></article>
+          <article class="card"><div class="stat-label">已分類題目</div><div class="stat-value" id="strategyMapped">0</div><div class="stat-foot">可直接開始練習</div></article>
+          <article class="card"><div class="stat-label">高頻戰術</div><div class="stat-value" id="strategyHighYield">0</div><div class="stat-foot">命中 20 題以上</div></article>
+          <article class="card"><div class="stat-label">目前顯示</div><div class="stat-value" id="strategyShown">0</div><div class="stat-foot">受篩選條件影響</div></article>
+        </div>
+
+        <article class="card strategy-panel">
+          <div class="form-grid">
+            <label><span>搜尋技巧</span><input id="strategySearch" type="text" placeholder="詞性 / Part 2 / 雙篇 / 同義改寫"></label>
+            <label><span>來源 Part</span><select id="strategyPart"><option value="all" selected>全部 Part</option><option value="1">Part 1</option><option value="2">Part 2</option><option value="3">Part 3</option><option value="4">Part 4</option><option value="5">Part 5</option><option value="6">Part 6</option><option value="7">Part 7</option></select></label>
+            <label><span>技巧類型</span><select id="strategyType"><option value="all" selected>全部類型</option><option value="grammar">文法快判</option><option value="reading">閱讀定位</option><option value="listening">聽力戰術</option><option value="vocabulary">字彙搭配</option></select></label>
+            <label><span>排序</span><select id="strategySort"><option value="yield" selected>高命中優先</option><option value="part">Part 順序</option><option value="level">難度階梯</option></select></label>
+          </div>
+        </article>
+
+        <article class="card strategy-review-panel" id="strategyLastReview" hidden></article>
+
+        <div id="strategyList" class="strategy-grid"></div>
+      </section>
+
+      <section id="readingView" class="view">
+        <div class="toolbar literacy-toolbar">
+          <div>
+            <h2 style="margin:0">閱讀素養專區</h2>
+            <p style="color:var(--muted);margin:5px 0 0">每題都有人工核對的證據句與選項診斷，不使用自動生成線索。</p>
+          </div>
+          <button class="btn primary" id="startLiteracyMix">開始精選題組</button>
+        </div>
+
+        <div class="stats-grid literacy-stats">
+          <article class="card"><div class="stat-label">精選題目</div><div class="stat-value" id="literacyQuestionCount">0</div><div class="stat-foot">完整題組抽取</div></article>
+          <article class="card"><div class="stat-label">閱讀能力</div><div class="stat-value" id="literacySkillCount">0</div><div class="stat-foot">可分項訓練</div></article>
+          <article class="card"><div class="stat-label">人工標註</div><div class="stat-value" id="literacyAnnotatedCount">0</div><div class="stat-foot">證據句與選項診斷</div></article>
+          <article class="card"><div class="stat-label">目前篩選</div><div class="stat-value" id="literacyCurrentCount">0</div><div class="stat-foot">符合能力條件</div></article>
+        </div>
+
+        <section class="literacy-workflow" aria-label="閱讀判斷流程">
+          <div><span>1</span><strong>先讀題幹</strong><small>確認問的是規則、順序、數據或立場</small></div>
+          <div><span>2</span><strong>回文定位</strong><small>找限制詞、轉折詞與跨文件時間</small></div>
+          <div><span>3</span><strong>證據作答</strong><small>選能被原文明確支持的答案</small></div>
+        </section>
+
+        <article class="card literacy-filter">
+          <label><span>訓練能力</span><select id="readingSkillSelect">
+            <option value="all" selected>全部能力</option>
+            <option value="條件例外">條件與例外</option>
+            <option value="流程順序">流程與順序</option>
+            <option value="跨文件推論">跨文件推論</option>
+            <option value="數據判讀">數據判讀</option>
+            <option value="目的意圖">目的與意圖</option>
+            <option value="語氣立場">語氣與立場</option>
+          </select></label>
+        </article>
+        <div id="literacySkillGrid" class="literacy-skill-grid"></div>
+      </section>
+
+      <section id="historyView" class="view">
+        <div class="toolbar"><div><h2 style="margin:0">歷史成績</h2><p style="color:var(--muted);margin:5px 0 0">最多保留最近 50 次。</p></div><button class="btn danger" id="clearHistory">清空紀錄</button></div>
+        <div class="card" style="overflow:auto"><table><thead><tr><th>日期</th><th>模式</th><th>題數</th><th>答對</th><th>正確率</th><th>題型</th></tr></thead><tbody id="historyRows"></tbody></table></div>
+        <div class="section-head"><div><h2>逐題答案與詳解</h2><p>使用 Local Storage 長期保存；同一題會累積最近 20 次作答，而不是重複建立卡片。</p></div><div class="group"><button class="btn" id="exportAnswerArchive">匯出解析</button><button class="btn danger" id="clearAnswerArchive">清空解析</button></div></div>
+        <article class="card answer-archive-filter">
+          <div class="form-grid">
+            <label><span>搜尋</span><input id="answerArchiveSearch" type="search" placeholder="題目、分類、解析"></label>
+            <label><span>來源 Part</span><select id="answerArchivePart"><option value="all">全部 Part</option><option value="1">Part 1</option><option value="2">Part 2</option><option value="3">Part 3</option><option value="4">Part 4</option><option value="5">Part 5</option><option value="6">Part 6</option><option value="7">Part 7</option></select></label>
+            <label><span>最近結果</span><select id="answerArchiveResult"><option value="all">全部結果</option><option value="correct">最近答對</option><option value="wrong">最近答錯／未答</option></select></label>
+            <label><span>排序</span><select id="answerArchiveSort"><option value="recent">最近作答</option><option value="attempts">作答次數</option><option value="part">Part 與題號</option></select></label>
+          </div>
+          <div class="answer-archive-summary" id="answerArchiveSummary"></div>
+        </article>
+        <div class="answer-archive-list" id="answerArchiveList"></div>
+      </section>
+
+      <section id="analyticsView" class="view">
+        <div class="toolbar">
+          <div><h2 style="margin:0">長期弱點分析</h2><p style="color:var(--muted);margin:5px 0 0">依所有已完成練習累積，不只看最近一次。</p></div>
+          <button class="btn danger" id="clearAnalytics">清空分析資料</button>
+        </div>
+        <div class="stats-grid">
+          <article class="card"><div class="stat-label">分析題數</div><div class="stat-value" id="analyticsTotal">0</div><div class="stat-foot">完成後才納入</div></article>
+          <article class="card"><div class="stat-label">Listening</div><div class="stat-value" id="analyticsListening">0%</div><div class="stat-foot">Part 1–4</div></article>
+          <article class="card"><div class="stat-label">Reading</div><div class="stat-value" id="analyticsReading">0%</div><div class="stat-foot">Part 5–7</div></article>
+          <article class="card"><div class="stat-label">最弱分類</div><div class="stat-value" id="analyticsWeakest" style="font-size:20px">—</div><div class="stat-foot">至少作答 3 題</div></article>
+          <article class="card"><div class="stat-label">最弱技巧</div><div class="stat-value" id="analyticsWeakestStrategy" style="font-size:20px">—</div><div class="stat-foot">依答題技巧歸因</div></article>
+          <article class="card"><div class="stat-label">技巧掌握度</div><div class="stat-value" id="analyticsMastery">0%</div><div class="stat-foot">已練技巧平均</div></article>
+        </div>
+        <article class="card mastery-panel" style="margin-top:18px">
+          <div class="section-head" style="margin-top:0">
+            <div><h2>技巧掌握度雷達</h2><p>以答題紀錄回推 12 種解題戰術的掌握情況。</p></div>
+          </div>
+          <div id="strategyMasteryGrid" class="mastery-grid"></div>
+        </article>
+        <div class="analytics-grid" style="margin-top:18px">
+          <article class="card"><h3 style="margin-top:0">依 Part 統計</h3><div id="partAnalytics"></div></article>
+          <article class="card"><h3 style="margin-top:0">依考點分類</h3><div id="categoryAnalytics"></div></article>
+        </div>
+        <article class="card" style="margin-top:18px">
+          <h3 style="margin-top:0">系統建議</h3>
+          <div id="analyticsRecommendations" class="mini-list"></div>
+        </article>
+      </section>
+
+      <section id="storageView" class="view">
+        <div class="section-head"><div><h2>儲存中心</h2><p>本機資料各自分工，需要跨裝置時再建立加密雲端備份。</p></div></div>
+        <article class="card cloud-sync-card">
+          <div class="cloud-sync-head">
+            <div>
+              <div class="badges"><span class="badge">Cloud Sync</span><span class="badge gray">跨裝置</span><span class="badge green">裝置端加密</span></div>
+              <h3>同步收藏與學習紀錄</h3>
+              <p>收藏、錯題、個人單字、複習排程、歷史成績與逐題詳解會先在本機加密，再保存到雲端。持有完整代碼的裝置才能解密。</p>
+            </div>
+            <div class="cloud-sync-security" aria-label="同步安全說明"><strong>AES-256-GCM</strong><span>雲端只保存密文</span></div>
+          </div>
+          <div class="cloud-sync-grid">
+            <section class="cloud-sync-pane" aria-labelledby="cloudCreateTitle">
+              <span class="cloud-sync-step">1</span>
+              <h4 id="cloudCreateTitle">建立同步代碼</h4>
+              <p>每次建立都會產生一組新代碼；舊代碼不會被改寫。</p>
+              <button class="btn primary" id="createCloudBackup">建立加密備份</button>
+              <div class="cloud-code-result" id="cloudCodeResult" hidden>
+                <label for="cloudGeneratedCode">本次同步代碼</label>
+                <div class="cloud-code-row">
+                  <output id="cloudGeneratedCode" for="createCloudBackup"></output>
+                  <button class="icon-btn" id="copyCloudCode" type="button" title="複製同步代碼" aria-label="複製同步代碼">⧉</button>
+                </div>
+                <small>請妥善保存；遺失代碼後，本站也無法解開雲端密文。</small>
+              </div>
+            </section>
+            <section class="cloud-sync-pane" aria-labelledby="cloudRestoreTitle">
+              <span class="cloud-sync-step">2</span>
+              <h4 id="cloudRestoreTitle">在其他裝置讀取</h4>
+              <label for="cloudSyncCode">貼上同步代碼</label>
+              <input id="cloudSyncCode" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="TQ1-...">
+              <button class="btn" id="previewCloudBackup">讀取並預覽</button>
+              <div class="cloud-preview" id="cloudBackupPreview" hidden aria-live="polite"></div>
+              <div class="storage-actions cloud-import-actions" id="cloudImportActions" hidden>
+                <button class="btn primary" id="mergeCloudBackup">補入本機缺少資料</button>
+                <button class="btn danger" id="overwriteCloudBackup">以雲端完整覆蓋</button>
+              </div>
+            </section>
+          </div>
+          <p class="cloud-sync-status" id="cloudSyncStatus" role="status" aria-live="polite"></p>
+        </article>
+        <div class="storage-grid">
+          <article class="card storage-card">
+            <div class="badges"><span class="badge">Cookie</span><span class="badge gray">小型偏好</span></div>
+            <h3>每日練習目標</h3>
+            <p>Cookie 容量小、會隨同網域請求送出，因此只放不敏感的小型偏好。</p>
+            <label><span>每日目標題數</span><input id="cookieDailyGoal" type="number" min="1" max="200" value="20"></label>
+            <label><span>保留期限</span><select id="cookieExpireDays"><option value="7">7 天</option><option value="30" selected>30 天</option><option value="90">90 天</option></select></label>
+            <div class="storage-actions"><button class="btn primary" id="saveCookieGoal">儲存 Cookie</button><button class="btn danger" id="clearCookieGoal">清除 Cookie</button></div>
+            <div class="mini-list" id="cookieSummary"></div>
+          </article>
+
+          <article class="card storage-card">
+            <div class="badges"><span class="badge">Local Storage</span><span class="badge gray">長期資料</span></div>
+            <h3>學習資料備份</h3>
+            <p>錯題、歷史、逐題解析、弱點分析、間隔複習與自訂題庫都適合長期保存在本機。</p>
+            <div class="mini-list" id="localStorageSummary"></div>
+            <div class="storage-actions"><button class="btn primary" id="exportLearningState">匯出學習備份</button><button class="btn" id="refreshStorageSummary">重新整理</button></div>
+          </article>
+
+          <article class="card storage-card">
+            <div class="badges"><span class="badge">Session Storage</span><span class="badge gray">單分頁暫存</span></div>
+            <h3>本分頁考場筆記</h3>
+            <p>這份筆記只保留在目前分頁，不會同步到其他視窗，關閉分頁後自然消失。</p>
+            <label><span>臨時筆記</span><textarea id="sessionScratchpad" rows="8" placeholder="例如：容易混淆的介系詞、剛才聽到的關鍵字、待查單字..."></textarea></label>
+            <div class="storage-actions"><button class="btn danger" id="clearSessionScratchpad">清除本分頁筆記</button></div>
+            <div class="mini-list" id="sessionStorageSummary"></div>
+          </article>
+        </div>
+        <article class="card" style="margin-top:18px">
+          <h3 style="margin-top:0">本站目前分工</h3>
+          <div class="storage-map">
+            <div><strong>Cookie</strong><span>每日目標題數、上次造訪日期，小而可過期。</span></div>
+            <div><strong>Local Storage</strong><span>錯題、歷史成績、逐題答案與詳解、自訂題庫、間隔複習排程、弱點分析。</span></div>
+            <div><strong>Session Storage</strong><span>本分頁考場筆記與短暫狀態，不跨視窗共享。</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="bankView" class="view">
+        <div class="section-head"><div><h2>題庫管理</h2><p>可匯出內建題庫格式，擴充後再匯入。</p></div></div>
+        <div class="setup-grid">
+          <article class="card">
+            <h3 style="margin-top:0">匯入題庫 JSON</h3>
+            <p style="color:var(--muted);line-height:1.7">匯入的題目會存進 localStorage。相同 id 的題目會覆蓋舊資料。</p>
+            <input type="file" id="importFile" accept=".json,application/json">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:15px">
+              <button class="btn primary" id="importBank">匯入</button><button class="btn" id="exportBank">匯出完整題庫</button>
+              <button class="btn danger" id="resetBank">移除自訂題庫</button>
+            </div>
+          </article>
+          <article class="card">
+            <h3 style="margin-top:0">題庫格式</h3>
+            <pre style="white-space:pre-wrap;background:var(--surface-2);padding:14px;border-radius:12px;border:1px solid var(--line);font-size:12px;overflow:auto">{
+  "id": "CUSTOM-001",
+  "part": "5",
+  "difficulty": "600",
+  "category": "介系詞",
+  "prompt": "Question...",
+  "choices": ["A","B","C","D"],
+  "answer": 0,
+  "explanation": "中文解析",
+  "translation": "中文翻譯",
+  "passage": "",
+  "audioText": "",
+  "sourceLabel": "自行填寫的來源名稱（會標示為個人匯入）"
+}</pre>
+          </article>
+        </div>
+        <div class="section-head"><div><h2>合法模擬題來源庫</h2><p>收集可外連的官方與免費練習來源；本站只保留連結、授權判定與原創出題靈感，不搬運題文。</p></div></div>
+        <div class="stats-grid source-stats">
+          <article class="card"><div class="stat-label">來源總數</div><div class="stat-value" id="sourceTotal">0</div><div class="stat-foot">外部連結與判定</div></article>
+          <article class="card"><div class="stat-label">官方來源</div><div class="stat-value" id="sourceOfficial">0</div><div class="stat-foot">ETS / 官方委辦</div></article>
+          <article class="card"><div class="stat-label">免費練習</div><div class="stat-value" id="sourceFree">0</div><div class="stat-foot">僅外連不複製</div></article>
+          <article class="card"><div class="stat-label">匯入規則</div><div class="stat-value" style="font-size:20px">Link-only</div><div class="stat-foot">不爬題、不重發</div></article>
+        </div>
+        <article class="card source-policy">
+          <strong>收集原則</strong>
+          <p>合法來源庫只放「去哪裡看／怎麼判斷可用性」。若來源沒有明確允許重製，本站不會複製題目文字、圖片、音檔、答案或解析；新題一律以原創商務情境重新撰寫。</p>
+        </article>
+        <div id="legalSourceList" class="source-grid"></div>
+        <div class="section-head"><div><h2>題目品質後台</h2><p>標記停用、爭議答案、待複查題目，並查看每題答對率。</p></div></div>
+        <div class="stats-grid quality-stats">
+          <article class="card"><div class="stat-label">題庫總量</div><div class="stat-value" id="qualityTotal">0</div><div class="stat-foot">含自訂題</div></article>
+          <article class="card"><div class="stat-label">已停用</div><div class="stat-value" id="qualityDisabled">0</div><div class="stat-foot">不進一般練習</div></article>
+          <article class="card"><div class="stat-label">爭議答案</div><div class="stat-value" id="qualityDisputed">0</div><div class="stat-foot">需人工確認</div></article>
+          <article class="card"><div class="stat-label">待複查</div><div class="stat-value" id="qualityReview">0</div><div class="stat-foot">品質工作佇列</div></article>
+          <article class="card"><div class="stat-label">自動稽核</div><div class="stat-value" id="qualityAutoIssues">0</div><div class="stat-foot">結構錯誤與提醒</div></article>
+        </div>
+        <div class="quality-audit-hint" id="qualityAuditHint"></div>
+        <article class="card quality-panel">
+          <div class="form-grid">
+            <label><span>搜尋題目</span><input id="qualitySearch" type="text" placeholder="P5-169 / cybersecurity / 詞性"></label>
+            <label><span>狀態</span><select id="qualityStatus"><option value="all" selected>全部題目</option><option value="active">啟用中</option><option value="disabled">已停用</option><option value="disputed">爭議答案</option><option value="review">待複查</option><option value="audit">自動稽核警示</option></select></label>
+            <label><span>來源 Part</span><select id="qualityPart"><option value="all" selected>全部 Part</option><option value="1">Part 1</option><option value="2">Part 2</option><option value="3">Part 3</option><option value="4">Part 4</option><option value="5">Part 5</option><option value="6">Part 6</option><option value="7">Part 7</option></select></label>
+            <label><span>排序</span><select id="qualitySort"><option value="accuracy" selected>低答對率優先</option><option value="attempts">作答次數優先</option><option value="id">題號 A-Z</option></select></label>
+          </div>
+        </article>
+        <div id="qualityList" class="quality-list"></div>
+      </section>
+    </div>
+  </main>
+</div>
+<nav class="mobile-dock" aria-label="手機主要導覽">
+  <button class="active" data-mobile-nav="homeView"><span>⌂</span><small>總覽</small></button>
+  <button data-mobile-nav="setupView"><span>▶</span><small>練習</small></button>
+  <button data-mobile-nav="readingView"><span>▤</span><small>閱讀</small></button>
+  <button data-mobile-nav="wrongView"><span>✎</span><small>複習</small></button>
+  <button id="mobileMore"><span>☰</span><small>更多</small></button>
+</nav>
+<dialog class="part1-image-dialog" id="part1ImageDialog" aria-labelledby="part1ImageDialogTitle">
+  <div class="part1-image-dialog-head">
+    <h2 id="part1ImageDialogTitle">圖片檢視</h2>
+    <div class="part1-image-dialog-actions">
+      <button class="icon-btn" id="togglePart1ImageZoom" type="button" aria-label="放大圖片內容" title="放大圖片">＋</button>
+      <button class="icon-btn" id="closePart1ImageDialog" type="button" aria-label="關閉圖片檢視" title="關閉">×</button>
+    </div>
+  </div>
+  <div class="part1-image-preview-stage" id="part1ImagePreviewStage">
+    <img class="part1-image-preview" id="part1ImagePreview" alt="">
+  </div>
+</dialog>
+<dialog class="mock-section-dialog" id="mockSectionResultDialog" aria-labelledby="mockSectionResultTitle" aria-describedby="mockSectionResultDescription">
+  <div class="mock-section-dialog-body">
+    <div class="badges"><span class="badge" id="mockSectionResultBadge">Listening 完成</span><span class="badge gray">非官方換算</span></div>
+    <h2 id="mockSectionResultTitle">Listening 已完成</h2>
+    <p id="mockSectionResultDescription">成績已保存。Reading 計時尚未開始。</p>
+    <div class="mock-section-score-grid">
+      <div><span>答對題數</span><strong id="mockSectionRawScore">0 / 100</strong></div>
+      <div><span>預估分數</span><strong id="mockSectionScaledScore">5 / 495</strong></div>
+    </div>
+    <div class="mock-section-break" id="mockSectionBreakNote">
+      <strong>現在可以安心休息</strong>
+      <span>Reading 的 75 分鐘倒數會在你按下開始後才啟動，重新整理頁面也能回到這個休息點。</span>
+    </div>
+    <button class="btn primary mock-section-action" id="mockSectionResultAction" type="button">開始 Reading 75 分鐘</button>
+  </div>
+</dialog>
+<aside class="selection-translate-menu" id="selectionTranslateMenu" role="dialog" aria-labelledby="selectionLookupWord" hidden>
+  <div class="selection-translate-head">
+    <div>
+      <span class="selection-translate-kicker">英中快查</span>
+      <strong id="selectionLookupWord"></strong>
+    </div>
+    <button class="icon-btn" id="closeSelectionLookup" type="button" aria-label="關閉翻譯選單" title="關閉">×</button>
+  </div>
+  <div class="selection-translate-pronunciation" id="selectionLookupPronunciation" hidden></div>
+  <div class="selection-translate-result" id="selectionLookupResult" aria-live="polite">翻譯中…</div>
+  <div class="selection-translate-source" id="selectionLookupSource"></div>
+  <div class="selection-translate-actions">
+    <button class="btn primary" id="selectionAddVocab" type="button" disabled>加入個人單字本</button>
+    <button class="btn" id="selectionLookupOnly" type="button">僅查看</button>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script src="./question-bank.js"></script>
+<script src="./question-bank-v15.js"></script>
+<script src="./question-bank-v16.js"></script>
+<script src="./question-bank-v17.js"></script>
+<script src="./question-bank-v18.js"></script>
+<script src="./question-bank-v19.js"></script>
+<script src="./question-bank-v20.js"></script>
+<script src="./question-bank-v21.js"></script>
+<script src="./question-bank-v22.js"></script>
+<script src="./question-bank-v23.js"></script>
+<script src="./question-bank-v24.js"></script>
+<script src="./question-bank-v25.js"></script>
+<script src="./question-bank-v26.js"></script>
+<script src="./question-bank-v27.js"></script>
+<script src="./question-bank-v28.js"></script>
+<script src="./question-bank-v29.js"></script>
+<script src="./question-bank-v210.js"></script>
+<script src="./question-bank-v30.js"></script>
+<script src="./question-bank-v31.js"></script>
+<script src="./question-bank-v32.js"></script>
+<script src="./question-bank-v33.js"></script>
+<script src="./question-bank-v34.js"></script>
+<script src="./question-bank-v40.js"></script>
+<script src="./question-bank-v41.js"></script>
+<script src="./question-bank-v42.js"></script>
+<script src="./question-bank-v43.js"></script>
+<script src="./question-bank-v44.js"></script>
+<script src="./question-bank-v45.js"></script>
+<script src="./question-bank-v46.js"></script>
+<script src="./question-bank-v47.js"></script>
+<script src="./question-bank-v50.js"></script>
+<script src="./question-annotations-v31.js"></script>
+<script src="./vocab-lexicon.js"></script>
+<script src="./vocab-lexicon-v35.js"></script>
+<script src="./modules/davinci-vocabulary.js"></script>
+<script src="./modules/part5-exercise-guides.js"></script>
+<script src="./modules/reading-exercise-guides.js"></script>
+<script src="./modules/app-shell.js?v=5.2.0"></script>
+<script src="./modules/toeic-learning-hub.js"></script>
+<script src="./modules/part5-exercise-bank.js"></script>
+<script src="./modules/reading-exercise-bank.js"></script>
+<script src="./modules/learning-command-center.js"></script>
+<script src="./modules/legal-practice-sources.js"></script>
+<script src="./modules/question-provenance.js"></script>
+<script src="./modules/question-quality-audit.js"></script>
+<script src="./modules/mock-exam-builder.js"></script>
+<script src="./modules/five-day-sprint.js"></script>
+<script src="./modules/cloud-learning-sync.js?v=5.2.0"></script>
+<script src="./app.js?v=5.2.0" defer></script>
+</body>
+</html>

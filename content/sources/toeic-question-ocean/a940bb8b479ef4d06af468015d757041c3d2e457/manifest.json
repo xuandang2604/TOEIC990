@@ -1,0 +1,169 @@
+{
+  "format": "study990.source-archive",
+  "version": 1,
+  "commit": "a940bb8b479ef4d06af468015d757041c3d2e457",
+  "sourceUrl": "https://github.com/kdeppaei/toeic-question-ocean/tree/a940bb8b479ef4d06af468015d757041c3d2e457",
+  "license": "MIT",
+  "attribution": "Copyright (c) 2026 Chun-Hsiung Luo",
+  "licenseUrl": "https://raw.githubusercontent.com/kdeppaei/toeic-question-ocean/a940bb8b479ef4d06af468015d757041c3d2e457/LICENSE",
+  "licenseSha256": "9d58a6ceeaab47fae1a77aa5ce2f96393c6c117e4e82ea6c28e878d408f128de",
+  "indexSha256": "d3981691c9163345c3e109466a6c90f7a2cff24dbf3043999faf46c8a2c663b8",
+  "scriptsInLoadOrder": [
+    {
+      "file": "question-bank.js",
+      "sha256": "aefb6b1dbfb2ba235dc79a558cf0b5b3ed6682127acb3f868290048de7aaa32f",
+      "bytes": 247198
+    },
+    {
+      "file": "question-bank-v15.js",
+      "sha256": "4ed78c528e1b1839dc5814c4943ae336afb9b297f54442bac4125d26f3e72a76",
+      "bytes": 32811
+    },
+    {
+      "file": "question-bank-v16.js",
+      "sha256": "d5c1d395fbecaa6391e3d4869c54c23507989ae3ca51cd51adacf2172d5dd180",
+      "bytes": 9029
+    },
+    {
+      "file": "question-bank-v17.js",
+      "sha256": "dbbcd2174d821577001b796ff3b72633626de65a397ba8c71e0da09e9ed3734c",
+      "bytes": 14405
+    },
+    {
+      "file": "question-bank-v18.js",
+      "sha256": "9d59016b7ca1d511c2251dd3d082bbf0371fb25d8287369c5868371351743874",
+      "bytes": 19560
+    },
+    {
+      "file": "question-bank-v19.js",
+      "sha256": "c564add13a2ed9dc65c896a05eadae15534149b57f87622992a53f737ea40c9c",
+      "bytes": 8821
+    },
+    {
+      "file": "question-bank-v20.js",
+      "sha256": "1eec7bb2b1cd0a82d25e0bc62290e9b42d0c3e176559b01c05e1bfbbc2d1dfd0",
+      "bytes": 14106
+    },
+    {
+      "file": "question-bank-v21.js",
+      "sha256": "a0af4e74aa397185dce5ebf83addb6b4c32c3e73ddd647c674713a234cf38d2a",
+      "bytes": 17997
+    },
+    {
+      "file": "question-bank-v22.js",
+      "sha256": "ebe15d50a83c26684138514f9085b357694ecdb0f737d9efa18f40defc777927",
+      "bytes": 19117
+    },
+    {
+      "file": "question-bank-v23.js",
+      "sha256": "b1ed3160eb5352434bb36401be74ba7fecc902be40ae42a99940530cab62d641",
+      "bytes": 21539
+    },
+    {
+      "file": "question-bank-v24.js",
+      "sha256": "0d23c28bd778973eccb5f73f2739e716e1a3a1a0252a57a143cb58b7b0b5eaf2",
+      "bytes": 25933
+    },
+    {
+      "file": "question-bank-v25.js",
+      "sha256": "12e2db18d9c6b641e89d8f324fb3cfa49aa974bde090b9e003e0af6d754e2534",
+      "bytes": 10753
+    },
+    {
+      "file": "question-bank-v26.js",
+      "sha256": "cda549414683cecb727f51e37c3070a457e5170efe358d12d8f7fb2cc1c036fb",
+      "bytes": 10791
+    },
+    {
+      "file": "question-bank-v27.js",
+      "sha256": "f833539b4f3660735ed23751ce2edafb0285b96a392e8c4136a9b2bc846fbbc3",
+      "bytes": 6839
+    },
+    {
+      "file": "question-bank-v28.js",
+      "sha256": "1ad84c067cc3b6c281302aa8ec8d5d6083e3163a42da2d416c4b6655f993200a",
+      "bytes": 81202
+    },
+    {
+      "file": "question-bank-v29.js",
+      "sha256": "ea0b0a91a94c0b313167e3fa7a150668141f47cfaaf4927e2aa299b03a67bdbc",
+      "bytes": 59344
+    },
+    {
+      "file": "question-bank-v210.js",
+      "sha256": "7835720bf8ce131260488fd2da0538c46b877aa3ebf0183ebc57c065b5cc33d1",
+      "bytes": 15965
+    },
+    {
+      "file": "question-bank-v30.js",
+      "sha256": "8901965ab305e9f1a8f8cc6b6223f31a2d850af1d8d5afcc2e84a44a87893daa",
+      "bytes": 44000
+    },
+    {
+      "file": "question-bank-v31.js",
+      "sha256": "1c37829024d646f62d3d4fcaafb9cc39125abbc2fa2fa1da2c91523c1be4f78b",
+      "bytes": 6778
+    },
+    {
+      "file": "question-bank-v32.js",
+      "sha256": "b3ac073d3c7c07273cb26c2122b8e1b655fe9f303147d2474bd755c5497b1e4c",
+      "bytes": 3157
+    },
+    {
+      "file": "question-bank-v33.js",
+      "sha256": "ca8aaa2f6cac20f73575c00ea3527b42f14128f26553c14a215421561f7e95e2",
+      "bytes": 4714
+    },
+    {
+      "file": "question-bank-v34.js",
+      "sha256": "7e229073afcf52e7a10cff074f7466d76270b0cea767ac3f7e24ae7b9a7c14d1",
+      "bytes": 5525
+    },
+    {
+      "file": "question-bank-v40.js",
+      "sha256": "9945759bb157e0c07f43b8a027d955182a65a7952bf2c70bfb2f2967c8ee77d6",
+      "bytes": 10720
+    },
+    {
+      "file": "question-bank-v41.js",
+      "sha256": "cf541a909814335522aeaf0cc92f8346d170fc5ba541514f0d72a4fae44434d9",
+      "bytes": 16638
+    },
+    {
+      "file": "question-bank-v42.js",
+      "sha256": "275591b5bab4825a42f9f9f827bb55afd62e7751c645c5f793360ae0dfa30c89",
+      "bytes": 11511
+    },
+    {
+      "file": "question-bank-v43.js",
+      "sha256": "cfcef697d99c931ddee2851ce5bfd556d615b4b99e83abc92159d98947cf0d17",
+      "bytes": 11635
+    },
+    {
+      "file": "question-bank-v44.js",
+      "sha256": "d434d890786c79ffecf90d0364ab3e7487f6eaf44629e07e7d5f86507d5ee595",
+      "bytes": 23726
+    },
+    {
+      "file": "question-bank-v45.js",
+      "sha256": "310bf29d62dab1faca77146239939cedf43d72de1a94922935b8b99476660c3e",
+      "bytes": 28123
+    },
+    {
+      "file": "question-bank-v46.js",
+      "sha256": "e3adac78721b2489c57093078dcef5ed0e44df258e0f4a4ec1f5aa250fed0636",
+      "bytes": 36982
+    },
+    {
+      "file": "question-bank-v47.js",
+      "sha256": "ce7f49dfd5a5a8b2d5eac003349bba7dced576771fc0e8bd34179ea69a23a4fd",
+      "bytes": 23314
+    },
+    {
+      "file": "question-bank-v50.js",
+      "sha256": "045b40030342196ba8441ab3ffd9279c89fa8dffe9e85cf645a2eaf000ca559b",
+      "bytes": 22472
+    }
+  ],
+  "executedSourceCode": false
+}

@@ -7,7 +7,8 @@ import { listeningAudio } from '../../domain/listening'
 import { useStudy } from '../../application/StudyContext'
 import { useAction, useRoute } from '../../application/hooks'
 import { saveStudyDraft, submitAnswer } from '../../application/studyRepository'
-import { saveExamResponse } from '../../application/examRepository'
+import { saveExamResponse, toggleExamFlag } from '../../application/examRepository'
+import { Flag } from 'lucide-react'
 import { MediaPlayer } from '../../components/MediaPlayer'
 import { InlineError, Tag } from '../../components/ui'
 import { QuestionRenderer } from './QuestionRenderer'
@@ -202,6 +203,18 @@ function QuestionCard({
       <div className="question-card-meta">
         <Tag>{DIFFICULTY_LABELS[question.difficulty]}</Tag>
         {!exam && <SaveQuestionButton question={question} />}
+        {exam && (
+          <button
+            type="button"
+            className="text-link exam-flag"
+            aria-pressed={session.flaggedQuestionIds?.includes(question.id) ?? false}
+            disabled={action.busy}
+            onClick={() => void action.run(() => toggleExamFlag(session.id, question.id))}
+          >
+            <Flag size={15} />
+            {session.flaggedQuestionIds?.includes(question.id) ? 'Đã đánh dấu' : 'Đánh dấu xem lại'}
+          </button>
+        )}
       </div>
       <QuestionRenderer
         qualityLabel={exam ? undefined : questionQualityLabel(question)}

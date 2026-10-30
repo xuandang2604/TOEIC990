@@ -1,6 +1,6 @@
 import sets from '../../content/mock-exams.json'
 import { questions, stimuli, passages } from './questions'
-import { mockExamIssues, type MockExam } from '../domain/contentInventory'
+import { mockExamIssues, sessionMatchesMock, type MockExam } from '../domain/contentInventory'
 import type { StudySession } from '../domain/models'
 import { questionAssessmentEligible, questionReviewedAssessmentEligible } from './eligibility'
 import { validateContentBank } from './validation'
@@ -35,9 +35,5 @@ export const availableMockExams = mockExams.filter(
 /** An imported label alone must not turn an arbitrary session into a complete mock. */
 export function mockForSession(session: StudySession) {
   const exam = session.mockExamId ? mockById.get(session.mockExamId) : undefined
-  return exam &&
-    session.mode === 'exam' &&
-    session.questionIds.join('|') === exam.questionIds.join('|')
-    ? exam
-    : undefined
+  return exam && sessionMatchesMock(session, exam) ? exam : undefined
 }

@@ -1,3 +1,174 @@
+.roadmap-focus {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.45fr) minmax(0, 1.55fr);
+  gap: 22px 28px;
+  padding: 26px;
+  margin-bottom: 28px;
+}
+.roadmap-focus > * {
+  min-width: 0;
+}
+.roadmap-focus-goal {
+  padding-right: 20px;
+  border-right: 1px solid var(--line);
+}
+.roadmap-focus h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 5vw, 3.3rem);
+  font-weight: 500;
+  margin-block: 5px;
+}
+.roadmap-focus h2 span {
+  display: block;
+  font: 500 0.72rem var(--font-sans);
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.roadmap-focus h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 500;
+  margin-block: 8px;
+}
+.roadmap-focus-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-block: 18px 12px;
+}
+.roadmap-focus .button {
+  white-space: normal;
+  max-width: 100%;
+}
+.roadmap-focus-time {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto minmax(60px, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.73rem;
+  color: var(--muted);
+}
+.roadmap-focus-time progress {
+  width: 100%;
+  height: 5px;
+  accent-color: var(--sage);
+}
+.roadmap-checkpoints {
+  padding: 24px 26px;
+  margin-block: 28px;
+  min-width: 0;
+}
+.roadmap-checkpoints header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.roadmap-checkpoints h2 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-block: 7px;
+}
+.roadmap-checkpoints > p {
+  margin-block: 12px;
+}
+.roadmap-checkpoints ol {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.roadmap-checkpoints li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.roadmap-checkpoints li > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.checkpoint-marker {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.roadmap-checkpoints [data-complete] .checkpoint-marker {
+  color: var(--sage);
+  background: var(--sage-soft);
+}
+.roadmap-checkpoints time {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+.roadmap-checkpoints h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-block: 4px;
+}
+.roadmap-checkpoints .button {
+  min-height: 44px;
+  max-width: 100%;
+  white-space: normal;
+}
+@media (max-width: 640px) {
+  .roadmap-focus,
+  .roadmap-checkpoints {
+    padding: 20px 16px;
+  }
+  .roadmap-focus {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .roadmap-focus-goal {
+    padding: 0 0 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .roadmap-focus h2 span {
+    display: inline;
+    margin-left: 10px;
+  }
+  .roadmap-focus-time {
+    grid-template-columns: 1fr auto;
+    font-size: 0.7rem;
+  }
+  .roadmap-focus-time progress {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .roadmap-focus-time > span {
+    text-align: end;
+  }
+  .roadmap-checkpoints li {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .checkpoint-marker {
+    width: 24px;
+    height: 24px;
+  }
+  .roadmap-checkpoints li .button {
+    grid-column: 2;
+    justify-self: start;
+  }
+  .roadmap-fields input,
+  .roadmap-fields select {
+    font-size: 16px;
+  }
+}
+
 .roadmap-entry,
 .vocabulary-notebook,
 .roadmap-next {

@@ -125,6 +125,36 @@ export function examExpired(session: StudySession, now: number) {
     Math.max(now, session.lastObservedAt ?? now) >= session.deadlineAt
   )
 }
+export const FULL_TEST_LISTENING_MS = 45 * 60_000
+export const FULL_TEST_READING_MS = 75 * 60_000
+export function readingTransitionDue(session: StudySession, now: number) {
+  return (
+    session.mode === 'exam' &&
+    session.status === 'active' &&
+    Boolean(session.sectionTiming) &&
+    !session.readingStarted &&
+    Math.max(now, session.lastObservedAt ?? now) >= session.sectionTiming!.listeningDeadlineAt
+  )
+}
+export function validSectionTiming(value: unknown, session: Record<string, unknown>) {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) return false
+  const timing = value as Record<string, unknown>
+  if (
+    session.mode !== 'exam' ||
+    typeof session.mockExamId !== 'string' ||
+    timing.version !== 1 ||
+    timing.listeningDeadlineAt !== Number(session.startedAt) + FULL_TEST_LISTENING_MS
+  )
+    return false
+  return session.readingStarted === true
+    ? Number.isSafeInteger(timing.readingStartedAt) &&
+        Number(timing.readingStartedAt) >= Number(session.startedAt) &&
+        Number(timing.readingStartedAt) <= Number(timing.listeningDeadlineAt) &&
+        session.deadlineAt === Number(timing.readingStartedAt) + FULL_TEST_READING_MS
+    : timing.readingStartedAt === undefined &&
+        session.deadlineAt ===
+          Number(session.startedAt) + FULL_TEST_LISTENING_MS + FULL_TEST_READING_MS
+}
 export function canNavigateExam(session: StudySession, items: Question[], targetId: string) {
   const units = sessionUnits(session, items)
   const current = units.findIndex((u) =>

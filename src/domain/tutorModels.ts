@@ -1,4 +1,5 @@
 import type { ContentProvenance, GrammarLesson, OptionId, Question, Skill } from '../content/schema'
+import type { QuestionDesign } from '../content/questionDesign'
 
 export type TeachingMode = 'simple' | 'steps' | 'distractors' | 'example' | 'check'
 export const TEACHING_MODES: { id: TeachingMode; label: string }[] = [
@@ -63,6 +64,8 @@ export interface TutorConversationItem {
 export interface TutorContext {
   schemaVersion: 1
   question: Question
+  /** Optional authored reference, pinned to this exact question and shared stimulus. */
+  analysis?: QuestionDesign
   answer: { selected: OptionId | null; correct: boolean; confidence: 1 | 2 | 3 | null }
   knowledge: GrammarLesson[]
   lesson: TutorLesson | null

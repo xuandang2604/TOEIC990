@@ -1,0 +1,656 @@
+{
+  "format": "study990.source-intake-report",
+  "version": 1,
+  "commit": "a940bb8b479ef4d06af468015d757041c3d2e457",
+  "candidates": 1107,
+  "byPart": {
+    "1": 25,
+    "2": 109,
+    "3": 90,
+    "4": 78,
+    "5": 328,
+    "6": 120,
+    "7": 357
+  },
+  "activatedQuestions": 0,
+  "completeMockExamsAdded": 0,
+  "calibratedAgainstETS": false,
+  "rejected": [],
+  "amendments": [
+    {
+      "file": "question-bank-v210.js",
+      "id": "P5-027",
+      "reason": "upstream-answer-and-rule-correction"
+    },
+    {
+      "file": "question-bank-v210.js",
+      "id": "P5-073",
+      "reason": "upstream-answer-and-rule-correction"
+    },
+    {
+      "file": "question-bank-v210.js",
+      "id": "P5-085",
+      "reason": "upstream-answer-and-rule-correction"
+    },
+    {
+      "file": "question-bank-v210.js",
+      "id": "P5-122",
+      "reason": "upstream-answer-and-rule-correction"
+    },
+    {
+      "file": "question-bank-v210.js",
+      "id": "P5-125",
+      "reason": "upstream-answer-and-rule-correction"
+    },
+    {
+      "file": "question-bank-v210.js",
+      "id": "P5-127",
+      "reason": "upstream-answer-and-rule-correction"
+    },
+    {
+      "file": "question-bank-v210.js",
+      "id": "P5-139",
+      "reason": "upstream-answer-and-rule-correction"
+    },
+    {
+      "file": "question-bank-v210.js",
+      "id": "P5-244",
+      "reason": "upstream-answer-and-rule-correction"
+    },
+    {
+      "file": "question-bank-v44.js",
+      "id": "P1-017",
+      "reason": "upstream-editorial-difficulty-change"
+    },
+    {
+      "file": "question-bank-v44.js",
+      "id": "P1-022",
+      "reason": "upstream-editorial-difficulty-change"
+    },
+    {
+      "file": "question-bank-v44.js",
+      "id": "P1-025",
+      "reason": "upstream-editorial-difficulty-change"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G16-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G16-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G16-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G16-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G17-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G17-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G17-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G17-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G18-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G18-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G18-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G18-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G20-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G20-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G20-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G20-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G21-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G21-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G21-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G21-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G22-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G22-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G22-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G22-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G23-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G23-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G23-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G23-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G24-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G24-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G24-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G24-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G25-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G25-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G25-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G25-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G26-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G26-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G26-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G26-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G27-Q1",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G27-Q2",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G27-Q3",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v45.js",
+      "id": "P6-G27-Q4",
+      "reason": "upstream-group-and-part-correction"
+    },
+    {
+      "file": "question-bank-v46.js",
+      "id": "P7-R35-Q5",
+      "reason": "upstream-replacement-of-oversized-reading-group"
+    },
+    {
+      "file": "question-bank-v46.js",
+      "id": "P7-R35-Q6",
+      "reason": "upstream-replacement-of-oversized-reading-group"
+    },
+    {
+      "file": "question-bank-v46.js",
+      "id": "P7-R36-Q5",
+      "reason": "upstream-replacement-of-oversized-reading-group"
+    },
+    {
+      "file": "question-bank-v46.js",
+      "id": "P7-R36-Q6",
+      "reason": "upstream-replacement-of-oversized-reading-group"
+    },
+    {
+      "file": "question-bank-v46.js",
+      "id": "P7-R43-Q6",
+      "reason": "upstream-replacement-of-oversized-reading-group"
+    },
+    {
+      "file": "question-bank-v46.js",
+      "id": "P7-R43-Q7",
+      "reason": "upstream-replacement-of-oversized-reading-group"
+    },
+    {
+      "file": "question-bank-v46.js",
+      "id": "P7-R46-Q5",
+      "reason": "upstream-replacement-of-oversized-reading-group"
+    },
+    {
+      "file": "question-bank-v46.js",
+      "id": "P7-R46-Q6",
+      "reason": "upstream-replacement-of-oversized-reading-group"
+    },
+    {
+      "file": "question-bank-v46.js",
+      "id": "P7-R48-Q6",
+      "reason": "upstream-replacement-of-oversized-reading-group"
+    },
+    {
+      "file": "question-bank-v46.js",
+      "id": "P7-R48-Q7",
+      "reason": "upstream-replacement-of-oversized-reading-group"
+    }
+  ],
+  "duplicateQuestions": [],
+  "nearDuplicates": [],
+  "groupIssues": [
+    {
+      "group": "6:P6-G01",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-001",
+        "P6-002",
+        "P6-003",
+        "P6-004"
+      ]
+    },
+    {
+      "group": "6:P6-G01",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-001",
+        "P6-002",
+        "P6-003",
+        "P6-004"
+      ]
+    },
+    {
+      "group": "6:P6-G02",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-005",
+        "P6-006",
+        "P6-007",
+        "P6-008"
+      ]
+    },
+    {
+      "group": "6:P6-G02",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-005",
+        "P6-006",
+        "P6-007",
+        "P6-008"
+      ]
+    },
+    {
+      "group": "6:P6-G03",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-009",
+        "P6-010",
+        "P6-011",
+        "P6-012"
+      ]
+    },
+    {
+      "group": "6:P6-G03",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-009",
+        "P6-010",
+        "P6-011",
+        "P6-012"
+      ]
+    },
+    {
+      "group": "6:P6-G04",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-013",
+        "P6-014",
+        "P6-015",
+        "P6-016"
+      ]
+    },
+    {
+      "group": "6:P6-G04",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-013",
+        "P6-014",
+        "P6-015",
+        "P6-016"
+      ]
+    },
+    {
+      "group": "6:P6-G05",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-017",
+        "P6-018",
+        "P6-019",
+        "P6-020"
+      ]
+    },
+    {
+      "group": "6:P6-G05",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-017",
+        "P6-018",
+        "P6-019",
+        "P6-020"
+      ]
+    },
+    {
+      "group": "6:P6-G06",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-021",
+        "P6-022",
+        "P6-023",
+        "P6-024"
+      ]
+    },
+    {
+      "group": "6:P6-G06",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-021",
+        "P6-022",
+        "P6-023",
+        "P6-024"
+      ]
+    },
+    {
+      "group": "6:P6-G07",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-025",
+        "P6-026",
+        "P6-027",
+        "P6-028"
+      ]
+    },
+    {
+      "group": "6:P6-G07",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-025",
+        "P6-026",
+        "P6-027",
+        "P6-028"
+      ]
+    },
+    {
+      "group": "6:P6-G08",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-029",
+        "P6-030",
+        "P6-031",
+        "P6-032"
+      ]
+    },
+    {
+      "group": "6:P6-G09",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-033",
+        "P6-034",
+        "P6-035",
+        "P6-036"
+      ]
+    },
+    {
+      "group": "6:P6-G10",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-037",
+        "P6-038",
+        "P6-039",
+        "P6-040"
+      ]
+    },
+    {
+      "group": "6:P6-G11",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-041",
+        "P6-042",
+        "P6-043",
+        "P6-044"
+      ]
+    },
+    {
+      "group": "6:P6-G12",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-045",
+        "P6-046",
+        "P6-047",
+        "P6-048"
+      ]
+    },
+    {
+      "group": "6:P6-G13",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-049",
+        "P6-050",
+        "P6-051",
+        "P6-052"
+      ]
+    },
+    {
+      "group": "6:P6-G14",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-053",
+        "P6-054",
+        "P6-055",
+        "P6-056"
+      ]
+    },
+    {
+      "group": "6:P6-G15",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-057",
+        "P6-058",
+        "P6-059",
+        "P6-060"
+      ]
+    },
+    {
+      "group": "6:P6-G16",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-061",
+        "P6-062",
+        "P6-063",
+        "P6-064"
+      ]
+    },
+    {
+      "group": "6:P6-G17",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-065",
+        "P6-066",
+        "P6-067",
+        "P6-068"
+      ]
+    },
+    {
+      "group": "6:P6-G18",
+      "issue": "no-sentence-insertion-detected-review-required",
+      "ids": [
+        "P6-069",
+        "P6-070",
+        "P6-071",
+        "P6-072"
+      ]
+    },
+    {
+      "group": "6:P6-G29",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-G16-Q1",
+        "P6-G16-Q2",
+        "P6-G16-Q3",
+        "P6-G16-Q4"
+      ]
+    },
+    {
+      "group": "6:P6-G30",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-G17-Q1",
+        "P6-G17-Q2",
+        "P6-G17-Q3",
+        "P6-G17-Q4"
+      ]
+    },
+    {
+      "group": "6:P6-G31",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-G18-Q1",
+        "P6-G18-Q2",
+        "P6-G18-Q3",
+        "P6-G18-Q4"
+      ]
+    },
+    {
+      "group": "6:P6-G19",
+      "issue": "per-question-blank-variants-need-unified-passage",
+      "ids": [
+        "P6-G19-Q1",
+        "P6-G19-Q2",
+        "P6-G19-Q3",
+        "P6-G19-Q4"
+      ]
+    }
+  ],
+  "missingForTenDisjointTestsFromThisSourceAlone": {
+    "1": 35,
+    "2": 141,
+    "3": 300,
+    "4": 222,
+    "5": 0,
+    "6": 40,
+    "7": 183
+  },
+  "activationBlockers": [
+    "Vietnamese explanations and distractor analysis not yet authored.",
+    "Photographs, exhibits and synthetic audio not yet adapted and checked.",
+    "Raw source groups must pass the existing canonical content schema.",
+    "No independent human editorial approval or empirical score calibration."
+  ],
+  "note": "Raw candidates only. Upstream human-reviewed tags remain source claims, not STUDY 990 approval. Counts do not represent validated or available practice questions."
+}

@@ -10,7 +10,7 @@ const isObject = (v: unknown): v is Record<string, unknown> =>
 
 export interface ContentPackage {
   format: 'study990.content'
-  formatVersion: 1 | 2 | 3
+  formatVersion: 1 | 2 | 3 | 4
   id: string
   revision: string
   bank: ContentBank
@@ -24,11 +24,42 @@ export interface ContentPackage {
   }[]
   purpose?: 'practice' | 'mock'
   editorial?: EditorialRecord
+  practiceRelease?: {
+    kind: 'unreviewed-practice'
+    fingerprint: string
+    note: string
+  }
   review:
     | { reviewer: string; date: string; verdict: 'approved' }
     | { status: 'ai-draft' | 'unreviewed'; author: string; date: string; note: string }
 }
 const text = (v: unknown): v is string => typeof v === 'string' && v.trim().length > 0
+/** Explicit AI/source practice release; never substitutes for the version-3 human review path. */
+export function practiceReleaseIssues(pkg: ContentPackage): ContentIssue[] {
+  if (pkg.formatVersion !== 4) return []
+  return pkg.purpose === 'mock' &&
+    isObject(pkg.review) &&
+    !('verdict' in pkg.review) &&
+    ['ai-draft', 'unreviewed'].includes(String(pkg.review.status)) &&
+    isObject(pkg.bank) &&
+    Array.isArray(pkg.bank.questions) &&
+    Array.isArray(pkg.bank.stimuli) &&
+    [...pkg.bank.questions, ...pkg.bank.stimuli].every(
+      (row) => row.provenance.kind === 'licensed' || row.provenance.editorialStatus === 'ai-draft',
+    ) &&
+    pkg.practiceRelease?.kind === 'unreviewed-practice' &&
+    pkg.practiceRelease.fingerprint === packageFingerprint(pkg) &&
+    text(pkg.practiceRelease.note) &&
+    pkg.editorial === undefined
+    ? []
+    : [
+        {
+          path: 'practiceRelease',
+          message:
+            'Version-4 practice requires a pinned unreviewed release; human approval must use version 3.',
+        },
+      ]
+}
 function boundedJson(input: unknown) {
   const pending: { value: unknown; depth: number }[] = [{ value: input, depth: 0 }]
   let nodes = 0
@@ -70,7 +101,7 @@ export function validateContentPackage(
   if (
     !isObject(input) ||
     input.format !== 'study990.content' ||
-    ![1, 2, 3].includes(Number(input.formatVersion))
+    ![1, 2, 3, 4].includes(Number(input.formatVersion))
   )
     return [{ path: 'package', message: 'Unsupported content package/version.' }]
   const issues = validateContentBank(input.bank)
@@ -85,16 +116,16 @@ export function validateContentPackage(
     new Date(String(review.date)).toISOString().slice(0, 10) === review.date
   const human = isObject(review) && text(review.reviewer) && review.verdict === 'approved'
   const draft =
-    [2, 3].includes(Number(input.formatVersion)) &&
+    [2, 3, 4].includes(Number(input.formatVersion)) &&
     isObject(review) &&
     (review.status === 'ai-draft' ||
-      (input.formatVersion === 3 && review.status === 'unreviewed')) &&
+      ([3, 4].includes(Number(input.formatVersion)) && review.status === 'unreviewed')) &&
     text(review.author) &&
     text(review.note)
   if (!validDate || (!human && !draft))
     fail('review', 'Explicit human approval or version-2 AI-draft editorial status is required.')
   if (
-    [2, 3].includes(Number(input.formatVersion)) &&
+    [2, 3, 4].includes(Number(input.formatVersion)) &&
     !['practice', 'mock'].includes(String(input.purpose))
   )
     fail('purpose', 'Version-2 packages require practice or mock purpose.')
@@ -102,8 +133,10 @@ export function validateContentPackage(
   const bank = input.bank
   if (issues.length) return issues
   const typed = bank as unknown as ContentBank
+  if (input.formatVersion === 4)
+    issues.push(...practiceReleaseIssues(input as unknown as ContentPackage))
   if (
-    input.formatVersion === 3 &&
+    [3, 4].includes(Number(input.formatVersion)) &&
     [...typed.questions, ...typed.stimuli].some((r) => r.provenance.revision !== input.revision)
   )
     fail('revision', 'Version-3 question/stimulus provenance must match the package revision.')

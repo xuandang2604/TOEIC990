@@ -13,14 +13,15 @@ export type TutorProviderResult =
 
 /** No free-text inspection: only a submitted option and an explicitly selected reason. */
 export const guidedTutor: TutorProvider = {
-  id: 'study990-authored-v2',
+  id: 'study990-authored-v3',
   mode: 'authored',
   analyzesFreeText: false,
   async generate(context, signal) {
     if (signal.aborted) throw new DOMException('Cancelled', 'AbortError')
-    const { question: q, lesson } = context
+    const { question: q, lesson, analysis } = context
     const reason = lesson?.reasons.find((reason) => reason.id === context.explanation.reasonId)
     const selected = q.options.find((option) => option.id === context.answer.selected)
+    const selectedReason = analysis?.options.find((option) => option.id === selected?.id)?.reason
     const reference = context.knowledge[0]
     const guidance: TutorGuidance = {
       schemaVersion: 1,
@@ -33,24 +34,36 @@ export const guidedTutor: TutorProvider = {
       basis: reason ? 'selected-reason' : 'answer-reference',
       observation: reason
         ? reason.response
-        : `Đối chiếu lựa chọn đã nộp${selected ? ` “${selected.text}”` : ''}: ${selected?.reasoning ?? q.explanation} Phần này là tham chiếu theo đáp án, không phải nhận xét về bài viết của bạn.`,
+        : `Đối chiếu lựa chọn đã nộp${selected ? ` “${selected.text}”` : ''}: ${selectedReason ?? selected?.reasoning ?? q.explanation} Phần này là tham chiếu theo đáp án, không phải nhận xét về bài viết của bạn.`,
       followUp:
         reason?.followUp ??
+        analysis?.reviewPrompt ??
         lesson?.prompts.rule ??
         'Bạn có thể chỉ ra dấu hiệu hoặc bằng chứng trong tư liệu đã giúp loại một lựa chọn không?',
       sections: {
         simple: {
           title: 'Nói như đang hướng dẫn một người bạn',
           paragraphs: [
-            lesson?.simple ?? q.takeaway,
+            lesson?.simple ?? analysis?.decisivePoint ?? q.takeaway,
             lesson?.prompts.simplify ??
               'Nói lại bằng một hoặc hai câu đơn giản: bạn dựa vào bằng chứng nào và nó giúp chọn đáp án ra sao?',
           ],
         },
         steps: {
           title: 'Tách cách suy luận thành từng bước',
-          paragraphs: [lesson?.cue ?? 'Đối chiếu với lời giải đã biên soạn cho câu này.'],
-          steps: lesson?.steps ?? [q.explanation, q.takeaway],
+          paragraphs: [
+            lesson?.cue ?? analysis?.target ?? 'Đối chiếu với lời giải đã biên soạn cho câu này.',
+          ],
+          steps:
+            lesson?.steps ??
+            (analysis
+              ? [
+                  analysis.decisivePoint,
+                  ...analysis.evidence.map(
+                    (item) => `${item.quote ? `“${item.quote}” — ` : ''}${item.note}`,
+                  ),
+                ]
+              : [q.explanation, q.takeaway]),
         },
         distractors: {
           title: 'Đặt các lựa chọn cạnh nhau',
@@ -59,7 +72,7 @@ export const guidedTutor: TutorProvider = {
           ],
           steps: q.options.map(
             (option) =>
-              `${option.id}. ${option.text}${option.id === q.answer ? ' · Đáp án đúng' : ''} — ${option.reasoning}`,
+              `${option.id}. ${option.text}${option.id === q.answer ? ' · Đáp án đúng' : ''} — ${analysis?.options.find((row) => row.id === option.id)?.reason ?? option.reasoning}`,
           ),
         },
         example: lesson
@@ -82,7 +95,7 @@ export const guidedTutor: TutorProvider = {
                     reference.traps[0],
                   ]
                 : [
-                    q.takeaway,
+                    analysis?.decisivePoint ?? q.takeaway,
                     'Chưa có ví dụ thay cấu trúc được biên soạn riêng cho câu này. Dùng câu vận dụng liên quan ở bước tiếp theo để tự kiểm tra.',
                   ],
             },
@@ -90,6 +103,7 @@ export const guidedTutor: TutorProvider = {
           title: 'Tự giải thích rồi thử trong câu khác',
           paragraphs: [
             lesson?.prompts.change ??
+              analysis?.reviewPrompt ??
               'Nếu đổi một chi tiết trong tư liệu, bằng chứng cho đáp án có còn đúng không?',
             lesson?.prompts.apply ??
               'Đối chiếu điều vừa hiểu với một câu có cùng kỹ năng. Kết quả câu mới mới là bằng chứng trả lời; bài viết chưa được tự động chấm.',

@@ -9,11 +9,13 @@ export function AdaptivePlanPreview({
   minutes,
   onMinutes,
   active,
+  showDuration = true,
 }: {
   plan: PlanRecommendation
   minutes: StudyMinutes
   onMinutes: (minutes: StudyMinutes) => void
   active: boolean
+  showDuration?: boolean
 }) {
   const parts = [...new Set(plan.questionIds.map((id) => questionById.get(id)!.part))]
   return (
@@ -22,13 +24,15 @@ export function AdaptivePlanPreview({
         title={active ? 'Gợi ý cho lượt tiếp theo' : 'Một kế hoạch từ sổ học của bạn'}
         note="Ôn đến hạn, củng cố điểm vừa sai, rồi xen kẽ nội dung phù hợp."
       />
-      <div className="duration-choices" aria-label="Thời lượng học">
-        {([10, 20, 40] as const).map((value) => (
-          <button key={value} aria-pressed={minutes === value} onClick={() => onMinutes(value)}>
-            <strong>{value}</strong> phút
-          </button>
-        ))}
-      </div>
+      {showDuration && (
+        <div className="duration-choices" aria-label="Thời lượng học">
+          {([10, 20, 40] as const).map((value) => (
+            <button key={value} aria-pressed={minutes === value} onClick={() => onMinutes(value)}>
+              <strong>{value}</strong> phút
+            </button>
+          ))}
+        </div>
+      )}
       <p className="plan-estimate small muted">
         Khoảng {Math.ceil(plan.estimatedSeconds / 60)} phút nội dung trong khung {minutes} phút ·{' '}
         {plan.questionIds.length} câu · {plan.cardIds.length} thẻ

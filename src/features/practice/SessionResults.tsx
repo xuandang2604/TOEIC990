@@ -6,9 +6,11 @@ import { allQuestions, PART_LABELS } from '../../content/questions'
 import { resultByPart, sessionUnits } from '../../domain/assessment'
 import type { StudySession } from '../../domain/models'
 import { useStudy } from '../../application/StudyContext'
-import { navigate, useRoute } from '../../application/hooks'
-import { SectionTitle, Tag } from '../../components/ui'
+import { navigate, useRoute, useAction, returnToQuestion } from '../../application/hooks'
+import { SectionTitle, Tag, InlineError } from '../../components/ui'
+import { startSession } from '../../application/sessionRepository'
 import { UnitContent } from './PracticeUnit'
+import { ExamAnswerSheet } from './ExamAnswerSheet'
 
 export function SessionResults({ session }: { session: StudySession }) {
   const heading = useRef<HTMLHeadingElement>(null)
@@ -23,7 +25,42 @@ export function SessionResults({ session }: { session: StudySession }) {
   const data = useStudy(),
     [index, setIndex] = useState(Math.max(0, focusIndex)),
     [review, setReview] = useState(focusIndex >= 0)
+  const action = useAction()
+  const [filter, setFilter] = useState<'all' | 'wrong' | 'blank' | 'flagged'>('all')
   const attempts = data.attempts.filter((a) => a.sessionId === session.id)
+  const byQuestion = new Map(attempts.map((a) => [a.questionId, a]))
+  const reviewUnits = units
+    .map((unit, index) => ({ unit, index }))
+    .filter(
+      ({ unit }) =>
+        filter === 'all' ||
+        unit.questionIds.some((id) =>
+          filter === 'flagged'
+            ? session.flaggedQuestionIds?.includes(id)
+            : filter === 'blank'
+              ? byQuestion.get(id)?.selected === null
+              : byQuestion.get(id)?.correct === false,
+        ),
+    )
+  const reviewIndex = reviewUnits.some((row) => row.index === index) ? index : reviewUnits[0]?.index
+  const wrongIds = units
+    .filter((unit) => unit.questionIds.some((id) => byQuestion.get(id)?.correct === false))
+    .flatMap((unit) => unit.questionIds)
+  async function practiceMistakes() {
+    const active = data.sessions.find((row) => row.status === 'active')
+    if (active) {
+      navigate('session', active.id)
+      return
+    }
+    const hash = window.location.hash
+    const next = await action.run(() =>
+      startSession('practice', wrongIds, {
+        mode: 'study',
+        ...(session.mockExamId ? { mockExamId: session.mockExamId } : {}),
+      }),
+    )
+    if (next && window.location.hash === hash) navigate('session', next.id)
+  }
   const tutorSource = data.reflections.find((r) => r.transferSessionId === session.id)
   const correct = attempts.filter((a) => a.correct).length
   const blank = attempts.filter((a) => a.selected === null).length
@@ -102,11 +139,30 @@ export function SessionResults({ session }: { session: StudySession }) {
           <button className="button secondary" onClick={() => navigate('today')}>
             Về hôm nay
           </button>
+          {wrongIds.length > 0 && (
+            <button
+              className="button secondary"
+              disabled={action.busy}
+              onClick={() => void practiceMistakes()}
+            >
+              {data.sessions.some((s) => s.status === 'active')
+                ? 'Tiếp tục phiên đang mở'
+                : 'Ôn nhóm có câu sai / bỏ trống'}
+              <ArrowRight size={16} />
+            </button>
+          )}
+          {session.mockExamId && (
+            <button className="text-link" onClick={() => navigate('tests', session.mockExamId)}>
+              Về trang đề & lịch sử
+              <ArrowRight size={15} />
+            </button>
+          )}
           <button className="text-link" onClick={() => navigate('review')}>
             Mở sổ ôn tập
             <ArrowRight size={15} />
           </button>
         </div>
+        <InlineError message={action.error} />
       </div>
       <section className="results-by-part">
         <SectionTitle
@@ -146,13 +202,50 @@ export function SessionResults({ session }: { session: StudySession }) {
             title="Nhìn lại bằng chứng & cách nghĩ"
             action={<Tag tone="sage">Đã nộp · Có thể đọc transcript</Tag>}
           />
-          <UnitNavigation count={units.length} current={index}>
+          <div className="filter-tabs" aria-label="Lọc câu để xem lại">
+            {(
+              [
+                { id: 'all', label: 'Tất cả' },
+                { id: 'wrong', label: 'Sai / bỏ trống' },
+                { id: 'blank', label: 'Bỏ trống' },
+                { id: 'flagged', label: 'Đã đánh dấu' },
+              ] as const
+            ).map((item) => (
+              <button
+                key={item.id}
+                className={filter === item.id ? 'active' : ''}
+                aria-pressed={filter === item.id}
+                onClick={() => setFilter(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+          {session.mockExamId && (
+            <ExamAnswerSheet
+              session={session}
+              review
+              currentId={reviewIndex === undefined ? undefined : units[reviewIndex]?.questionIds[0]}
+              onSelect={(id) => {
+                setFilter('all')
+                setIndex(units.findIndex((unit) => unit.questionIds.includes(id)))
+                returnToQuestion({ sessionId: session.id, questionId: id })
+              }}
+            />
+          )}
+          <UnitNavigation
+            count={reviewUnits.length}
+            current={Math.max(
+              0,
+              reviewUnits.findIndex((row) => row.index === reviewIndex),
+            )}
+          >
             <nav className="unit-navigation" aria-label="Chọn nhóm để xem lời giải">
-              {units.map((unit, i) => (
+              {reviewUnits.map(({ unit, index: i }) => (
                 <button
                   key={unit.id}
-                  className={i === index ? 'active' : ''}
-                  aria-current={i === index ? 'step' : undefined}
+                  className={i === reviewIndex ? 'active' : ''}
+                  aria-current={i === reviewIndex ? 'step' : undefined}
                   onClick={() => setIndex(i)}
                 >
                   P{unit.part} · {i + 1}
@@ -160,8 +253,17 @@ export function SessionResults({ session }: { session: StudySession }) {
               ))}
             </nav>
           </UnitNavigation>
-          {units[index] && (
-            <UnitContent key={units[index].id} unit={units[index]} session={session} review />
+          {reviewIndex !== undefined && units[reviewIndex] ? (
+            <UnitContent
+              key={units[reviewIndex].id}
+              unit={units[reviewIndex]}
+              session={session}
+              review
+            />
+          ) : (
+            <p className="notice" role="status">
+              Không có nhóm câu khớp bộ lọc. Chọn “Tất cả” để xem lại bài.
+            </p>
           )}
         </section>
       )}

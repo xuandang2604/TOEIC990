@@ -207,8 +207,12 @@ async function run() {
     nearDuplicates: near,
     note: 'AI drafts are not human-reviewed. No IndexedDB or user history was changed.',
   }
-  await mkdir('docs/content', { recursive: true })
-  await writeFile(`docs/content/${reportName}.json`, JSON.stringify(output, null, 2) + '\n', 'utf8')
+  await mkdir('content/import-reports', { recursive: true })
+  await writeFile(
+    `content/import-reports/${reportName}.json`,
+    JSON.stringify(output, null, 2) + '\n',
+    'utf8',
+  )
   console.log(JSON.stringify(output, null, 2))
   if (rejected) process.exitCode = 1
 }

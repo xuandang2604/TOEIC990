@@ -14,8 +14,8 @@ export function ReportQuestion({ question }: { question: Question }) {
     <details className="question-report">
       <summary>Báo vấn đề nội dung</summary>
       <p className="small muted">
-        Lưu riêng trên thiết bị, gắn với câu và phiên bản đang xem. Không gửi ra ngoài, không tự đổi
-        đáp án hoặc điểm đã chấm.
+        Nếu hai lựa chọn cùng phù hợp toàn bộ dữ kiện, hãy nêu cả hai. Phản hồi lưu trên thiết bị;
+        điểm cũ được giữ nguyên.
       </p>
       {saved ? (
         <p role="status">

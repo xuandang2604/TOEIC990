@@ -4,9 +4,27 @@ import p0 from './packages/bank2026-mock-listening--b7ced7a386017ade.json'
 import p1 from './packages/bank2026-mock-reading--8d1a1215902e8e59.json'
 import p2 from './packages/bank2026-practice-listening--42ab8eee76251b19.json'
 import p3 from './packages/bank2026-practice-reading--fc7e6eddd5baf95e.json'
+import p4 from './packages/fulltests2026-02--180384a23196c210.json'
+import p5 from './packages/fulltests2026-03--92f0c5cac5d51c7a.json'
+import p6 from './packages/fulltests2026-04--1e1242c720332873.json'
+import p7 from './packages/fulltests2026-05--f75b1329c8a8abbe.json'
+import p8 from './packages/fulltests2026-06--69b45e1f92988d51.json'
+import p9 from './packages/fulltests2026-07--9ba2e18abc6b99e2.json'
+import p10 from './packages/fulltests2026-08--ae32e5a73a823f07.json'
+import p11 from './packages/fulltests2026-09--49b59817576ccdf3.json'
+import p12 from './packages/fulltests2026-10--984be28d3538dd24.json'
 export const installedPackages: ContentPackage[] = [
   p0 as ContentPackage,
   p1 as ContentPackage,
   p2 as ContentPackage,
   p3 as ContentPackage,
+  p4 as ContentPackage,
+  p5 as ContentPackage,
+  p6 as ContentPackage,
+  p7 as ContentPackage,
+  p8 as ContentPackage,
+  p9 as ContentPackage,
+  p10 as ContentPackage,
+  p11 as ContentPackage,
+  p12 as ContentPackage,
 ]

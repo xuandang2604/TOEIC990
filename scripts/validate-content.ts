@@ -17,6 +17,7 @@ import { vocabulary } from '../src/content/vocabulary'
 import { chapters, handbookGuides } from '../src/content/handbook'
 import { microLessons } from '../src/content/microLessons'
 import referenceIndex from '../content/reference-index.json'
+import { officialSources, officialSampleCount } from '../src/content/officialSources'
 
 async function main() {
   const file = process.argv[2]
@@ -48,6 +49,12 @@ async function main() {
           availablePractice: practiceQuestions.length,
           reservedMockQuestions: mockQuestions.length,
           completeMockSets: availableMockExams.length,
+          officialSourceReferences: {
+            pages: officialSources.length,
+            questionsAtPublisher: officialSampleCount,
+            questionsCopiedIntoBank: 0,
+            answerKeysCopiedIntoBank: 0,
+          },
           referenceCoverage: {
             vocabulary: vocabulary.length,
             grammarLessons: grammar.length,

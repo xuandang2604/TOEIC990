@@ -13,8 +13,15 @@ import {
 } from 'lucide-react'
 import { useStudy } from '../../application/StudyContext'
 import { useAction, navigate, useNow } from '../../application/hooks'
-import { adaptiveRecommendation, startAdaptivePlan } from '../../application/plansRepository'
-import { vocabulary } from '../../content/vocabulary'
+import {
+  adaptiveRecommendation,
+  startAdaptivePlan,
+  plannedCurriculumFocus,
+} from '../../application/plansRepository'
+import { vocabulary, vocabularyById } from '../../content/vocabulary'
+import { questionById } from '../../content/questions'
+import { grammarById } from '../../content/grammar'
+import { schedulableCard } from '../../domain/scheduler'
 import { localDayKey, SKILL_LABELS, startOfToday } from '../../domain/learning'
 import { aggregateSkillEvidence } from '../../domain/evidence'
 import { InlineError, ProgressRing, SectionTitle, Tag, TextLink } from '../../components/ui'
@@ -73,12 +80,22 @@ export function TodayPage({ onSettings }: { onSettings: () => void }) {
   const today = data.attempts
     .filter(isAnsweredAttempt)
     .filter((a) => a.occurredAt >= startOfToday(now))
-  const due = data.cards.filter((c) => c.dueAt <= now)
+  const due = data.cards.filter(
+    (c) =>
+      schedulableCard(c) &&
+      c.dueAt <= now &&
+      (c.kind === 'vocabulary'
+        ? vocabularyById.has(c.contentId)
+        : c.kind === 'knowledge'
+          ? grammarById.has(c.contentId)
+          : questionById.has(c.contentId)),
+  )
   const active = data.sessions.find((s) => s.status === 'active')
   const activePlan = data.dailyPlans.find((p) => p.status === 'active')
   const plan = adaptiveRecommendation(data, minutes, now)
-  const weaknesses = aggregateSkillEvidence(data.skillEvidence)
-    .filter((s) => s.leaf && s.answered > 0)
+  const emptyPlan = !plan.questionIds.length && !plan.cardIds.length
+  const weaknesses = aggregateSkillEvidence(data.skillEvidence, now - 21 * 86_400_000, now + 1)
+    .filter((s) => s.leaf && s.distinctQuestions >= 3)
     .map((s) => ({ ...s, skill: s.id as keyof typeof SKILL_LABELS, accuracy: s.accuracy ?? 0 }))
     .sort((a, b) => a.accuracy - b.accuracy || b.answered - a.answered)
     .slice(0, 3)
@@ -91,6 +108,8 @@ export function TodayPage({ onSettings }: { onSettings: () => void }) {
     vocabulary[Math.floor(new Date(localDayKey(now)).getTime() / 86_400_000) % vocabulary.length]
   const targetMet = today.length >= data.preferences.dailyGoal
   const roadmap = learningRoadmap(data.preferences, data.skillEvidence, now)
+  const curriculumFocus = plannedCurriculumFocus(data, now)
+  const ambitious = Boolean(roadmap && data.preferences.targetScore >= 900)
   async function begin() {
     if (active) {
       navigate('session', active.id)
@@ -98,6 +117,10 @@ export function TodayPage({ onSettings }: { onSettings: () => void }) {
     }
     if (activePlan) {
       navigate('plan', activePlan.id)
+      return
+    }
+    if (emptyPlan) {
+      navigate(roadmap ? 'roadmap' : 'practice')
       return
     }
     await action.run(async () => {
@@ -114,21 +137,34 @@ export function TodayPage({ onSettings }: { onSettings: () => void }) {
         <span className="date-line" />
         <span>MỖI NGÀY, MỘT CHÚT TỐT HƠN</span>
       </div>
-      <section className="today-hero">
+      <section className={`today-hero ${ambitious ? 'today-hero-focused' : ''}`}>
         <div className="hero-copy">
           <p className="eyebrow">
             <span className="sage-dot" />
-            KHÔNG GIAN CHO SỰ TẬP TRUNG
+            {ambitious
+              ? `HÔM NAY · MỤC TIÊU ${data.preferences.targetScore}`
+              : 'KHÔNG GIAN CHO SỰ TẬP TRUNG'}
           </p>
           <h1>
-            Từng bước nhỏ.
-            <br />
-            <em>Một nền tảng vững.</em>
+            {ambitious ? (
+              <>
+                Đường đến {data.preferences.targetScore}.<br />
+                <em>Học chắc từng bước.</em>
+              </>
+            ) : (
+              <>
+                Từng bước nhỏ.
+                <br />
+                <em>Một nền tảng vững.</em>
+              </>
+            )}
           </h1>
           <p>
-            {targetMet
-              ? 'Bạn đã đạt nhịp học hôm nay. Có thể dừng ở đây, hoặc dành thêm một chút thời gian để củng cố.'
-              : 'Không cần học mọi thứ trong một ngày. Chỉ cần hiểu sâu hơn một chút, và quay lại đúng lúc.'}
+            {curriculumFocus && !active && !activePlan && !targetMet
+              ? `Trọng tâm: ${curriculumFocus.unit.title}. ${curriculumFocus.unit.outcome}`
+              : targetMet
+                ? 'Bạn đã đạt nhịp học hôm nay. Có thể dừng ở đây, hoặc dành thêm một chút thời gian để củng cố.'
+                : 'Không cần học mọi thứ trong một ngày. Chỉ cần hiểu sâu hơn một chút, và quay lại đúng lúc.'}
           </p>
           <div className="hero-actions">
             <button className="button primary" disabled={action.busy} onClick={() => void begin()}>
@@ -137,9 +173,11 @@ export function TodayPage({ onSettings }: { onSettings: () => void }) {
                 ? 'Tiếp tục học'
                 : activePlan
                   ? 'Tiếp tục kế hoạch'
-                  : targetMet
-                    ? 'Luyện thêm một lượt'
-                    : 'Bắt đầu học hôm nay'}
+                  : emptyPlan
+                    ? 'Chọn bước học tiếp'
+                    : targetMet
+                      ? 'Luyện thêm một lượt'
+                      : 'Bắt đầu học hôm nay'}
               <ArrowRight size={17} />
             </button>
             <span>
@@ -147,8 +185,21 @@ export function TodayPage({ onSettings }: { onSettings: () => void }) {
                 ? `Câu ${active.cursor + 1} / ${active.questionIds.length} · Đã lưu tiến độ`
                 : activePlan
                   ? `Kế hoạch ${activePlan.minutes} phút đã lưu`
-                  : `${plan.questionIds.length} câu · ${plan.cardIds.length} thẻ · Khoảng ${Math.ceil(plan.estimatedSeconds / 60)} phút`}
+                  : emptyPlan
+                    ? 'Chưa có câu mới hoặc thẻ đến hạn phù hợp trong khung này.'
+                    : `${plan.questionIds.length} câu · ${plan.cardIds.length} thẻ · Khoảng ${Math.ceil(plan.estimatedSeconds / 60)} phút`}
             </span>
+          </div>
+          <div className="duration-choices hero-duration" aria-label="Thời lượng cho lượt học mới">
+            {([10, 20, 40] as const).map((value) => (
+              <button
+                key={value}
+                aria-pressed={minutes === value}
+                onClick={() => setMinutes(value)}
+              >
+                {value} phút
+              </button>
+            ))}
           </div>
           <InlineError message={action.error} />
         </div>
@@ -165,44 +216,13 @@ export function TodayPage({ onSettings }: { onSettings: () => void }) {
           <p>
             {roadmap
               ? `${roadmap.current.title} · ${roadmap.profile.minutesPerDay} phút/ngày, ${roadmap.profile.studyDays.length} ngày/tuần.`
-              : 'Tự chọn điểm đầu vào, điểm đích, thời hạn và lịch học. Có sẵn gợi ý 700/60 ngày và 990/30 ngày để điều chỉnh.'}
+              : 'Nhập trình độ, mục tiêu, thời hạn và thời gian học để bắt đầu.'}
           </p>
         </div>
         <button className="button secondary" onClick={() => navigate('roadmap')}>
           {roadmap ? 'Xem lộ trình' : 'Thiết kế lộ trình'}
           <ArrowRight size={16} />
         </button>
-      </section>
-      <section className="next-study-note" aria-label="Nên học gì ngay bây giờ">
-        <span className="eyebrow">BƯỚC HỌC TIẾP THEO</span>
-        <h2>
-          {active
-            ? 'Tiếp tục phiên đã lưu.'
-            : due.length
-              ? `Tự nhớ lại ${due.length} thẻ đến hạn.`
-              : weaknesses.length
-                ? `Củng cố ${SKILL_LABELS[weaknesses[0].skill].toLocaleLowerCase('vi')}.`
-                : 'Bắt đầu ngắn, quan sát cách mình học.'}
-        </h2>
-        <p>
-          {active
-            ? 'Giữ mạch học và câu trả lời đang có trước khi mở nội dung mới.'
-            : due.length
-              ? 'Các thẻ này đến hạn theo lịch ôn đã lưu. Nhớ trước khi lật, rồi tự đánh giá trung thực.'
-              : weaknesses.length
-                ? `Bạn đã trả lời ${weaknesses[0].answered} lượt ở kỹ năng này. Đây là gợi ý từ lịch sử, chưa phải kết luận về năng lực.`
-                : 'Chưa có dữ liệu để xác định điểm yếu. Kế hoạch bắt đầu bằng nội dung nền tảng có sẵn, sau đó mới thích nghi với lượt làm thật.'}
-        </p>
-        <div className="studio-actions">
-          <button className="text-link" onClick={() => void begin()} disabled={action.busy}>
-            Theo gợi ý hôm nay
-            <ArrowRight size={15} />
-          </button>
-          <button className="text-link" onClick={() => navigate('practice')}>
-            Tự chọn cách học
-            <ArrowRight size={15} />
-          </button>
-        </div>
       </section>
       <div className="today-stats">
         <div>
@@ -257,108 +277,103 @@ export function TodayPage({ onSettings }: { onSettings: () => void }) {
           </button>
         </div>
       </div>
-      <LearningMilestones />
-      <div className="today-grid">
-        <div className="today-main">
-          <AdaptivePlanPreview
-            plan={plan}
-            minutes={minutes}
-            onMinutes={setMinutes}
-            active={Boolean(active || activePlan)}
-          />
-          <div className="section-spaced">
-            <SectionTitle
-              title="Điểm tựa cho lần học tới"
-              action={<TextLink onClick={() => navigate('progress')}>Xem tiến độ</TextLink>}
+      <details className="today-secondary">
+        <summary>Chi tiết kế hoạch & tiến độ</summary>
+        <LearningMilestones />
+        <div className="today-grid">
+          <div className="today-main">
+            <AdaptivePlanPreview
+              plan={plan}
+              minutes={minutes}
+              onMinutes={setMinutes}
+              active={Boolean(active || activePlan)}
+              showDuration={false}
             />
-            {weaknesses.length ? (
-              <div className="weakness-list">
-                {weaknesses.map((stat) => (
-                  <div key={stat.skill}>
-                    <span>{SKILL_LABELS[stat.skill]}</span>
-                    <span className="mini-bar">
-                      <i style={{ width: `${stat.accuracy * 100}%` }} />
-                    </span>
-                    <strong>{Math.round(stat.accuracy * 100)}%</strong>
-                    <small>
-                      {stat.answered} lượt · {stat.distinctQuestions} câu
-                    </small>
-                  </div>
-                ))}
-                <p className="small muted">
-                  Gồm câu TOEIC và tự kiểm tra ngữ pháp có lựa chọn; mẫu nhỏ chưa phải đánh giá năng
-                  lực toàn diện.
-                </p>
-              </div>
-            ) : (
-              <div className="gentle-empty">
-                <Leaf size={26} strokeWidth={1.2} />
-                <div>
-                  <h3>Hành trình bắt đầu từ câu đầu tiên.</h3>
-                  <p>Sau khi bạn luyện tập, những kỹ năng cần củng cố sẽ xuất hiện ở đây.</p>
+            <div className="section-spaced">
+              <SectionTitle
+                title="Điểm tựa cho lần học tới"
+                action={<TextLink onClick={() => navigate('progress')}>Xem tiến độ</TextLink>}
+              />
+              {weaknesses.length ? (
+                <div className="weakness-list">
+                  {weaknesses.map((stat) => (
+                    <div key={stat.skill}>
+                      <span>{SKILL_LABELS[stat.skill]}</span>
+                      <span className="mini-bar">
+                        <i style={{ width: `${stat.accuracy * 100}%` }} />
+                      </span>
+                      <strong>{Math.round(stat.accuracy * 100)}%</strong>
+                      <small>
+                        {stat.answered} lượt · {stat.distinctQuestions} câu
+                      </small>
+                    </div>
+                  ))}
+                  <p className="small muted">
+                    Gồm câu TOEIC và tự kiểm tra ngữ pháp có lựa chọn; mẫu nhỏ chưa phải đánh giá
+                    năng lực toàn diện.
+                  </p>
                 </div>
+              ) : (
+                <div className="gentle-empty">
+                  <Leaf size={26} strokeWidth={1.2} />
+                  <div>
+                    <h3>Hành trình bắt đầu từ câu đầu tiên.</h3>
+                    <p>Sau khi bạn luyện tập, những kỹ năng cần củng cố sẽ xuất hiện ở đây.</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+          <aside className="today-aside">
+            <section className="goal-panel">
+              <div className="section-title">
+                <h2>Nhịp học của bạn</h2>
+                <Target size={18} />
               </div>
-            )}
-          </div>
-          <div className="editorial-note">
-            <span>GHI CHÚ VỀ VIỆC HỌC</span>
-            <p>
-              “Hiểu một câu thật rõ
-              <br />
-              có ích hơn làm mười câu thật vội.”
-            </p>
-            <span>— MỘT NHẮC NHỞ TỪ STUDY 990</span>
-          </div>
+              <div className="goal-ring">
+                <ProgressRing value={today.length} max={data.preferences.dailyGoal} size={132}>
+                  <strong>
+                    {Math.min(100, Math.round((today.length / data.preferences.dailyGoal) * 100))}%
+                  </strong>
+                  <span>hôm nay</span>
+                </ProgressRing>
+              </div>
+              <p>{targetMet ? 'Một ngày học có ý nghĩa.' : 'Đều đặn, không cần hoàn hảo.'}</p>
+              <div className="goal-details">
+                <span>
+                  Mục tiêu mỗi ngày<strong>{data.preferences.dailyGoal} câu</strong>
+                </span>
+                <span>
+                  Đích đến của bạn<strong>{data.preferences.targetScore} TOEIC</strong>
+                </span>
+              </div>
+              <button className="text-link" onClick={onSettings}>
+                Điều chỉnh mục tiêu
+                <ArrowRight size={15} />
+              </button>
+            </section>
+            <section className="word-of-day">
+              <p className="eyebrow">MỘT TỪ CHO HÔM NAY</p>
+              <button
+                className="word-title-button"
+                lang="en"
+                onClick={() => navigate('vocabulary', dayWord.id)}
+              >
+                {dayWord.word}
+                <ArrowRight size={20} />
+              </button>
+              <p className="ipa" lang="en">
+                {dayWord.ipa} · {dayWord.partOfSpeech}
+              </p>
+              <p>{dayWord.meaning}</p>
+              <p className="daily-word-example" lang="en" data-learning>
+                {dayWord.example}
+              </p>
+              <SaveWordButton entry={dayWord} />
+            </section>
+          </aside>
         </div>
-        <aside className="today-aside">
-          <section className="goal-panel">
-            <div className="section-title">
-              <h2>Nhịp học của bạn</h2>
-              <Target size={18} />
-            </div>
-            <div className="goal-ring">
-              <ProgressRing value={today.length} max={data.preferences.dailyGoal} size={132}>
-                <strong>
-                  {Math.min(100, Math.round((today.length / data.preferences.dailyGoal) * 100))}%
-                </strong>
-                <span>hôm nay</span>
-              </ProgressRing>
-            </div>
-            <p>{targetMet ? 'Một ngày học có ý nghĩa.' : 'Đều đặn, không cần hoàn hảo.'}</p>
-            <div className="goal-details">
-              <span>
-                Mục tiêu mỗi ngày<strong>{data.preferences.dailyGoal} câu</strong>
-              </span>
-              <span>
-                Đích đến của bạn<strong>{data.preferences.targetScore} TOEIC</strong>
-              </span>
-            </div>
-            <button className="text-link" onClick={onSettings}>
-              Điều chỉnh mục tiêu
-              <ArrowRight size={15} />
-            </button>
-          </section>
-          <section className="word-of-day">
-            <p className="eyebrow">MỘT TỪ CHO HÔM NAY</p>
-            <button
-              className="word-title-button"
-              lang="en"
-              onClick={() => navigate('vocabulary', dayWord.id)}
-            >
-              {dayWord.word}
-              <ArrowRight size={20} />
-            </button>
-            <p className="ipa" lang="en">
-              {dayWord.ipa} · {dayWord.partOfSpeech}
-            </p>
-            <p>{dayWord.meaning}</p>
-            <p className="daily-word-example" lang="en" data-learning>
-              {dayWord.example}
-            </p>
-            <SaveWordButton entry={dayWord} />
-          </section>
-        </aside>
-      </div>
+      </details>
     </>
   )
 }

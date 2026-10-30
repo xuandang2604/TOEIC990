@@ -1,0 +1,102 @@
+
+> study-990@0.1.0 validate:content
+> tsx --tsconfig tsconfig.tests.json scripts/validate-content.ts
+
+{
+  "kind": "bundled-content",
+  "questionsIncludingTutor": 2252,
+  "originalPractice": 34,
+  "availablePractice": 234,
+  "reservedMockQuestions": 2000,
+  "completeMockSets": 10,
+  "officialSourceReferences": {
+    "pages": 10,
+    "questionsAtPublisher": 60,
+    "questionsCopiedIntoBank": 0,
+    "answerKeysCopiedIntoBank": 0
+  },
+  "referenceCoverage": {
+    "vocabulary": 256,
+    "grammarLessons": 42,
+    "grammarExercises": 84,
+    "feynmanGuides": 42,
+    "guidedFlows": 52,
+    "chapters": [
+      {
+        "id": "foundations",
+        "lessons": 7
+      },
+      {
+        "id": "time",
+        "lessons": 7
+      },
+      {
+        "id": "verbs",
+        "lessons": 8
+      },
+      {
+        "id": "clauses",
+        "lessons": 7
+      },
+      {
+        "id": "hypothesis",
+        "lessons": 4
+      },
+      {
+        "id": "modifiers",
+        "lessons": 3
+      },
+      {
+        "id": "advanced",
+        "lessons": 6
+      }
+    ],
+    "referenceOnlyGrammar": 30
+  },
+  "byPart": [
+    {
+      "part": 1,
+      "practice": 7,
+      "mock": 60,
+      "total": 67
+    },
+    {
+      "part": 2,
+      "practice": 29,
+      "mock": 250,
+      "total": 279
+    },
+    {
+      "part": 3,
+      "practice": 33,
+      "mock": 390,
+      "total": 423
+    },
+    {
+      "part": 4,
+      "practice": 27,
+      "mock": 300,
+      "total": 327
+    },
+    {
+      "part": 5,
+      "practice": 70,
+      "mock": 300,
+      "total": 370
+    },
+    {
+      "part": 6,
+      "practice": 20,
+      "mock": 160,
+      "total": 180
+    },
+    {
+      "part": 7,
+      "practice": 48,
+      "mock": 540,
+      "total": 588
+    }
+  ],
+  "nearDuplicates": [],
+  "issues": []
+}
